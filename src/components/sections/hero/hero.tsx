@@ -8,18 +8,18 @@ export const Hero = () => {
     <div className="flex flex-col gap-4 overflow-hidden">
       <div className="text-BLACK">
         <div className="bg-ACCENT">
-          <Container className="text-[calc(10vw+2em)] text-center leading-none">WE BUILD</Container>
+          <Container className="text-[15vw] text-left leading-none">WE BUILD</Container>
         </div>
       </div>
 
-      <Container className="grid grid-cols-3 gap-[10px]">
+      <Container className="grid grid-cols-3 lg:grid-cols-6 gap-2.5">
         {heroImgData.map((item, i) => (
-          <Image key={i} src={item.img} alt="img" width={320} height={250} />
+          <Image key={i} src={item.img} alt="img" width={291} height={400} />
         ))}
       </Container>
 
       <Container>
-        <div className="uppercase text-WHITE text-[10vh] leading-none">
+        <div className="uppercase text-WHITE text-[4vw] leading-none mb-4">
           strategic, results-oriented influencer collaborations
         </div>
         <Button className="w-full">Contact us</Button>
