@@ -1,5 +1,3 @@
-'use client';
-
 import Container from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { heroImgData } from '@/database/hero.data';
@@ -10,13 +8,13 @@ export const Hero = () => {
     <div className="flex flex-col gap-4 overflow-hidden">
       <div className="text-BLACK">
         <div className="bg-ACCENT">
-          <Container className="text-[30vh] text-center leading-none">WE BUILD</Container>
+          <Container className="text-[calc(10vw+2em)] text-center leading-none">WE BUILD</Container>
         </div>
       </div>
 
       <Container className="grid grid-cols-3 gap-[10px]">
-        {heroImgData.map((item) => (
-          <Image src={item.img} alt="img" width={320} height={250} />
+        {heroImgData.map((item, i) => (
+          <Image key={i} src={item.img} alt="img" width={320} height={250} />
         ))}
       </Container>
 
