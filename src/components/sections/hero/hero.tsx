@@ -8,7 +8,7 @@ export const Hero = () => {
     <div className="flex flex-col gap-4 overflow-hidden">
       <div className="text-BLACK">
         <div className="bg-ACCENT">
-          <Container className="text-[15vw] text-left leading-none">WE BUILD</Container>
+          <Container className="text-[17vw] text-left leading-none">WE BUILD</Container>
         </div>
       </div>
 

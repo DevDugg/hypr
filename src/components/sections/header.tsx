@@ -2,14 +2,21 @@ import { navData } from '@/database/navigation.data';
 import Container from '../layout/container';
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import localFont from 'next/font/local';
+import { grotesk } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 export const Header = () => {
   return (
-    <Container className="">
-      <header className="pt-6 pb-10 lg:py-[26px] flex items-center justify-between text-WHITE">
+    <Container>
+      <header className=" pt-6 pb-10 lg:py-[26px] flex items-center justify-between text-WHITE">
         <div className="uppercase text-[40px] leading-none">HYPR</div>
 
-        <nav className="hidden lg:flex gap-10 border-WHITE border-[1px] text-[18px] leading-none px-6 py-4 rounded-full">
+        <nav
+          className={cn(
+            'hidden lg:flex gap-10 font-medium border-WHITE border-[1px] text-[18px] leading-none px-6 py-4 rounded-full',
+            grotesk.className,
+          )}>
           {navData.map((item, i) => (
             <Link key={i} href={''}>
               {item.view}
@@ -17,7 +24,7 @@ export const Header = () => {
           ))}
         </nav>
 
-        <Button className="hidden lg:flex">Contact us</Button>
+        <Button className={cn('hidden lg:flex font-bold', grotesk.className)}>Contact us</Button>
 
         <div className="size-6 flex flex-col justify-center items-center gap-1 cursor-pointer lg:hidden">
           <div className="w-[18px] h-0.5 bg-WHITE" />
