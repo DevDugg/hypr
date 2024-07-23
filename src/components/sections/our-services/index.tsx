@@ -1,7 +1,12 @@
-import SectionLayout from '@/components/layout/section-layout';
+import SectionLayout from "@/components/layout/section-layout";
+import ServicesBlock from "./services-block";
 
 const Services = () => {
-  return <SectionLayout name="(OUR SERVICES)">saddsa</SectionLayout>;
+  return (
+    <SectionLayout className="text-center" name="(OUR SERVICES)">
+      <ServicesBlock />
+    </SectionLayout>
+  );
 };
 
 export default Services;
