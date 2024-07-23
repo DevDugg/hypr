@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 export const Header = () => {
   return (
     <Container>
-      <header className=" pt-6 pb-10 lg:py-[26px] flex items-center justify-between text-WHITE">
+      <header className="py-6 lg:py-[26px] flex items-center justify-between text-WHITE">
         <div className="uppercase text-[40px] leading-none">HYPR</div>
 
         <nav
@@ -24,7 +24,9 @@ export const Header = () => {
           ))}
         </nav>
 
-        <Button className={cn('hidden lg:flex font-bold', grotesk.className)}>Contact us</Button>
+        <Button className={cn('hidden lg:flex font-bold leading-[100%]', grotesk.className)}>
+          Contact us
+        </Button>
 
         <div className="size-6 flex flex-col justify-center items-center gap-1 cursor-pointer lg:hidden">
           <div className="w-[18px] h-0.5 bg-WHITE" />
