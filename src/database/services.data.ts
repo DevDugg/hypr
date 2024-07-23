@@ -1,18 +1,18 @@
 export const servicesData = [
   {
-    title: "Influencer Marketing",
-    img: "",
+    title: 'Influencer Marketing',
+    img: '/images/services/1.png',
   },
   {
-    title: "Content Creation",
-    img: "",
+    title: 'Content Creation',
+    img: '/images/services/1.png',
   },
   {
-    title: "Brand Collaborations",
-    img: "",
+    title: 'Brand Collaborations',
+    img: '/images/services/1.png',
   },
   {
-    title: "Social Media Management",
-    img: "",
+    title: 'Social Media Management',
+    img: '/images/services/1.png',
   },
 ];

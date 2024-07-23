@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-4 overflow-hidden">
+    <section id="hero" className="flex flex-col gap-4 overflow-hidden">
       <div className="text-BLACK">
         <div className="bg-ACCENT">
           <Container className="text-[15vw] text-left leading-none">WE BUILD</Container>
@@ -26,7 +26,7 @@ const Hero = () => {
         </div>
         <Button className={cn('w-full', grotesk.className)}>Contact us</Button>
       </Container>
-    </div>
+    </section>
   );
 };
 
