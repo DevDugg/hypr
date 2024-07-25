@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .about-text {
+    background-position: 0 0;
+    background-size: 200% 100%;
+  }
+}

@@ -2,15 +2,10 @@
 
 import { servicesData } from '@/database/services.data';
 import { ServiceCard } from './service-card';
-import { useTransform, useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const ServicesBlock = () => {
-  const { scrollY } = useViewportScroll();
-
-  const height = useTransform(scrollY, [300, 600, 900], [0, 100, 0]);
-
-  const [activeIndex, setActiveIndex] = useState<number>();
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {

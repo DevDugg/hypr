@@ -18,7 +18,7 @@ const SectionLayout = ({
   subtitle?: string;
 }) => {
   return (
-    <Container>
+    <Container className={className}>
       <div className="flex flex-col gap-2">
         {name && <SectionName>{name}</SectionName>}
         {title && <SectionTitle>{title}</SectionTitle>}

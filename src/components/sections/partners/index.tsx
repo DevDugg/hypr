@@ -9,7 +9,7 @@ const Partners = () => {
   return (
     <section className="text-WHITE">
       <SectionLayout name="(partners)" title="our clients/">
-        <div className="grid grid-cols-2 gap-2.5 mb-8">
+        <div className="grid grid-cols-2 gap-2.5 my-8">
           {partnersData.map((item, i) => (
             <PartnerIcon key={i} {...item} active={i === i} />
           ))}

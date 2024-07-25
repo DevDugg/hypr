@@ -21,7 +21,7 @@ const Hero = () => {
       </Container>
 
       <Container>
-        <div className="uppercase text-WHITE text-[5vw] leading-none mb-4">
+        <div className="uppercase text-WHITE w-full max-w-[70rem] leading-none mb-4">
           strategic, results-oriented influencer collaborations
         </div>
         <Button className={cn('w-full', grotesk.className)}>Contact us</Button>
