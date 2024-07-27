@@ -10,23 +10,27 @@ const SectionLayout = ({
   name,
   title,
   subtitle,
+  id,
 }: {
   className?: string;
   children: React.ReactNode;
+  id: string;
   name: string;
   title?: string;
   subtitle?: string;
 }) => {
   return (
-    <Container className={className}>
-      <div className="flex flex-col gap-2">
-        {name && <SectionName>{name}</SectionName>}
-        {title && <SectionTitle>{title}</SectionTitle>}
-        {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
-      </div>
+    <section id={id}>
+      <Container className={className}>
+        <div className="flex flex-col gap-2">
+          {name && <SectionName>{name}</SectionName>}
+          {title && <SectionTitle>{title}</SectionTitle>}
+          {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
+        </div>
 
-      <div className="">{children}</div>
-    </Container>
+        <div className="">{children}</div>
+      </Container>
+    </section>
   );
 };
 

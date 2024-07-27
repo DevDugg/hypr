@@ -1,17 +1,17 @@
 import SectionLayout from '@/components/layout/section-layout';
-import NewsBlock from './news-block';
+import CreatorsBlock from './creators-block';
 
-const News = () => {
+const Creators = () => {
   return (
     <SectionLayout
-      id="news"
-      name="(News)"
-      title="latest news/"
+      id="creators"
+      name="(news)"
+      title="our creators"
       subtitle="From fast-growing brands to Fortune 50’s."
       className="text-WHITE">
-      <NewsBlock />
+      <CreatorsBlock />
     </SectionLayout>
   );
 };
 
-export default News;
+export default Creators;

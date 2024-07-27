@@ -1,5 +1,6 @@
 import Container from '@/components/layout/container';
 import About from '@/components/sections/about';
+import Creators from '@/components/sections/creators';
 import Hero from '@/components/sections/hero';
 import News from '@/components/sections/news';
 import Services from '@/components/sections/our-services';
@@ -20,6 +21,8 @@ export default function Home() {
       <News />
 
       <Partners />
+
+      <Creators />
     </main>
   );
 }

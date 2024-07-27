@@ -9,8 +9,12 @@ const Hero = () => {
   return (
     <section id="hero" className="flex flex-col gap-4 overflow-hidden">
       <div className="text-BLACK">
-        <div className="bg-ACCENT">
-          <Container className="text-[15vw] text-left leading-none">WE BUILD</Container>
+        <div className="bg-ACCENT overflow-hidden pt-6">
+          <Container>
+            <h1 className=" inline-block text-left leading-none hero-title -mb-8 whitespace-nowrap">
+              WE BUILD WE BUILD WE BUILD WE BUILD
+            </h1>
+          </Container>
         </div>
       </div>
 
