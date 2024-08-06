@@ -6,7 +6,7 @@ const Creators = () => {
     <SectionLayout
       id="creators"
       name="(news)"
-      title="our creators"
+      title="our creators/"
       subtitle="From fast-growing brands to Fortune 50’s."
       className="text-WHITE">
       <CreatorsBlock />

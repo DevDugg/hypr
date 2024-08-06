@@ -9,7 +9,11 @@ const SectionTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h3 className={cn(className, 'text-WHITE text-[24px] leading-none font-normal uppercase')}>
+    <h3
+      className={cn(
+        className,
+        'text-WHITE text-[24px] xl:text-[80px] leading-none font-normal uppercase',
+      )}>
       {children}
     </h3>
   );

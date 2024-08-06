@@ -12,7 +12,7 @@ interface IProps {
 export const ServiceCard = ({ title, img, active, i }: IProps) => {
   return (
     <div id={`element-${i}`} className="flex flex-col items-center">
-      <h4 className="text-[24px] leading-none font-bold">{title}</h4>
+      <h4 className="text-[24px] lg:text-[80px] leading-none font-bold">{title}</h4>
 
       <motion.div
         initial={{ height: 0, opacity: 0 }}

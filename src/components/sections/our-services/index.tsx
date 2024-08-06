@@ -3,7 +3,10 @@ import ServicesBlock from './services-block';
 
 const Services = () => {
   return (
-    <SectionLayout id="services" className="text-center text-WHITE" name="(OUR SERVICES)">
+    <SectionLayout
+      id="services"
+      className="text-center mx-auto w-full text-WHITE"
+      name="(OUR SERVICES)">
       <ServicesBlock />
     </SectionLayout>
   );

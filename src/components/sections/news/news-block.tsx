@@ -15,13 +15,20 @@ const NewsBlock = () => {
   return (
     <Swiper
       modules={[FreeMode]}
-      freeMode={true}
-      spaceBetween={16}
+      // freeMode={true}
+      spaceBetween={20}
       slidesPerView={1.5}
-      className="mt-8">
+      slidesPerGroup={1}
+      breakpoints={{
+        768: {
+          slidesPerView: 2.5,
+          slidesPerGroup: 2,
+        },
+      }}
+      className="mt-8 xl:mt-20 flex items-center justify-between">
       {newsData.map((item, i) => (
-        <SwiperSlide key={i}>
-          <NewsCard {...item} />
+        <SwiperSlide className="w-[400px]" key={i}>
+          <NewsCard className="w-full" {...item} />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -9,6 +9,12 @@
   }
 
   .hero-title {
-    font-size: calc(15vw + 5vh);
+    font-size: calc(16vw + 2.5vh);
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: calc(3vw + 1.2vh);
+    text-align: center;
   }
 }

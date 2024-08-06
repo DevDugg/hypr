@@ -32,7 +32,7 @@ const ServicesBlock = () => {
   }, [servicesData]);
 
   return (
-    <div className="flex flex-col gap-4 mt-2">
+    <div className="flex flex-col gap-4 xl:gap-6 mt-2 xl:mt-6">
       {servicesData.map((item, i) => (
         <ServiceCard i={i} active={activeIndex === i} key={i} {...item} />
       ))}
