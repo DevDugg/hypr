@@ -1,12 +1,8 @@
-import SectionLayout from "@/components/layout/section-layout";
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import { useEffect, useRef } from "react";
-import { useScroll, useTransform } from "framer-motion";
-import clsx from "clsx";
 import Container from "@/components/layout/container";
 import SectionName from "@/components/titles/section-name";
 import Paragraph from "./character";
+import { grotesk } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 const About = () => {
   const paragraph = `HYPR agency is a branding and digital marketing studio from Australia.
@@ -18,7 +14,7 @@ const About = () => {
   return (
     <section>
       <Container className="relative">
-        <SectionName className="absolute top-2 xl:top-14 left-0">
+        <SectionName className="absolute top-2 xl:top-10 left-0">
           (about)
         </SectionName>
         <div

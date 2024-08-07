@@ -1,5 +1,5 @@
-import { frick } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
+import { frick } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 const SectionTitle = ({
   className,
@@ -12,8 +12,9 @@ const SectionTitle = ({
     <h3
       className={cn(
         className,
-        'text-WHITE text-[24px] xl:text-[80px] leading-none font-normal uppercase',
-      )}>
+        "text-WHITE text-[calc(2.2vh+2.2vw)] leading-none font-normal uppercase"
+      )}
+    >
       {children}
     </h3>
   );

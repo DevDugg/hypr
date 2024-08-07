@@ -19,6 +19,6 @@
   }
 
   .about-text {
-    font-size: 50px;
+    font-size: calc(2vw + 2vh);
   }
 }
