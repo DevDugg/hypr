@@ -2,13 +2,58 @@ import Container from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { grotesk } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const Need = () => {
   return (
     <section id="need" className="text-WHITE">
       <Container>
-        <div className="relative ">
-          <h1 className="text-center  text-[64px]">no need to be shy.</h1>
+        <div className="relative py-[100px]">
+          <Image
+            src={'/images/need/1.png'}
+            alt="photo"
+            width={80}
+            height={80}
+            className="fly-item top-10 left-0"
+          />
+          <Image
+            src={'/images/need/1.png'}
+            alt="photo"
+            width={80}
+            height={80}
+            className="fly-item top-0 left-[50%] -translate-x-[50%]"
+          />
+          <Image
+            src={'/images/need/1.png'}
+            alt="photo"
+            width={80}
+            height={80}
+            className="fly-item top-4 right-10"
+          />
+          <Image
+            src={'/images/need/1.png'}
+            alt="photo"
+            width={80}
+            height={80}
+            className="fly-item left-0 bottom-2"
+          />
+          <Image
+            src={'/images/need/1.png'}
+            alt="photo"
+            width={80}
+            height={80}
+            className="fly-item left-[50%] -translate-x-[50%] bottom-0"
+          />
+          <Image
+            src={'/images/need/1.png'}
+            alt="photo"
+            width={80}
+            height={80}
+            className="fly-item right-4 bottom-10"
+          />
+          <h1 className="text-center w-[60%] mx-auto leading-none text-[calc(4.5vh+4.5vw)]">
+            no need to be shy.
+          </h1>
           <Button
             className={cn(grotesk.className, 'w-full max-w-[820px] mx-auto flex justify-center')}>
             Contact us
