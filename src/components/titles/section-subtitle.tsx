@@ -1,5 +1,5 @@
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+import { grotesk } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 const SectionSubtitle = ({
   className,
@@ -8,16 +8,7 @@ const SectionSubtitle = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return (
-    <h5
-      className={cn(
-        grotesk.className,
-        "text-[calc(1.1vh+1.1vw)] leading-[140%] font-medium"
-      )}
-    >
-      {children}
-    </h5>
-  );
+  return <h5 className={cn(grotesk.className, 'h5 leading-[140%] font-medium')}>{children}</h5>;
 };
 
 export default SectionSubtitle;
