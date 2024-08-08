@@ -20,5 +20,14 @@
 
   .about-text {
     font-size: calc(2vw + 2vh);
+    font-weight: 600;
+  }
+
+  .h5 {
+    @apply text-[18px] lg:text-[24px];
+  }
+
+  .fly-item {
+    @apply absolute -z-10;
   }
 }
