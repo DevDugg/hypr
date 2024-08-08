@@ -7,6 +7,7 @@ import News from '@/components/sections/news';
 import Services from '@/components/sections/our-services';
 import Partners from '@/components/sections/partners';
 import Projects from '@/components/sections/projects';
+import Socials from '@/components/sections/socials';
 
 export default function Home() {
   return (
@@ -26,6 +27,8 @@ export default function Home() {
       <Creators />
 
       <Need />
+
+      <Socials />
     </main>
   );
 }
