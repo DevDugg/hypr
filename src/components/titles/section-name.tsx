@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const SectionName = ({
   className,
@@ -11,9 +11,8 @@ const SectionName = ({
     <h4
       className={cn(
         className,
-        "text-ACCENT text-[calc(0.8vh+0.8vw)] leading-none font-normal uppercase"
-      )}
-    >
+        'text-ACCENT text-[10px] lg:text-[24px] leading-none font-normal uppercase',
+      )}>
       {children}
     </h4>
   );
