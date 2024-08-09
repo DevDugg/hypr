@@ -10,6 +10,7 @@ const Socials = () => {
     <div>
       {socialsData.map((item, i) => (
         <motion.div
+          key={i}
           initial={
             (i === 0 && { translateY: 360 }) ||
             (i === 1 && { translateY: 240 }) ||
