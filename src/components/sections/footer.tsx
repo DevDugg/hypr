@@ -1,3 +1,5 @@
+'use client';
+
 import { footerList, footerList2 } from '@/database/footer.data';
 import Container from '../layout/container';
 import Link from 'next/link';
@@ -36,18 +38,18 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-end">
           <Logo w={900} h={350} className="flex-[0_1_45%]" />
 
           <div
             className={cn(
-              'flex items-center flex-[0_1_20%] justify-center gap-1',
+              'flex items-center flex-[0_1_20%] cursor-pointer font-bold h5 justify-center gap-1',
               grotesk.className,
             )}>
-            Back to top <ArrowUpIcon size={12} className="-mb-1" />
+            Back to top <ArrowUpIcon size={20} className="-mb-1" />
           </div>
 
-          <div className={cn(grotesk.className, 'font-bold flex-[0_1_20%]')}>
+          <div className={cn(grotesk.className, 'font-bold h5 flex-[0_1_20%]')}>
             Copyright © hypr 2023
           </div>
         </div>
