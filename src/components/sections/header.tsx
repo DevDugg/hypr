@@ -24,7 +24,11 @@ export const Header = () => {
           ))}
         </nav>
 
-        <Button className={cn('hidden lg:flex font-bold leading-[100%]', grotesk.className)}>
+        <Button
+          className={cn(
+            'hidden lg:flex font-bold !text-[18px] !py-6 leading-[100%]',
+            grotesk.className,
+          )}>
           Contact us
         </Button>
 
