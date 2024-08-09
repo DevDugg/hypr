@@ -17,7 +17,6 @@ export default function Paragraph({ value }: { value: string }) {
       {words.map((item, i) => {
         const start = i / words.length;
         const end = start + 1 / words.length;
-        console.log(start, end);
         return (
           <Word range={[start, end]} progress={scrollYProgress} key={i}>
             {item}
