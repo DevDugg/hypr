@@ -11,7 +11,7 @@ import Socials from '@/components/sections/socials';
 
 export default function Home() {
   return (
-    <main className="home flex flex-col gap-[100px] xl:gap-[400px] overflow-x-hidden">
+    <main className="home flex flex-col gap-[100px] xl:gap-[400px]">
       <Hero />
 
       <Services />
