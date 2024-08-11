@@ -1,18 +1,17 @@
-import TextToSVG from "text-to-svg";
-import Container from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
-import { heroImgData } from "@/database/hero.data";
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+import Container from "@/components/layout/container";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
+import { heroImgData } from "@/database/hero.data";
 
 export const Hero = () => {
   return (
     <section id="hero" className="flex flex-col gap-4 overflow-hidden">
       <div className="text-BLACK">
         <div className="bg-ACCENT overflow-hidden pt-6">
-          <Container>
-            <h1 className="inline-block w-full text-left leading-none hero-title -mb-8 whitespace-nowrap">
+          <Container className="overflow-hidden">
+            <h1 className="inline-block w-full leading-none text-[20vw] text-center -mb-8 whitespace-nowrap">
               WE BUILD
             </h1>
           </Container>
@@ -26,7 +25,7 @@ export const Hero = () => {
       </Container>
 
       <Container>
-        <div className="uppercase text-WHITE w-full leading-none mb-4 hero-text">
+        <div className="uppercase text-WHITE w-full leading-none mb-4 text-center text-[4vw]">
           strategic, results-oriented influencear collaborations
         </div>
         <Button className={cn("w-full", grotesk.className)}>Contact us</Button>
