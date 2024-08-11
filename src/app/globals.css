@@ -9,13 +9,16 @@
   }
 
   .hero-title {
-    font-size: calc(16vw + 2.5vh);
-    text-align: center;
+    @apply text-[calc(10vw+5vh)] text-center lg:text-[calc(14vh+14vw)];
   }
 
   .hero-text {
     font-size: calc(3vw + 1.2vh);
     text-align: center;
+  }
+
+  .about-title {
+    font-size: calc();
   }
 
   .about-text {
@@ -29,5 +32,9 @@
 
   .fly-item {
     @apply absolute -z-10;
+  }
+
+  .about-btn {
+    @apply w-fit;
   }
 }
