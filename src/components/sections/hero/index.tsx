@@ -1,10 +1,10 @@
-import TextToSVG from 'text-to-svg';
-import Container from '@/components/layout/container';
-import { Button } from '@/components/ui/button';
-import { heroImgData } from '@/database/hero.data';
-import { grotesk } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import TextToSVG from "text-to-svg";
+import Container from "@/components/layout/container";
+import { Button } from "@/components/ui/button";
+import { heroImgData } from "@/database/hero.data";
+import { grotesk } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
@@ -27,9 +27,9 @@ export const Hero = () => {
 
       <Container>
         <div className="uppercase text-WHITE w-full leading-none mb-4 hero-text">
-          strategic, results-oriented influencer collaborations
+          strategic, results-oriented influencear collaborations
         </div>
-        <Button className={cn('w-full', grotesk.className)}>Contact us</Button>
+        <Button className={cn("w-full", grotesk.className)}>Contact us</Button>
       </Container>
     </section>
   );
