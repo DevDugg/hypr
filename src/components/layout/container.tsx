@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
-import clsx from 'clsx';
-import { ui } from '@/config/ui';
+import { PropsWithChildren } from "react";
+import clsx from "clsx";
+import { ui } from "@/config/ui";
 
 interface IProps extends PropsWithChildren {
   className?: string;
@@ -8,11 +8,7 @@ interface IProps extends PropsWithChildren {
 
 const Container = ({ children, className }: IProps) => {
   return (
-    <div
-      className={clsx(
-        `container max-width-[${ui.container.maxWidth}] max-lg:px-5 max-md:px`,
-        ui.container.overflowHidden && 'overflow-hidden',
-      )}>
+    <div className={clsx(`px-5 xl:px-[60px]`)}>
       {className ? <div className={className}>{children}</div> : children}
     </div>
   );
