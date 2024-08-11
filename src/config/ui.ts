@@ -1,5 +1,5 @@
 type ContainerType = {
-  maxWidth: string;
+  maxWidth?: string;
   desktopPadding: string;
   tabletPadding: string;
   mobilePadding: string;
@@ -12,7 +12,6 @@ export type UIType = {
 
 export const ui: UIType = {
   container: {
-    maxWidth: 1800 + "px",
     desktopPadding: 60 + "px",
     tabletPadding: 32 + "px",
     mobilePadding: 16 + "px",
