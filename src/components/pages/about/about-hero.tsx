@@ -10,7 +10,7 @@ const AboutHero = () => {
           about us
         </h1>
 
-        <div className="flex items-start justify-between">
+        <div className="flex items-start justify-between mb-4">
           <div className="flex flex-col gap-2 flex-[0_0_30%]">
             <Button className="about-btn">marketing</Button>
             <Button className="about-btn ml-[20%]">social media</Button>
@@ -26,7 +26,12 @@ const AboutHero = () => {
           </div>
         </div>
 
-        <Image src="" alt="image" />
+        <Image
+          src="/images/projects/1.png"
+          alt="image"
+          width={1800}
+          height={800}
+        />
       </Container>
     </section>
   );

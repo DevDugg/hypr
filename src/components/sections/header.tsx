@@ -16,7 +16,9 @@ export const Header = () => {
   return (
     <Container>
       <header className="py-6 lg:py-[26px] flex items-center justify-between text-WHITE">
-        <div className="uppercase text-[40px] leading-none">HYPR</div>
+        <Link href={"/"} className="uppercase text-[40px] leading-none">
+          HYPR
+        </Link>
 
         <nav
           className={cn(
