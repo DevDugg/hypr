@@ -11,7 +11,7 @@ interface Props {
   name: string;
   placeholder: string;
   label: string;
-  error?: any;
+  error?: FieldError | undefined;
   textArea?: boolean;
 }
 
@@ -32,7 +32,7 @@ const CustomField = ({ control, name, placeholder, label, error, textArea }: Pro
                   <Input {...field} placeholder={placeholder} className="outline-none" />
                 )}
               </FormControl>
-              <FormMessage className="mt-[0.4vw]">{error}</FormMessage>
+              {error && <FormMessage className="mt-[0.4vw] size18">{error.message}</FormMessage>}
             </div>
           </div>
         </FormItem>

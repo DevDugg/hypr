@@ -22,13 +22,6 @@ type FormTypes = z.infer<typeof formSchema>;
 const ContactsForm = () => {
   const form = useForm<FormTypes>({
     resolver: zodResolver(formSchema),
-
-    defaultValues: {
-      fullName: '',
-      email: '',
-      subject: '',
-      message: '',
-    },
   });
 
   const onSubmit = (data: FormTypes) => {
@@ -49,21 +42,21 @@ const ContactsForm = () => {
               label="Full Name"
               name={'fullName'}
               placeholder={'Full name here*'}
-              error={form.formState.errors.fullName ? form.formState.errors.fullName : ''}
+              error={form.formState.errors.fullName}
             />
             <CustomField
               control={form.control}
               label="Email"
               name={'email'}
               placeholder={'example@provider.com*'}
-              error={form.formState.errors.email ? form.formState.errors.email : ''}
+              error={form.formState.errors.email}
             />
             <CustomField
               control={form.control}
               label="Subject"
               name={'subject'}
               placeholder={'Enter your subject*'}
-              error={form.formState.errors.email ? form.formState.errors.email : ''}
+              error={form.formState.errors.subject}
             />
             <CustomField
               textArea
