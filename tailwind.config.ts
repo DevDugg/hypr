@@ -37,6 +37,9 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       colors: colors,
+      backgroundImage: {
+        'case-pattern': "url('/images/case/case-pattern.png')",
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
