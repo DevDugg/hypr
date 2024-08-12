@@ -27,7 +27,7 @@ const CustomField = ({ control, name, placeholder, label, error, textArea }: Pro
             <div className="w-full">
               <FormControl>
                 {textArea ? (
-                  <Textarea placeholder="Start typing here..." />
+                  <Textarea rows={4} placeholder="Start typing here..." />
                 ) : (
                   <Input {...field} placeholder={placeholder} className="outline-none" />
                 )}
