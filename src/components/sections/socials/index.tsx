@@ -12,11 +12,16 @@ const Socials = () => {
         <motion.div
           key={i}
           initial={
-            (i === 0 && { translateY: 340 }) ||
-            (i === 1 && { translateY: 220 }) ||
-            (i === 2 && { translateY: 100 })
+            (i === 0 && { translateY: '18.75vw' }) ||
+            (i === 1 && { translateY: '12.5vw' }) ||
+            (i === 2 && { translateY: '6.25vw' })
           }
-          className={clsx('size160 rounded-[40px_40px_0_0] pt-[4vw] relative -z-10', {
+          animate={
+            (i === 0 && { translateY: '18.75vw' }) ||
+            (i === 1 && { translateY: '12.5vw' }) ||
+            (i === 2 && { translateY: '6.25vw' })
+          }
+          className={clsx('size160 rounded-[40px_40px_0_0] py-[4vw] relative -z-10', {
             'bg-OFF_WHITE ': i === 0,
             'bg-[#87ADF9]': i === 1,
             'bg-SECONDARY': i === 2,
