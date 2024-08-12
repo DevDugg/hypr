@@ -6,7 +6,6 @@ import Link from "next/link";
 import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
-import localFont from "next/font/local";
 import { navData } from "@/database/navigation.data";
 import { usePathname } from "next/navigation";
 

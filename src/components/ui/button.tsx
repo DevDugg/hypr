@@ -3,14 +3,15 @@ import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
+import { grotesk } from '@/lib/fonts';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-neutral-950 dark:focus-visible:ring-neutral-300',
+  'inline-flex items-center justify-center size24 whitespace-nowrap rounded-md font-bold ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-neutral-950 dark:focus-visible:ring-neutral-300',
   {
     variants: {
       variant: {
         default:
-          'bg-ACCENT text-BLACK font-bold text-[16px] lg:text-[24px] font-bold rounded-full leading-[100%] hover: dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90',
+          'bg-ACCENT text-BLACK rounded-full leading-[100%] dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90',
         destructive:
           'bg-red-500 text-neutral-50 hover:bg-red-500/90 dark:bg-red-90 0 dark:text-neutral-50 dark:hover:bg-red-900/90',
         outline:
@@ -22,7 +23,7 @@ const buttonVariants = cva(
         link: 'text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50',
       },
       size: {
-        default: 'h-10 px-10 py-2 lg:py-7',
+        default: 'px-[2vw] py-[0.8vw]',
         sm: 'h-9 rounded-md px-3',
         lg: 'h-11 rounded-md px-8',
         icon: 'h-10 w-10',

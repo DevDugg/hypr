@@ -24,6 +24,8 @@ const Projects = () => {
           See all projects
         </Button>
       </div>
+
+      <Button className={cn(grotesk.className, "w-full mt-[1.25vw]")}>See all projects</Button>
     </SectionLayout>
   );
 };

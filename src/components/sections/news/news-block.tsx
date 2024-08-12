@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { newsData } from "@/database/news.data";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
-import { NewsCard } from "./news-card";
+import { newsData } from '@/database/news.data';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+import { NewsCard } from './news-card';
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const NewsBlock = () => {
   return (
@@ -25,8 +25,7 @@ const NewsBlock = () => {
           slidesPerGroup: 2,
         },
       }}
-      className="mt-8 xl:mt-20"
-    >
+      className="mt-[4vw]">
       {newsData.map((item, i) => (
         <SwiperSlide className="w-[400px]" key={i}>
           <NewsCard className="w-full" {...item} />
