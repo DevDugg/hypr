@@ -62,4 +62,9 @@
   .size160 {
     font-size: 8.3vw;
   }
+
+  .size360 {
+    font-size: 18.5vw;
+    text-align: center;
+  }
 }
