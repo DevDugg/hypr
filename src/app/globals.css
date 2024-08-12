@@ -8,26 +8,13 @@
     background-size: 200% 100%;
   }
 
-  .hero-title {
-    @apply text-[calc(10vw+5vh)] text-center lg:text-[calc(14vh+14vw)];
+  .title {
+    font-size: 4.16vw;
   }
 
-  .hero-text {
-    font-size: calc(3vw + 1.2vh);
-    text-align: center;
-  }
-
-  .about-title {
-    font-size: calc();
-  }
-
-  .about-text {
-    font-size: calc(2vw + 2vh);
-    font-weight: 600;
-  }
-
-  .h5 {
-    @apply text-[18px] lg:text-[24px];
+  .subtitle,
+  .name {
+    font-size: 1.25vw;
   }
 
   .fly-item {

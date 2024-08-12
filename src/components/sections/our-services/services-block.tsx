@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { servicesData } from '@/database/services.data';
-import { ServiceCard } from './service-card';
-import { useRef, useState } from 'react';
-import { delay, motion } from 'framer-motion';
-import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { useRef, useState } from "react";
+
+import { ServiceCard } from "./service-card";
+import { servicesData } from "@/database/services.data";
+import { useScroll } from "framer-motion";
 
 const ServicesBlock = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -12,11 +12,13 @@ const ServicesBlock = () => {
 
   const { scrollYProgress } = useScroll({
     target: element,
-    offset: ['end end', 'start start'],
+    smooth: 1,
+    axis: "y",
+    // offset: [],
   });
 
   return (
-    <div className="flex flex-col gap-4 xl:gap-6 mt-2 xl:mt-6" ref={element}>
+    <div className="flex flex-col gap-4 xl:gap-10 mt-2 xl:mt-6" ref={element}>
       {servicesData.map((item, i) => {
         const start = i / servicesData.length;
         const end = start + 1 / servicesData.length;

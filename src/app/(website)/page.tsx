@@ -1,16 +1,16 @@
 import About from "@/components/sections/about";
 import Creators from "@/components/sections/creators";
+import { Hero } from "@/components/sections/hero";
 import Need from "@/components/sections/need";
 import News from "@/components/sections/news";
-import Services from "@/components/sections/our-services";
 import Partners from "@/components/sections/partners";
 import Projects from "@/components/sections/projects";
+import Services from "@/components/sections/our-services";
 import Socials from "@/components/sections/socials";
-import { Hero } from "@/components/sections/hero";
 
 export default function Home() {
   return (
-    <main className="home flex flex-col gap-[100px] xl:gap-[400px]">
+    <main className="home flex flex-col gap-[5.2vw] xl:gap-[20.83vw]">
       <Hero />
 
       <Services />

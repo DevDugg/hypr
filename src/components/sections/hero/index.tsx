@@ -7,28 +7,30 @@ import { heroImgData } from "@/database/hero.data";
 
 export const Hero = () => {
   return (
-    <section id="hero" className="flex flex-col gap-4 overflow-hidden">
+    <section id="hero" className="flex flex-col gap-[0.83vw] overflow-hidden">
       <div className="text-BLACK">
-        <div className="bg-ACCENT overflow-hidden pt-6">
+        <div className="bg-ACCENT overflow-hidden pt-[1.25vw]">
           <Container className="overflow-hidden">
-            <h1 className="inline-block w-full leading-none text-[20vw] text-center -mb-8 whitespace-nowrap">
+            <h1 className="inline-block w-full leading-none text-[20vw] text-center -mb-[0.16vw] whitespace-nowrap">
               WE BUILD
             </h1>
           </Container>
         </div>
       </div>
 
-      <Container className="grid grid-cols-3 lg:grid-cols-6 gap-2.5">
+      <Container className="grid grid-cols-3 lg:grid-cols-6 gap-[0.52vw]">
         {heroImgData.map((item, i) => (
           <Image key={i} src={item.img} alt="img" width={291} height={400} />
         ))}
       </Container>
 
       <Container>
-        <div className="uppercase text-WHITE w-full leading-none mb-4 text-center text-[4vw]">
-          strategic, results-oriented influencear collaborations
+        <div className="uppercase text-WHITE w-full leading-none mb-[0.83vw] text-center text-[4vw]">
+          strategic, results-oriented influencer collaborations
         </div>
-        <Button className={cn("w-full", grotesk.className)}>Contact us</Button>
+        <Button className={cn("w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none", grotesk.className)}>
+          Contact us
+        </Button>
       </Container>
     </section>
   );

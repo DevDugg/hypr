@@ -1,6 +1,6 @@
-import { grotesk } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
 
 interface IProps {
   title: string;
@@ -10,14 +10,12 @@ interface IProps {
 
 const ProjectCard = ({ title, subtitle, img }: IProps) => {
   return (
-    <div className="">
+    <div>
       <Image width={890} height={640} src={img} alt="project image" />
 
-      <div className="mt-4 mb-2 h5">{title}</div>
+      <div className="mt-[0.83vw] mb-[0.416vw] text-[1.25vw]">{title}</div>
 
-      <div className={cn('text-[16px] font-normal leading-[140%]', grotesk.className)}>
-        {subtitle}
-      </div>
+      <div className={cn("text-[1.25vw] font-normal leading-[140%]", grotesk.className)}>{subtitle}</div>
     </div>
   );
 };

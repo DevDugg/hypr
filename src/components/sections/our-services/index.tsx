@@ -1,14 +1,15 @@
-import SectionLayout from '@/components/layout/section-layout';
-import ServicesBlock from './services-block';
-import Container from '@/components/layout/container';
-import SectionName from '@/components/titles/section-name';
+import Container from "@/components/layout/container";
+import SectionName from "@/components/titles/section-name";
+import ServicesBlock from "./services-block";
+import ServicesBlockDesktop from "./services-block-desktop";
 
 const Services = () => {
   return (
     <section id="services">
       <Container className="text-WHITE flex flex-col items-center">
         <SectionName>(services)</SectionName>
-        <ServicesBlock />
+        {/* <ServicesBlock /> */}
+        <ServicesBlockDesktop />
       </Container>
     </section>
   );
