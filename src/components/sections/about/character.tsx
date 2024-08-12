@@ -39,7 +39,7 @@ const Word = ({
   const opacity = useTransform(progress, range, [0.15, 1]);
 
   return (
-    <motion.span style={{ opacity }} className="about-text first:ml-[40%] mr-[0.5px]">
+    <motion.span style={{ opacity }} className="size64 first:ml-[40%] mr-[0.5px]">
       {children}
     </motion.span>
   );

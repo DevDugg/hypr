@@ -22,7 +22,7 @@ export const ServiceCard = ({ title, img, active, i, setActiveIndex, progress, r
   });
   return (
     <div id={`element-${i}`} className="flex flex-col items-center">
-      <h4 className={cn('leading-none font-bold text-[calc(2.1vw+2.1vh)]')}>{title}</h4>
+      <h4 className={cn('leading-none font-bold size80')}>{title}</h4>
 
       <motion.div
         initial={{ height: 0, opacity: 0 }}

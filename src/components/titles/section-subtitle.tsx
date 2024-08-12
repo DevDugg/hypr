@@ -8,7 +8,7 @@ const SectionSubtitle = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return <h5 className={cn(grotesk.className, 'h5 leading-[140%] font-medium')}>{children}</h5>;
+  return <h5 className={cn(grotesk.className, 'size24 leading-[140%] font-medium')}>{children}</h5>;
 };
 
 export default SectionSubtitle;

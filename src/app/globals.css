@@ -37,4 +37,29 @@
   .about-btn {
     @apply w-fit;
   }
+
+  .size18 {
+    font-size: 0.9vw;
+    font-weight: 500;
+  }
+
+  .size24 {
+    font-size: 1.25vw;
+  }
+
+  .size40 {
+    font-size: 2vw;
+  }
+
+  .size64 {
+    font-size: 3.3vw;
+  }
+
+  .size80 {
+    font-size: 4vw;
+  }
+
+  .size160 {
+    font-size: 8.3vw;
+  }
 }

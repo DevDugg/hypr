@@ -26,7 +26,7 @@ const CreatorsBlock = () => {
             slidesPerView: 6,
           },
         }}
-        className="mt-8">
+        className="mt-[4vw]">
         {creatorsData.map((item, i) => (
           <SwiperSlide key={i}>
             <CreatorsCard {...item} />
@@ -34,7 +34,7 @@ const CreatorsBlock = () => {
         ))}
       </Swiper>
 
-      <Button className={cn(grotesk.className, 'w-full mt-8 xl:mt-20')}>See all creators</Button>
+      <Button className={cn(grotesk.className, 'w-full mt-[4vw]')}>See all creators</Button>
     </>
   );
 };

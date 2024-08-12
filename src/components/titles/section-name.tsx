@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const SectionName = ({
   className,
@@ -8,12 +8,7 @@ const SectionName = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4
-      className={cn(
-        className,
-        "text-ACCENT text-[10px] lg:text-[24px] leading-none font-normal uppercase"
-      )}
-    >
+    <h4 className={cn(className, 'text-ACCENT text-[1.25vw] leading-none font-normal uppercase')}>
       {children}
     </h4>
   );

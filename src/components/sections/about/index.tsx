@@ -1,8 +1,8 @@
-import Container from "@/components/layout/container";
-import SectionName from "@/components/titles/section-name";
-import Paragraph from "./character";
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+import Container from '@/components/layout/container';
+import SectionName from '@/components/titles/section-name';
+import Paragraph from './character';
+import { grotesk } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 const About = () => {
   const paragraph = `HYPR agency is a branding and digital marketing studio from Australia.
@@ -14,16 +14,13 @@ const About = () => {
   return (
     <section>
       <Container className="relative">
-        <SectionName className="absolute top-2 xl:top-10 left-0">
-          (about)
-        </SectionName>
+        <SectionName className="absolute top-[2vw] left-0">(about)</SectionName>
         <div
           className={cn(
-            "about-text flex transition-colors text-WHITE duration-200 relative",
-            grotesk.className
-          )}
-        >
-          <div className="font-semibold text-[20px] xl:text-[56px]">
+            'about-text flex transition-colors text-WHITE duration-200 relative',
+            grotesk.className,
+          )}>
+          <div className="font-semibold">
             <Paragraph value={paragraph} />
           </div>
         </div>

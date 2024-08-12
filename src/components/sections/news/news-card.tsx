@@ -15,8 +15,8 @@ export const NewsCard = ({ title, img, text, className }: IProps) => {
     <div className={className}>
       <Image src={img} alt="news image" width={400} height={480} />
 
-      <div className="mt-8 mb-2">{title}</div>
-      <p className={cn('leading-[140%] text-[16px]', grotesk.className)}>{text}</p>
+      <div className="mt-[1.5vw] mb-[0.4vw] size24">{title}</div>
+      <p className={cn('leading-[140%] size18', grotesk.className)}>{text}</p>
     </div>
   );
 };

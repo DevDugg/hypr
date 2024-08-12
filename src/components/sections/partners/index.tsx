@@ -8,7 +8,7 @@ import { grotesk } from '@/lib/fonts';
 const Partners = () => {
   return (
     <SectionLayout id="partners" name="(partners)" title="our clients/" className="text-WHITE">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 lg:gap-0 my-8 lg:gap-x-2 lx:mt-20 xl:mb-10">
+      <div className="grid grid-cols-2 mt-[4vw] lg:grid-cols-4 gap-[0.4vw] my-[1.5vw] mb-[2vw]">
         {partnersData.map((item, i) => (
           <PartnerIcon key={i} {...item} active={i === i} />
         ))}

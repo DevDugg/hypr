@@ -8,7 +8,7 @@ const Need = () => {
   return (
     <section id="need" className="text-WHITE">
       <Container>
-        <div className="relative py-[100px]">
+        <div className="relative py-[5vw]">
           <Image
             src={'/images/need/1.png'}
             alt="photo"
@@ -51,11 +51,12 @@ const Need = () => {
             height={80}
             className="fly-item right-4 bottom-10"
           />
-          <h1 className="text-center w-[60%] mx-auto leading-none text-[calc(4.5vh+4.5vw)]">
-            no need to be shy.
-          </h1>
+          <h1 className="text-center w-[60%] mx-auto leading-none size160">no need to be shy.</h1>
           <Button
-            className={cn(grotesk.className, 'w-full max-w-[820px] mx-auto flex justify-center')}>
+            className={cn(
+              grotesk.className,
+              'mt-[1.5vw] w-full max-w-[820px] mx-auto flex justify-center',
+            )}>
             Contact us
           </Button>
         </div>

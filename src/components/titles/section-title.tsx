@@ -8,15 +8,7 @@ const SectionTitle = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return (
-    <h3
-      className={cn(
-        className,
-        'text-WHITE text-[calc(2.1vh+2.1vw)] leading-none font-normal uppercase',
-      )}>
-      {children}
-    </h3>
-  );
+  return <h3 className={cn(className, 'text-WHITE size80 leading-none uppercase')}>{children}</h3>;
 };
 
 export default SectionTitle;
