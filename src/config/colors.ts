@@ -12,5 +12,6 @@ export const colors: Record<
   BLACK: "#1A1A1A",
   GRAY: "#757575",
   INPUT_BG: "#2B2B2B",
+  STROKE: "#4C4C4C",
   // ...
 };
