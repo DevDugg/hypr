@@ -1,36 +1,38 @@
-'use client';
+"use client";
 
-import { Button } from '../ui/button';
-import Container from '../layout/container';
-import Link from 'next/link';
-import clsx from 'clsx';
-import { cn } from '@/lib/utils';
-import { grotesk } from '@/lib/fonts';
-import { navData } from '@/database/navigation.data';
-import { usePathname } from 'next/navigation';
+import { Button } from "../ui/button";
+import Container from "../layout/container";
+import Link from "next/link";
+import clsx from "clsx";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
+import { navData } from "@/database/navigation.data";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const pathname = usePathname();
 
   return (
     <header className="absolute top-0 left-0 right-0">
-      <Container className="flex items-center pt-[1vw] justify-between text-WHITE">
-        <Link href={'/'} className="uppercase text-[2.08vw] leading-none">
+      <Container className="flex items-center pt-[1.25vw] justify-between text-WHITE">
+        <Link href={"/"} className="uppercase text-[2.08vw] leading-none">
           HYPR
         </Link>
 
         <nav
           className={cn(
-            'hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] rounded-full',
-            grotesk.className,
-          )}>
+            "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] rounded-full",
+            grotesk.className
+          )}
+        >
           {navData.map((item, i) => (
             <Link
               key={i}
               href={item.path}
-              className={clsx('text-[0.9375vw] py-[0.83vw]', {
-                'text-ACCENT': item.path === pathname,
-              })}>
+              className={clsx("text-[0.9375vw] py-[0.83vw]", {
+                "text-ACCENT": item.path === pathname,
+              })}
+            >
               {item.view}
             </Link>
           ))}
@@ -38,9 +40,10 @@ export const Header = () => {
 
         <Button
           className={cn(
-            'hidden lg:flex font-bold !text-[0.9375vw] !py-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]',
-            grotesk.className,
-          )}>
+            "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
+            grotesk.className
+          )}
+        >
           Contact us
         </Button>
 
