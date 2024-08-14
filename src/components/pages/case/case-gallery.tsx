@@ -1,5 +1,6 @@
 import Container from '@/components/layout/container';
 import CaseTitle from './case-title';
+import Image from 'next/image';
 
 const CaseGallery = () => {
   return (
@@ -7,34 +8,49 @@ const CaseGallery = () => {
       <Container>
         <CaseTitle className="ml-[11.66vw] mb-[2.5vw]" title="gallery" num="(07)" />
 
-        <div className="flex">
-          <div className="flex flex-col gap-[3.12vw]">
-            <img src="/images/case/gallery/1.png" />
-            <img src="/images/case/gallery/2.png" className="relative z-10" />
-          </div>
-
-          <img
-            src="/images/case/gallery/3.png"
-            className="-translate-x-[2.70vw] h-[32.29vw] relative z-[5]"
+        <div className="relative h-[39.68vw]">
+          <Image
+            src={'/images/case/gallery/1.png'}
+            alt={'gallery image'}
+            width={524}
+            height={350}
+            className="absolute top-0 left-0 h-[18.22vw] w-[27.29vw] hover:cursor-grab"
           />
 
-          <div className="flex flex-col">
-            <img
-              src="/images/case/gallery/4.png"
-              alt=""
-              className="-translate-x-[7.43vw] relative z-10"
-            />
-            <img
-              src="/images/case/gallery/5.png"
-              alt=""
-              className="-translate-x-[5.25vw] relative -translate-y-[4.58vw] w-[31.25vw] -z-[5]"
-            />
-          </div>
-
-          <img
-            src="/images/case/gallery/6.png"
-            alt=""
-            className="h-[30.52vw] -translate-x-[15vw]"
+          <Image
+            src={'/images/case/gallery/2.png'}
+            alt={''}
+            width={524}
+            height={350}
+            className="absolute bottom-0 left-0 h-[18.22vw] w-[27.29vw] z-[4]"
+          />
+          <Image
+            src={'/images/case/gallery/3.png'}
+            alt={''}
+            width={413}
+            height={620}
+            className="absolute top-0 left-[24.58vw] z-[3] h-[32.29vw] w-[21.51vw]"
+          />
+          <Image
+            src={'/images/case/gallery/4.png'}
+            alt={''}
+            width={709}
+            height={398}
+            className="absolute top-0 right-[14.68vw] z-[3] h-[20.41vw] w-[36.92vw]"
+          />
+          <Image
+            src={'/images/case/gallery/5.png'}
+            alt={''}
+            width={600}
+            height={452}
+            className="absolute bottom-0 right-[18.22vw] z-[2] h-[23.54vw] w-[31.25vw]"
+          />
+          <Image
+            src={'/images/case/gallery/6.png'}
+            alt={''}
+            width={392}
+            height={586}
+            className="absolute top-0 right-0 z-[1] h-[30.52vw] w-[20.41vw]"
           />
         </div>
       </Container>
