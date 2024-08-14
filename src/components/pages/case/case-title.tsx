@@ -1,5 +1,5 @@
 import SectionTitle from '@/components/titles/section-title';
-import { frick } from '@/lib/fonts';
+import { frick, grotesk } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import React from 'react';
 
@@ -15,7 +15,7 @@ const CaseTitle = ({
   return (
     <div className={cn('flex', className)}>
       <SectionTitle className={cn(frick.className, 'mt-[1vw]')}>{title}</SectionTitle>
-      <p className="font-bold size24 leading-[140%] text-WHITE">{num}</p>
+      <p className={cn('font-bold size24 leading-[140%] text-WHITE', grotesk.className)}>{num}</p>
     </div>
   );
 };
