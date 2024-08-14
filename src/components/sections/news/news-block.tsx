@@ -16,9 +16,8 @@ const NewsBlock = () => {
     <Swiper
       modules={[FreeMode]}
       // freeMode={true}
-      spaceBetween={20}
-      slidesPerView={1.5}
-      slidesPerGroup={1}
+      spaceBetween={'21.87vw'}
+      slidesPerView={2.5}
       breakpoints={{
         768: {
           slidesPerView: 2.5,
@@ -27,8 +26,8 @@ const NewsBlock = () => {
       }}
       className="mt-[4vw]">
       {newsData.map((item, i) => (
-        <SwiperSlide className="w-[400px]" key={i}>
-          <NewsCard className="w-full" {...item} />
+        <SwiperSlide className="" key={i}>
+          <NewsCard className="" {...item} />
         </SwiperSlide>
       ))}
     </Swiper>
