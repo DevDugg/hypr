@@ -21,7 +21,7 @@ const ServicesBlockDesktop = () => {
       {servicesData.map((item, i) => {
         return (
           <div key={i} className="w-full" onMouseOver={() => setActiveItem(i)}>
-            <ServiceCardDesktop i={i} position={mousePosition} active={activeItem === i} {...item} />
+            <ServiceCardDesktop i={i} activeItem={activeItem} {...item} />
           </div>
         );
       })}

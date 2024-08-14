@@ -1,18 +1,36 @@
-import { Coordinates } from "@/lib/get-relative-coordinates";
-import { cn } from "@/lib/utils";
+"use client";
+
+import { motion } from "framer-motion";
 
 interface IProps {
   title: string;
-  img: string;
   i: number;
-  position: Coordinates;
-  active: boolean;
+  activeItem: number | null;
 }
 
-export const ServiceCardDesktop = ({ title, img, i, active, position }: IProps) => {
+export const ServiceCardDesktop = ({ title, i, activeItem }: IProps) => {
+  const itemState = activeItem !== null ? (activeItem === i ? { opacity: "100%" } : { opacity: "30%" }) : {};
   return (
-    <div id={`element-${i}`} className="flex flex-col items-center">
-      <h4 className={cn("leading-none font-bold text-[4.16vw]")}>{title}</h4>
-    </div>
+    <motion.div
+      id={`element-${i}`}
+      className="relative overflow-hidden h-[4.16vw] w-full"
+      initial={{ opacity: "100%" }}
+      animate={itemState}
+    >
+      <motion.h4
+        className="leading-none font-bold w-full text-[4.16vw] absolute top-full text-center"
+        initial={{ top: "100%", rotateX: 45, transformOrigin: "top" }}
+        animate={activeItem === i ? { top: "0%", rotateX: 0, transformOrigin: "bottom" } : {}}
+      >
+        {title}
+      </motion.h4>
+      <motion.span
+        className="leading-none font-bold w-full text-[4.16vw] absolute top-0 text-center origin-bottom"
+        initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
+        animate={activeItem === i ? { top: "-100%", rotateX: 45, transformOrigin: "top" } : {}}
+      >
+        {title}
+      </motion.span>
+    </motion.div>
   );
 };
