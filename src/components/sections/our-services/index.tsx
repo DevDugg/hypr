@@ -1,6 +1,5 @@
 import Container from "@/components/layout/container";
 import SectionName from "@/components/titles/section-name";
-import ServicesBlock from "./services-block";
 import ServicesBlockDesktop from "./services-block-desktop";
 
 const Services = () => {

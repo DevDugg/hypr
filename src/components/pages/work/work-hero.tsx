@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import { workData } from '@/database/work.data';
+import Image from "next/image";
+import { workData } from "@/database/work.data";
 
 const WorkHero = () => {
   return (
@@ -8,7 +8,7 @@ const WorkHero = () => {
 
       <div className="grid grid-cols-3">
         {workData.map((item, i) => (
-          <div className="">{/* <Image src={item.img} alt={'image'} /> */}</div>
+          <div key={i}>{/* <Image src={item.img} alt={'image'} /> */}</div>
         ))}
       </div>
     </section>

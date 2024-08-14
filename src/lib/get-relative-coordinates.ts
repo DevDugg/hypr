@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 export interface Coordinates {
   x: number;
   y: number;
@@ -7,7 +9,12 @@ export interface Coordinates {
   centerY: number;
 }
 
-export function getRelativeCoordinates(event: MouseEvent, referenceElement: HTMLElement): Coordinates {
+export function getRelativeCoordinates(
+  event: MouseEvent,
+  referenceElement: HTMLElement,
+  offsetX: number = 0,
+  offsetY: number = 0,
+): Coordinates {
   const position = {
     x: event.pageX,
     y: event.pageY,
@@ -27,11 +34,10 @@ export function getRelativeCoordinates(event: MouseEvent, referenceElement: HTML
     offset.top += reference.offsetTop;
     reference = reference.offsetParent as HTMLElement | null;
   }
-  console.log(position.x - offset.left, position.y - offset.top);
 
   return {
-    x: position.x - offset.left,
-    y: position.y - offset.top,
+    x: position.x - offset.left + offsetX,
+    y: position.y - offset.top + offsetY,
     width: offset.width,
     height: offset.height,
     centerX: (position.x - offset.left - offset.width / 2) / (offset.width / 2),
