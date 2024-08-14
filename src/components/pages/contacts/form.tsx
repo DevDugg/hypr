@@ -11,9 +11,9 @@ import { grotesk } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
-  fullName: z.string(),
+  fullName: z.string().min(2, { message: 'Fullname is required' }),
   email: z.string().email(),
-  subject: z.string(),
+  subject: z.string().min(5, { message: 'Subject is required' }),
   message: z.string().optional(),
 });
 
