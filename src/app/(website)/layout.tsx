@@ -1,5 +1,6 @@
-import { Footer } from '@/components/sections/footer';
-import { Header } from '@/components/sections/header';
+import { Footer } from "@/components/sections/footer";
+import { Header } from "@/components/sections/header";
+import MouseFollower from "@/components/animations/mouse-follower";
 
 const layout = ({
   children,
@@ -8,6 +9,7 @@ const layout = ({
 }>) => {
   return (
     <div className="flex flex-col min-h-full">
+      <MouseFollower />
       <Header />
 
       <div className="flex-auto">{children}</div>

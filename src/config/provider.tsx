@@ -1,5 +1,6 @@
 "use client";
 
+import AnimationContextProvider from "@/context/animation-context";
 import CheckConfig from "./check-config";
 import { MotionConfig } from "framer-motion";
 import { PropsWithChildren } from "react";
@@ -12,7 +13,9 @@ const Provider = ({ children }: PropsWithChildren) => {
     <SmoothScroll>
       <MotionConfig transition={defaultTransition}>
         <ScrollProgress>
-          <CheckConfig>{children}</CheckConfig>
+          <AnimationContextProvider>
+            <CheckConfig>{children}</CheckConfig>
+          </AnimationContextProvider>
         </ScrollProgress>
       </MotionConfig>
     </SmoothScroll>
