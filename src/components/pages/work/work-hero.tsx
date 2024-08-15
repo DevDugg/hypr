@@ -103,7 +103,7 @@ const WorkHero = () => {
             text={'Short description of this project goes here'}
             w={584}
             h={640}
-            className="w-full mb-[3.64vw]"
+            className="w-full mb-[4.1vw]"
             imgClassName="h-[33.33vw]"
           />
           <WorkCard
