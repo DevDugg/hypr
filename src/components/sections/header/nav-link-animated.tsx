@@ -25,7 +25,7 @@ const NavLinkAnimated = ({ path, view, className }: NavLinkAnimatedProps) => {
         className="nav-link-animated h-fit relative pointer"
         onMouseOver={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onFocus={(e) => setHovered(true)}
+        onFocus={() => setHovered(true)}
         onBlur={() => setHovered(false)}
       >
         <div className="overflow-hidden relative">
