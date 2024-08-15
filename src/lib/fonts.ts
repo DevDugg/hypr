@@ -26,4 +26,5 @@ export const grotesk = localFont({
       weight: '600',
     },
   ],
+  variable: '--grotesk-font',
 });
