@@ -27,7 +27,7 @@ export const useMousePosition = ({ offsetX, offsetY }: UseMousePosition = {}) =>
     setMousePosition(getRelativeCoordinates(e, box.current, offsetX, offsetY));
   };
 
-  const smoothOptions = useMemo(() => ({ damping: 20, stiffness: 300, mass: 0.5 }), []);
+  const smoothOptions = useMemo(() => ({ damping: 50, stiffness: 150, mass: 0.3 }), []);
 
   const smoothMouseX = useSpring(mousePosition.x, smoothOptions);
   const smoothMouseY = useSpring(mousePosition.y, smoothOptions);
