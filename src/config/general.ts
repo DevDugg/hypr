@@ -12,12 +12,12 @@ type GeneralType = {
 };
 
 export const general: GeneralType = {
-  appName: "Next Landing Template",
-  appDescription: "Next Landing Template",
-  domainName: "avium.trade",
+  appName: "HYPR",
+  appDescription: "HYPR - Strategic, results-oriented influencer collaborations",
+  domainName: "hypr.com",
   colors: {
-    theme: "light",
+    theme: "dark",
     main: colors.PRIMARY,
   },
-  creator: "@website_dugg",
+  creator: "@aidenHIKO",
 };
