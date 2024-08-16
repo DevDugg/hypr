@@ -17,7 +17,7 @@ const CreatorsBlock = () => {
       <Swiper
         modules={[FreeMode]}
         freeMode
-        spaceBetween={10}
+        spaceBetween={"0.5vw"}
         slidesPerView={1.8}
         breakpoints={{
           640: {
@@ -36,7 +36,11 @@ const CreatorsBlock = () => {
         ))}
       </Swiper>
 
-      <Button className={cn(grotesk.className, "w-full mt-[1.66vw] xl:mt-[4.16vw]")}>See all creators</Button>
+      <Button
+        className={cn(grotesk.className, "w-full mt-[1.66vw] xl:mt-[4.16vw]")}
+      >
+        See all creators
+      </Button>
     </>
   );
 };
