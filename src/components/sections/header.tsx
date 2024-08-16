@@ -23,7 +23,7 @@ export const Header = () => {
         <nav
           className={cn(
             "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
-            grotesk.className,
+            grotesk.className
           )}
         >
           {navData.map((item, i) => (
@@ -40,7 +40,7 @@ export const Header = () => {
         <Button
           className={cn(
             "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-            grotesk.className,
+            grotesk.className
           )}
         >
           Contact us
