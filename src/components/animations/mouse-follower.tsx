@@ -13,14 +13,14 @@ const MouseFollower = () => {
   const isImage = followerState === "image";
   const isDisabled = followerState === "disabled";
 
-  const cursorSize = isImage || isVideo ? 130 : 20;
+  const cursorSize = isImage || isVideo ? 130 : 40;
 
   const mouse = {
     x: useMotionValue(0),
     y: useMotionValue(0),
   };
 
-  const smoothOptions = { damping: 50, stiffness: 150, mass: 0.3 };
+  const smoothOptions = { damping: 50, stiffness: 200, mass: 0.3 };
   const smoothMouse = {
     x: useSpring(mouse.x, smoothOptions),
     y: useSpring(mouse.y, smoothOptions),
@@ -75,9 +75,8 @@ const MouseFollower = () => {
           scaleX: 1 + speed / 100, // Adjust scaling based on speed
           scaleY: 1 - speed / 100, // Adjust scaling based on speed
         }}
-        className="fixed rounded-full pointer-events-none z-50 flex items-center justify-center opacity-0"
+        className="fixed rounded-full pointer-events-none z-50 flex items-center justify-center opacity-0 bg-transparent border border-WHITE"
         initial={{
-          backgroundColor: colors["ACCENT"],
           width: cursorSize,
           height: cursorSize,
           mixBlendMode: "difference",
@@ -87,7 +86,6 @@ const MouseFollower = () => {
             ? {
                 width: 161,
                 height: 161,
-                backgroundColor: "transparent",
                 mixBlendMode: "normal",
               }
             : isDisabled
