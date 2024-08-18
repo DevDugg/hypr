@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const ServicesBlockDesktop = () => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
-  const { mousePosition, box, handleMouseMove, smoothMousePosition } = useMousePosition({ offsetX: 100 });
+  const { box, handleMouseMove, smoothMousePosition } = useMousePosition({ offsetX: 400 });
 
   return (
     <motion.div

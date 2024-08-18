@@ -12,7 +12,7 @@ interface UseMousePosition {
 
 export const useMousePosition = ({ offsetX, offsetY }: UseMousePosition = {}) => {
   const [mousePosition, setMousePosition] = useState<Coordinates>({
-    x: 600,
+    x: 2000,
     y: 0,
     width: 0,
     height: 0,

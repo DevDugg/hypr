@@ -1,13 +1,13 @@
 "use client";
 
-import { MotionValue, motion, useMotionValue, useScroll, useTransform } from "framer-motion";
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
 export default function Paragraph({ value }: { value: string }) {
   const element = useRef(null);
   const { scrollYProgress } = useScroll({
     target: element,
-    offset: ["start 0.5", "start 0.2"],
+    offset: ["start 0.9", "start 0.2"],
   });
 
   const words = value.split("");
@@ -39,9 +39,8 @@ const Word = ({
   i: number;
 }) => {
   const opacity = useTransform(progress, range, [0.15, 1]);
-  const paddingLeft = useTransform(progress, [0, 1], [0, 24]);
   return i === 0 ? (
-    <motion.span style={{ opacity, paddingLeft }} className="size64 ml-[25vw] mr-[0.5px]">
+    <motion.span style={{ opacity }} className="size64 ml-[32vw] mr-[0.5px]">
       {children}
     </motion.span>
   ) : (

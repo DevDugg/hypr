@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motio
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { colors } from "@/config/colors";
 import { useAnimationContext } from "@/hooks/use-animation-context";
 
 const MouseFollower = () => {
@@ -75,7 +74,7 @@ const MouseFollower = () => {
           scaleX: 1 + speed / 100, // Adjust scaling based on speed
           scaleY: 1 - speed / 100, // Adjust scaling based on speed
         }}
-        className="fixed rounded-full pointer-events-none z-50 flex items-center justify-center opacity-0 bg-transparent border border-WHITE"
+        className="fixed rounded-full uppercase bg-[#44444421] pointer-events-none z-50 flex items-center justify-center opacity-0 border border-WHITE backdrop-blur-[20px] text-WHITE"
         initial={{
           width: cursorSize,
           height: cursorSize,
@@ -84,8 +83,8 @@ const MouseFollower = () => {
         animate={
           isVideo || isImage
             ? {
-                width: 161,
-                height: 161,
+                width: 130,
+                height: 130,
                 mixBlendMode: "normal",
               }
             : isDisabled
@@ -106,23 +105,18 @@ const MouseFollower = () => {
               : {}
           }
         >
-          <motion.p
-            initial={{ width: cursorSize, height: cursorSize }}
-            className="uppercase bg-[#44444421] rounded-full border border-WHITE flex items-center justify-center text-[0.83vw] text-WHITE backdrop-blur-[20px]"
-          >
-            <AnimatePresence mode="sync" initial={false}>
-              {isImage && (
-                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  see image
-                </motion.span>
-              )}
-              {isVideo && (
-                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  play video
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.p>
+          <AnimatePresence mode="sync" initial={false}>
+            {isImage && (
+              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                see image
+              </motion.span>
+            )}
+            {isVideo && (
+              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                play video
+              </motion.span>
+            )}
+          </AnimatePresence>
         </motion.div>
       </motion.div>
     </div>
