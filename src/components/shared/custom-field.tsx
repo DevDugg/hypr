@@ -1,4 +1,10 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 
 import { FieldError } from "react-hook-form";
 import { Input } from "../ui/input";
@@ -16,24 +22,46 @@ interface Props {
   textArea?: boolean;
 }
 
-const CustomField = ({ control, name, placeholder, label, error, textArea }: Props) => {
+const CustomField = ({
+  control,
+  name,
+  placeholder,
+  label,
+  error,
+  textArea,
+}: Props) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem className={cn(grotesk.className, "text-WHITE outline-ACCENT")}>
+        <FormItem
+          className={cn(grotesk.className, "text-WHITE outline-ACCENT")}
+        >
           <div className="flex items-start gap-[4.9vw]">
             <FormLabel className="flex-[1_1_15%] size24">{label}</FormLabel>
             <div className="w-full">
               <FormControl>
                 {textArea ? (
-                  <Textarea rows={4} placeholder="Start typing here..." className="outline-none" />
+                  <Textarea
+                    {...field}
+                    rows={4}
+                    placeholder="Start typing here..."
+                    className="outline-none"
+                  />
                 ) : (
-                  <Input {...field} placeholder={placeholder} className="outline-none" />
+                  <Input
+                    {...field}
+                    placeholder={placeholder}
+                    className="outline-none"
+                  />
                 )}
               </FormControl>
-              {error && <FormMessage className="mt-[0.4vw] size18">{error?.message}</FormMessage>}
+              {error && (
+                <FormMessage className="mt-[0.4vw] size18">
+                  {error?.message}
+                </FormMessage>
+              )}
             </div>
           </div>
         </FormItem>

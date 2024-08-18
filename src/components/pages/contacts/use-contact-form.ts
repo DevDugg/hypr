@@ -14,6 +14,12 @@ type FormTypes = z.infer<typeof formSchema>;
 export const useContactForm = () => {
   const form = useForm<FormTypes>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
   });
 
   const onSubmit = (data: FormTypes) => {

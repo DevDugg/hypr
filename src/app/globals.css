@@ -22,7 +22,7 @@
   }
 
   .about-btn {
-    @apply w-fit;
+    @apply !text-[2.5vw] !p-[0.52vw] !w-fit;
   }
 
   .size18 {
@@ -35,7 +35,7 @@
   }
 
   .size40 {
-    font-size: 2vw;
+    font-size: 2.08vw;
   }
 
   .size64 {
