@@ -23,14 +23,14 @@ export const Header = () => {
         <nav
           className={cn(
             "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
-            grotesk.className
+            grotesk.className,
           )}
         >
           {navData.map((item, i) => (
             <NavLinkAnimated
               key={i}
               {...item}
-              className={clsx("text-[0.9375vw] py-[0.83vw]", {
+              className={clsx("text-[0.9375vw] leading-[120%] py-[0.83vw]", {
                 "text-ACCENT": item.path === pathname,
               })}
             />
@@ -40,7 +40,7 @@ export const Header = () => {
         <Button
           className={cn(
             "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-            grotesk.className
+            grotesk.className,
           )}
         >
           Contact us
