@@ -12,11 +12,11 @@ const Provider = ({ children }: PropsWithChildren) => {
   return (
     <SmoothScroll>
       <MotionConfig transition={defaultTransition}>
-        <ScrollProgress>
-          <AnimationContextProvider>
-            <CheckConfig>{children}</CheckConfig>
-          </AnimationContextProvider>
-        </ScrollProgress>
+        {/* <ScrollProgress> */}
+        <AnimationContextProvider>
+          <CheckConfig>{children}</CheckConfig>
+        </AnimationContextProvider>
+        {/* </ScrollProgress> */}
       </MotionConfig>
     </SmoothScroll>
   );
