@@ -1,10 +1,19 @@
 import localFont from "next/font/local";
 
-// For custom fontss
+// For custom fonts
 
 export const monument = localFont({
-  src: [{ path: "../../public/fonts/monument-extended.otf", weight: "400" }],
-  display: "block",
+  src: [
+    {
+      path: "../../public/fonts/monument-extended.otf",
+      weight: "400",
+    },
+    {
+      path: "../../public/fonts/monument-extended-black.otf",
+      weight: "700",
+    },
+  ],
+  display: "swap",
 });
 
 export const grotesk = localFont({

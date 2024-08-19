@@ -17,7 +17,7 @@ export const Header = () => {
   return (
     <header className="absolute top-0 left-0 right-0">
       <Container className="flex items-center pt-[1.25vw] justify-between text-WHITE">
-        <Link href={"/"} className="uppercase text-[2.08vw] leading-none">
+        <Link href={"/"} className="uppercase text-[2.08vw] leading-none font-bold">
           HYPR
         </Link>
 
