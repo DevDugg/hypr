@@ -4,8 +4,8 @@ import Loader from "@/components/sections/loader";
 import Provider from "@/config/provider";
 import { Viewport } from "next";
 import { colors } from "@/config/colors";
-import { frick } from "@/lib/fonts";
 import { getSEOTags } from "@/lib/seo";
+import { monument } from "@/lib/fonts";
 
 export const viewport: Viewport = {
   // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${frick.className} bg-BACKGROUND w-screen h-screen overflow-hidden`}>
+      <body className={`${monument.className} bg-BACKGROUND w-screen h-screen overflow-hidden`}>
         <Provider>
           {/* <Loader /> */}
           {children}
