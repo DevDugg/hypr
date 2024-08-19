@@ -40,14 +40,16 @@ export const Header = () => {
           </nav>
         </MouseFollowerWrapper>
 
-        <Button
-          className={cn(
-            "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-            grotesk.className,
-          )}
-        >
-          Contact us
-        </Button>
+        <Link href={"/contacts"}>
+          <Button
+            className={cn(
+              "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
+              grotesk.className,
+            )}
+          >
+            Contact us
+          </Button>
+        </Link>
 
         <div className="size-6 flex flex-col justify-center items-center gap-1 cursor-pointer lg:hidden">
           <div className="w-[18px] h-0.5 bg-WHITE" />
