@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils";
-import SectionName from "../titles/section-name";
-import SectionTitle from "../titles/section-title";
-import SectionSubtitle from "../titles/section-subtitle";
 import Container from "./container";
+import SectionName from "../titles/section-name";
+import SectionSubtitle from "../titles/section-subtitle";
+import SectionTitle from "../titles/section-title";
+import { cn } from "@/lib/utils";
 
 const SectionLayout = ({
   className,
@@ -14,7 +14,7 @@ const SectionLayout = ({
   nameTitleClassName,
 }: {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   id: string;
   name: string;
   title?: string;
@@ -30,10 +30,8 @@ const SectionLayout = ({
           {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
         </div>
 
-        <div className="hidden xl:flex items-end justify-between gap-10">
-          {title && (
-            <SectionTitle className={nameTitleClassName}>{title}</SectionTitle>
-          )}
+        <div className="hidden xl:flex items-end justify-between gap-[2.08vw]">
+          {title && <SectionTitle className={nameTitleClassName}>{title}</SectionTitle>}
           {name && <SectionName>{name}</SectionName>}
           {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
         </div>
