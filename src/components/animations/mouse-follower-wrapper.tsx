@@ -11,7 +11,7 @@ interface MouseFollowerWrapperProps extends PropsWithChildren {
 const MouseFollowerWrapper = ({ state, children }: MouseFollowerWrapperProps) => {
   const { setFollowerState } = useAnimationContext();
   return (
-    <div onMouseOver={() => setFollowerState(state)} onMouseLeave={() => setFollowerState("default")}>
+    <div onMouseOverCapture={() => setFollowerState(state)} onMouseLeave={() => setFollowerState("default")}>
       {children}
     </div>
   );

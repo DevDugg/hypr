@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -8,11 +8,10 @@ import { useAnimationContext } from "@/hooks/use-animation-context";
 
 const MouseFollower = () => {
   const { followerState } = useAnimationContext();
-  const isVideo = followerState === "video";
-  const isImage = followerState === "image";
+  const isActive = followerState !== "default" && followerState !== "disabled";
   const isDisabled = followerState === "disabled";
 
-  const cursorSize = isImage || isVideo ? 130 : 40;
+  const cursorSize = isActive ? 130 : 40;
 
   const mouse = {
     x: useMotionValue(0),
@@ -71,8 +70,8 @@ const MouseFollower = () => {
         style={{
           left: smoothMouse.x,
           top: smoothMouse.y,
-          scaleX: 1 + speed / 100, // Adjust scaling based on speed
-          scaleY: 1 - speed / 100, // Adjust scaling based on speed
+          scaleX: 1 + speed / 40, // Adjust scaling based on speed
+          scaleY: 1 - speed / 40, // Adjust scaling based on speed
         }}
         className="fixed rounded-full uppercase bg-[#44444421] pointer-events-none z-50 flex items-center justify-center opacity-0 border border-WHITE backdrop-blur-[20px] text-WHITE"
         initial={{
@@ -81,7 +80,7 @@ const MouseFollower = () => {
           mixBlendMode: "difference",
         }}
         animate={
-          isVideo || isImage
+          isActive
             ? {
                 width: 130,
                 height: 130,
@@ -98,25 +97,26 @@ const MouseFollower = () => {
           className={cn(`size-[${cursorSize}px]`)}
           initial={{ opacity: 0 }}
           animate={
-            isImage || isVideo
+            isActive
               ? {
                   opacity: 1,
                 }
               : {}
           }
         >
-          <AnimatePresence mode="sync" initial={false}>
-            {isImage && (
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                see image
-              </motion.span>
-            )}
-            {isVideo && (
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                play video
-              </motion.span>
-            )}
-          </AnimatePresence>
+          {followerState === "open" ? (
+            <motion.span className="inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              open
+            </motion.span>
+          ) : followerState === "play" ? (
+            <motion.span key={"play"} className="inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              play
+            </motion.span>
+          ) : followerState === "drag" ? (
+            <motion.span key={"drag"} className="inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              drag
+            </motion.span>
+          ) : null}
         </motion.div>
       </motion.div>
     </div>
