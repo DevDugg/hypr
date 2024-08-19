@@ -1,18 +1,18 @@
 export const navData = [
   {
-    view: 'Work',
-    path: '/work',
+    view: "Works",
+    path: "/works",
   },
   {
-    view: 'Contacts',
-    path: '/contacts',
+    view: "Contacts",
+    path: "/contacts",
   },
   {
-    view: 'Insights',
-    path: '/news',
+    view: "Insights",
+    path: "/news",
   },
   {
-    view: 'Our Creators',
-    path: '/creators',
+    view: "Our Creators",
+    path: "/creators",
   },
 ];

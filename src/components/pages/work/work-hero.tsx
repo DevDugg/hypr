@@ -4,7 +4,7 @@ import WorkCard from "./work-card";
 const WorkHero = () => {
   return (
     <section>
-      <h1 className="size360 text-ACCENT mb-[10vw]">our works</h1>
+      <h1 className="size360 text-ACCENT mb-[10vw]">our work</h1>
 
       <div className="flex gap-[1.25vw] mb-[10.41vw]">
         <div className="flex flex-col flex-[1_1_30.41vw]">
