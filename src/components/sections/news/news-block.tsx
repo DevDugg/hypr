@@ -10,10 +10,10 @@ const NewsBlock = () => {
     <div className="mt-[4vw] text-WHITE">
       <Carousel
         opts={{
-          loop: true,
+          // loop: true,
           align: "start",
           skipSnaps: true,
-          duration: 300,
+          duration: 500,
         }}
       >
         <CarouselContent className="ml-[4px] md:-ml[22px] lg:ml-[50px]">
