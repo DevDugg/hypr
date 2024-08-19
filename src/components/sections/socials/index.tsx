@@ -1,10 +1,10 @@
 "use client";
 
 import Container from "@/components/layout/container";
-import { socialsData } from "@/database/socials.data";
-import { cn } from "@/lib/utils";
 import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { socialsData } from "@/database/socials.data";
 
 const Socials = ({ className }: { className?: string }) => {
   return (
@@ -23,10 +23,12 @@ const Socials = ({ className }: { className?: string }) => {
               "bg-OFF_WHITE bottom-[10vw] hover:bottom-[15vw]": i === 0,
               "bg-[#87ADF9] bottom-0 hover:bottom-[5vw]": i === 1,
               "bg-SECONDARY -bottom-[10vw] hover:-bottom-[5vw]": i === 2,
-            }
+            },
           )}
         >
-          <Container>{item.name}</Container>
+          <a className="size-full" href={item.link} rel="noopener noreferrer">
+            <Container>{item.name}</Container>
+          </a>
         </motion.div>
       ))}
     </section>
