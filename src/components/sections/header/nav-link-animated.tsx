@@ -65,11 +65,11 @@ const NavLinkAnimated = ({ path, view, className }: NavLinkAnimatedProps) => {
             <span className={className}>{view}</span>
           </motion.div>
         </div>
-        <motion.div
+        {/* <motion.div
           className="w-full h-0.5 bg-WHITE absolute top-[150%] left-0"
           initial={{ top: "150%", opacity: 0 }}
           animate={hovered ? { top: "115%", opacity: 1 } : {}}
-        ></motion.div>
+        ></motion.div> */}
       </Link>
     </MotionConfig>
   );
