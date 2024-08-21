@@ -1,36 +1,30 @@
-'use client';
+"use client";
 
-import { newsData } from '@/database/news.data';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper/modules';
-import { NewsCard } from './news-card';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import { NewsCard } from "./news-card";
+import { newsData } from "@/database/news.data";
 
 const NewsBlock = () => {
   return (
-    <Swiper
-      modules={[FreeMode]}
-      // freeMode={true}
-      spaceBetween={'21.87vw'}
-      slidesPerView={2.5}
-      breakpoints={{
-        768: {
-          slidesPerView: 2.5,
-          slidesPerGroup: 2,
-        },
-      }}
-      className="mt-[4vw]">
-      {newsData.map((item, i) => (
-        <SwiperSlide className="" key={i}>
-          <NewsCard className="" {...item} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="mt-[4vw] text-WHITE cursor-grab">
+      <Carousel
+        opts={{
+          // loop: true,
+          align: "start",
+          skipSnaps: true,
+          duration: 500,
+        }}
+      >
+        <CarouselContent className="ml-[4px] md:-ml[22px] lg:ml-[50px]">
+          {newsData.map((item, i) => (
+            <CarouselItem key={i} className="pl-[10px] basis-[4.5]">
+              <NewsCard {...item} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+    </div>
   );
 };
 

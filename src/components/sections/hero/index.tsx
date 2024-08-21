@@ -11,7 +11,7 @@ export const Hero = () => {
       <div className="text-BLACK">
         <div className="bg-ACCENT overflow-hidden pt-[1.25vw]">
           <Container className="overflow-hidden">
-            <h1 className="inline-block w-full leading-none text-[20vw] text-center -mb-[0.16vw] whitespace-nowrap">
+            <h1 className="inline-block w-full leading-none text-[13.6vw] text-center -mb-[0.16vw] whitespace-nowrap monument">
               WE BUILD
             </h1>
           </Container>
@@ -25,15 +25,10 @@ export const Hero = () => {
       </Container>
 
       <Container>
-        <div className="uppercase text-WHITE w-full leading-none mb-[0.83vw] text-center text-[6.45vw]">
+        <div className="uppercase text-WHITE w-full leading-none mb-[0.83vw] text-center text-[4vw] monument">
           strategic, results-oriented influencer collaborations
         </div>
-        <Button
-          className={cn(
-            "w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none",
-            grotesk.className
-          )}
-        >
+        <Button className={cn("w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none", grotesk.className)}>
           Contact us
         </Button>
       </Container>

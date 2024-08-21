@@ -64,7 +64,7 @@ const CaseSlider = () => {
       perView: 4.5,
       spacing: 16,
     },
-    mode: "free",
+    mode: "snap",
     loop: true,
     initial: 0,
     drag: true,
