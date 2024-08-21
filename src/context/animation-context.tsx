@@ -2,7 +2,7 @@
 
 import { Dispatch, PropsWithChildren, SetStateAction, createContext, useMemo, useState } from "react";
 
-export type FollowerState = "default" | "video" | "image" | "disabled";
+export type FollowerState = "default" | "play" | "open" | "disabled" | "drag";
 
 interface IAnimationContext {
   followerState: FollowerState;
@@ -12,7 +12,7 @@ interface IAnimationContext {
 export const AnimationContext = createContext<IAnimationContext>({} as IAnimationContext);
 
 const AnimationContextProvider = ({ children }: PropsWithChildren) => {
-  const [followerState, setFollowerState] = useState<IAnimationContext["followerState"]>("default");
+  const [followerState, setFollowerState] = useState<FollowerState>("default");
 
   const memo = useMemo(() => ({ followerState, setFollowerState }), [followerState, setFollowerState]);
 

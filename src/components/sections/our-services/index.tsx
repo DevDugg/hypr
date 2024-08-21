@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <section id="services">
       <Container className="text-WHITE flex flex-col items-center">
-        <SectionName>(services)</SectionName>
+        <SectionName>(our services)</SectionName>
         {/* <ServicesBlock /> */}
         <ServicesBlockDesktop />
       </Container>

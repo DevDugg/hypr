@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
 import PartnerIcon from "./partner-icon";
 import SectionLayout from "@/components/layout/section-layout";
-import { cn } from "@/lib/utils";
-import { grotesk } from "@/lib/fonts";
 import { partnersData } from "@/database/partners.data";
 
 const Partners = () => {
@@ -18,8 +15,6 @@ const Partners = () => {
           <PartnerIcon key={i} {...item} active={i === i} />
         ))}
       </div>
-
-      <Button className={cn("w-full", grotesk.className)}>Contact us</Button>
     </SectionLayout>
   );
 };
