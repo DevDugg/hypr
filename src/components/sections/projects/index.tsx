@@ -15,13 +15,18 @@ const Projects = () => {
       subtitle="From fast-growing brands to Fortune 50’s."
       className="text-WHITE"
     >
-      <div className="flex flex-col gap-[2.08vw]">
-        <div className="grid grid-cols-1 gap-[1.66vw] xl:gap-x-[0.83vw] xl:grid-cols-2 mt-[4vw]">
+      <div className="flex flex-col gap-[1.66vw]">
+        <div className="grid grid-cols-1 gap-[1.66vw] sm:gap-x-[0.83vw] sm:grid-cols-2 mt-[3.33vw]">
           {projectsData.map((item, i) => (
             <ProjectCard {...item} key={i} />
           ))}
         </div>
-        <Button className={cn("w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none", grotesk.className)}>
+        <Button
+          className={cn(
+            "w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none",
+            grotesk.className
+          )}
+        >
           <Link href={"/works"}>See all projects</Link>
         </Button>
       </div>

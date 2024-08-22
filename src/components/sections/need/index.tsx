@@ -18,7 +18,10 @@ const Need = () => {
   return (
     <section id="need" className="text-WHITE">
       <Container className="px-[5.23vw]">
-        <div ref={container} className="h-[62.19vw] flex flex-col gap-[2.5vw] justify-center relative">
+        <div
+          ref={container}
+          className="h-[62.19vw] flex flex-col gap-[2.5vw] justify-center relative"
+        >
           {/* <FlyingBlock scrollProgress={scrollYProgress} container={container}> */}
           <Image
             src={"/images/need/1.png"}
@@ -63,10 +66,17 @@ const Need = () => {
             height={314}
             className="fly-item w-[16.35vw] h-auto left-[48.02vw] top-[0.34vw] rotate-[2.42deg] "
           />
-          <h1 className="text-center mx-auto leading-none text-[5.98vw] monument">
+          <h1 className="text-center mx-auto leading-none size100 monument">
             no need <br /> to be shy.
           </h1>
-          <Button className={cn(grotesk.className, "w-[820px] mx-auto flex justify-center")}>Contact us</Button>
+          <Button
+            className={cn(
+              grotesk.className,
+              "w-[43.07vw] mx-auto flex justify-center"
+            )}
+          >
+            Contact us
+          </Button>
         </div>
       </Container>
     </section>

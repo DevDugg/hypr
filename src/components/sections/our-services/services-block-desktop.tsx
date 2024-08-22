@@ -9,11 +9,13 @@ import { useState } from "react";
 
 const ServicesBlockDesktop = () => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
-  const { box, handleMouseMove, smoothMousePosition } = useMousePosition({ offsetX: 400 });
+  const { box, handleMouseMove, smoothMousePosition } = useMousePosition({
+    offsetX: 400,
+  });
 
   return (
     <motion.div
-      className="flex flex-col gap-[0.83vw] xl:gap-[2.08vw] pt-[0.416vw] xl:pt-[1.25vw] relative w-full cursor-default"
+      className="flex flex-col gap-[0.83vw] sm:gap-[2.08vw] pt-[0.416vw] sm:pt-[1.66vw] relative w-full cursor-default"
       ref={box}
       onMouseMove={(e) => handleMouseMove(e)}
       onMouseLeave={() => setActiveItem(null)}
@@ -36,12 +38,21 @@ const ServicesBlockDesktop = () => {
       >
         <motion.div
           className="flex flex-col"
-          initial={{ y: `${-(((activeItem || 0) / servicesData.length) * 100)}%` }}
-          animate={{ y: `${-(((activeItem || 0) / servicesData.length) * 100)}%` }}
+          initial={{
+            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+          }}
+          animate={{
+            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+          }}
         >
           {servicesData.map((item, i) => (
             <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-              <Image src={item.img} width={256} height={320} alt="service image" />
+              <Image
+                src={item.img}
+                width={256}
+                height={320}
+                alt="service image"
+              />
             </div>
           ))}
         </motion.div>
@@ -59,12 +70,21 @@ const ServicesBlockDesktop = () => {
       >
         <motion.div
           className="flex flex-col"
-          initial={{ y: `${-(((activeItem || 0) / servicesData.length) * 100)}%` }}
-          animate={{ y: `${-(((activeItem || 0) / servicesData.length) * 100)}%` }}
+          initial={{
+            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+          }}
+          animate={{
+            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+          }}
         >
           {servicesData.map((item, i) => (
             <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-              <Image src={item.img} width={256} height={320} alt="service image" />
+              <Image
+                src={item.img}
+                width={256}
+                height={320}
+                alt="service image"
+              />
             </div>
           ))}
         </motion.div>

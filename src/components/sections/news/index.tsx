@@ -11,10 +11,11 @@ const News = () => {
         title="latest news/"
         subtitle="From fast-growing brands to Fortune 50’s."
         className="text-WHITE"
-      ></SectionLayout>
-      <MouseFollowerWrapper state="drag">
-        <NewsBlock />
-      </MouseFollowerWrapper>
+      >
+        <MouseFollowerWrapper state="drag">
+          <NewsBlock />
+        </MouseFollowerWrapper>
+      </SectionLayout>
     </div>
   );
 };

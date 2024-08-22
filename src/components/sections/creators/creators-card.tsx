@@ -16,10 +16,24 @@ export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
     <div className="w-full">
       <Image src={img} alt="news image" width={240} height={288} />
 
-      <div className="mt-[0.625vw] mb-[0.416vw] text-[0.9375vw] monument">{title}</div>
-      <p className={cn("leading-[140%] text-[0.83vw] mb-[0.416vw] font-normal", grotesk.className)}>{nickname}</p>
+      <div className="mt-[1.66vw] mb-[1.25vw] text-[0.9375vw] monument">
+        {title}
+      </div>
+      <p
+        className={cn(
+          "leading-[140%] text-[0.83vw] mb-[0.416vw] font-normal",
+          grotesk.className
+        )}
+      >
+        {nickname}
+      </p>
 
-      <div className={cn("flex flex-col text-[0.83vw] gap-[0.2vw] leading-[140%]", grotesk.className)}>
+      <div
+        className={cn(
+          "flex flex-col text-[0.83vw] gap-[0.41vw] leading-[140%]",
+          grotesk.className
+        )}
+      >
         {socials.map((item, i) => (
           <div key={i}>{item.social}</div>
         ))}

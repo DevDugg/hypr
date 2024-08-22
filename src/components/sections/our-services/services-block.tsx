@@ -18,7 +18,7 @@ const ServicesBlock = () => {
   });
 
   return (
-    <div className="flex flex-col gap-4 xl:gap-10 mt-2 xl:mt-6" ref={element}>
+    <div className="flex flex-col gap-4 sm:gap-10 mt-2 sm:mt-6" ref={element}>
       {servicesData.map((item, i) => {
         const start = i / servicesData.length;
         const end = start + 1 / servicesData.length;

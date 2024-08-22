@@ -5,7 +5,6 @@ import { footerList, footerList2 } from "@/database/footer.data";
 import { ArrowUpIcon } from "lucide-react";
 import Container from "../layout/container";
 import Link from "next/link";
-import Logo from "../layout/logo";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { useScrollToTarget } from "@/lib/use-scroll-to-target";
@@ -42,21 +41,26 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-end gap-[5vw]">
+        <div className="flex sm:flex-row flex-col justify-between items-start sm:items-end gap-[5vw]">
           <p className="monument text-[12.63vw] leading-none">HYPR</p>
 
-          <div className="flex justify-end gap-[5vw] flex-[1_0_34.58vw]">
+          <div className="flex justify-between sm:justify-end gap-[26vw] sm:flex-[1_0_34.58vw]">
             <div
               onClick={handleOnClick}
               className={cn(
                 "flex items-center flex-[0_1_auto] cursor-pointer font-bold size24 justify-center gap-[0.2vw]",
-                grotesk.className,
+                grotesk.className
               )}
             >
               Back to top <ArrowUpIcon className="-mb-[0.2vw] size-[1.25vw]" />
             </div>
 
-            <div className={cn(grotesk.className, "font-bold size24 flex-[0_1_auto]")}>
+            <div
+              className={cn(
+                grotesk.className,
+                "font-bold size24 flex-[0_1_auto]"
+              )}
+            >
               Copyright © HYPR {date.getFullYear()}
             </div>
           </div>

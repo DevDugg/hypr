@@ -14,7 +14,7 @@
 
   .subtitle,
   .name {
-    font-size: 1.25vw;
+    font-size: 0.93vw;
   }
 
   .fly-item {
@@ -31,10 +31,14 @@
   }
 
   .size24 {
-    font-size: 1.25vw;
+    font-size: 0.93vw;
   }
 
   .size40 {
+    font-size: 2.08vw;
+  }
+
+  .size48 {
     font-size: 2.08vw;
   }
 
@@ -42,12 +46,24 @@
     font-size: 3.33vw;
   }
 
+  .size72 {
+    font-size: 3.75vw;
+  }
+
   .size80 {
     font-size: 4vw;
   }
 
+  .size100 {
+    font-size: 5.2vw;
+  }
+
   .size160 {
     font-size: 8.3vw;
+  }
+
+  .size260 {
+    font-size: 13.54vw;
   }
 
   .size360 {

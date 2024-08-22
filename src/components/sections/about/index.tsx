@@ -14,8 +14,15 @@ const About = () => {
   return (
     <section>
       <Container className="relative">
-        <SectionName className="absolute top-[0.416vw] xl:top-[2.08vw] left-0">(about)</SectionName>
-        <div className={cn("about-text flex transition-colors text-WHITE duration-200 relative", grotesk.className)}>
+        <SectionName className="absolute top-[2.08vw] left-0">
+          (about)
+        </SectionName>
+        <div
+          className={cn(
+            "about-text flex transition-colors text-WHITE duration-200 relative",
+            grotesk.className
+          )}
+        >
           <div className="font-semibold text-[1vw]">
             <Paragraph value={paragraph} />
           </div>

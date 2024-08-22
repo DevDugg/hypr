@@ -1,13 +1,17 @@
 "use client";
 
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 import { NewsCard } from "./news-card";
 import { newsData } from "@/database/news.data";
 
 const NewsBlock = () => {
   return (
-    <div className="mt-[4vw] text-WHITE cursor-grab">
+    <div className="mt-[3.33vw] text-WHITE cursor-grab">
       <Carousel
         opts={{
           // loop: true,
