@@ -14,7 +14,7 @@
 
   .subtitle,
   .name {
-    font-size: 0.93vw;
+    @apply text-[0.93vw];
   }
 
   .fly-item {
