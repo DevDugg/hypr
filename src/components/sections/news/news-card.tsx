@@ -12,6 +12,8 @@ interface IProps {
   text: string;
   className?: string;
   imgClassName?: string;
+  w: number;
+  h: number;
 }
 
 export const NewsCard = ({
@@ -20,28 +22,29 @@ export const NewsCard = ({
   text,
   className,
   imgClassName,
+  w,
+  h,
 }: IProps) => {
   return (
-    <div className={cn(className, "w-[20.83vw] h-auto")}>
+    <div className={cn(className, "")}>
       <Image
         src={img}
         alt="news image"
-        width={400}
-        height={480}
-        className={cn(imgClassName, "w-full h-[25vw]")}
+        width={w}
+        height={h}
+        className={cn(imgClassName, "")}
       />
       <MouseFollowerWrapper state="open">
-        <Link href={"/news/1"} className="flex justify-between items-center">
+        <Link
+          href={"/news/1"}
+          className="flex justify-between items-center size18"
+        >
           <div>
-            <div className="mt-[1.25vw] mb-[0.2vw] size18 monument">
-              {title}
-            </div>
-            <p className={cn("leading-[140%] size18", grotesk.className)}>
-              {text}
-            </p>
+            <div className="mt-[1.25vw] mb-[0.2vw]  monument">{title}</div>
+            <p className={cn("leading-[140%] ", grotesk.className)}>{text}</p>
           </div>
 
-          <ArrowUpRight className="size-[1.25vw] text-GRAY" />
+          <ArrowUpRight className=" text-GRAY size-[3vw]" />
         </Link>
       </MouseFollowerWrapper>
     </div>

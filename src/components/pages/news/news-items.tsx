@@ -10,10 +10,12 @@ const NewsItems = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-[1.25vw] gap-x-[0.9vw] mb-[2.4vw]">
         {newsData.map((item, i) => (
           <NewsCard
+            w={640}
+            h={680}
             key={i}
             {...item}
-            className="text-WHITE !w-full !h-[36.35vw] sm:h-[33.33vw] sm:!w-[30.67vw]"
-            imgClassName="w-full !h-[33.33vw]"
+            className="text-WHITE"
+            imgClassName=""
           />
         ))}
       </div>

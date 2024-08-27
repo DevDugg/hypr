@@ -13,8 +13,10 @@ const ContactsForm = () => {
 
   return (
     <Form {...form}>
-      <div className="flex items-start justify-between">
-        <SectionName className="flex-[1_1_40%]">(Contact form)</SectionName>
+      <div className="flex sm:flex-row flex-col items-start justify-between">
+        <SectionName className="sm:flex-[1_1_40%] sm:text-left text-center sm:mx-0 mx-auto mb-[2vw]">
+          (Contact form)
+        </SectionName>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex-[1_1_60%]">
           <div className="flex flex-col gap-[0.6vw]">
@@ -48,7 +50,10 @@ const ContactsForm = () => {
             />
 
             <div className="flex justify-end mt-[1.9vw]">
-              <Button type="submit" className={cn(grotesk.className, "font-bold w-[80%]")}>
+              <Button
+                type="submit"
+                className={cn(grotesk.className, "font-bold w-[80%]")}
+              >
                 Submit form
               </Button>
             </div>
