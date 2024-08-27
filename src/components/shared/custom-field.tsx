@@ -39,7 +39,7 @@ const CustomField = ({
       name={name}
       render={({ field }) => (
         <FormItem
-          className={cn(grotesk.className, "text-WHITE outline-ACCENT")}
+          className={cn(grotesk.className, "text-WHITE outline-ACCENT w-full")}
         >
           <div className="flex sm:flex-row flex-col items-start gap-[0.4vw] sm:gap-[4.9vw]">
             <FormLabel className="w-full sm:flex-[1_1_15%] size24">

@@ -13,7 +13,7 @@ const ContactsHero = () => {
 
         <p
           className={cn(
-            "text-WHITE sm:text-left text-center text-[26.25vw] sm:size40 sm:w-[50%] font-semibold mb-[4vw]",
+            "text-WHITE sm:text-left text-center text-[4.1vw] sm:size40 sm:w-[50%] font-semibold mb-[4vw]",
             grotesk.className
           )}
         >

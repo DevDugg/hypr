@@ -13,7 +13,7 @@ const ContactsForm = () => {
 
   return (
     <Form {...form}>
-      <div className="flex sm:flex-row flex-col items-start justify-between">
+      <div className="flex sm:flex-row flex-col sm:items-start justify-between">
         <SectionName className="sm:flex-[1_1_40%] sm:text-left text-center sm:mx-0 mx-auto mb-[2vw]">
           (Contact form)
         </SectionName>
