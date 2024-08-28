@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { CreatorsCard } from "./creators-card";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import { creatorsData } from "@/database/creators.data";
 import { grotesk } from "@/lib/fonts";
@@ -17,11 +17,7 @@ const CreatorsBlock = () => {
       </div>
 
       <Link href={"/creators"}>
-        <Button
-          className={cn(grotesk.className, "w-full mt-[1.66vw] sm:mt-[4.16vw]")}
-        >
-          See all creators
-        </Button>
+        <Button className={cn(grotesk.className, "w-full mt-[1.66vw] sm:mt-[4.16vw]")}>See all creators</Button>
       </Link>
     </>
   );

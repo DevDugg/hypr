@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import ProjectCard from "./project-card";
 import SectionLayout from "@/components/layout/section-layout";
 import { cn } from "@/lib/utils";
@@ -21,12 +21,7 @@ const Projects = () => {
             <ProjectCard {...item} key={i} />
           ))}
         </div>
-        <Button
-          className={cn(
-            "w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none",
-            grotesk.className
-          )}
-        >
+        <Button className={cn("w-full !py-[1vw] !px-[2.08vw] text-[1.25vw] h-auto leading-none", grotesk.className)}>
           <Link href={"/works"}>See all projects</Link>
         </Button>
       </div>

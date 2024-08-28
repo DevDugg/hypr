@@ -2,7 +2,7 @@
 
 import { Button } from "../ui/button";
 import Container from "../layout/container";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import MouseFollowerWrapper from "../animations/mouse-follower-wrapper";
 import NavLinkAnimated from "./header/nav-link-animated";
 import clsx from "clsx";
