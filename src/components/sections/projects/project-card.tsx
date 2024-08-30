@@ -10,7 +10,7 @@ interface IProps {
 
 const ProjectCard = ({ title, subtitle, img }: IProps) => {
   return (
-    <div>
+    <div className="sm:text-[1.25vw] mob16">
       <Image
         width={890}
         height={640}
@@ -19,16 +19,11 @@ const ProjectCard = ({ title, subtitle, img }: IProps) => {
         className="w-full sm:h-[33.33vw] sm:w-auto"
       />
 
-      <div className="mt-[0.83vw] mb-[0.416vw] text-[1.25vw] monument">
+      <div className="mt-[4.05vw] sm:mt-[0.83vw] mb-[2.02vw] sm:mb-[0.416vw]  monument">
         {title}
       </div>
 
-      <div
-        className={cn(
-          "text-[1.25vw] font-normal leading-[140%]",
-          grotesk.className
-        )}
-      >
+      <div className={cn("  font-normal leading-[140%]", grotesk.className)}>
         {subtitle}
       </div>
     </div>

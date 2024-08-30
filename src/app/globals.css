@@ -14,7 +14,7 @@
 
   .subtitle,
   .name {
-    @apply text-[0.93vw];
+    @apply text-[3.54vw] sm:text-[0.93vw];
   }
 
   .fly-item {
@@ -22,12 +22,16 @@
   }
 
   .about-btn {
-    @apply !text-[2.5vw] !p-[0.52vw] !w-fit;
+    @apply font-bold uppercase !text-[1.66vw] !p-[0.52vw];
   }
 
   .size18 {
     font-size: 0.9vw;
     font-weight: 500;
+  }
+
+  .h5 {
+    @apply text-[4.61vw] sm:text-[0.93vw];
   }
 
   .size24 {
@@ -39,7 +43,7 @@
   }
 
   .size48 {
-    font-size: 2.08vw;
+    font-size: 2.5vw;
   }
 
   .size64 {
@@ -69,6 +73,13 @@
   .size360 {
     font-size: 18.5vw;
     text-align: center;
+  }
+
+  .mob16 {
+    @apply text-[4.05vw];
+  }
+  .mob24 {
+    @apply text-[6.15vw];
   }
 }
 

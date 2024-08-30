@@ -40,11 +40,14 @@ const Word = ({
 }) => {
   const opacity = useTransform(progress, range, [0.15, 1]);
   return i === 0 ? (
-    <motion.span style={{ opacity }} className="size64 ml-[32vw] mr-[0.5px]">
+    <motion.span
+      style={{ opacity }}
+      className="sm:size64 mob24 ml-[32vw] mr-[0.5px]"
+    >
       {children}
     </motion.span>
   ) : (
-    <motion.span style={{ opacity }} className="size64 mr-[0.5px]">
+    <motion.span style={{ opacity }} className="sm:size64 mob24 mr-[0.5px]">
       {children}
     </motion.span>
   );

@@ -34,7 +34,7 @@ export const ServiceCardDesktop = ({ title, i, activeItem }: IProps) => {
         {title}
       </motion.h4>
       <motion.span
-        className="leading-none monument uppercase w-full size72 absolute top-0 text-center origin-bottom tracking-tight"
+        className="leading-none monument uppercase w-full text-[4.61vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
         initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
         animate={
           activeItem === i

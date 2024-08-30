@@ -7,15 +7,15 @@ import { cn } from "@/lib/utils";
 const NewsItems = () => {
   return (
     <section className="mb-[20vw]">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-[1.25vw] gap-x-[0.9vw] mb-[2.4vw]">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-[6.15vw] sm:gap-y-[1.25vw] sm:gap-x-[0.9vw] mb-[2.4vw]">
         {newsData.map((item, i) => (
           <NewsCard
             w={640}
             h={680}
             key={i}
             {...item}
-            className="text-WHITE"
-            imgClassName=""
+            className="text-WHITE w-[93vw] sm:w-[30.6vw]"
+            imgClassName="w-full h-[100.96vw] sm:h-[33.33vw]"
           />
         ))}
       </div>

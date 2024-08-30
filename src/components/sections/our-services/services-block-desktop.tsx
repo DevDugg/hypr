@@ -15,7 +15,7 @@ const ServicesBlockDesktop = () => {
 
   return (
     <motion.div
-      className="flex flex-col gap-[0.83vw] sm:gap-[2.08vw] pt-[0.416vw] sm:pt-[1.66vw] relative w-full cursor-default"
+      className="flex flex-col gap-[4.05vw] sm:gap-[2.08vw] pt-[0.416vw] sm:pt-[1.66vw] relative w-full cursor-default"
       ref={box}
       onMouseMove={(e) => handleMouseMove(e)}
       onMouseLeave={() => setActiveItem(null)}

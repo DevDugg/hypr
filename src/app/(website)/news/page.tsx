@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const News = () => {
   return (
-    <main className={cn("mt-[5.41vw]")}>
+    <main className={cn("")}>
       <Container>
         <NewsHero />
         <NewsItems />

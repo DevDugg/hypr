@@ -3,7 +3,7 @@ import Socials from "@/components/sections/socials";
 
 const Contacts = () => {
   return (
-    <main className="mt-[5.41vw]">
+    <main className="">
       <ContactsHero />
       <Socials className="mt-[10vw]" />
     </main>

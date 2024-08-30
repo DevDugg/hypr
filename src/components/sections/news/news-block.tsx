@@ -11,7 +11,7 @@ import { newsData } from "@/database/news.data";
 
 const NewsBlock = () => {
   return (
-    <div className="mt-[3.33vw] text-WHITE cursor-grab">
+    <div className="mt-[3.33vw]s text-WHITE cursor-grab">
       <Carousel
         opts={{
           // loop: true,
@@ -27,8 +27,8 @@ const NewsBlock = () => {
                 w={400}
                 h={480}
                 {...item}
-                className="w-[20.83vw] h-auto"
-                imgClassName="h-[25vw] w-auto"
+                className="w-[61.53vw] sm:w-[20.83vw] h-auto"
+                imgClassName="h-[73.84vw] sm:h-[25vw] w-auto"
               />
             </CarouselItem>
           ))}

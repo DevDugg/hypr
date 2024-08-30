@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section>
       <Container className="relative">
-        <SectionName className="absolute top-[2.08vw] left-0">
+        <SectionName className="absolute top-[3.07vw] sm:top-[2.08vw] left-0">
           (about)
         </SectionName>
         <div

@@ -1,11 +1,11 @@
-import AboutDescription from '@/components/pages/about/about-description';
-import AboutGallery from '@/components/pages/about/about-gallery';
-import AboutHero from '@/components/pages/about/about-hero';
-import AboutTeam from '@/components/pages/about/about-team';
+import AboutDescription from "@/components/pages/about/about-description";
+import AboutGallery from "@/components/pages/about/about-gallery";
+import AboutHero from "@/components/pages/about/about-hero";
+import AboutTeam from "@/components/pages/about/about-team";
 
 const About = () => {
   return (
-    <main>
+    <main className="lg:mt-0 mt-[20vw]">
       <AboutHero />
 
       <AboutDescription />

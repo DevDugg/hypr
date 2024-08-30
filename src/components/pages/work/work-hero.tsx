@@ -1,14 +1,50 @@
 import SectionTitle from "@/components/titles/section-title";
 import WorkCard from "./work-card";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
 
 const WorkHero = () => {
   return (
     <section>
-      <h1 className="size360 text-ACCENT mb-[10vw]">our work</h1>
+      <h1 className="text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT sm:mb-[10vw] uppercase font-bold">
+        our work
+      </h1>
 
-      <div className="flex gap-[1.25vw] mb-[10.41vw]">
+      {/* MOBILE */}
+      <div className="sm:hidden text-WHITE mb-[25.62vw]">
+        <SectionTitle className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]">
+          Never Miss A Bit/
+        </SectionTitle>
+        <div className="flex flex-col gap-[6.15vw]">
+          {[...Array(4)].map((item) => (
+            <div>
+              <Image
+                src={"/images/projects/1.png"}
+                alt=""
+                width={595}
+                height={423}
+                className="mb-[4.1vw] w-[93vw] h-[66.1vw]"
+              />
+              <h5 className="uppercase font-bold text-[4.61vw] mb-[2.05vw]">
+                project name
+              </h5>
+              <p
+                className={cn("leading-[140%] text-[4.1vw]", grotesk.className)}
+              >
+                Short description of this project goes here
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DESKTOP */}
+      <div className="hidden sm:flex gap-[1.25vw] mb-[10.41vw]">
         <div className="flex flex-col flex-[1_1_30.41vw]">
-          <SectionTitle className="mb-[25.78vw]">never miss a bit/</SectionTitle>
+          <SectionTitle className="mb-[25.78vw]">
+            never miss a bit/
+          </SectionTitle>
 
           <WorkCard
             img={"/images/work/3.png"}
