@@ -42,7 +42,7 @@ const Word = ({
   return i === 0 ? (
     <motion.span
       style={{ opacity }}
-      className="sm:size64 mob24 ml-[32vw] mr-[0.5px]"
+      className="sm:size64 mob24 ml-[45vw] sm:ml-[32vw] mr-[0.5px]"
     >
       {children}
     </motion.span>

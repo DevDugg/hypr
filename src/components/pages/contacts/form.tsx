@@ -14,12 +14,12 @@ const ContactsForm = () => {
   return (
     <Form {...form}>
       <div className="flex sm:flex-row flex-col sm:items-start justify-between">
-        <SectionName className="sm:flex-[1_1_40%] sm:text-left text-center sm:mx-0 mx-auto mb-[2vw]">
+        <SectionName className="sm:flex-[1_1_40%] sm:text-left text-center sm:mx-0 mx-auto mb-[10.25vw] sm:mb-[2vw]">
           (Contact form)
         </SectionName>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex-[1_1_60%]">
-          <div className="flex flex-col gap-[0.6vw]">
+          <div className="flex flex-col gap-[4.05vw] sm:gap-[0.8vw]">
             <CustomField
               control={form.control}
               label="Full Name"
@@ -49,13 +49,16 @@ const ContactsForm = () => {
               placeholder={"Start typing here..."}
             />
 
-            <div className="flex justify-end mt-[1.9vw]">
-              <Button
+            <div className="flex mt-[6.15vw] sm:mt-[1.9vw] w-full justify-end sm:mb-0 mb-[25.62vw]">
+              <button
                 type="submit"
-                className={cn(grotesk.className, "font-bold w-[80%]")}
+                className={cn(
+                  grotesk.className,
+                  "font-bold  mx-0 py-[5.12vw] w-full text-[4.61vw] sm:size24 sm:w-[44.63vw] bg-ACCENT sm:py-[1.04vw] rounded-[51.25vw] sm:rounded-[10.41vw]"
+                )}
               >
                 Submit form
-              </Button>
+              </button>
             </div>
           </div>
         </form>

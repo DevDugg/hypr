@@ -42,7 +42,7 @@ const CustomField = ({
           className={cn(grotesk.className, "text-WHITE outline-ACCENT w-full")}
         >
           <div className="flex sm:flex-row flex-col items-start gap-[0.4vw] sm:gap-[4.9vw]">
-            <FormLabel className="w-full sm:flex-[1_1_15%] size24">
+            <FormLabel className="w-full sm:flex-[1_1_15%] text-[4.61vw] sm:size24 sm:mb-0 mb-[2.02vw]">
               {label}
             </FormLabel>
             <div className="w-full">
@@ -67,7 +67,7 @@ const CustomField = ({
                 animate={error ? { height: "fit-content" } : {}}
                 transition={{ duration: 0.3 }}
               >
-                <FormMessage className="mt-[0.4vw] size18">
+                <FormMessage className="mt-[2vw] sm:mt-[0.4vw] text-[4.05vw] sm:size18">
                   {error?.message}
                 </FormMessage>
               </motion.div>

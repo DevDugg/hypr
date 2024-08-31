@@ -13,15 +13,21 @@ interface IProps {
 
 export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
   return (
-    <div className="w-full">
-      <Image src={img} alt="news image" width={240} height={288} />
+    <div className="w-[51.25vw] sm:w-[17.7vw]">
+      <Image
+        src={img}
+        alt="news image"
+        width={342}
+        height={480}
+        className="w-full h-[66.62vw] sm:h-[25vw]"
+      />
 
-      <div className="mt-[1.66vw] mb-[1.25vw] text-[0.9375vw] monument">
+      <div className="mt-[4.05vw] sm:mt-[1.66vw] mb-[4.05vw] sm:mb-[1.25vw] text-[4.05vw] sm:text-[0.9375vw] monument">
         {title}
       </div>
       <p
         className={cn(
-          "leading-[140%] text-[0.83vw] mb-[0.416vw] font-normal",
+          "leading-[140%] text-[4.05vw] sm:text-[0.83vw] mb-[1.02vw] sm:mb-[0.416vw] font-normal",
           grotesk.className
         )}
       >
@@ -30,7 +36,7 @@ export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
 
       <div
         className={cn(
-          "flex flex-col text-[0.83vw] gap-[0.41vw] leading-[140%]",
+          "flex flex-col text-[4.05vw] sm:text-[0.83vw] gap-[1.02vw] sm:gap-[0.41vw] leading-[140%]",
           grotesk.className
         )}
       >

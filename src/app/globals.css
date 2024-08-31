@@ -31,11 +31,11 @@
   }
 
   .h5 {
-    @apply text-[4.61vw] sm:text-[0.93vw];
+    @apply text-[4.05vw] sm:text-[0.93vw];
   }
 
   .size24 {
-    font-size: 0.93vw;
+    font-size: 1.25vw;
   }
 
   .size40 {

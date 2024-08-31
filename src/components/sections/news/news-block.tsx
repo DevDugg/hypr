@@ -11,7 +11,7 @@ import { newsData } from "@/database/news.data";
 
 const NewsBlock = () => {
   return (
-    <div className="mt-[3.33vw]s text-WHITE cursor-grab">
+    <div className="text-WHITE cursor-grab">
       <Carousel
         opts={{
           // loop: true,
@@ -22,7 +22,10 @@ const NewsBlock = () => {
       >
         <CarouselContent className="ml-[4px] md:-ml[22px] lg:ml-[50px]">
           {newsData.map((item, i) => (
-            <CarouselItem key={i} className="pl-[10px] basis-[4.5]">
+            <CarouselItem
+              key={i}
+              className="pl-[2.56vw] sm:pl-[0.52vw] basis-[4.5]"
+            >
               <NewsCard
                 w={400}
                 h={480}

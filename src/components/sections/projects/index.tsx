@@ -16,7 +16,7 @@ const Projects = () => {
       className="text-WHITE"
     >
       <div className="flex flex-col gap-[8.1vw] sm:gap-[1.66vw]">
-        <div className="grid grid-cols-1 gap-[8.1vw] sm:gap-x-[0.83vw] sm:gap-y-[1vw] sm:grid-cols-2 mt-[3.33vw]">
+        <div className="grid grid-cols-1 gap-[8.1vw] sm:gap-x-[0.83vw] sm:gap-y-[1vw] sm:grid-cols-2">
           {projectsData.map((item, i) => (
             <ProjectCard {...item} key={i} />
           ))}

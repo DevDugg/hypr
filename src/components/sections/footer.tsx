@@ -13,15 +13,17 @@ export const Footer = () => {
   const date = new Date();
   const { handleOnClick } = useScrollToTarget("#hero");
   return (
-    <footer className="text-WHITE bg-BLACK pt-[5vw] pb-[2.5vw] relative z-10">
-      <Container className="flex flex-col gap-[10vw]">
-        <div className={cn("flex gap-[24.27vw]", grotesk.className)}>
+    <footer className="text-WHITE sm:bg-BLACK pt-[5vw] pb-[2.5vw] relative z-10 sm:mt-0 ">
+      <Container className="flex flex-col gap-[20.05vw] sm:gap-[10vw]">
+        <div className={cn("flex gap-[30.27vw]", grotesk.className)}>
           <div>
-            <p className="mb-[2vw] font-bold size24">(Sitemap)</p>
+            <p className="mb-[6.15vw] sm:mb-[2vw] font-medium text-[4.05vw] sm:size24">
+              (Sitemap)
+            </p>
 
-            <div className="flex size24 flex-col gap-[1.25vw] font-bold">
+            <div className="flex text-[4.61vw] sm:size24 flex-col gap-[4.05vw] sm:gap-[1.25vw] font-bold">
               {footerList.map((item, i) => (
-                <Link key={i} href={item.link} className="size40">
+                <Link key={i} href={item.link} className="">
                   {item.name}
                 </Link>
               ))}
@@ -29,11 +31,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <p className="mb-[2vw] font-bold size24">(Socials)</p>
+            <p className="mb-[6.15vw] sm:mb-[2vw] font-medium text-[4.05vw] sm:size24">
+              (Socials)
+            </p>
 
-            <div className="flex size24 flex-col gap-[1.25vw] font-bold">
+            <div className="flex text-[4.61vw] sm:size24 flex-col gap-[4.05vw] sm:gap-[1.25vw] font-bold">
               {footerList2.map((item, i) => (
-                <Link key={i} href={item.link} className="size40">
+                <Link key={i} href={item.link} className="">
                   {item.name}
                 </Link>
               ))}
@@ -42,20 +46,28 @@ export const Footer = () => {
         </div>
 
         <div className="flex sm:flex-row flex-col justify-between items-start sm:items-end gap-[5vw]">
-          <p className="monument text-[12.63vw] leading-none">HYPR</p>
+          <p className="monument text-[23.06vw] sm:flex-[0_0_46.87vw] sm:text-[11.63vw] leading-none">
+            HYPR
+          </p>
 
-          <div className="flex justify-between sm:justify-end gap-[26vw] sm:flex-[1_0_34.58vw]">
+          <div className="flex sm:flex-[0_0_34.58vw] w-full justify-between">
             <div
               onClick={handleOnClick}
               className={cn(
-                "flex items-center flex-[0_1_auto] cursor-pointer font-bold size24 justify-center gap-[0.2vw]",
-                grotesk.className,
+                "flex items-center  cursor-pointer sm:font-bold font-medium text-[3.58vw] sm:size24 justify-center gap-[0.2vw]",
+                grotesk.className
               )}
             >
-              Back to top <ArrowUpIcon className="-mb-[0.2vw] size-[1.25vw]" />
+              Back to top{" "}
+              <ArrowUpIcon className="-mb-[0.2vw] text-[3.58vw] sm:size-[1.25vw]" />
             </div>
 
-            <div className={cn(grotesk.className, "font-bold size24 flex-[0_1_auto]")}>
+            <div
+              className={cn(
+                grotesk.className,
+                " text-[3.58vw] sm:size24 sm:font-bold font-medium"
+              )}
+            >
               Copyright © HYPR {date.getFullYear()}
             </div>
           </div>

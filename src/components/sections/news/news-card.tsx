@@ -41,10 +41,14 @@ export const NewsCard = ({
         >
           <div className="">
             <div className="h5 mb-[2.05vw] sm:mb-[0.2vw] monument">{title}</div>
-            <p className={cn("leading-[140%] h5", grotesk.className)}>{text}</p>
+            <p
+              className={cn("leading-[140%] h5 font-normal", grotesk.className)}
+            >
+              {text}
+            </p>
           </div>
 
-          <ArrowUpRight className="text-GRAY size-[10vw] sm:size-[2vw]" />
+          <ArrowUpRight className="text-GRAY hidden sm:block size-[10vw] sm:size-[2vw]" />
         </Link>
       </MouseFollowerWrapper>
     </div>
