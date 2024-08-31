@@ -11,7 +11,7 @@ const SectionTitle = ({
     <h3
       className={cn(
         className,
-        "size48 text-WHITE leading-none uppercase monument"
+        "text-[4.55vw] sm:size48 text-WHITE leading-none font-bold uppercase monument"
       )}
     >
       {children}

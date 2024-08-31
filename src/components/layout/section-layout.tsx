@@ -22,15 +22,17 @@ const SectionLayout = ({
   nameTitleClassName?: string;
 }) => {
   return (
-    <section id={id}>
+    <section id={id} className=" ">
       <Container className={className}>
-        <div className="flex sm:hidden flex-col gap-[0.8vw]">
-          {name && <SectionName>{name}</SectionName>}
-          {title && <SectionTitle>{title}</SectionTitle>}
+        <div className="sm:hidden mb-[8.1vw]">
+          {name && <SectionName className="mb-[4.05vw]">{name}</SectionName>}
+          {title && (
+            <SectionTitle className="mb-[2.02vw]">{title}</SectionTitle>
+          )}
           {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
         </div>
 
-        <div className="hidden sm:flex items-end justify-between gap-[2.08vw]">
+        <div className="hidden mb-[3.33vw] sm:flex items-end justify-between gap-[2.08vw]">
           {title && (
             <SectionTitle className={nameTitleClassName}>{title}</SectionTitle>
           )}

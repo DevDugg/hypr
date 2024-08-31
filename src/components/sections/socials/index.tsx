@@ -8,7 +8,7 @@ import { socialsData } from "@/database/socials.data";
 
 const Socials = ({ className }: { className?: string }) => {
   return (
-    <section className={cn("h-[33vw] relative", className)}>
+    <section className={cn("h-[33vw] relative sm:block hidden", className)}>
       {socialsData.map((item, i) => (
         <motion.a
           key={i}
@@ -25,7 +25,7 @@ const Socials = ({ className }: { className?: string }) => {
               "bg-OFF_WHITE bottom-[13vw] hover:bottom-[15vw]": i === 0,
               "bg-[#87ADF9] bottom-[5vw] hover:bottom-[8vw]": i === 1,
               "bg-SECONDARY -bottom-[3vw]": i === 2,
-            },
+            }
           )}
         >
           <Container>
