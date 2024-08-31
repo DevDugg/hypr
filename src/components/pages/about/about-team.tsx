@@ -1,45 +1,46 @@
-'use client';
+"use client";
 
-import 'swiper/css';
+import "swiper/css";
 
-import SectionTitle from '@/components/titles/section-title';
-import { grotesk } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Container from '@/components/layout/container';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import Container from "@/components/layout/container";
+import Image from "next/image";
+import React from "react";
+import SectionTitle from "@/components/titles/section-title";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
 
 const teamData = [
   {
-    img: '/images/about/team/1.png',
-    name: 'Nick Bobir',
-    special: 'Product manager',
+    img: "/images/about/team/1.png",
+    name: "Nick Bobir",
+    special: "Product manager",
   },
   {
-    img: '/images/about/team/1.png',
-    name: 'Nick Bobir',
-    special: 'Product manager',
+    img: "/images/about/team/1.png",
+    name: "Nick Bobir",
+    special: "Product manager",
   },
   {
-    img: '/images/about/team/1.png',
-    name: 'Nick Bobir',
-    special: 'Product manager',
+    img: "/images/about/team/1.png",
+    name: "Nick Bobir",
+    special: "Product manager",
   },
   {
-    img: '/images/about/team/1.png',
-    name: 'Nick Bobir',
-    special: 'Product manager',
+    img: "/images/about/team/1.png",
+    name: "Nick Bobir",
+    special: "Product manager",
   },
   {
-    img: '/images/about/team/1.png',
-    name: 'Nick Bobir',
-    special: 'Product manager',
+    img: "/images/about/team/1.png",
+    name: "Nick Bobir",
+    special: "Product manager",
   },
   {
-    img: '/images/about/team/1.png',
-    name: 'Nick Bobir',
-    special: 'Product manager',
+    img: "/images/about/team/1.png",
+    name: "Nick Bobir",
+    special: "Product manager",
   },
 ];
 
@@ -48,7 +49,7 @@ const AboutTeam = () => {
     <section className="my-[13.02vw]">
       <Container>
         <SectionTitle className="mb-[4.16vw]">meet out team/</SectionTitle>
-        <Swiper slidesPerView={3} spaceBetween={'1.25vw'}>
+        <Swiper slidesPerView={3} spaceBetween={"1.25vw"}>
           {teamData.map((item, i) => (
             <SwiperSlide key={i} className="text-[1.25vw] text-WHITE w-[30.41vw]">
               <Image
@@ -60,7 +61,7 @@ const AboutTeam = () => {
               />
 
               <h5>{item.name}</h5>
-              <p className={cn('mt-[0.41vw]', grotesk.className)}>{item.special}</p>
+              <p className={cn("mt-[0.41vw]", grotesk.className)}>{item.special}</p>
             </SwiperSlide>
           ))}
         </Swiper>

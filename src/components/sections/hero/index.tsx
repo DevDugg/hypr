@@ -1,3 +1,4 @@
+import AnimatedTitle from "@/components/animations/animated-title";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/layout/container";
 import Image from "next/image";
@@ -35,12 +36,7 @@ export const Hero = () => {
         <div className="uppercase text-WHITE w-full leading-none mb-[0.83vw] text-center size72 monument">
           strategic, results-oriented influencer collaborations
         </div>
-        <Button
-          className={cn(
-            "w-full !py-[1vw] !h-fit !px-[2.08vw] text-[1.25vw] leading-none",
-            grotesk.className
-          )}
-        >
+        <Button className={cn("w-full !py-[1vw] !h-fit !px-[2.08vw] text-[1.25vw] leading-none", grotesk.className)}>
           Contact us
         </Button>
       </Container>

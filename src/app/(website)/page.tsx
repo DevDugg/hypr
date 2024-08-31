@@ -1,4 +1,5 @@
 import About from "@/components/sections/about";
+import AnimatedTitle from "@/components/animations/animated-title";
 import Creators from "@/components/sections/creators";
 import { Hero } from "@/components/sections/hero";
 import Need from "@/components/sections/need";
