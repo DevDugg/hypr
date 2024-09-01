@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const AboutGallery = () => {
   return (
-    <section className="mb-[13.02vw]">
+    <section className="mb-[25.62vw] sm:mb-[13.02vw]">
       <Container>
         <div className="relative text-WHITE">
           <Image
@@ -14,11 +14,11 @@ const AboutGallery = () => {
             alt="image"
             width={211}
             height={316}
-            className="w-[10.98vw] h-[16.45vw] absolute top-0 left-0"
+            className="w-[10.98vw] sm:absolute h-[16.45vw] hidden top-0 left-0"
           />
 
-          <div className="w-[43.07vw] mx-auto mb-[4.16vw]">
-            <h2 className="text-center leading-none mb-[2vw] uppercase font-bold text-[5.20vw]">
+          <div className="sm:w-[43.07vw] mx-auto mb-[10.25vw] sm:mb-[4.16vw]">
+            <h2 className="text-center leading-none mb-[6.15vw] sm:mb-[2vw] uppercase font-bold text-[10.27vw] sm:text-[5.20vw]">
               no need to be shy.
             </h2>
             <Button className={cn(grotesk.className, "w-full")}>
@@ -31,7 +31,7 @@ const AboutGallery = () => {
             alt="image"
             width={211}
             height={316}
-            className="w-[10.98vw] h-[16.45vw] absolute top-0 right-0"
+            className="w-[10.98vw] hidden h-[16.45vw] sm:absolute top-0 right-0"
           />
         </div>
 

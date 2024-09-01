@@ -4,6 +4,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const keys = [
   { title: "key visual 1", img: "/images/case/1.png" },
@@ -30,11 +31,11 @@ const infoData = [
   },
 ];
 
-const CaseBlock = () => {
+const CaseBlock = ({ className }: { className: string }) => {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="flex">
+    <div className={cn(className)}>
       <div className="flex flex-col flex-[1_0_11.66vw] gap-[0.83vw] mr-[0.83vw]">
         {keys.map((item, i) => (
           <div key={i} className="flex items-center">

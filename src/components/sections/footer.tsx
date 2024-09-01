@@ -46,7 +46,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex sm:flex-row flex-col justify-between items-start sm:items-end gap-[5vw]">
-          <p className="monument text-[23.06vw] sm:flex-[0_0_46.87vw] sm:text-[11.63vw] leading-none">
+          <p className="monument text-[24.5vw] sm:flex-[0_0_46.87vw] sm:text-[11.63vw] leading-none">
             HYPR
           </p>
 

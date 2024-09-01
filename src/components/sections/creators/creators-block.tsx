@@ -24,7 +24,7 @@ const CreatorsBlock = () => {
       <Carousel className="sm:hidden">
         <CarouselContent>
           {creatorsData.map((item, i) => (
-            <CarouselItem className="basis-[1/2]">
+            <CarouselItem key={i} className="basis-[1/2]">
               <CreatorsCard {...item} key={i} />
             </CarouselItem>
           ))}

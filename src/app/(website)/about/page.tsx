@@ -5,7 +5,7 @@ import AboutTeam from "@/components/pages/about/about-team";
 
 const About = () => {
   return (
-    <main className="lg:mt-0 mt-[20vw]">
+    <main>
       <AboutHero />
 
       <AboutDescription />

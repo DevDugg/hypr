@@ -13,7 +13,7 @@ interface IProps {
 
 export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
   return (
-    <div className="w-[51.25vw] sm:w-[17.7vw]">
+    <div className="w-[51.25vw] sm:w-1/4">
       <Image
         src={img}
         alt="news image"

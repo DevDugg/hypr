@@ -7,7 +7,7 @@ import { grotesk } from "@/lib/fonts";
 const WorkHero = () => {
   return (
     <section>
-      <h1 className="text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT sm:mb-[10vw] uppercase font-bold">
+      <h1 className="text-[10.25vw] text-center sm:text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT sm:mb-[10vw] uppercase font-bold">
         our work
       </h1>
 
@@ -17,8 +17,8 @@ const WorkHero = () => {
           Never Miss A Bit/
         </SectionTitle>
         <div className="flex flex-col gap-[6.15vw]">
-          {[...Array(4)].map((item) => (
-            <div>
+          {[...Array(4)].map((_, i) => (
+            <div key={i}>
               <Image
                 src={"/images/projects/1.png"}
                 alt=""

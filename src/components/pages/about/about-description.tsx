@@ -17,15 +17,15 @@ const AboutDescription = () => {
   return (
     <section className={"bg-ACCENT"}>
       <Container>
-        <div className="relative py-[5.20vw]">
-          <SectionName className="absolute top-[7.70vw] !text-[0.93vw] !text-WHITE left-0">
+        <div className="relative py-[10.25vw] sm:py-[5.20vw]">
+          <SectionName className="sm:absolute sm:top-[7.70vw] mb-[4.05vw] sm:mb-0 !text-[3.58vw] sm:!text-[0.93vw] !text-WHITE left-0">
             (about)
           </SectionName>
 
           <p
             className={cn(
               grotesk.className,
-              "first-letter:ml-[31.77vw] size64 font-semibold"
+              "sm:first-letter:ml-[31.77vw] text-[6.15vw] sm:size64 font-semibold"
             )}
           >
             HYPR agency is a branding and digital marketing studio from
@@ -36,8 +36,8 @@ const AboutDescription = () => {
           </p>
         </div>
 
-        <div className="h-[53.33vw] w-full relative">
-          <h2 className="absolute text-[10.41vw] bottom-[13vw] text-center left-1/2 -translate-x-1/2">
+        <div className="h-screen w-full relative">
+          <h2 className="absolute text-[10.25vw] sm:text-[10.41vw] uppercase font-bold top-1/2 -translate-y-1/2 text-center left-1/2 -translate-x-1/2">
             our features
           </h2>
 
