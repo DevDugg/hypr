@@ -12,7 +12,7 @@ interface IAnimationContext {
 export const AnimationContext = createContext<IAnimationContext>({} as IAnimationContext);
 
 const AnimationContextProvider = ({ children }: PropsWithChildren) => {
-  const [followerState, setFollowerState] = useState<FollowerState>("default");
+  const [followerState, setFollowerState] = useState<FollowerState>("disabled");
 
   const memo = useMemo(() => ({ followerState, setFollowerState }), [followerState, setFollowerState]);
 

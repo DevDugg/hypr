@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Container from "@/components/layout/container";
+import CustomButton from "@/components/shared/custom-button";
 import FlyingBlock from "./flying-block";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -18,10 +19,7 @@ const Need = () => {
   return (
     <section id="need" className="text-WHITE mb-[38.43vw]">
       <Container className="px-[5.23vw]">
-        <div
-          ref={container}
-          className="h-[102vw] sm:h-[62.19vw] flex flex-col justify-center relative"
-        >
+        <div ref={container} className="h-[102vw] sm:h-[62.19vw] flex flex-col justify-center relative">
           {/* <FlyingBlock scrollProgress={scrollYProgress} container={container}> */}
           <Image
             src={"/images/need/1.png"}
@@ -69,14 +67,15 @@ const Need = () => {
           <h1 className="text-center mx-auto leading-none text-[11.27vw] sm:size100 monument">
             no need <br /> to be shy.
           </h1>
-          <Button
+
+          <CustomButton
             className={cn(
               grotesk.className,
-              "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center"
+              "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center",
             )}
           >
             Contact us
-          </Button>
+          </CustomButton>
         </div>
       </Container>
     </section>

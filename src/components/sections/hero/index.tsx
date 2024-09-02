@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/layout/container";
+import CustomButton from "@/components/shared/custom-button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
@@ -35,14 +36,16 @@ export const Hero = () => {
         <div className="uppercase text-WHITE w-full leading-none mb-[2.56vw] sm:mb-[0.83vw] text-center text-[4vw] sm:size72 monument">
           strategic, results-oriented influencer collaborations
         </div>
-        <Button
-          className={cn(
-            "w-full sm:!py-[1vw] !px-[2.08vw] text-[4.05vw] !py-[2.56vw] sm:text-[1.25vw] leading-none",
-            grotesk.className,
-          )}
-        >
-          Contact us
-        </Button>
+        <CustomButton fullWidth>
+          <div
+            className={cn(
+              "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
+              grotesk.className,
+            )}
+          >
+            Contact us
+          </div>
+        </CustomButton>
       </Container>
     </section>
   );

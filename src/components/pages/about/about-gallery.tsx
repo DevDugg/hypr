@@ -1,7 +1,5 @@
 import Container from "@/components/layout/container";
-import { Button } from "@/components/ui/button";
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+import CustomButton from "@/components/shared/custom-button";
 import Image from "next/image";
 
 const AboutGallery = () => {
@@ -21,9 +19,7 @@ const AboutGallery = () => {
             <h2 className="text-center leading-none mb-[6.15vw] sm:mb-[2vw] uppercase font-bold text-[10.27vw] sm:text-[5.20vw]">
               no need to be shy.
             </h2>
-            <Button className={cn(grotesk.className, "w-full")}>
-              Contact us
-            </Button>
+            <CustomButton>Contact us</CustomButton>
           </div>
 
           <Image
