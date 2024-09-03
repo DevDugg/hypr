@@ -1,8 +1,8 @@
+import AboutCard from "./about-card";
 import Container from "@/components/layout/container";
 import SectionName from "@/components/titles/section-name";
-import { grotesk } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import AboutCard from "./about-card";
+import { grotesk } from "@/lib/fonts";
 
 const cardsData = [
   {
@@ -22,17 +22,10 @@ const AboutDescription = () => {
             (about)
           </SectionName>
 
-          <p
-            className={cn(
-              grotesk.className,
-              "sm:first-letter:ml-[31.77vw] text-[6.15vw] sm:size64 font-semibold"
-            )}
-          >
-            HYPR agency is a branding and digital marketing studio from
-            Australia. Partnering with companies that need to transform their
-            brand, attract the right audience, and radically stand out. We’re a
-            nimble team of designers and creative developers, focused on
-            creating uniquely human and culturally informed. Read more
+          <p className={cn(grotesk.className, "sm:first-letter:ml-[31.77vw] text-[6.15vw] sm:size64 font-semibold")}>
+            HYPR agency is a branding and digital marketing studio from Australia. Partnering with companies that need
+            to transform their brand, attract the right audience, and radically stand out. We’re a nimble team of
+            designers and creative developers, focused on creating uniquely human and culturally informed. Read more
           </p>
         </div>
 
@@ -43,7 +36,7 @@ const AboutDescription = () => {
 
           <div className="relative z-[5] flex top-1/2 -translate-y-1/2 justify-center">
             {cardsData.map((item, i) => (
-              <AboutCard {...item} />
+              <AboutCard {...item} key={i} />
             ))}
           </div>
         </div>

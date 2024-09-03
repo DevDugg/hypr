@@ -1,12 +1,14 @@
 "use client";
 
-import Container from "@/components/layout/container";
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import clsx from "clsx";
-import { ArrowUpRight } from "lucide-react";
 import React, { useState } from "react";
+
+import { ArrowUpRight } from "lucide-react";
 import CaseTitle from "./case-title";
+import Container from "@/components/layout/container";
+import Image from "next/image";
+import clsx from "clsx";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
 
 const videoNames = [
   {
@@ -35,11 +37,7 @@ const CaseVideos = () => {
         <div className="flex gap-[0.83vw] items-center">
           <div className="flex-[0_0_11.66vw] -translate-y-[10vw] text-[0.93vw] text-WHITE font-semibold">
             <span className="">01/</span>
-            <span className="text-GRAY">
-              {videoNames.length >= 10
-                ? videoNames.length
-                : "0" + videoNames.length}
-            </span>
+            <span className="text-GRAY">{videoNames.length >= 10 ? videoNames.length : "0" + videoNames.length}</span>
           </div>
 
           <div className="flex flex-col flex-[0_1_84.97vw]">
@@ -52,7 +50,7 @@ const CaseVideos = () => {
 
             <div className="flex gap-[0.83vw] relative">
               <div className="w-[59.58vw] h-full">
-                <img src="/images/case/case-pattern.png" alt="" />
+                <Image src="/images/case/case-pattern.png" alt="pattern" width={1920} height={1080} />
               </div>
 
               <div className="border border-GRAY rounded-md flex-[1_1_20.83vw] h-fit">
@@ -65,7 +63,7 @@ const CaseVideos = () => {
                       {
                         "border-b border-GRAY": i + 1 !== videoNames.length,
                         "!text-BLACK bg-ACCENT !border-opacity-0": active === i,
-                      }
+                      },
                     )}
                   >
                     {name}
@@ -75,9 +73,7 @@ const CaseVideos = () => {
             </div>
 
             <div className="flex justify-between w-[59.58vw] mt-[0.83vw]">
-              <div className="uppercase font-medium text-[0.93vw] leading-[140%]">
-                {videoNames[active].name}
-              </div>
+              <div className="uppercase font-medium text-[0.93vw] leading-[140%]">{videoNames[active].name}</div>
               <div className="text-[0.93vw] leading-[140%]">[01.30]</div>
             </div>
           </div>
