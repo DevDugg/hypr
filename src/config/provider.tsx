@@ -4,7 +4,6 @@ import AnimationContextProvider from "@/context/animation-context";
 import CheckConfig from "./check-config";
 import { MotionConfig } from "framer-motion";
 import { PropsWithChildren } from "react";
-import ScrollProgress from "@/components/ui/scroll-progress";
 import SmoothScroll from "@/components/animations/smooth-scroll";
 import { ViewTransitions } from "next-view-transitions";
 import { defaultTransition } from "./transitions";
