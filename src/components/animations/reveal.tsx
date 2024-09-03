@@ -50,7 +50,7 @@ const Reveal = ({
           background: blockColor,
         }}
         variants={variants[type]}
-        className="absolute size-full left-0 top-0 z-10"
+        className="absolute size-full left-0 top-0 z-10 pointer-events-none"
         initial={"initial"}
         animate={shouldAnimate ? "animate" : "initial"}
         transition={{ duration, delay }}
