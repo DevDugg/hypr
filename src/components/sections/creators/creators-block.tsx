@@ -1,16 +1,14 @@
 "use client";
 
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
 import { Button } from "@/components/ui/button";
 import { CreatorsCard } from "./creators-card";
+import CustomButton from "@/components/shared/custom-button";
 import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import { creatorsData } from "@/database/creators.data";
 import { grotesk } from "@/lib/fonts";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 const CreatorsBlock = () => {
   return (
@@ -32,11 +30,9 @@ const CreatorsBlock = () => {
       </Carousel>
 
       <Link href={"/creators"}>
-        <Button
-          className={cn(grotesk.className, "w-full mt-[8.1vw] sm:mt-[2.08vw]")}
-        >
+        <CustomButton className={cn(grotesk.className, "w-full mt-[8.1vw] sm:mt-[2.08vw]")}>
           See all creators
-        </Button>
+        </CustomButton>
       </Link>
     </>
   );

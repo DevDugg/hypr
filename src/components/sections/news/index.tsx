@@ -1,6 +1,9 @@
+import CustomButton from "@/components/shared/custom-button";
 import MouseFollowerWrapper from "@/components/animations/mouse-follower-wrapper";
 import NewsBlock from "./news-block";
 import SectionLayout from "@/components/layout/section-layout";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
 
 const News = () => {
   return (
@@ -15,6 +18,7 @@ const News = () => {
         <MouseFollowerWrapper state="drag">
           <NewsBlock />
         </MouseFollowerWrapper>
+        <CustomButton className={cn(grotesk.className, "w-full mt-[8.1vw] sm:mt-[2.08vw]")}>See all news</CustomButton>
       </SectionLayout>
     </div>
   );
