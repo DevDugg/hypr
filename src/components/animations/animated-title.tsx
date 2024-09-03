@@ -10,6 +10,7 @@ interface AnimatedTitleProps {
   className?: string;
   children: string;
   element?: `h1` | `h2` | `h3` | `h4` | `h5` | `h6`;
+  delay?: number;
 }
 
 const variants: Variants = {
@@ -19,7 +20,7 @@ const variants: Variants = {
   visibleChar: { y: "0%" },
 };
 
-const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitleProps) => {
+const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: AnimatedTitleProps) => {
   const characters = children.split("");
 
   const [ref, inView] = useInView({
@@ -33,7 +34,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h1
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -45,7 +50,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h1>
       );
@@ -53,7 +58,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h2
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -65,7 +74,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h2>
       );
@@ -73,7 +82,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h3
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -85,7 +98,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h3>
       );
@@ -93,7 +106,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h4
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -105,7 +122,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h4>
       );
@@ -113,7 +130,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h5
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -125,7 +146,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h5>
       );
@@ -133,7 +154,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h6
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -145,7 +170,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h6>
       );
@@ -153,7 +178,11 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
       return (
         <motion.h3
           ref={ref}
-          className={cn(className, "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative")}
+          className={cn(
+            "animated-title",
+            "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
+            className,
+          )}
         >
           {characters.map((char, i) => (
             <AnimatedCharacter key={i} inView={inView} delay={0.05 * i}>
@@ -165,7 +194,7 @@ const AnimatedTitle = ({ children, className, element = "h3" }: AnimatedTitlePro
             variants={variants}
             initial="hiddenBlock"
             animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={defaultTransition}
+            transition={{ ...defaultTransition, delay }}
           ></motion.div>
         </motion.h3>
       );

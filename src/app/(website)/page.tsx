@@ -30,7 +30,7 @@ export default function Home() {
 
       <Socials />
 
-      <AnimatedTitle children="HYPR" />
+      <AnimatedTitle>{"HYPR"}</AnimatedTitle>
     </main>
   );
 }
