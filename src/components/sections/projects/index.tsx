@@ -1,6 +1,7 @@
 import CustomButton from "@/components/shared/custom-button";
 import { Link } from "next-view-transitions";
 import ProjectCard from "./project-card";
+import Reveal from "@/components/animations/reveal";
 import SectionLayout from "@/components/layout/section-layout";
 import { projectsData } from "@/database/projects.data";
 
@@ -16,7 +17,9 @@ const Projects = () => {
       <div className="flex flex-col gap-[8.1vw] sm:gap-[1.66vw]">
         <div className="grid grid-cols-1 gap-[8.1vw] sm:gap-x-[1.25vw] sm:gap-y-[2.08vw] sm:grid-cols-2">
           {projectsData.map((item, i) => (
-            <ProjectCard {...item} key={i} />
+            <Reveal animateOnView key={i} delay={i * 0.4} duration={1.4}>
+              <ProjectCard {...item} />
+            </Reveal>
           ))}
         </div>
         <CustomButton fullWidth type="button">

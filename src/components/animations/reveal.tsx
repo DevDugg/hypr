@@ -4,14 +4,31 @@ import { Variants, motion } from "framer-motion";
 
 import { PropsWithChildren } from "react";
 import { colors } from "@/config/colors";
+import { useInView } from "react-intersection-observer";
 
 interface RevealProps extends PropsWithChildren {
   blockColor?: (typeof colors)[any];
   delay?: number;
-  type?: "opacity" | "y";
+  duration?: number;
+  type?: "opacity" | "y" | "both";
+  animateOnView?: boolean; // New prop to control animation on view
 }
 
-const Reveal = ({ children, blockColor = colors.BACKGROUND, delay, type = "y" }: RevealProps) => {
+const Reveal = ({
+  children,
+  blockColor = colors.BACKGROUND,
+  delay,
+  type = "y",
+  animateOnView = false,
+  duration = 0.4,
+}: RevealProps) => {
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    fallbackInView: true,
+    initialInView: false,
+    triggerOnce: true,
+  });
+
   const variants: Record<string, Variants> = {
     opacity: {
       initial: { opacity: 1 },
@@ -23,8 +40,10 @@ const Reveal = ({ children, blockColor = colors.BACKGROUND, delay, type = "y" }:
     },
   };
 
+  const shouldAnimate = animateOnView ? inView : true;
+
   return (
-    <div className="overflow-hidden relative">
+    <div ref={animateOnView ? ref : undefined} className="overflow-hidden relative">
       {children}
       <motion.div
         style={{
@@ -33,10 +52,11 @@ const Reveal = ({ children, blockColor = colors.BACKGROUND, delay, type = "y" }:
         variants={variants[type]}
         className="absolute size-full left-0 top-0 z-10"
         initial={"initial"}
-        animate={"animate"}
-        transition={{ duration: 0.4, delay }}
+        animate={shouldAnimate ? "animate" : "initial"}
+        transition={{ duration, delay }}
       ></motion.div>
     </div>
   );
 };
+
 export default Reveal;
