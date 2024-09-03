@@ -1,11 +1,11 @@
 "use client";
 
-import { Button } from "../ui/button";
 import Container from "../layout/container";
 import CustomButton from "../shared/custom-button";
 import { Link } from "next-view-transitions";
 import MouseFollowerWrapper from "../animations/mouse-follower-wrapper";
 import NavLinkAnimated from "./header/nav-link-animated";
+import Reveal from "../animations/reveal";
 import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
@@ -21,12 +21,12 @@ export const Header = () => {
         "absolute top-0 left-0 right-0": pathname === "/case",
       })}
     >
-      <Container className="flex items-center   justify-between text-WHITE">
+      <Container className="flex items-center justify-between text-WHITE">
         <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold">
-          HYPR
+          <Reveal>HYPR</Reveal>
         </Link>
 
-        <MouseFollowerWrapper state="disabled">
+        <Reveal type="opacity">
           <nav
             className={cn(
               "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
@@ -43,20 +43,21 @@ export const Header = () => {
               />
             ))}
           </nav>
-        </MouseFollowerWrapper>
-
-        <Link href={"/contacts"}>
-          <CustomButton>
-            <div
-              className={cn(
-                "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-                grotesk.className,
-              )}
-            >
-              Contact us
-            </div>
-          </CustomButton>
-        </Link>
+        </Reveal>
+        <Reveal>
+          <Link href={"/contacts"}>
+            <CustomButton>
+              <div
+                className={cn(
+                  "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
+                  grotesk.className,
+                )}
+              >
+                Contact us
+              </div>
+            </CustomButton>
+          </Link>
+        </Reveal>
 
         <div className="size-[6.15vw] flex flex-col justify-center items-center gap-[1vw] cursor-pointer lg:hidden">
           <div className="w-[4.6vw] h-[0.5vw] rounded-[1.27vw] bg-WHITE" />

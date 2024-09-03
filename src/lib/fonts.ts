@@ -37,4 +37,5 @@ export const grotesk = localFont({
     },
   ],
   variable: "--grotesk-font",
+  preload: true,
 });

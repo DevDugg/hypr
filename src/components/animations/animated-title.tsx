@@ -49,7 +49,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}
@@ -75,7 +75,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}
@@ -101,7 +101,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}
@@ -127,7 +127,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}
@@ -153,7 +153,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}
@@ -179,7 +179,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}
@@ -205,7 +205,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           ))}
           {block && (
             <motion.div
-              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              className={cn(`bg-[${block}] absolute top-0 left-0 size-full`)}
               variants={variants}
               initial="hiddenBlock"
               animate={inView ? "visibleBlock" : "hiddenBlock"}

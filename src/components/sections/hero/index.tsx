@@ -1,3 +1,4 @@
+import AnimatedParagraph from "@/components/animations/animated-paragraph";
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
 import HeroText from "./hero-text";
@@ -25,9 +26,9 @@ export const Hero = () => {
       </Container>
 
       <Container>
-        <div className="uppercase text-WHITE w-full leading-none mb-[2.56vw] sm:mb-[0.83vw] text-center text-[4vw] sm:size72 monument">
+        <AnimatedParagraph className="uppercase text-WHITE w-full leading-none mb-[2.56vw] sm:mb-[0.83vw] text-center text-[4vw] sm:size72 monument">
           strategic, results-oriented influencer collaborations
-        </div>
+        </AnimatedParagraph>
         <CustomButton fullWidth>
           <div
             className={cn(
