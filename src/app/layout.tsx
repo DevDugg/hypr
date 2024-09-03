@@ -1,11 +1,12 @@
 import "./globals.css";
 
-import Loader from "@/components/sections/loader";
 import Provider from "@/config/provider";
 import { Viewport } from "next";
 import { colors } from "@/config/colors";
 import { getSEOTags } from "@/lib/seo";
 import { monument } from "@/lib/fonts";
+
+// import Loader from "@/components/sections/loader";
 
 export const viewport: Viewport = {
   // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers

@@ -14,6 +14,7 @@ export const monument = localFont({
     },
   ],
   display: "swap",
+  preload: true,
 });
 
 export const grotesk = localFont({
