@@ -29,8 +29,6 @@ export default function Home() {
       <Need />
 
       <Socials />
-
-      <AnimatedTitle>{"HYPR"}</AnimatedTitle>
     </main>
   );
 }
