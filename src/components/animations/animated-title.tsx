@@ -3,6 +3,7 @@
 import { Variants, motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import { colors } from "@/config/colors";
 import { defaultTransition } from "@/config/transitions";
 import { useInView } from "react-intersection-observer";
 
@@ -11,6 +12,7 @@ interface AnimatedTitleProps {
   children: string;
   element?: `h1` | `h2` | `h3` | `h4` | `h5` | `h6`;
   delay?: number;
+  block?: (typeof colors)[any];
 }
 
 const variants: Variants = {
@@ -20,7 +22,7 @@ const variants: Variants = {
   visibleChar: { y: "0%" },
 };
 
-const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: AnimatedTitleProps) => {
+const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }: AnimatedTitleProps) => {
   const characters = children.split("");
 
   const [ref, inView] = useInView({
@@ -45,13 +47,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h1>
       );
     case "h2":
@@ -69,13 +73,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h2>
       );
     case "h3":
@@ -93,13 +99,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h3>
       );
     case "h4":
@@ -117,13 +125,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h4>
       );
     case "h5":
@@ -141,13 +151,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h5>
       );
     case "h6":
@@ -165,13 +177,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h6>
       );
     default:
@@ -189,13 +203,15 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0 }: Anima
               {char}
             </AnimatedCharacter>
           ))}
-          <motion.div
-            className="bg-BACKGROUND absolute top-0 left-0 size-full"
-            variants={variants}
-            initial="hiddenBlock"
-            animate={inView ? "visibleBlock" : "hiddenBlock"}
-            transition={{ ...defaultTransition, delay }}
-          ></motion.div>
+          {block && (
+            <motion.div
+              className={cn(`bg-${block} absolute top-0 left-0 size-full`)}
+              variants={variants}
+              initial="hiddenBlock"
+              animate={inView ? "visibleBlock" : "hiddenBlock"}
+              transition={{ ...defaultTransition, delay }}
+            ></motion.div>
+          )}
         </motion.h3>
       );
   }
