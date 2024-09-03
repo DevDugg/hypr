@@ -1,7 +1,8 @@
 "use client";
 
+import { PropsWithChildren, useRef } from "react";
+
 import { FollowerState } from "@/context/animation-context";
-import { PropsWithChildren } from "react";
 import { useAnimationContext } from "@/hooks/use-animation-context";
 
 interface MouseFollowerWrapperProps extends PropsWithChildren {
@@ -9,9 +10,13 @@ interface MouseFollowerWrapperProps extends PropsWithChildren {
 }
 
 const MouseFollowerWrapper = ({ state, children }: MouseFollowerWrapperProps) => {
-  const { setFollowerState } = useAnimationContext();
+  const { setFollowerState, followerState } = useAnimationContext();
+  const previousState = useRef<FollowerState>(followerState);
   return (
-    <div onMouseOverCapture={() => setFollowerState(state)} onMouseLeave={() => setFollowerState("default")}>
+    <div
+      onMouseOverCapture={() => setFollowerState(state)}
+      onMouseLeave={() => setFollowerState(previousState.current)}
+    >
       {children}
     </div>
   );
