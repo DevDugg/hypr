@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Reveal from "@/components/animations/reveal";
 import { ServiceCardDesktop } from "./service-card-desktop";
 import { motion } from "framer-motion";
 import { servicesData } from "@/database/services.data";
@@ -22,9 +23,11 @@ const ServicesBlockDesktop = () => {
     >
       {servicesData.map((item, i) => {
         return (
-          <div key={i} className="w-full" onMouseOver={() => setActiveItem(i)}>
-            <ServiceCardDesktop i={i} activeItem={activeItem} {...item} />
-          </div>
+          <Reveal key={i} delay={i * 0.1} animateOnView duration={0.3} type="opacity">
+            <div className="w-full" onMouseOver={() => setActiveItem(i)}>
+              <ServiceCardDesktop i={i} activeItem={activeItem} {...item} />
+            </div>
+          </Reveal>
         );
       })}
       <motion.div
@@ -47,12 +50,7 @@ const ServicesBlockDesktop = () => {
         >
           {servicesData.map((item, i) => (
             <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-              <Image
-                src={item.img}
-                width={256}
-                height={320}
-                alt="service image"
-              />
+              <Image src={item.img} width={256} height={320} alt="service image" />
             </div>
           ))}
         </motion.div>
@@ -79,12 +77,7 @@ const ServicesBlockDesktop = () => {
         >
           {servicesData.map((item, i) => (
             <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-              <Image
-                src={item.img}
-                width={256}
-                height={320}
-                alt="service image"
-              />
+              <Image src={item.img} width={256} height={320} alt="service image" />
             </div>
           ))}
         </motion.div>
