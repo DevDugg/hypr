@@ -18,7 +18,7 @@ interface AnimatedTitleProps {
 const variants: Variants = {
   hiddenBlock: { y: "0%" },
   visibleBlock: { y: "100%" },
-  hiddenChar: { y: "100%" },
+  hiddenChar: { y: "110%" },
   visibleChar: { y: "0%" },
 };
 

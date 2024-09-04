@@ -2,10 +2,10 @@
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-import { Button } from "@/components/ui/button";
 import { CreatorsCard } from "./creators-card";
 import CustomButton from "@/components/shared/custom-button";
 import { Link } from "next-view-transitions";
+import Reveal from "@/components/animations/reveal";
 import { cn } from "@/lib/utils";
 import { creatorsData } from "@/database/creators.data";
 import { grotesk } from "@/lib/fonts";
@@ -15,7 +15,9 @@ const CreatorsBlock = () => {
     <>
       <div className="mt-[3.33vw] hidden sm:flex gap-[2.56vw] sm:gap-[0.5vw]">
         {creatorsData.map((item, i) => (
-          <CreatorsCard {...item} key={i} />
+          <Reveal key={i} animateOnView delay={i * 0.2} duration={1}>
+            <CreatorsCard {...item} />
+          </Reveal>
         ))}
       </div>
 

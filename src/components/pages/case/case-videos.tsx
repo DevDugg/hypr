@@ -1,13 +1,13 @@
 "use client";
 
 import Container from "@/components/layout/container";
+import Image from "next/image";
 import { grotesk } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 import React, { useState } from "react";
 import CaseTitle from "./case-title";
-import Image from "next/image";
 
 const videoNames = [
   {
@@ -53,7 +53,12 @@ const CaseVideos = () => {
 
             <div className="flex gap-[0.83vw] relative">
               <div className="w-[59.58vw] h-full">
-                <img src="/images/case/case-pattern.png" alt="" />
+                <Image
+                  src="/images/case/case-pattern.png"
+                  alt="pattern"
+                  width={1920}
+                  height={1080}
+                />
               </div>
 
               <div className="border border-GRAY rounded-md flex-[1_1_20.83vw] h-fit">
