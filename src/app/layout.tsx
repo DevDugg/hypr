@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import Loader from "@/components/sections/loader";
 import Provider from "@/config/provider";
 import { Viewport } from "next";
 import { colors } from "@/config/colors";
