@@ -12,7 +12,7 @@ const keys = [
   { title: "key visual 1", img: "/images/case/slider/4.png" },
 ];
 
-const infoData = [
+export const infoData = [
   {
     title: "Type",
     text: "Agency",

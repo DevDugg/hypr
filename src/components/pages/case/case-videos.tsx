@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 import React, { useState } from "react";
 import CaseTitle from "./case-title";
+import Image from "next/image";
 
 const videoNames = [
   {
@@ -32,7 +33,7 @@ const CaseVideos = () => {
   return (
     <section>
       <Container className={cn("text-WHITE", grotesk.className)}>
-        <div className="flex gap-[0.83vw] items-center">
+        <div className="hidden sm:flex gap-[0.83vw] items-center">
           <div className="flex-[0_0_11.66vw] -translate-y-[10vw] text-[0.93vw] text-WHITE font-semibold">
             <span className="">01/</span>
             <span className="text-GRAY">
@@ -80,6 +81,34 @@ const CaseVideos = () => {
               </div>
               <div className="text-[0.93vw] leading-[140%]">[01.30]</div>
             </div>
+          </div>
+        </div>
+
+        <div className="">
+          <div className="flex justify-between mb-[6.15vw] items-end">
+            <CaseTitle title="videos" num="(07)" className="text-[6.15vw]" />
+            <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[4.61vw] font-semibold">
+              youtube <ArrowUpRight className="size-[5vw]" />
+            </a>
+          </div>
+
+          <Image
+            src={"/images/case/case-pattern.png"}
+            alt="preview"
+            width={593}
+            height={334}
+            className="w-full h-auto mb-[4.05vw]"
+          />
+
+          <div className="flex justify-between text-[4.05vw] font-medium items-center uppercase">
+            <div>Video name</div>
+            <div className="font-normal">[01.30]</div>
+          </div>
+
+          <div className="flex justify-between gap-[6.15vw] mt-[6.15vw] items-center">
+            {[...Array(5)].map((_, i) => (
+              <div className="bg-GRAY h-[0.51vw] w-1/4" />
+            ))}
           </div>
         </div>
       </Container>

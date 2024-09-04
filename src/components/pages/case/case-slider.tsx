@@ -12,6 +12,11 @@ import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const sliderData = [
   {
@@ -77,12 +82,16 @@ const CaseSlider = () => {
     <section className="mb-[15.62vw] overflow-hidden w-screen">
       <Container>
         <div className="flex justify-between">
-          <CaseTitle title="similar projects" num="(07)" className="ml-[11.66vw] mb-[2.5vw]" />
+          <CaseTitle
+            title="similar projects"
+            num="(07)"
+            className="ml-[11.66vw] mb-[2.5vw]"
+          />
 
           <a
             className={cn(
               "uppercase flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold",
-              grotesk.className,
+              grotesk.className
             )}
           >
             see all projects <ArrowUpRight className="size-[1vw]" />
@@ -90,30 +99,38 @@ const CaseSlider = () => {
         </div>
       </Container>
 
-      <div ref={sliderRef} className="keen-slider">
-        {sliderData.map((item, i) => (
-          <motion.div
-            key={i}
-            className={cn(
-              grotesk.className,
-              "keen-slider__slide text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit",
-            )}
-            initial={{ height: "24.47vw", width: "17.70vw", opacity: 0.5 }}
-            animate={(active + 1) % sliderData.length === i ? { height: "35vw", width: "22.91vw", opacity: 1 } : {}}
-          >
-            <motion.div className="w-full h-full">
-              <Image
-                src={item.img}
-                alt="image"
-                width={340}
-                height={470}
-                className="w-full h-fit object-cover object-center"
-              />
-            </motion.div>
-            <p>{item.title}</p>
-          </motion.div>
-        ))}
-      </div>
+      <Carousel className="">
+        <CarouselContent>
+          {sliderData.map((item, i) => (
+            <CarouselItem className="basis-1/5">
+              <motion.div
+                key={i}
+                className={cn(
+                  grotesk.className,
+                  "keen-slider__slide text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit"
+                )}
+                initial={{ height: "24.47vw", width: "17.70vw", opacity: 0.5 }}
+                animate={
+                  (active + 1) % sliderData.length === i
+                    ? { height: "35vw", width: "22.91vw", opacity: 1 }
+                    : {}
+                }
+              >
+                <motion.div className="w-full h-full">
+                  <Image
+                    src={item.img}
+                    alt="image"
+                    width={340}
+                    height={470}
+                    className="w-full h-fit object-cover object-center"
+                  />
+                </motion.div>
+                <p>{item.title}</p>
+              </motion.div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 };

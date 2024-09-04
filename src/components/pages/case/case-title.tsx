@@ -14,12 +14,14 @@ const CaseTitle = ({
 }) => {
   return (
     <div className={cn("flex", className)}>
-      <SectionTitle className={cn(monument.className, "mt-[1vw]")}>
+      <SectionTitle
+        className={cn(monument.className, "mt-[5vw] !text-[6.15vw] sm:!size48")}
+      >
         {title}
       </SectionTitle>
       <p
         className={cn(
-          "font-bold size24 leading-[140%] text-WHITE",
+          "font-bold text-[3.58vw] sm:size24 leading-[140%] text-WHITE",
           grotesk.className
         )}
       >
