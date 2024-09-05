@@ -89,7 +89,7 @@ const CaseVideos = () => {
           </div>
         </div>
 
-        <div className="">
+        <div className="block sm:hidden">
           <div className="flex justify-between mb-[6.15vw] items-end">
             <CaseTitle title="videos" num="(07)" className="text-[6.15vw]" />
             <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[4.61vw] font-semibold">
@@ -112,7 +112,7 @@ const CaseVideos = () => {
 
           <div className="flex justify-between gap-[6.15vw] mt-[6.15vw] items-center">
             {[...Array(5)].map((_, i) => (
-              <div className="bg-GRAY h-[0.51vw] w-1/4" />
+              <div key={i} className="bg-GRAY h-[0.51vw] w-1/4" />
             ))}
           </div>
         </div>

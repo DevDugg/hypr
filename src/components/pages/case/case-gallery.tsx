@@ -58,7 +58,7 @@ const CaseGallery = () => {
           />
         </div>
 
-        <div className="mb-[6.15vw]">
+        <div className="sm:hidden mb-[6.15vw]">
           <Image
             src={"/images/case/1.png"}
             alt="photo"
@@ -67,9 +67,9 @@ const CaseGallery = () => {
           />
         </div>
 
-        <div className="flex justify-between gap-[6.15vw] mt-[6.15vw] items-center">
+        <div className="sm:hidden flex justify-between gap-[6.15vw] mt-[6.15vw] items-center">
           {[...Array(5)].map((_, i) => (
-            <div className="bg-GRAY h-[0.51vw] w-1/4" />
+            <div key={i} className="bg-GRAY h-[0.51vw] w-1/4" />
           ))}
         </div>
       </Container>

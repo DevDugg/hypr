@@ -8,6 +8,10 @@
     background-size: 200% 100%;
   }
 
+  .container {
+    @apply px-[3.58vw] sm:px-[3.1vw];
+  }
+
   .title {
     font-size: 4.16vw;
   }
@@ -55,7 +59,7 @@
   }
 
   .size80 {
-    font-size: 4vw;
+    font-size: 4.16vw;
   }
 
   .size100 {

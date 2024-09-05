@@ -54,18 +54,18 @@ export const Footer = () => {
             <div
               onClick={handleOnClick}
               className={cn(
-                "flex items-center  cursor-pointer sm:font-bold font-medium text-[3.58vw] sm:size24 justify-center gap-[0.2vw]",
+                "flex items-center cursor-pointer sm:font-bold font-medium text-[3.58vw] sm:size24 justify-center gap-[0.2vw]",
                 grotesk.className
               )}
             >
-              Back to top{" "}
+              Back to top
               <ArrowUpIcon className="-mb-[0.2vw] text-[3.58vw] sm:size-[1.25vw]" />
             </div>
 
             <div
               className={cn(
                 grotesk.className,
-                " text-[3.58vw] sm:size24 sm:font-bold font-medium"
+                "text-[3.58vw] sm:size24 sm:font-bold font-medium"
               )}
             >
               Copyright © HYPR {date.getFullYear()}
