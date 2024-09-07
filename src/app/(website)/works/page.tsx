@@ -3,7 +3,7 @@ import WorkHero from "@/components/pages/work/work-hero";
 
 const Work = () => {
   return (
-    <main className="">
+    <main>
       <Container>
         <WorkHero />
       </Container>

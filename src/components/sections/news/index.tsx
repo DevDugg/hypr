@@ -11,25 +11,33 @@ import { grotesk } from "@/lib/fonts";
 
 const News = () => {
   return (
-    <section className="flex flex-col gap-[2.08vw]" id="news">
+    <section className="flex flex-col" id="news">
       <Container className="text-WHITE">
         <div className="sm:hidden mb-[8.1vw]">
           <SectionName className="mb-[4.05vw]">(News)</SectionName>
           <AnimatedTitle className="mb-[2.02vw]">latest news/</AnimatedTitle>
-          <SectionSubtitle>From fast-growing brands to Fortune 50’s.</SectionSubtitle>
+          <SectionSubtitle>
+            From fast-growing brands to Fortune 50’s.
+          </SectionSubtitle>
         </div>
 
         <div className="hidden mb-[3.33vw] sm:flex items-end justify-between gap-[2.08vw]">
           <AnimatedTitle>latest news/</AnimatedTitle>
           <SectionName>(News)</SectionName>
-          <SectionSubtitle>From fast-growing brands to Fortune 50’s.</SectionSubtitle>
+          <SectionSubtitle>
+            From fast-growing brands to Fortune 50’s.
+          </SectionSubtitle>
         </div>
       </Container>
       <MouseFollowerWrapper state="drag">
         <NewsBlock />
       </MouseFollowerWrapper>
       <Container>
-        <CustomButton className={cn(grotesk.className, "w-full mt-[8.1vw] sm:mt-[2.08vw]")}>See all news</CustomButton>
+        <CustomButton
+          className={cn(grotesk.className, "w-full mt-[8.1vw] sm:mt-[2.08vw]")}
+        >
+          See all news
+        </CustomButton>
       </Container>
     </section>
   );

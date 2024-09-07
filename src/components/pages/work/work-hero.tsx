@@ -7,7 +7,7 @@ import { grotesk } from "@/lib/fonts";
 const WorkHero = () => {
   return (
     <section>
-      <h1 className="text-[10.25vw] text-center sm:text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT sm:mb-[10vw] uppercase font-bold">
+      <h1 className="text-[10.25vw] text-center sm:text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT uppercase font-bold">
         our work
       </h1>
 
@@ -42,7 +42,7 @@ const WorkHero = () => {
       {/* DESKTOP */}
       <div className="hidden sm:flex gap-[1.25vw] mb-[10.41vw]">
         <div className="flex flex-col flex-[1_1_30.41vw]">
-          <SectionTitle className="mb-[25.78vw]">
+          <SectionTitle className="mb-[28.78vw]">
             never miss a bit/
           </SectionTitle>
 

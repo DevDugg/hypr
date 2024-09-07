@@ -1,14 +1,19 @@
 "use client";
 
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 import { NewsCard } from "./news-card";
 import Reveal from "@/components/animations/reveal";
 import { newsData } from "@/database/news.data";
+import Container from "@/components/layout/container";
 
 const NewsBlock = () => {
   return (
-    <div className="text-WHITE cursor-grab">
+    <Container className="text-WHITE cursor-grab">
       <Carousel
         opts={{
           // loop: true,
@@ -17,9 +22,12 @@ const NewsBlock = () => {
           duration: 500,
         }}
       >
-        <CarouselContent className="ml-[4px] md:-ml[22px] lg:ml-[50px]">
+        <CarouselContent className="">
           {newsData.map((item, i) => (
-            <CarouselItem key={i} className="pl-[2.56vw] sm:pl-[0.52vw] basis-[4.5]">
+            <CarouselItem
+              key={i}
+              className="pl-[2.56vw] sm:pl-[0.52vw] basis-[4.5]"
+            >
               <Reveal animateOnView delay={i * 0.1} duration={1}>
                 <NewsCard
                   w={800}
@@ -33,7 +41,7 @@ const NewsBlock = () => {
           ))}
         </CarouselContent>
       </Carousel>
-    </div>
+    </Container>
   );
 };
 

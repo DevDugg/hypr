@@ -100,7 +100,7 @@ const CaseSlider = () => {
   }, [api]);
 
   return (
-    <section className="mb-[15.62vw] overflow-hidden w-screen">
+    <section className="overflow-hidden w-screen">
       <Container>
         <div className="flex justify-between">
           <CaseTitle

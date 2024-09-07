@@ -7,7 +7,7 @@ import CaseBlockMobile from "./case-block-mobile";
 const CaseHero = () => {
   return (
     <div>
-      <section className="bg-case-pattern bg-cover h-screen flex flex-col justify-end bg-top bg-no-repeat text-WHITE mb-[25.62vw] sm:mb-[3.12vw]">
+      <section className="bg-case-pattern bg-cover h-[123vw] sm:h-screen flex flex-col justify-end bg-top bg-no-repeat text-WHITE mb-[10.25vw] sm:mb-[3.12vw]">
         <Container className="text-[6.15vw] sm:size80 uppercase font-bold">
           project name
         </Container>

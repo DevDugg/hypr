@@ -13,7 +13,7 @@ export const Footer = () => {
   const date = new Date();
   const { handleOnClick } = useScrollToTarget("#hero");
   return (
-    <footer className="text-WHITE sm:bg-BLACK pt-[5vw] pb-[2.5vw] relative z-10 sm:mt-0 ">
+    <footer className="text-WHITE mt-[25.62vw] sm:mt-[10.41vw] pb-[2.5vw] relative z-10">
       <Container className="flex flex-col gap-[20.05vw] sm:gap-[10vw]">
         <div className={cn("flex gap-[30.27vw]", grotesk.className)}>
           <div>
@@ -58,8 +58,7 @@ export const Footer = () => {
                 grotesk.className
               )}
             >
-              Back to top
-              <ArrowUpIcon className="-mb-[0.2vw] text-[3.58vw] sm:size-[1.25vw]" />
+              Back to top ↑
             </div>
 
             <div

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const NewsItems = () => {
   return (
-    <section className="mb-[20vw]">
+    <section>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-[6.15vw] sm:gap-y-[1.25vw] sm:gap-x-[0.9vw] mb-[2.4vw]">
         {newsData.map((item, i) => (
           <NewsCard

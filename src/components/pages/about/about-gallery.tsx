@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AboutGallery = () => {
   return (
-    <section className="mb-[25.62vw] sm:mb-[13.02vw]">
+    <section>
       <Container>
         <div className="relative text-WHITE">
           <Image
