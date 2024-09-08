@@ -1,20 +1,15 @@
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
 import Container from "@/components/layout/container";
 import { NewsCard } from "@/components/sections/news/news-card";
-import SectionTitle from "@/components/titles/section-title";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import React from "react";
+import SectionTitle from "@/components/titles/section-title";
 
 const DynamicArticles = () => {
   return (
     <section>
       <Container className="text-WHITE">
-        <SectionTitle className="mb-[8.1vw] sm:mb-[3.33vw]">
-          Next articles/
-        </SectionTitle>
+        <SectionTitle className="mb-[8.1vw] sm:mb-[3.33vw]">Next articles/</SectionTitle>
 
         <div className="hidden sm:flex items-center gap-[4.05vw] sm:gap-[0.83vw]">
           {[...Array(3)].map((_, i) => (
@@ -34,9 +29,8 @@ const DynamicArticles = () => {
         <Carousel className="block sm:hidden">
           <CarouselContent className="">
             {[...Array(3)].map((_, i) => (
-              <CarouselItem className="basis-[61vw] mr-[4.05vw]">
+              <CarouselItem className="basis-[61vw] mr-[4.05vw]" key={i}>
                 <NewsCard
-                  key={i}
                   title={"News title"}
                   img={"/images/news/1.png"}
                   text={"Short description"}

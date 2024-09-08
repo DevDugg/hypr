@@ -2,6 +2,7 @@
 
 import "keen-slider/keen-slider.min.css";
 
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import React, { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "lucide-react";
@@ -12,12 +13,6 @@ import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { useMediaQuery } from "usehooks-ts";
 
 const sliderData = [
@@ -103,16 +98,12 @@ const CaseSlider = () => {
     <section className="overflow-hidden w-screen">
       <Container>
         <div className="flex justify-between">
-          <CaseTitle
-            title="similar projects"
-            num="(07)"
-            className="sm:ml-[11.66vw] mb-[6.15vw] sm:mb-[2.5vw]"
-          />
+          <CaseTitle title="similar projects" num="(07)" className="sm:ml-[11.66vw] mb-[6.15vw] sm:mb-[2.5vw]" />
 
           <a
             className={cn(
               "uppercase hidden sm:flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold",
-              grotesk.className
+              grotesk.className,
             )}
           >
             see all projects <ArrowUpRight className="size-[1vw]" />
@@ -128,13 +119,9 @@ const CaseSlider = () => {
         >
           <CarouselContent>
             {sliderData.map((item, i) => (
-              <CarouselItem className="basis-[80%] sm:basis-1/5">
+              <CarouselItem className="basis-[80%] sm:basis-1/5" key={i}>
                 <motion.div
-                  key={i}
-                  className={cn(
-                    grotesk.className,
-                    "text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit"
-                  )}
+                  className={cn(grotesk.className, "text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit")}
                   initial={{
                     height: mobile ? "24.47vw" : "83.28vw",
                     width: mobile ? "17.70vw" : "61.5vw",
