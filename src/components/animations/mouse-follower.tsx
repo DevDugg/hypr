@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AnimatePresence,
-  MotionConfig,
-  motion,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { AnimatePresence, MotionConfig, motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -111,29 +105,15 @@ const MouseFollower = () => {
           }
         >
           {followerState === "open" ? (
-            <motion.span
-              className="inline-block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
+            <motion.span className="inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               open
             </motion.span>
           ) : followerState === "play" ? (
-            <motion.span
-              key={"play"}
-              className="inline-block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
+            <motion.span key={"play"} className="inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               play
             </motion.span>
           ) : followerState === "drag" ? (
-            <motion.span
-              key={"drag"}
-              className="inline-block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
+            <motion.span key={"drag"} className="inline-block" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               drag
             </motion.span>
           ) : null}
