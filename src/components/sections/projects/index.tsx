@@ -23,7 +23,12 @@ const Projects = () => {
           ))}
         </div>
         <CustomButton fullWidth type="button">
-          <Link href={"/works"}>See all projects</Link>
+          <Link
+            // href={"/works"}
+            href={"/"}
+          >
+            See all projects
+          </Link>
         </CustomButton>
       </div>
     </SectionLayout>

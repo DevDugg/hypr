@@ -29,7 +29,10 @@ const CreatorsBlock = () => {
         </CarouselContent>
       </Carousel>
 
-      <Link href={"/creators"}>
+      <Link
+        // href={"/creators"}
+        href={"/"}
+      >
         <CustomButton className="w-full mt-[8.1vw] sm:mt-[2.08vw]">See all creators</CustomButton>
       </Link>
     </>

@@ -34,7 +34,12 @@ export const Hero = () => {
         </AnimatedParagraph>
         <Reveal animateOnView type="opacity">
           <CustomButton fullWidth>
-            <Link href="/contact">Contact us</Link>
+            <Link
+              // href="/contact"
+              href="/"
+            >
+              Contact us
+            </Link>
           </CustomButton>
         </Reveal>
       </Container>
