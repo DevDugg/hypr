@@ -6,9 +6,7 @@ import { CreatorsCard } from "./creators-card";
 import CustomButton from "@/components/shared/custom-button";
 import { Link } from "next-view-transitions";
 import Reveal from "@/components/animations/reveal";
-import { cn } from "@/lib/utils";
 import { creatorsData } from "@/database/creators.data";
-import { grotesk } from "@/lib/fonts";
 
 const CreatorsBlock = () => {
   return (
@@ -32,9 +30,7 @@ const CreatorsBlock = () => {
       </Carousel>
 
       <Link href={"/creators"}>
-        <CustomButton className={cn(grotesk.className, "w-full mt-[8.1vw] sm:mt-[2.08vw]")}>
-          See all creators
-        </CustomButton>
+        <CustomButton className="w-full mt-[8.1vw] sm:mt-[2.08vw]">See all creators</CustomButton>
       </Link>
     </>
   );
