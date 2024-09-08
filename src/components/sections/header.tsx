@@ -46,15 +46,8 @@ export const Header = () => {
         </Reveal>
         <Reveal>
           <Link href={"/contacts"}>
-            <CustomButton>
-              <div
-                className={cn(
-                  "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-                  grotesk.className,
-                )}
-              >
-                Contact us
-              </div>
+            <CustomButton className="flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden">
+              Contact us
             </CustomButton>
           </Link>
         </Reveal>

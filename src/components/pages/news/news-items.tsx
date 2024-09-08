@@ -1,8 +1,9 @@
-import { NewsCard } from "@/components/sections/news/news-card";
 import { Button } from "@/components/ui/button";
-import { newsData } from "@/database/news.data";
-import { grotesk } from "@/lib/fonts";
+import CustomButton from "@/components/shared/custom-button";
+import { NewsCard } from "@/components/sections/news/news-card";
 import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
+import { newsData } from "@/database/news.data";
 
 const NewsItems = () => {
   return (
@@ -20,9 +21,7 @@ const NewsItems = () => {
         ))}
       </div>
 
-      <Button className={cn(grotesk.className, "hidden sm:blockw-full")}>
-        Load more
-      </Button>
+      <CustomButton className={cn(grotesk.className, "hidden sm:block w-full")}>Load more</CustomButton>
     </section>
   );
 };

@@ -17,7 +17,7 @@ const Projects = () => {
       <div className="flex flex-col gap-[8.1vw] sm:gap-[1.66vw]">
         <div className="grid grid-cols-1 gap-[8.1vw] sm:gap-x-[1.25vw] sm:gap-y-[2.08vw] sm:grid-cols-2">
           {projectsData.map((item, i) => (
-            <Reveal animateOnView key={i} delay={i * 0.4} duration={1.4}>
+            <Reveal animateOnView key={i} delay={i * 0.2} duration={0.6}>
               <ProjectCard {...item} />
             </Reveal>
           ))}

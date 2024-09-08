@@ -34,15 +34,7 @@ export const Hero = () => {
         </AnimatedParagraph>
         <Reveal animateOnView type="opacity">
           <CustomButton fullWidth>
-            <Link
-              href="/contact"
-              className={cn(
-                "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-                grotesk.className,
-              )}
-            >
-              Contact us
-            </Link>
+            <Link href="/contact">Contact us</Link>
           </CustomButton>
         </Reveal>
       </Container>
