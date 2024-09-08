@@ -43,7 +43,7 @@ const Reveal = ({
   const shouldAnimate = animateOnView ? inView : true;
 
   return (
-    <div ref={animateOnView ? ref : undefined} className="overflow-hidden relative">
+    <div ref={animateOnView ? ref : undefined} className="overflow-hidden relative pb-1">
       {children}
       <motion.div
         style={{
