@@ -1,6 +1,7 @@
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
 import Image from "next/image";
+import { Link } from "next-view-transitions";
 
 const AboutGallery = () => {
   const images = [
@@ -63,7 +64,9 @@ const AboutGallery = () => {
             <h2 className="text-center leading-none mb-[6.15vw] sm:mb-[2vw] uppercase font-bold text-[10.27vw] sm:text-[5.20vw]">
               no need to be shy.
             </h2>
-            <CustomButton>Contact us</CustomButton>
+            <CustomButton>
+              <Link href={"/"}>Contact us</Link>
+            </CustomButton>
           </div>
 
           <Image
