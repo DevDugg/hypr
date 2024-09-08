@@ -9,12 +9,7 @@ interface IProps {
 }
 
 export const ServiceCardDesktop = ({ title, i, activeItem }: IProps) => {
-  const itemState =
-    activeItem !== null
-      ? activeItem === i
-        ? { opacity: "100%" }
-        : { opacity: "30%" }
-      : {};
+  const itemState = activeItem !== null ? (activeItem === i ? { opacity: "100%" } : { opacity: "30%" }) : {};
   return (
     <motion.div
       id={`element-${i}`}
@@ -23,24 +18,16 @@ export const ServiceCardDesktop = ({ title, i, activeItem }: IProps) => {
       animate={itemState}
     >
       <motion.h4
-        className="leading-none monument uppercase w-full size72 absolute top-full text-center tracking-tight"
+        className="leading-none monument uppercase w-full text-[4.61vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
         initial={{ top: "100%", rotateX: 45, transformOrigin: "top" }}
-        animate={
-          activeItem === i
-            ? { top: "0%", rotateX: 0, transformOrigin: "bottom" }
-            : {}
-        }
+        animate={activeItem === i ? { top: "0%", rotateX: 0, transformOrigin: "bottom" } : {}}
       >
         {title}
       </motion.h4>
       <motion.span
         className="leading-none monument uppercase w-full text-[4.61vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
         initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
-        animate={
-          activeItem === i
-            ? { top: "-100%", rotateX: 45, transformOrigin: "top" }
-            : {}
-        }
+        animate={activeItem === i ? { top: "-100%", rotateX: 45, transformOrigin: "top" } : {}}
       >
         {title}
       </motion.span>

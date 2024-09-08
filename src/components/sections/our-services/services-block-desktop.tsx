@@ -31,7 +31,7 @@ const ServicesBlockDesktop = () => {
         );
       })}
       <motion.div
-        className="absolute z-10 w-[20.83vw] h-[16.6vw] overflow-hidden pointer-events-none grayscale"
+        className="absolute z-10 w-[20.83vw] h-[16.6vw] overflow-hidden pointer-events-none grayscale max-md:hidden"
         style={{
           left: smoothMousePosition.x,
           top: smoothMousePosition.y,
@@ -56,7 +56,7 @@ const ServicesBlockDesktop = () => {
         </motion.div>
       </motion.div>
       <motion.div
-        className="absolute z-20 w-[20.83vw] h-[16.6vw] overflow-hidden pointer-events-none left-full"
+        className="absolute z-20 w-[20.83vw] h-[16.6vw] overflow-hidden pointer-events-none left-full max-md:hidden"
         style={{
           x: 30,
           y: 30,
