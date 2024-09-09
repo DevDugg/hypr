@@ -8,6 +8,11 @@ import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 import React, { useState } from "react";
 import CaseTitle from "./case-title";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const videoNames = [
   {
@@ -97,13 +102,21 @@ const CaseVideos = () => {
             </a>
           </div>
 
-          <Image
-            src={"/images/case/case-pattern.png"}
-            alt="preview"
-            width={593}
-            height={334}
-            className="w-full h-auto mb-[4.05vw]"
-          />
+          <Carousel>
+            <CarouselContent>
+              {[...Array(5)].map((_, i) => (
+                <CarouselItem key={i}>
+                  <Image
+                    src={"/images/case/case-pattern.png"}
+                    alt="preview"
+                    width={593}
+                    height={334}
+                    className="w-full h-auto mb-[4.05vw]"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
           <div className="flex justify-between text-[4.05vw] font-medium items-center uppercase">
             <div>Video name</div>

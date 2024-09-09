@@ -100,7 +100,7 @@ const CaseSlider = () => {
   }, [api]);
 
   return (
-    <section className="overflow-hidden w-screen">
+    <section className="overflow-hidden w-screen h-[128.12vw] sm:h-[45vw]">
       <Container>
         <div className="flex justify-between">
           <CaseTitle
@@ -124,11 +124,10 @@ const CaseSlider = () => {
           opts={{
             loop: true,
           }}
-          className=""
         >
           <CarouselContent>
             {sliderData.map((item, i) => (
-              <CarouselItem className="basis-[80%] sm:basis-1/5">
+              <CarouselItem className="basis-[61.5vw] sm:basis-[17.7vw] mr-[4.05vw] sm:mr-[0.83vw]">
                 <motion.div
                   key={i}
                   className={cn(
@@ -141,9 +140,9 @@ const CaseSlider = () => {
                     opacity: 0.5,
                   }}
                   animate={
-                    (current + 1) % sliderData.length === i
+                    (current - (mobile ? 2 : 1)) % sliderData.length === i
                       ? {
-                          height: mobile ? "35vw" : "97.37vw",
+                          height: mobile ? "31.25vw" : "97.37vw",
                           width: mobile ? "22.91vw" : "71.75vw",
                           opacity: 1,
                         }

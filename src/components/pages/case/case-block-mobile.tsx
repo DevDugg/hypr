@@ -5,25 +5,35 @@ import Image from "next/image";
 import React from "react";
 import { infoData } from "./case-block";
 import clsx from "clsx";
+import Bullets from "@/components/shared/bullets";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const CaseBlockMobile = ({ className }: { className?: string }) => {
   return (
     <div className={cn("text-WHITE", className)}>
       <div className="flex flex-col gap-[6.15vw]">
         <h5 className="uppercase font-semibold">key visuals</h5>
-        <Image
-          src={"/images/case/1.png"}
-          width={593}
-          height={787}
-          alt="image"
-          className="w-full h-auto"
-        />
+        <Carousel opts={{ loop: true }}>
+          <CarouselContent className="">
+            {[...Array(5)].map((_, i) => (
+              <CarouselItem key={i} className="basis-full">
+                <Image
+                  src={"/images/case/1.png"}
+                  width={593}
+                  height={787}
+                  alt="image"
+                  className="w-full h-auto"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
 
-        <div className="flex justify-between items-center">
-          <div className="w-[25.62vw] h-[0.51vw] bg-GRAY" />
-          <div className="w-[25.62vw] h-[0.51vw] bg-GRAY" />
-          <div className="w-[25.62vw] h-[0.51vw] bg-GRAY" />
-        </div>
+        <Bullets size={4} active={0} />
 
         <div className="uppercase font-medium text-[4.61vw]">storyline</div>
 
