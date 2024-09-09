@@ -1,8 +1,8 @@
 //@ts-nocheck
-'use client';
+"use client";
 
-import { PropsWithChildren } from 'react';
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { PropsWithChildren } from "react";
+import { ReactLenis } from "@studio-freight/react-lenis";
 
 function SmoothScroll({ children }: PropsWithChildren) {
   return (
@@ -12,13 +12,14 @@ function SmoothScroll({ children }: PropsWithChildren) {
         lerp: 0.08,
         duration: 3,
         easing: (t) => Math.min(1, 1.001 - Math.pow(4, -5 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
+        direction: "vertical",
+        gestureDirection: "vertical",
         smooth: true,
         smoothTouch: true,
         touchMultiplier: 2,
         infinite: false,
-      }}>
+      }}
+    >
       {children}
     </ReactLenis>
   );

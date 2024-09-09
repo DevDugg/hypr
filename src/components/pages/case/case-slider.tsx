@@ -2,6 +2,12 @@
 
 import "keen-slider/keen-slider.min.css";
 
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import React, { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "lucide-react";
@@ -12,12 +18,6 @@ import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { useMediaQuery } from "usehooks-ts";
 
 const sliderData = [
@@ -127,9 +127,8 @@ const CaseSlider = () => {
         >
           <CarouselContent>
             {sliderData.map((item, i) => (
-              <CarouselItem className="basis-[61.5vw] sm:basis-[17.7vw] mr-[4.05vw] sm:mr-[0.83vw]">
+              <CarouselItem className="basis-[80%] sm:basis-1/5" key={i}>
                 <motion.div
-                  key={i}
                   className={cn(
                     grotesk.className,
                     "text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit"

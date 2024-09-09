@@ -19,7 +19,7 @@ const CustomButton = ({ children, onClick, type, fullWidth, className }: CustomB
       type={type}
       onClick={onClick}
       className={clsx(
-        "p-[1.04vw] text-[0.9375vw] text-BLACK font-bold bg-ACCENT border border-ACCENT rounded-[10.416vw] leading-none flex justify-center",
+        "p-[1.04vw] text-[0.9375vw] text-BLACK font-bold bg-ACCENT border border-ACCENT rounded-[10.416vw] leading-none flex justify-center max-md:!text-base",
         grotesk.className,
         fullWidth && "w-full",
         className,

@@ -1,9 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
-import FlyingBlock from "./flying-block";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
@@ -17,10 +15,9 @@ const Need = () => {
   });
 
   return (
-    <section id="need" className="text-WHITE mb-[38.43vw]">
+    <section id="need" className="text-WHITE mb-[0.83vw]">
       <Container className="px-[5.23vw]">
         <div ref={container} className="h-[102vw] sm:h-[62.19vw] flex flex-col justify-center relative">
-          {/* <FlyingBlock scrollProgress={scrollYProgress} container={container}> */}
           <Image
             src={"/images/need/1.png"}
             alt="photo"
@@ -28,7 +25,7 @@ const Need = () => {
             height={348}
             className="fly-item w-[17.34vw] h-auto bottom-[7.68vw] sm:bottom-0 sm:top-[20.83vw] right-0 rotate-[2.42deg] "
           />
-          {/* </FlyingBlock> */}
+
           <Image
             src={"/images/need/2.png"}
             alt="photo"

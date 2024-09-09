@@ -21,7 +21,11 @@ export const NewsCard = ({ title, img, text, className, imgClassName, w, h }: IP
     <div className={cn(className, "p-[1px]")}>
       <Image src={img} alt="news image" width={w} height={h} className={cn(imgClassName, "mb-[1.25vw]")} />
       <MouseFollowerWrapper state="open">
-        <Link href={"/news/1"} className="flex justify-between items-center size18 mt-[6.15vw] sm:mt-[0.25vw]">
+        <Link
+          href={"/"}
+          // href={"/news/1"}
+          className="flex justify-between items-center size18 mt-[6.15vw] sm:mt-[0.25vw]"
+        >
           <div className="">
             <div className="h5 mb-[2.05vw] sm:mb-[0.2vw] monument">{title}</div>
             <p className={cn("leading-[140%] h5 font-normal", grotesk.className)}>{text}</p>

@@ -3,7 +3,6 @@
 import Container from "../layout/container";
 import CustomButton from "../shared/custom-button";
 import { Link } from "next-view-transitions";
-import MouseFollowerWrapper from "../animations/mouse-follower-wrapper";
 import NavLinkAnimated from "./header/nav-link-animated";
 import Reveal from "../animations/reveal";
 import clsx from "clsx";
@@ -38,23 +37,19 @@ export const Header = () => {
                 key={i}
                 {...item}
                 className={clsx("text-[0.9375vw] leading-[120%] py-[0.83vw]", {
-                  "text-ACCENT": item.path === pathname,
+                  // "text-ACCENT": item.path === pathname,
                 })}
               />
             ))}
           </nav>
         </Reveal>
         <Reveal>
-          <Link href={"/contacts"}>
-            <CustomButton>
-              <div
-                className={cn(
-                  "hidden lg:flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw]",
-                  grotesk.className,
-                )}
-              >
-                Contact us
-              </div>
+          <Link
+            href={"/"}
+            // href={"/contacts"}
+          >
+            <CustomButton className="flex font-bold !text-[0.9375vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden">
+              Contact us
             </CustomButton>
           </Link>
         </Reveal>
