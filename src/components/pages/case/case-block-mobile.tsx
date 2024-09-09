@@ -33,9 +33,11 @@ const CaseBlockMobile = ({ className }: { className?: string }) => {
           </CarouselContent>
         </Carousel>
 
-        <Bullets size={4} active={0} />
+        <Bullets size={4} active={0} className="!mt-0" />
 
-        <div className="uppercase font-medium text-[4.61vw]">storyline</div>
+        <div className="uppercase font-medium text-[4.61vw] mt-[4.05vw]">
+          storyline
+        </div>
 
         <div className="flex flex-col gap-[4.05vw] leading-[140%] text-GRAY text-[4.61vw] font-medium">
           <p>
@@ -54,7 +56,7 @@ const CaseBlockMobile = ({ className }: { className?: string }) => {
           </p>
         </div>
 
-        <div className="border-y border-STROKE">
+        <div className="border-y border-STROKE mt-[4.05vw]">
           {infoData.map((item, i) => (
             <div
               key={i}
