@@ -2,6 +2,7 @@
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
+import AnimatedTitle from "@/components/animations/animated-title";
 import Container from "@/components/layout/container";
 import Image from "next/image";
 import React from "react";
@@ -48,7 +49,7 @@ const AboutTeam = () => {
     <section className="my-[25.62vw] sm:my-[13.02vw] text-WHITE">
       <Container>
         <div className="flex flex-col-reverse sm:flex-row sm:gap-0 gap-[2.02vw] justify-between sm:items-end mb-[8.1vw] sm:mb-[4.16vw]">
-          <SectionTitle className="">meet out team/</SectionTitle>
+          <AnimatedTitle element="h3">meet out team/</AnimatedTitle>
           <SectionName>(about)</SectionName>
         </div>
 
