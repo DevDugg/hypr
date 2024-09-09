@@ -1,11 +1,11 @@
 export const footerList = [
   {
     name: "Our works",
-    link: "/",
+    link: "/works",
   },
   {
     name: "About",
-    link: "/",
+    link: "/about",
   },
   {
     name: "News",

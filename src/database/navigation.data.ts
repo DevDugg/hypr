@@ -14,8 +14,7 @@ export const navData = [
     // path: "/news",
   },
   {
-    view: "Our Creators",
-    path: "/",
-    // path: "/creators",
+    view: "About",
+    path: "/about",
   },
 ];
