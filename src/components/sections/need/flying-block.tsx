@@ -1,45 +1,29 @@
 "use client";
 
-import { MotionValue, useTransform } from "framer-motion";
-import { RefObject, useEffect, useRef, useState } from "react";
+import { MotionValue, useMotionValueEvent, useTransform } from "framer-motion";
 
-import { getRelativePosition } from "@/lib/get-relative-position";
+import { IImage } from ".";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 interface IProps {
-  children: React.ReactNode;
   scrollProgress: MotionValue<number>;
-  container: RefObject<HTMLElement>;
+  image: IImage;
 }
 
-const FlyingBlock = ({ children, scrollProgress, container }: IProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+const FlyingBlock = ({ scrollProgress, image }: IProps) => {
+  const x = useTransform(scrollProgress, [0, 1], [image.position.left, 0]);
+  const y = useTransform(scrollProgress, [0, 1], [image.position.top, 0]);
 
-  const [relativePosition, setRelativePosition] = useState({ relativeX: 0, relativeY: 0 });
-
-  useEffect(() => {
-    if (container.current && ref.current) {
-      const position = getRelativePosition(container, ref);
-      setRelativePosition(position || { relativeX: 0, relativeY: 0 });
-    }
-  }, [container]);
-
-  const translateX = useTransform(scrollProgress, [0, 1], [relativePosition.relativeX, 0]);
-  const translateY = useTransform(scrollProgress, [0, 1], [relativePosition.relativeY, 0]);
+  useMotionValueEvent(scrollProgress, "change", (latest) => {
+    console.log(latest);
+  });
 
   return (
-    relativePosition && (
-      <motion.div
-        ref={ref}
-        // className="size-fit"
-        style={{
-          x: translateX,
-          y: translateY,
-        }}
-      >
-        {children}
-      </motion.div>
-    )
+    <motion.div className={cn(image.className, "h-fit")} style={{ x, y }}>
+      <Image src={image.src} alt="photo" width={image.width} height={image.height} />
+    </motion.div>
   );
 };
 

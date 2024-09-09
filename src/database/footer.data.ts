@@ -23,15 +23,15 @@ export const footerList = [
 
 export const footerList2 = [
   {
-    name: "Instagram",
-    link: "/",
+    name: "x/twitter",
+    link: "https://x.com/createdbyHYPR",
   },
   {
-    name: "LinkedIn",
-    link: "/",
+    name: "instagram",
+    link: "https://instagram.com/createdbyHYPR",
   },
   {
-    name: "X / Twitter",
-    link: "/",
+    name: "linkedin",
+    link: "https://www.linkedin.com/company/createdbyhypr/",
   },
 ];

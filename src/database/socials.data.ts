@@ -1,14 +1,14 @@
 export const socialsData = [
   {
-    name: "x/twitter",
+    name: "X/Twitter",
     link: "https://x.com/createdbyHYPR",
   },
   {
-    name: "instagram",
+    name: "Instagram",
     link: "https://instagram.com/createdbyHYPR",
   },
   {
-    name: "linkedin",
-    link: "",
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/company/createdbyhypr/",
   },
 ];
