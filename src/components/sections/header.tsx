@@ -29,7 +29,7 @@ export const Header = () => {
               alt="Logo"
               width={150}
               height={40}
-              className="w-[4.8125vw] h-[2.0833vw]"
+              className="w-[6.8125vw] h-[3.0833vw] max-sm:w-[14.8125vw] max-sm:h-[7.0833vw]"
             />
           </Reveal>
         </Link>
