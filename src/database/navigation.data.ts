@@ -1,8 +1,7 @@
 export const navData = [
   {
     view: "Works",
-    path: "/",
-    // path: "/works",
+    path: "/works",
   },
   {
     view: "Contacts",
