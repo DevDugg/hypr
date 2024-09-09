@@ -23,7 +23,7 @@ const Reveal = ({
   duration = 0.4,
 }: RevealProps) => {
   const { ref, inView } = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
     fallbackInView: true,
     initialInView: false,
     triggerOnce: true,
