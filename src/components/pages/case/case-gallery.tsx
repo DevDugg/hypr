@@ -77,7 +77,7 @@ const CaseGallery = () => {
         <Carousel className="sm:hidden mb-[6.15vw]">
           <CarouselContent>
             {[...Array(5)].map((_, i) => (
-              <CarouselItem>
+              <CarouselItem key={i}>
                 <Image
                   key={i}
                   src={"/images/case/1.png"}

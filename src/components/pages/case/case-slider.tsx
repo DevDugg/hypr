@@ -19,6 +19,7 @@ import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
 import { useMediaQuery } from "usehooks-ts";
+import clsx from "clsx";
 
 const sliderData = [
   {
@@ -99,6 +100,8 @@ const CaseSlider = () => {
     });
   }, [api]);
 
+  console.log(current);
+
   return (
     <section className="overflow-hidden w-screen h-[128.12vw] sm:h-[45vw]">
       <Container>
@@ -123,11 +126,21 @@ const CaseSlider = () => {
           setApi={setApi}
           opts={{
             loop: true,
+            align: "start",
           }}
         >
           <CarouselContent>
             {sliderData.map((item, i) => (
-              <CarouselItem className="basis-[80%] sm:basis-1/5" key={i}>
+              <CarouselItem
+                key={i}
+                className={clsx(
+                  "basis-[61.5vw] mr-[4.05vw] transition-all sm:mr-[0.83vw] sm:basis-[17.7vw]",
+                  {
+                    "sm:basis-[22.91vw]":
+                      (current - (mobile ? 0 : 1)) % sliderData.length === i,
+                  }
+                )}
+              >
                 <motion.div
                   className={cn(
                     grotesk.className,
@@ -139,7 +152,7 @@ const CaseSlider = () => {
                     opacity: 0.5,
                   }}
                   animate={
-                    (current - (mobile ? 2 : 1)) % sliderData.length === i
+                    (current - (mobile ? 0 : 1)) % sliderData.length === i
                       ? {
                           height: mobile ? "31.25vw" : "97.37vw",
                           width: mobile ? "22.91vw" : "71.75vw",
@@ -153,7 +166,7 @@ const CaseSlider = () => {
                     alt="image"
                     width={340}
                     height={470}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full transition-all object-cover object-center"
                   />
                   <p>{item.title}</p>
                 </motion.div>
