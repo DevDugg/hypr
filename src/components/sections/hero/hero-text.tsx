@@ -13,7 +13,7 @@ const HeroText = () => {
       animate={{ height: "auto", opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.4 }}
     >
-      <div className="bg-ACCENT overflow-hidden pt-[3.07vw] sm:pt-[1.25vw] pb-[2.05vw] sm:pb-0">
+      <div className="bg-ACCENT overflow-hidden pt-[3.07vw] sm:pt-[2.25vw] pb-0">
         <Container>
           <AnimatedTitle
             block={colors.ACCENT}

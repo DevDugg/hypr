@@ -13,9 +13,9 @@ const CreatorsBlock = () => {
     <>
       <div className="mt-[3.33vw] hidden sm:flex gap-[2.56vw] sm:gap-[0.5vw]">
         {creatorsData.map((item, i) => (
-          <Reveal key={i} animateOnView delay={i * 0.2} duration={1}>
-            <CreatorsCard {...item} />
-          </Reveal>
+          // <Reveal key={i} animateOnView delay={i * 0.2} duration={1}>
+          <CreatorsCard {...item} key={i} />
+          // </Reveal>
         ))}
       </div>
 

@@ -2,6 +2,7 @@
 
 import Container from "../layout/container";
 import CustomButton from "../shared/custom-button";
+import Image from "next/image";
 import { Link } from "next-view-transitions";
 import NavLinkAnimated from "./header/nav-link-animated";
 import Reveal from "../animations/reveal";
@@ -22,7 +23,15 @@ export const Header = () => {
     >
       <Container className="flex items-center justify-between text-WHITE">
         <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold">
-          <Reveal>HYPR</Reveal>
+          <Reveal>
+            <Image
+              src={"/images/main-logo.svg"}
+              alt="Logo"
+              width={150}
+              height={40}
+              className="w-[7.8125vw] h-[2.0833vw]"
+            />
+          </Reveal>
         </Link>
 
         <Reveal type="opacity">

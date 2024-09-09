@@ -18,6 +18,7 @@ function SmoothScroll({ children }: PropsWithChildren) {
         smoothTouch: true,
         touchMultiplier: 2,
         infinite: false,
+        __experimental__naiveDimensions: true,
       }}
     >
       {children}
