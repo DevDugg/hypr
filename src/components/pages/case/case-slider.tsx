@@ -2,7 +2,12 @@
 
 import "keen-slider/keen-slider.min.css";
 
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import React, { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "lucide-react";
@@ -95,15 +100,19 @@ const CaseSlider = () => {
   }, [api]);
 
   return (
-    <section className="overflow-hidden w-screen">
+    <section className="overflow-hidden w-screen h-[128.12vw] sm:h-[45vw]">
       <Container>
         <div className="flex justify-between">
-          <CaseTitle title="similar projects" num="(07)" className="sm:ml-[11.66vw] mb-[6.15vw] sm:mb-[2.5vw]" />
+          <CaseTitle
+            title="similar projects"
+            num="(07)"
+            className="sm:ml-[11.66vw] mb-[6.15vw] sm:mb-[2.5vw]"
+          />
 
           <a
             className={cn(
               "uppercase hidden sm:flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold",
-              grotesk.className,
+              grotesk.className
             )}
           >
             see all projects <ArrowUpRight className="size-[1vw]" />
@@ -115,22 +124,24 @@ const CaseSlider = () => {
           opts={{
             loop: true,
           }}
-          className=""
         >
           <CarouselContent>
             {sliderData.map((item, i) => (
               <CarouselItem className="basis-[80%] sm:basis-1/5" key={i}>
                 <motion.div
-                  className={cn(grotesk.className, "text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit")}
+                  className={cn(
+                    grotesk.className,
+                    "text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit"
+                  )}
                   initial={{
                     height: mobile ? "24.47vw" : "83.28vw",
                     width: mobile ? "17.70vw" : "61.5vw",
                     opacity: 0.5,
                   }}
                   animate={
-                    (current + 1) % sliderData.length === i
+                    (current - (mobile ? 2 : 1)) % sliderData.length === i
                       ? {
-                          height: mobile ? "35vw" : "97.37vw",
+                          height: mobile ? "31.25vw" : "97.37vw",
                           width: mobile ? "22.91vw" : "71.75vw",
                           opacity: 1,
                         }

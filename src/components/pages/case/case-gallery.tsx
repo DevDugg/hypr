@@ -1,8 +1,24 @@
+"use client";
+
 import Container from "@/components/layout/container";
 import CaseTitle from "./case-title";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import clsx from "clsx";
+import { useState } from "react";
+import Bullets from "@/components/shared/bullets";
 
 const CaseGallery = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  console.log(setApi);
+
   return (
     <section>
       <Container>
@@ -58,20 +74,22 @@ const CaseGallery = () => {
           />
         </div>
 
-        <div className="sm:hidden mb-[6.15vw]">
-          <Image
-            src={"/images/case/1.png"}
-            alt="photo"
-            width={593}
-            height={787}
-          />
-        </div>
-
-        <div className="sm:hidden flex justify-between gap-[6.15vw] mt-[6.15vw] items-center">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="bg-GRAY h-[0.51vw] w-1/4" />
-          ))}
-        </div>
+        <Carousel className="sm:hidden mb-[6.15vw]">
+          <CarouselContent>
+            {[...Array(5)].map((_, i) => (
+              <CarouselItem>
+                <Image
+                  key={i}
+                  src={"/images/case/1.png"}
+                  alt="photo"
+                  width={593}
+                  height={787}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <Bullets size={5} active={activeSlide} />
       </Container>
     </section>
   );
