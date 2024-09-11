@@ -12,10 +12,10 @@ import { getHomePageData } from "@/sanity/schemas/home";
 export default async function Home() {
   const homeData = await getHomePageData();
 
-  const { latest_news } = homeData[0];
+  const { latest_news, hero } = homeData[0];
   return (
     <main className="home flex flex-col gap-[25.62vw] sm:gap-[20vw] overflow-hidden">
-      <Hero />
+      {hero && <Hero hero={hero} />}
 
       <Services />
 
