@@ -14,7 +14,7 @@ export default async function Home() {
 
   const { latest_news } = homeData[0];
   return (
-    <main className="home flex flex-col gap-[25.62vw] sm:gap-[20vw]">
+    <main className="home flex flex-col gap-[25.62vw] sm:gap-[20vw] overflow-hidden">
       <Hero />
 
       <Services />

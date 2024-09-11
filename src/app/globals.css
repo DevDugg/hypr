@@ -22,7 +22,7 @@
 
   .subtitle,
   .name {
-    @apply text-[3.54vw] sm:text-[0.93vw];
+    @apply text-[3.54vw] sm:text-[1.25vw];
   }
 
   .fly-item {
@@ -88,6 +88,10 @@
   }
   .mob24 {
     @apply text-[6.15vw];
+  }
+
+  .scroll-lock {
+    @apply overflow-hidden;
   }
 }
 
