@@ -1,14 +1,15 @@
+import { HOME_PAGE_QUERYResult, Home_page } from "../../../../sanity.types";
+
 import AnimatedTitle from "@/components/animations/animated-title";
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
-import { Home_page } from "../../../../sanity.types";
 import MouseFollowerWrapper from "@/components/animations/mouse-follower-wrapper";
 import NewsBlock from "./news-block";
 import SectionName from "@/components/titles/section-name";
 import SectionSubtitle from "@/components/titles/section-subtitle";
 
 interface NewsProps {
-  news: Home_page["latest_news"];
+  news: HOME_PAGE_QUERYResult[number]["latest_news"];
 }
 
 const News = ({ news }: NewsProps) => {

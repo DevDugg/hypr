@@ -1,13 +1,13 @@
 "use client";
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { HOME_PAGE_QUERYResult, Home_page } from "../../../../sanity.types";
 
 import Container from "@/components/layout/container";
-import { Home_page } from "../../../../sanity.types";
 import { NewsCard } from "./news-card";
 
 interface NewsBlockProps {
-  news: NonNullable<Home_page["latest_news"]>["items"];
+  news: NonNullable<HOME_PAGE_QUERYResult[any]["latest_news"]>["items"];
 }
 
 const NewsBlock = ({ news }: NewsBlockProps) => {
