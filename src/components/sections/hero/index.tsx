@@ -24,6 +24,7 @@ export const Hero = ({ hero }: HeroProps) => {
             <Reveal key={i} delay={0.5 + i * 0.1}>
               <Image
                 src={urlFor(item).width(291).height(400).url()}
+                loading="eager"
                 alt="img"
                 width={291}
                 height={400}
