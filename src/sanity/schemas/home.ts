@@ -1,59 +1,36 @@
-import { INewsData } from "./news";
-import { IProjectsData } from "./projects";
+import { HOME_PAGE_QUERYResult } from "../../../sanity.types";
 import { client } from "../lib/client";
+import { defineQuery } from "next-sanity";
 
 // Interface for correct hero section types
-export interface IHomePage {
-  hero: {
-    images: any[];
-    description: any;
-  };
-  services: {
-    subtitle: string;
-    items: {
-      name: string;
-      image: any;
-    }[];
-  };
-  projects: IProjectsData[];
-  about: {
-    subtitle: string;
-    text: string;
-  };
-  latest_news: {
-    title: string;
-    subtitle: string;
-    description: string;
-    items: INewsData;
-  };
-  clients: {
-    title: string;
-    subtitle: string;
-    items: {
-      name: string;
-      image: any;
-    }[];
-  };
-  creators: {
-    title: string;
-    subtitle: string;
-    description: string;
-    items: {
-      creator_name: string;
-      handle: string;
-      social_media_1: string;
-      social_media_2: string;
-    };
-  };
-  gallery: {
-    title: string;
-  };
-}
 
 // Function to get hero section data
-export const getHomePageData = async (): Promise<IHomePage[]> => {
-  const query = `*[_type == 'home_page']`; // *[_type == 'hero_section'] gets all documents of type hero_section
-  const data = await client.fetch(query, {}, { cache: "no-store" });
+export const getHomePageData = async (): Promise<HOME_PAGE_QUERYResult> => {
+  const HOME_PAGE_QUERY = defineQuery(`*[_type == "home_page"]{
+    hero,
+    services,
+    "projects": projects{
+      ...,
+      items[]->{
+        ...
+      }
+    },
+    about,
+    "latest_news": latest_news {
+      title,
+      subtitle,
+      description,
+      "items": items[]->{
+        ...
+      }
+    },
+    clients,
+    creators,
+    gallery
+  }
+  `);
+
+  const data = await client.fetch(HOME_PAGE_QUERY, {}, { cache: "no-store" });
   return data;
 };
 
@@ -275,6 +252,11 @@ const home_page = {
                   title: "Handle",
                 },
                 {
+                  name: "image",
+                  type: "image",
+                  title: "Image",
+                },
+                {
                   name: "social_media_1",
                   type: "string",
                   title: "Social Media 1",
@@ -287,6 +269,18 @@ const home_page = {
               ],
             },
           ],
+        },
+      ],
+    },
+    {
+      name: "gallery",
+      type: "object",
+      title: "Gallery",
+      fields: [
+        {
+          name: "title",
+          type: "string",
+          title: "Title",
         },
       ],
     },

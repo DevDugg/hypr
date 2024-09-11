@@ -1,3 +1,5 @@
+import { Home_page, News } from "../../../../sanity.types";
+
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Link } from "next-view-transitions";
@@ -5,30 +7,42 @@ import MouseFollowerWrapper from "@/components/animations/mouse-follower-wrapper
 import React from "react";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
+import { urlFor } from "@/sanity/lib/image";
 
-interface IProps {
-  title: string;
-  img: string;
-  text: string;
+type IProps = News & {
   className?: string;
   imgClassName?: string;
   w: number;
   h: number;
-}
+};
 
-export const NewsCard = ({ title, img, text, className, imgClassName, w, h }: IProps) => {
+export const NewsCard = ({
+  h,
+  slug,
+  w,
+  className,
+  imgClassName,
+  short_description,
+  display_title,
+  main_image,
+}: IProps) => {
   return (
-    <div className={cn(className, "p-[1px]")}>
-      <Image src={img} alt="news image" width={w} height={h} className={cn(imgClassName, "mb-[1.25vw]")} />
+    <div className={cn(className)}>
+      <Image
+        src={urlFor(main_image!).size(800, 960).url()}
+        alt="news image"
+        width={w}
+        height={h}
+        className={cn(imgClassName, "mb-[1.25vw]")}
+      />
       <MouseFollowerWrapper state="open">
         <Link
-          href={"/"}
-          // href={"/news/1"}
+          href={`/news/${slug?.current}`}
           className="flex justify-between items-center size18 mt-[6.15vw] sm:mt-[0.25vw]"
         >
           <div className="">
-            <div className="h5 mb-[2.05vw] sm:mb-[0.2vw] monument">{title}</div>
-            <p className={cn("leading-[140%] h5 font-normal", grotesk.className)}>{text}</p>
+            <div className="h5 mb-[2.05vw] sm:mb-[0.2vw] monument">{display_title}</div>
+            <p className={cn("leading-[140%] h5 font-normal", grotesk.className)}>{short_description}</p>
           </div>
 
           <ArrowUpRight className="text-GRAY hidden sm:block size-[10vw] sm:size-[2vw]" />

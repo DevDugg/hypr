@@ -1,17 +1,8 @@
+import { News } from "../../../sanity.types";
 import { client } from "../lib/client";
 
-// Interface for correct hero section types
-export interface INewsData {
-  title: string;
-  display_title: string;
-  slug: string;
-  main_image: any;
-  short_description: string;
-  content: any;
-}
-
 // Function to get hero section data
-export const getNewsData = async (): Promise<INewsData[]> => {
+export const getNewsData = async (): Promise<News[]> => {
   const query = `*[_type == 'news']`; // *[_type == 'hero_section'] gets all documents of type hero_section
   const data = await client.fetch(query, {}, { cache: "no-store" });
   return data;
@@ -28,14 +19,9 @@ const news = {
       title: "Title",
     },
     {
-      name: "subtitle",
+      name: "display_title",
       type: "string",
-      title: "Subtitle",
-    },
-    {
-      name: "description",
-      type: "string",
-      title: "Description",
+      title: "Display Title",
     },
     {
       name: "slug",
@@ -47,29 +33,25 @@ const news = {
       },
     },
     {
-      name: "items",
+      name: "short_description",
+      type: "string",
+      title: "Short Description",
+    },
+    {
+      name: "main_image",
+      type: "image",
+      title: "Main Image",
+    },
+    {
+      name: "content",
       type: "array",
-      title: "Items",
+      title: "Content",
       of: [
         {
-          type: "object",
-          fields: [
-            {
-              name: "name",
-              type: "string",
-              title: "Name",
-            },
-            {
-              name: "short_description",
-              type: "string",
-              title: "Short Description",
-            },
-            {
-              name: "image",
-              type: "image",
-              title: "Image",
-            },
-          ],
+          type: "block",
+        },
+        {
+          type: "image",
         },
       ],
     },

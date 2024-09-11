@@ -7,8 +7,12 @@ import Partners from "@/components/sections/partners";
 import Projects from "@/components/sections/projects";
 import Services from "@/components/sections/our-services";
 import Socials from "@/components/sections/socials";
+import { getHomePageData } from "@/sanity/schemas/home";
 
-export default function Home() {
+export default async function Home() {
+  const homeData = await getHomePageData();
+
+  const { latest_news } = homeData[0];
   return (
     <main className="home flex flex-col gap-[25.62vw] sm:gap-[20vw]">
       <Hero />
@@ -19,7 +23,7 @@ export default function Home() {
 
       <About />
 
-      <News />
+      <News news={latest_news!} />
 
       <Partners />
 

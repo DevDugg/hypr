@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "type": "npx sanity schema extract, npx sanity typegen generate",
     "turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
