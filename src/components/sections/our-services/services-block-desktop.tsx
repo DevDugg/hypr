@@ -1,18 +1,26 @@
 "use client";
 
+import { Home_page } from "../../../../sanity.types";
 import Image from "next/image";
 import Reveal from "@/components/animations/reveal";
 import { ServiceCardDesktop } from "./service-card-desktop";
 import { motion } from "framer-motion";
 import { servicesData } from "@/database/services.data";
+import { urlFor } from "@/sanity/lib/image";
 import { useMousePosition } from "@/hooks/use-mouse-position";
 import { useState } from "react";
 
-const ServicesBlockDesktop = () => {
+interface ServicesBlockDesktopProps {
+  items: NonNullable<NonNullable<Home_page["services"]>["items"]>;
+}
+
+const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
   const { box, handleMouseMove, smoothMousePosition } = useMousePosition({
     offsetX: 400,
   });
+
+  const images = items.map((item) => item.image);
 
   return (
     <motion.div
@@ -21,11 +29,11 @@ const ServicesBlockDesktop = () => {
       onMouseMove={(e) => handleMouseMove(e)}
       onMouseLeave={() => setActiveItem(null)}
     >
-      {servicesData.map((item, i) => {
+      {items.map((item, i) => {
         return (
           <Reveal key={i} delay={i * 0.1} animateOnView duration={0.3} type="opacity">
             <div className="w-full" onMouseOver={() => setActiveItem(i)}>
-              <ServiceCardDesktop i={i} activeItem={activeItem} {...item} />
+              <ServiceCardDesktop i={i} activeItem={activeItem} name={item.name!} image={item.image} />
             </div>
           </Reveal>
         );
@@ -48,11 +56,14 @@ const ServicesBlockDesktop = () => {
             y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
           }}
         >
-          {servicesData.map((item, i) => (
-            <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-              <Image src={item.img} width={256} height={320} alt="service image" />
-            </div>
-          ))}
+          {images.map(
+            (item, i) =>
+              item && (
+                <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
+                  <Image src={urlFor(item).size(256, 320).url()} width={256} height={320} alt="service image" />
+                </div>
+              ),
+          )}
         </motion.div>
       </motion.div>
       <motion.div
@@ -75,11 +86,14 @@ const ServicesBlockDesktop = () => {
             y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
           }}
         >
-          {servicesData.map((item, i) => (
-            <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-              <Image src={item.img} width={256} height={320} alt="service image" />
-            </div>
-          ))}
+          {images.map(
+            (item, i) =>
+              item && (
+                <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
+                  <Image src={urlFor(item).size(256, 320).url()} width={256} height={320} alt="service image" />
+                </div>
+              ),
+          )}
         </motion.div>
       </motion.div>
     </motion.div>
