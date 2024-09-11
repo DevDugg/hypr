@@ -22,7 +22,13 @@ const variants: Variants = {
   visibleChar: { y: "0%" },
 };
 
-const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }: AnimatedTitleProps) => {
+const AnimatedTitle = ({
+  children,
+  className,
+  element = "h3",
+  delay = 0,
+  block,
+}: AnimatedTitleProps) => {
   const characters = children.split("");
 
   const [ref, inView] = useInView({
@@ -39,7 +45,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -65,7 +71,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -91,7 +97,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -117,7 +123,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -143,7 +149,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -169,7 +175,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -195,7 +201,7 @@ const AnimatedTitle = ({ children, className, element = "h3", delay = 0, block }
           className={cn(
             "animated-title",
             "size48 text-WHITE leading-none uppercase monument h-min overflow-hidden relative",
-            className,
+            className
           )}
         >
           {characters.map((char, i) => (
@@ -223,7 +229,11 @@ interface AnimatedCharacterProps {
   delay: number;
 }
 
-const AnimatedCharacter = ({ children, inView, delay }: AnimatedCharacterProps) => {
+const AnimatedCharacter = ({
+  children,
+  inView,
+  delay,
+}: AnimatedCharacterProps) => {
   return (
     <motion.span
       className="inline-block overflow-hidden h-full"

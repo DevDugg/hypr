@@ -13,19 +13,28 @@ interface CustomButtonProps extends PropsWithChildren {
   className?: string;
 }
 
-const CustomButton = ({ children, onClick, type, fullWidth, className }: CustomButtonProps) => {
+const CustomButton = ({
+  children,
+  onClick,
+  type,
+  fullWidth,
+  className,
+}: CustomButtonProps) => {
   return (
     <motion.button
       type={type}
       onClick={onClick}
       className={clsx(
-        "p-[1.04vw] text-[0.9375vw] text-BLACK font-bold bg-ACCENT border border-ACCENT rounded-[10.416vw] leading-none flex justify-center max-md:!text-base",
+        "p-[1.25vw] text-[1.25vw] text-BLACK font-bold bg-ACCENT rounded-[10.416vw] leading-none flex justify-center max-md:!text-base",
         grotesk.className,
         fullWidth && "w-full",
-        className,
+        className
       )}
       initial={{ color: colors.BLACK, background: colors.ACCENT }}
-      whileHover={{ color: colors.ACCENT, background: `${colors.ACCENT}00` }}
+      whileHover={{
+        color: colors.BLACK,
+        background: `${colors.WHITE}`,
+      }}
       transition={{ duration: 0.5 }}
     >
       {children}

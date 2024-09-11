@@ -5,13 +5,11 @@ export const navData = [
   },
   {
     view: "Contacts",
-    path: "/",
-    // path: "/contacts",
+    path: "/contacts",
   },
   {
     view: "Insights",
-    path: "/",
-    // path: "/news",
+    path: "/news",
   },
   {
     view: "About",

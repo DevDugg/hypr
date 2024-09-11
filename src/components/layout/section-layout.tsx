@@ -3,6 +3,7 @@ import Container from "./container";
 import SectionName from "../titles/section-name";
 import SectionSubtitle from "../titles/section-subtitle";
 import { cn } from "@/lib/utils";
+import clsx from "clsx";
 
 const SectionLayout = ({
   className,
@@ -26,14 +27,26 @@ const SectionLayout = ({
       <Container className={className}>
         <div className="sm:hidden mb-[8.1vw]">
           {name && <SectionName className="mb-[4.05vw]">{name}</SectionName>}
-          {title && <AnimatedTitle className="mb-[2.02vw]">{title}</AnimatedTitle>}
+          {title && (
+            <AnimatedTitle className="mb-[2.02vw]">{title}</AnimatedTitle>
+          )}
           {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
         </div>
 
         <div className="hidden mb-[3.33vw] sm:flex items-end justify-between gap-[2.08vw]">
-          {title && <AnimatedTitle className={nameTitleClassName}>{title}</AnimatedTitle>}
-          {name && <SectionName>{name}</SectionName>}
-          {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
+          {title && (
+            <AnimatedTitle className={nameTitleClassName}>
+              {title}
+            </AnimatedTitle>
+          )}
+          {name && (
+            <div
+              className={clsx(" flex justify-between", { "w-1/2": subtitle })}
+            >
+              <SectionName>{name}</SectionName>
+              {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
+            </div>
+          )}
         </div>
 
         <div className="">{children}</div>
