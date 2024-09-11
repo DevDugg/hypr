@@ -19,7 +19,7 @@ const CreatorsBlock = () => {
         ))}
       </div>
 
-      <Carousel className="sm:hidden">
+      <Carousel className="sm:hidden" opts={{ skipSnaps: true }}>
         <CarouselContent>
           {creatorsData.map((item, i) => (
             <CarouselItem key={i} className="basis-[1/2]">
