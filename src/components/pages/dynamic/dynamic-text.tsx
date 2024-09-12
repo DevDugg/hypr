@@ -1,18 +1,17 @@
-import { grotesk } from "@/lib/fonts";
+import { PropsWithChildren } from "react";
 import { cn } from "@/lib/utils";
-import React, { PropsWithChildren, ReactNode } from "react";
+import { grotesk } from "@/lib/fonts";
 
-interface Props {
-  children: ReactNode;
-}
-
-const DynamicText = ({ children }: Props) => {
+const DynamicText = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex flex-col sm:gap-[2.08vw] leading-none sm:px-[18.75vw]">
-      <p className={cn("font-bold text-[5.12vw] sm:size64", grotesk.className)}>
-        {children}
-      </p>
-    </div>
+    <p
+      className={cn(
+        "font-medium leading-[140%] text-[3.589vw] sm:text-[1.25vw] text-GRAY sm:px-[18.75vw] mb-[10.25vw] sm:mb-[4.16vw]",
+        grotesk.className,
+      )}
+    >
+      {children}
+    </p>
   );
 };
 

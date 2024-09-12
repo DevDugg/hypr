@@ -1,11 +1,18 @@
 import { News } from "../../../sanity.types";
 import { client } from "../lib/client";
+import { defineQuery } from "next-sanity";
 
 // Function to get hero section data
 export const getNewsData = async (): Promise<News[]> => {
-  const query = `*[_type == 'news']`; // *[_type == 'hero_section'] gets all documents of type hero_section
-  const data = await client.fetch(query, {}, { cache: "no-store" });
+  const NEWS_QUERY = defineQuery(`*[_type == 'news']`);
+  const data = await client.fetch(NEWS_QUERY, {}, { cache: "no-store" });
   return data;
+};
+
+export const getNewsItemData = async (slug: string): Promise<News> => {
+  const NEWS_ITEM_QUERY = defineQuery(`*[_type == 'news' && slug.current == $slug]`);
+  const data = await client.fetch(NEWS_ITEM_QUERY, { slug }, { cache: "no-store" });
+  return data[0];
 };
 
 const news = {
