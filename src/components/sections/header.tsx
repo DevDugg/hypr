@@ -22,9 +22,9 @@ export const Header = () => {
 
   useEffect(() => {
     if (burger) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
     }
   }, [burger]);
 
