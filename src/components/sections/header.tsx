@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+import Burger from "../shared/burger";
 import Container from "../layout/container";
 import CustomButton from "../shared/custom-button";
 import Image from "next/image";
@@ -9,15 +12,21 @@ import Reveal from "../animations/reveal";
 import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
+import { motion } from "framer-motion";
 import { navData } from "@/database/navigation.data";
 import { usePathname } from "next/navigation";
-import Burger from "../shared/burger";
-import { useState } from "react";
-import { motion } from "framer-motion";
 
 export const Header = () => {
   const pathname = usePathname();
   const [burger, setBurger] = useState(false);
+
+  useEffect(() => {
+    if (burger) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [burger]);
 
   return (
     <>
@@ -29,10 +38,7 @@ export const Header = () => {
         })}
       >
         <Container className="flex items-center justify-between text-WHITE">
-          <Link
-            href={"/"}
-            className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold"
-          >
+          <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold">
             <Reveal>
               <Image
                 src={"/images/main-logo.svg"}
@@ -48,32 +54,24 @@ export const Header = () => {
             <nav
               className={cn(
                 "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
-                grotesk.className
+                grotesk.className,
               )}
             >
               {navData.map((item, i) => (
                 <NavLinkAnimated
                   key={i}
                   {...item}
-                  className={clsx(
-                    "text-[0.9375vw] leading-[120%] py-[0.83vw]",
-                    {
-                      // "text-ACCENT": item.path === pathname,
-                    }
-                  )}
+                  className={clsx("text-[0.9375vw] leading-[120%] py-[0.83vw]", {
+                    // "text-ACCENT": item.path === pathname,
+                  })}
                 />
               ))}
             </nav>
           </Reveal>
           <Reveal>
-            <Link
-              href={"/"}
-              // href={"/contacts"}
-            >
-              <CustomButton className="hidden lg:flex font-bold !text-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden">
-                Contact us
-              </CustomButton>
-            </Link>
+            <CustomButton className="hidden lg:flex font-bold !text-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden">
+              <Link href={"/contacts"}>Contact us</Link>
+            </CustomButton>
           </Reveal>
 
           <div

@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { navData } from "@/database/navigation.data";
+import CustomButton from "./custom-button";
 import Link from "next/link";
+import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
-import Container from "../layout/container";
+import { motion } from "framer-motion";
+import { navData } from "@/database/navigation.data";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
-import { Button } from "../ui/button";
 
 interface Props {
   burger: boolean;
@@ -26,19 +25,12 @@ const Burger = ({ burger, setBurger }: Props) => {
       initial={{ translateY: "-100%", pointerEvents: "none" }}
       animate={burger ? { translateY: 0, pointerEvents: "none" } : {}}
       transition={{ duration: 0.6, ease: [0.55, 0, 0.1, 1] }}
-      className={cn(
-        "bg-BACKGROUND absolute left-0 top-0 right-0 z-20 h-screen",
-        grotesk.className
-      )}
+      className={cn("bg-BACKGROUND absolute left-0 top-0 right-0 z-20 h-screen", grotesk.className)}
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={burger ? { opacity: 1 } : {}}
-        transition={
-          burger
-            ? { delay: 0.6, ease: [0.55, 0, 0.1, 1] }
-            : { delay: 0, duration: 0.1 }
-        }
+        transition={burger ? { delay: 0.6, ease: [0.55, 0, 0.1, 1] } : { delay: 0, duration: 0.1 }}
         className="flex flex-col h-screen container"
       >
         <motion.ul
@@ -60,7 +52,9 @@ const Burger = ({ burger, setBurger }: Props) => {
             </li>
           ))}
         </motion.ul>
-        <Button className="w-full mb-[12.3vw]">Contact us</Button>
+        <CustomButton className="w-full mb-[12.3vw]">
+          <Link href={"/contact"}>Contact us</Link>
+        </CustomButton>
       </motion.div>
     </motion.div>
   );

@@ -2,8 +2,9 @@
 
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
-import FlyingBlock from "./flying-block";
+import { HOME_PAGE_QUERYResult } from "../../../../sanity.types";
 import Image from "next/image";
+import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { useRef } from "react";
@@ -20,7 +21,11 @@ export interface IImage {
   };
 }
 
-const Need = () => {
+interface INeedProps {
+  gallery: NonNullable<HOME_PAGE_QUERYResult[number]["gallery"]>;
+}
+
+const Need = ({ gallery }: INeedProps) => {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -92,6 +97,8 @@ const Need = () => {
     },
   ];
 
+  const { title } = gallery;
+
   return (
     <section id="need" className="text-WHITE mb-[0.83vw] relative" ref={container}>
       <Container className="px-[5.23vw]">
@@ -107,10 +114,9 @@ const Need = () => {
               className={image.className}
             />
           ))}
-
-          <h1 className="text-center mx-auto leading-none text-[11.27vw] sm:size100 monument">
-            no need <br /> to be shy.
-          </h1>
+          {title && (
+            <h1 className="text-center mx-auto leading-none text-[11.27vw] sm:size100 monument max-w-3xl">{title}</h1>
+          )}
 
           <CustomButton
             className={cn(
@@ -118,7 +124,7 @@ const Need = () => {
               "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center",
             )}
           >
-            Contact us
+            <Link href={"/contact"}>Contact us</Link>
           </CustomButton>
         </div>
       </Container>
