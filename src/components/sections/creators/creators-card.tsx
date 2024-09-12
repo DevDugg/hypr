@@ -1,23 +1,30 @@
+import { HOME_PAGE_QUERYResult } from "../../../../sanity.types";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
+import { urlFor } from "@/sanity/lib/image";
 
-interface IProps {
-  img: string;
-  title: string;
-  nickname: string;
-  socials: {
-    social: string;
-  }[];
-}
-
-export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
+export const CreatorsCard = ({
+  creator_name,
+  handle,
+  image,
+  social_media_1,
+  social_media_2,
+}: NonNullable<NonNullable<HOME_PAGE_QUERYResult[number]["creators"]>["items"]>[number]) => {
   return (
     <div className="w-[51.25vw] sm:w-full">
-      <Image src={img} alt="news image" width={342} height={480} className="w-full h-[66.62vw] sm:h-[25vw]" />
+      {image && (
+        <Image
+          src={urlFor(image).size(342, 480).url()}
+          alt="news image"
+          width={342}
+          height={480}
+          className="w-full h-[66.62vw] sm:h-[25vw] object-cover"
+        />
+      )}
 
       <div className="mt-[4.05vw] sm:mt-[1.66vw] mb-[4.05vw] sm:mb-[1.25vw] text-[4.05vw] sm:text-[0.9375vw] monument">
-        {title}
+        {creator_name}
       </div>
       <p
         className={cn(
@@ -25,7 +32,7 @@ export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
           grotesk.className,
         )}
       >
-        {nickname}
+        {handle}
       </p>
 
       <div
@@ -34,9 +41,8 @@ export const CreatorsCard = ({ img, title, nickname, socials }: IProps) => {
           grotesk.className,
         )}
       >
-        {socials.map((item, i) => (
-          <div key={i}>{item.social}</div>
-        ))}
+        {social_media_1 && <div>{social_media_1}</div>}
+        {social_media_2 && <div>{social_media_2}</div>}
       </div>
     </div>
   );

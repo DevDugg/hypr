@@ -14,12 +14,12 @@ import { ArrowUpRight } from "lucide-react";
 import CaseTitle from "./case-title";
 import Container from "@/components/layout/container";
 import Image from "next/image";
+import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
 import { useMediaQuery } from "usehooks-ts";
-import clsx from "clsx";
 
 const sliderData = [
   {
@@ -100,7 +100,6 @@ const CaseSlider = () => {
     });
   }, [api]);
 
-  console.log(current);
 
   return (
     <section className="overflow-hidden w-screen h-[128.12vw] sm:h-[45vw]">

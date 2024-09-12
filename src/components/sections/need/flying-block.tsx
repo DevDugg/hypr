@@ -16,9 +16,9 @@ const FlyingBlock = ({ scrollProgress, image }: IProps) => {
   const x = useTransform(scrollProgress, [0, 1], [image.position.left, 0]);
   const y = useTransform(scrollProgress, [0, 1], [image.position.top, 0]);
 
-  useMotionValueEvent(scrollProgress, "change", (latest) => {
-    console.log(latest);
-  });
+  // useMotionValueEvent(scrollProgress, "change", (latest) => {
+  //   console.log(latest);
+  // });
 
   return (
     <motion.div className={cn(image.className, "h-fit")} style={{ x, y }}>

@@ -23,8 +23,6 @@ export const useContactForm = () => {
   });
 
   const onSubmit = (data: FormTypes) => {
-    console.log(data);
-
     form.reset();
   };
 

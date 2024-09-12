@@ -1,24 +1,22 @@
 "use client";
 
-import Container from "@/components/layout/container";
-import CaseTitle from "./case-title";
-import Image from "next/image";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+
+import Bullets from "@/components/shared/bullets";
+import CaseTitle from "./case-title";
+import Container from "@/components/layout/container";
+import Image from "next/image";
 import clsx from "clsx";
 import { useState } from "react";
-import Bullets from "@/components/shared/bullets";
 
 const CaseGallery = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [activeSlide, setActiveSlide] = useState(0);
-
-  console.log(setApi);
-
   return (
     <section>
       <Container>
