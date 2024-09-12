@@ -1,9 +1,8 @@
-import { Home_page, News } from "../../../../sanity.types";
-
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { Link } from "next-view-transitions";
 import MouseFollowerWrapper from "@/components/animations/mouse-follower-wrapper";
+import { News } from "../../../../sanity.types";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
@@ -29,11 +28,11 @@ export const NewsCard = ({
   return (
     <div className={cn(className)}>
       <Image
-        src={urlFor(main_image!).size(800, 960).url()}
+        src={urlFor(main_image!).size(w, h).url()}
         alt="news image"
         width={w}
         height={h}
-        className={cn(imgClassName, "mb-[1.25vw]")}
+        className={cn(imgClassName, "mb-[1.25vw] object-cover")}
       />
       <MouseFollowerWrapper state="open">
         <Link

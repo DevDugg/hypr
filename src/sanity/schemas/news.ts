@@ -2,11 +2,28 @@ import { News } from "../../../sanity.types";
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
 
-// Function to get hero section data
-export const getNewsData = async (): Promise<News[]> => {
-  const NEWS_QUERY = defineQuery(`*[_type == 'news']`);
-  const data = await client.fetch(NEWS_QUERY, {}, { cache: "no-store" });
-  return data;
+export const getNewsData = async (
+  page: number = 1,
+  pageSize: number = 10,
+): Promise<{ news: News[]; hasMore: boolean }> => {
+  const offset = (page - 1) * pageSize;
+
+  const NEWS_QUERY = defineQuery(`
+    *[_type == 'news'] | order(_createdAt desc) [${offset}...${offset + pageSize}]
+  `);
+
+  const COUNT_QUERY = defineQuery(`
+    count(*[_type == 'news'])
+  `);
+
+  const [data, totalCount] = await Promise.all([
+    client.fetch(NEWS_QUERY, {}, { cache: "no-store" }),
+    client.fetch(COUNT_QUERY, {}, { cache: "no-store" }),
+  ]);
+
+  const hasMore = offset + pageSize < totalCount;
+
+  return { news: data, hasMore };
 };
 
 export const getNewsItemData = async (slug: string): Promise<News> => {
