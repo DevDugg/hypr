@@ -24,7 +24,7 @@ const Projects = ({ projects }: ProjectsProps) => {
               // <Reveal animateOnView key={i} delay={i * 0.2} duration={0.6}>
               <MouseFollowerWrapper key={i} state="open">
                 <ProjectCard
-                  img={item.key_visuals![0]}
+                  img={item.key_visuals![0].image}
                   slug={item.slug}
                   subtitle={item.short_description}
                   title={item.name}

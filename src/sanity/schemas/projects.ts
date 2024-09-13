@@ -1,41 +1,64 @@
+import { PROJECT_ITEM_QUERYResult, Projects } from "../../../sanity.types";
+
 import { client } from "../lib/client";
+import { defineQuery } from "next-sanity";
 
-// Interface for correct hero section types
-export interface IProjectsData {
-  name: string;
-  slug: string;
-  title_1: string;
-  title_2: string;
-  short_description: string;
-  description_1: string;
-  description_2: string;
-  key_visuals: any[];
-  information: {
-    name: string;
-    value: string;
-  }[];
-  videos: {
-    name: string;
-    video: any;
-  }[];
-  gallery: {
-    image_1: any;
-    image_2: any;
-    image_3: any;
-    image_4: any;
-    image_5: any;
-    image_6: any;
-  };
-}
+export const getProjectsData = async (
+  page: number = 1,
+  pageSize: number = 10,
+): Promise<{ projects: Projects[]; hasMore: boolean }> => {
+  const offset = (page - 1) * pageSize;
 
-// Function to get hero section data
-export const getProjectsData = async (): Promise<IProjectsData[]> => {
-  const query = `*[_type == 'projects']`; // *[_type == 'hero_section'] gets all documents of type hero_section
-  const data = await client.fetch(query, {}, { cache: "no-store" });
-  return data;
+  // Use parameters `$offset` and `$limit` in the query
+  const PROJECTS_QUERY = defineQuery(`
+    *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]
+  `);
+
+  const COUNT_PROJECTS_QUERY = defineQuery(`
+    count(*[_type == 'projects'])
+  `);
+
+  // Pass the offset and limit as query parameters
+  const [data, totalCount] = await Promise.all([
+    client.fetch(PROJECTS_QUERY, { offset, limit: offset + pageSize }, { cache: "no-store" }),
+    client.fetch(COUNT_PROJECTS_QUERY, {}, { cache: "no-store" }),
+  ]);
+
+  const hasMore = offset + pageSize < totalCount;
+  return { projects: data, hasMore };
 };
+
+export const getProjectItem = async (slug: string): Promise<PROJECT_ITEM_QUERYResult[number]> => {
+  const PROJECT_ITEM_QUERY = defineQuery(`
+    *[_type == 'projects' && slug.current == $slug]{
+      ...,
+      "videos": videos[] {
+        name,
+        "playbackId": video.asset->playbackId,  // Mux playback ID for streaming
+        "filename": video.asset->filename,  // Video file name
+        "status": video.asset->status,  // Mux asset status
+        "duration": video.asset->data.duration,  // Video duration
+        "aspectRatio": video.asset->data.aspect_ratio,  // Aspect ratio
+        "maxResolution": video.asset->data.max_stored_resolution,  // Maximum resolution
+        "maxFrameRate": video.asset->data.max_stored_frame_rate,  // Max frame rate
+        "tracks": video.asset->data.tracks[] {  // Tracks for video and audio
+          type,
+          duration,
+          "maxHeight": select(type == "video" => max_height),
+          "maxWidth": select(type == "video" => max_width),
+          "maxChannels": select(type == "audio" => max_channels)
+        }
+      }
+    }
+  `);
+
+  const data = await client.fetch(PROJECT_ITEM_QUERY, { slug }, { cache: "no-store" });
+
+  return data[0];
+};
+
 const projects = {
-  name: "projects", // IMPORTANT, this is query name
+  name: "projects",
   type: "document",
   title: "Projects",
   fields: [
@@ -52,6 +75,11 @@ const projects = {
         source: "name",
         maxLength: 96,
       },
+    },
+    {
+      name: "main_image",
+      type: "image",
+      title: "Main Image",
     },
     {
       name: "title_1",
@@ -84,10 +112,22 @@ const projects = {
       title: "Key Visuals",
       of: [
         {
-          type: "image",
-          options: {
-            hotspot: true,
-          },
+          type: "object",
+          fields: [
+            {
+              name: "name",
+              title: "Name",
+              type: "string",
+            },
+            {
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: {
+                hotspot: true,
+              },
+            },
+          ],
         },
       ],
     },
@@ -128,11 +168,8 @@ const projects = {
             },
             {
               name: "video",
-              type: "file",
+              type: "mux.video",
               title: "Video",
-              options: {
-                accept: "video/mp4",
-              },
             },
           ],
         },

@@ -13,7 +13,9 @@ interface IProps {
   title: NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["name"];
   subtitle: NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["short_description"];
   slug: NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["slug"];
-  img: NonNullable<NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["key_visuals"]>[0];
+  img: NonNullable<
+    NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["key_visuals"]
+  >[0]["image"];
 }
 
 const ProjectCard = ({ title, subtitle, img, slug }: IProps) => {
@@ -23,7 +25,7 @@ const ProjectCard = ({ title, subtitle, img, slug }: IProps) => {
     slug &&
     subtitle &&
     img && (
-      <Link href={`/case/${slug.current}`}>
+      <Link href={`/works/${slug.current}`}>
         <motion.div
           className="sm:text-[1.25vw] mob16"
           onMouseOver={() => setIsHovered(true)}

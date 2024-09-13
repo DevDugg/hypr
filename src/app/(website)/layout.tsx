@@ -1,6 +1,7 @@
 import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 import MouseFollower from "@/components/animations/mouse-follower";
+import Provider from "@/config/provider";
 
 const layout = ({
   children,
@@ -8,14 +9,16 @@ const layout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="flex flex-col min-h-full">
-      <MouseFollower />
-      <Header />
+    <Provider>
+      <div className="flex flex-col min-h-full">
+        <MouseFollower />
+        <Header />
 
-      <div className="flex-auto">{children}</div>
+        <div className="flex-auto">{children}</div>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 

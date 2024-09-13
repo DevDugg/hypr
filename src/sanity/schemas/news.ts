@@ -8,19 +8,19 @@ export const getNewsData = async (
 ): Promise<{ news: News[]; hasMore: boolean }> => {
   const offset = (page - 1) * pageSize;
 
-  const NEWS_QUERY = defineQuery(`
-    *[_type == 'news'] | order(_createdAt desc) [${offset}...${offset + pageSize}]
-  `);
+  // Define the query without interpolating the offset directly
+  const NEWS_QUERY = defineQuery(`*[_type == 'news'] | order(_createdAt desc) [$offset...$limit]`);
 
-  const COUNT_QUERY = defineQuery(`
-    count(*[_type == 'news'])
-  `);
+  // Define the count query
+  const COUNT_NEWS_QUERY = defineQuery(`count(*[_type == 'news'])`);
 
+  // Fetch the paginated news data and total count in parallel
   const [data, totalCount] = await Promise.all([
-    client.fetch(NEWS_QUERY, {}, { cache: "no-store" }),
-    client.fetch(COUNT_QUERY, {}, { cache: "no-store" }),
+    client.fetch(NEWS_QUERY, { offset, limit: offset + pageSize }, { cache: "no-store" }),
+    client.fetch(COUNT_NEWS_QUERY, {}, { cache: "no-store" }),
   ]);
 
+  // Calculate if there are more pages
   const hasMore = offset + pageSize < totalCount;
 
   return { news: data, hasMore };

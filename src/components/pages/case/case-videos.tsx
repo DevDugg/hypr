@@ -1,136 +1,118 @@
 "use client";
 
-import Container from "@/components/layout/container";
-import Image from "next/image";
-import { grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import clsx from "clsx";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
+
 import { ArrowUpRight } from "lucide-react";
-import React, { useState } from "react";
+import Bullets from "@/components/shared/bullets";
 import CaseTitle from "./case-title";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import Container from "@/components/layout/container";
+import MuxPlayer from "@/components/mux-player";
+import { PROJECT_ITEM_QUERYResult } from "../../../../sanity.types";
+import clsx from "clsx";
+import { cn } from "@/lib/utils";
+import { grotesk } from "@/lib/fonts";
 
-const videoNames = [
-  {
-    name: "video name",
-  },
-  {
-    name: "video 2 name",
-  },
-  {
-    name: "video 3 name",
-  },
-  {
-    name: "video 4 name",
-  },
-  {
-    name: "video 5 name",
-  },
-];
+interface CaseVideosProps {
+  project: PROJECT_ITEM_QUERYResult[number];
+}
 
-const CaseVideos = () => {
+const CaseVideos = ({ project }: CaseVideosProps) => {
+  const [api, setApi] = useState<CarouselApi>();
   const [active, setActive] = useState(0);
 
+  useEffect(() => {
+    if (!api) return;
+
+    api.on("scroll", (carousel) => setActive(carousel.slidesInView()[0]));
+  }, [api]);
+
   return (
-    <section>
-      <Container className={cn("text-WHITE", grotesk.className)}>
-        <div className="hidden sm:flex gap-[0.83vw] items-center">
-          <div className="flex-[0_0_11.66vw] -translate-y-[10vw] text-[0.93vw] text-WHITE font-semibold">
-            <span className="">01/</span>
-            <span className="text-GRAY">
-              {videoNames.length >= 10
-                ? videoNames.length
-                : "0" + videoNames.length}
-            </span>
+    project.videos && (
+      <section>
+        <Container className={cn("text-WHITE", grotesk.className)}>
+          <div className="hidden sm:flex gap-[0.83vw] items-center">
+            <div className="flex-[0_0_11.66vw] -translate-y-[10vw] text-[0.93vw] text-WHITE font-semibold">
+              <span className="">01/</span>
+              <span className="text-GRAY">
+                {project.videos.length >= 10 ? project.videos.length : "0" + project.videos.length}
+              </span>
+            </div>
+
+            <div className="flex flex-col flex-[0_1_84.97vw]">
+              <div className="flex justify-between mb-[2.5vw] items-end">
+                <CaseTitle
+                  title="videos"
+                  num={`(${project.videos.length >= 10 ? project.videos.length : "0" + project.videos.length})`}
+                />
+                <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold">
+                  youtube <ArrowUpRight className="size-[1vw] " />
+                </a>
+              </div>
+
+              <div className="flex gap-[0.83vw] relative">
+                <div className="w-[59.58vw] h-full">
+                  <MuxPlayer playbackId={project.videos[active].playbackId!} title={project.videos[active].name!} />
+                </div>
+
+                <div className="border border-GRAY rounded-md flex-[1_1_20.83vw] h-fit">
+                  {project.videos.map((video, i) => (
+                    <div
+                      onClick={() => setActive(i)}
+                      key={i}
+                      className={clsx(
+                        "p-[1.25vw] font-medium cursor-pointer text-[0.93vw] transition-all duration-300 text-GRAY uppercase",
+                        {
+                          "border-b border-GRAY": i + 1 !== project.videos!.length,
+                          "!text-BLACK bg-ACCENT !border-opacity-0": active === i,
+                        },
+                      )}
+                    >
+                      {video.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between w-[59.58vw] mt-[0.83vw]">
+                <div className="uppercase font-medium text-[0.93vw] leading-[140%]">{project.videos[active].name}</div>
+                <div className="text-[0.93vw] leading-[140%]">[{project.videos[active].duration}]</div>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col flex-[0_1_84.97vw]">
-            <div className="flex justify-between mb-[2.5vw] items-end">
-              <CaseTitle title="videos" num="(07)" />
-              <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold">
-                youtube <ArrowUpRight className="size-[1vw] " />
+          <div className="block sm:hidden">
+            <div className="flex justify-between mb-[6.15vw] items-end">
+              <CaseTitle title="videos" num="(07)" className="text-[6.15vw]" />
+              <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[4.61vw] font-semibold">
+                youtube <ArrowUpRight className="size-[5vw]" />
               </a>
             </div>
 
-            <div className="flex gap-[0.83vw] relative">
-              <div className="w-[59.58vw] h-full">
-                <Image
-                  src="/images/case/case-pattern.png"
-                  alt="pattern"
-                  width={1920}
-                  height={1080}
-                />
-              </div>
+            <Carousel setApi={setApi}>
+              <CarouselContent>
+                {project.videos.map(
+                  (video, i) =>
+                    video.playbackId &&
+                    video.name && (
+                      <CarouselItem key={i}>
+                        <MuxPlayer playbackId={video.playbackId} title={video.name} />
+                      </CarouselItem>
+                    ),
+                )}
+              </CarouselContent>
+            </Carousel>
 
-              <div className="border border-GRAY rounded-md flex-[1_1_20.83vw] h-fit">
-                {videoNames.map(({ name }, i) => (
-                  <div
-                    onMouseMove={() => setActive(i)}
-                    key={i}
-                    className={clsx(
-                      "p-[1.25vw] font-medium cursor-pointer text-[0.93vw] transition-all duration-300 text-GRAY uppercase",
-                      {
-                        "border-b border-GRAY": i + 1 !== videoNames.length,
-                        "!text-BLACK bg-ACCENT !border-opacity-0": active === i,
-                      }
-                    )}
-                  >
-                    {name}
-                  </div>
-                ))}
-              </div>
+            <div className="flex justify-between text-[4.05vw] font-medium items-center uppercase">
+              <div>{project.videos[active].name}</div>
+              <div className="font-normal">[{project.videos[active].duration}]</div>
             </div>
 
-            <div className="flex justify-between w-[59.58vw] mt-[0.83vw]">
-              <div className="uppercase font-medium text-[0.93vw] leading-[140%]">
-                {videoNames[active].name}
-              </div>
-              <div className="text-[0.93vw] leading-[140%]">[01.30]</div>
-            </div>
+            {project.videos && <Bullets size={project.videos.length} active={active} />}
           </div>
-        </div>
-
-        <div className="block sm:hidden">
-          <div className="flex justify-between mb-[6.15vw] items-end">
-            <CaseTitle title="videos" num="(07)" className="text-[6.15vw]" />
-            <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[4.61vw] font-semibold">
-              youtube <ArrowUpRight className="size-[5vw]" />
-            </a>
-          </div>
-
-          <Carousel>
-            <CarouselContent>
-              {[...Array(5)].map((_, i) => (
-                <CarouselItem key={i}>
-                  <Image
-                    src={"/images/case/case-pattern.png"}
-                    alt="preview"
-                    width={593}
-                    height={334}
-                    className="w-full h-auto mb-[4.05vw]"
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-
-          <div className="flex justify-between text-[4.05vw] font-medium items-center uppercase">
-            <div>Video name</div>
-            <div className="font-normal">[01.30]</div>
-          </div>
-
-          <div className="flex justify-between gap-[6.15vw] mt-[6.15vw] items-center">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="bg-GRAY h-[0.51vw] w-1/4" />
-            ))}
-          </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    )
   );
 };
 

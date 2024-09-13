@@ -1,13 +1,6 @@
 "use client";
 
-import "keen-slider/keen-slider.min.css";
-
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import React, { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "lucide-react";
@@ -18,7 +11,6 @@ import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
-import { useKeenSlider } from "keen-slider/react";
 import { useMediaQuery } from "usehooks-ts";
 
 const sliderData = [
@@ -65,34 +57,15 @@ const sliderData = [
 ];
 
 const CaseSlider = () => {
-  const [active, setActive] = useState(0);
-
   const mobile = useMediaQuery("(min-width: 640px)");
-
-  const [sliderRef] = useKeenSlider({
-    slides: {
-      perView: 4.5,
-      spacing: 16,
-    },
-    mode: "snap",
-    loop: true,
-    initial: 0,
-    drag: true,
-    slideChanged(s) {
-      setActive(s.track.details.rel);
-    },
-  });
 
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
 
   useEffect(() => {
     if (!api) {
       return;
     }
-
-    setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
@@ -100,21 +73,16 @@ const CaseSlider = () => {
     });
   }, [api]);
 
-
   return (
     <section className="overflow-hidden w-screen h-[128.12vw] sm:h-[45vw]">
       <Container>
         <div className="flex justify-between">
-          <CaseTitle
-            title="similar projects"
-            num="(07)"
-            className="sm:ml-[11.66vw] mb-[6.15vw] sm:mb-[2.5vw]"
-          />
+          <CaseTitle title="similar projects" num="(07)" className="sm:ml-[11.66vw] mb-[6.15vw] sm:mb-[2.5vw]" />
 
           <a
             className={cn(
               "uppercase hidden sm:flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold",
-              grotesk.className
+              grotesk.className,
             )}
           >
             see all projects <ArrowUpRight className="size-[1vw]" />
@@ -124,7 +92,7 @@ const CaseSlider = () => {
         <Carousel
           setApi={setApi}
           opts={{
-            loop: true,
+            skipSnaps: true,
             align: "start",
           }}
         >
@@ -132,19 +100,12 @@ const CaseSlider = () => {
             {sliderData.map((item, i) => (
               <CarouselItem
                 key={i}
-                className={clsx(
-                  "basis-[61.5vw] mr-[4.05vw] transition-all sm:mr-[0.83vw] sm:basis-[17.7vw]",
-                  {
-                    "sm:basis-[22.91vw]":
-                      (current - (mobile ? 0 : 1)) % sliderData.length === i,
-                  }
-                )}
+                className={clsx("basis-[61.5vw] mr-[4.05vw] sm:mr-[0.83vw] sm:basis-[17.7vw]", {
+                  "sm:basis-[22.91vw]": (current - (mobile ? 0 : 1)) % sliderData.length === i,
+                })}
               >
                 <motion.div
-                  className={cn(
-                    grotesk.className,
-                    "text-WHITE uppercase flex flex-col gap-[0.83vw] size-fit"
-                  )}
+                  className={cn(grotesk.className, "text-WHITE uppercase flex flex-col gap-[0.83vw]")}
                   initial={{
                     height: mobile ? "24.47vw" : "83.28vw",
                     width: mobile ? "17.70vw" : "61.5vw",

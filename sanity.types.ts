@@ -39,6 +39,28 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
+export type SanityFileAsset = {
+  _id: string;
+  _type: "sanity.fileAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  source?: SanityAssetSourceData;
+};
+
 export type Geopoint = {
   _type: "geopoint";
   lat?: number;
@@ -168,12 +190,7 @@ export type Projects = {
   _rev: string;
   name?: string;
   slug?: Slug;
-  title_1?: string;
-  title_2?: string;
-  short_description?: string;
-  description_1?: string;
-  description_2?: string;
-  key_visuals?: Array<{
+  main_image?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -183,6 +200,25 @@ export type Projects = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     _type: "image";
+  };
+  title_1?: string;
+  title_2?: string;
+  short_description?: string;
+  description_1?: string;
+  description_2?: string;
+  key_visuals?: Array<{
+    name?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
     _key: string;
   }>;
   information?: Array<{
@@ -192,15 +228,7 @@ export type Projects = {
   }>;
   videos?: Array<{
     name?: string;
-    video?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
-      };
-      _type: "file";
-    };
+    video?: MuxVideo;
     _key: string;
   }>;
   gallery?: {
@@ -271,28 +299,6 @@ export type Projects = {
       _type: "image";
     };
   };
-};
-
-export type SanityFileAsset = {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
 };
 
 export type News = {
@@ -410,7 +416,86 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Home_page | Projects | SanityFileAsset | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type MuxVideo = {
+  _type: "mux.video";
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "mux.videoAsset";
+  };
+};
+
+export type MuxVideoAsset = {
+  _type: "mux.videoAsset";
+  status?: string;
+  assetId?: string;
+  playbackId?: string;
+  filename?: string;
+  thumbTime?: number;
+  data?: MuxAssetData;
+};
+
+export type MuxAssetData = {
+  _type: "mux.assetData";
+  resolution_tier?: string;
+  upload_id?: string;
+  created_at?: string;
+  id?: string;
+  status?: string;
+  max_stored_resolution?: string;
+  passthrough?: string;
+  encoding_tier?: string;
+  master_access?: string;
+  aspect_ratio?: string;
+  duration?: number;
+  max_stored_frame_rate?: number;
+  mp4_support?: string;
+  max_resolution_tier?: string;
+  tracks?: Array<{
+    _key: string;
+  } & MuxTrack>;
+  playback_ids?: Array<{
+    _key: string;
+  } & MuxPlaybackId>;
+  static_renditions?: MuxStaticRenditions;
+};
+
+export type MuxStaticRenditions = {
+  _type: "mux.staticRenditions";
+  status?: string;
+  files?: Array<{
+    _key: string;
+  } & MuxStaticRenditionFile>;
+};
+
+export type MuxStaticRenditionFile = {
+  _type: "mux.staticRenditionFile";
+  ext?: string;
+  name?: string;
+  width?: number;
+  bitrate?: number;
+  filesize?: number;
+  height?: number;
+};
+
+export type MuxPlaybackId = {
+  _type: "mux.playbackId";
+  id?: string;
+  policy?: string;
+};
+
+export type MuxTrack = {
+  _type: "mux.track";
+  id?: string;
+  type?: string;
+  max_width?: number;
+  max_frame_rate?: number;
+  duration?: number;
+  max_height?: number;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/home.ts
 // Variable: HOME_PAGE_QUERY
@@ -461,12 +546,7 @@ export type HOME_PAGE_QUERYResult = Array<{
       _rev: string;
       name?: string;
       slug?: Slug;
-      title_1?: string;
-      title_2?: string;
-      short_description?: string;
-      description_1?: string;
-      description_2?: string;
-      key_visuals?: Array<{
+      main_image?: {
         asset?: {
           _ref: string;
           _type: "reference";
@@ -476,6 +556,25 @@ export type HOME_PAGE_QUERYResult = Array<{
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
+      };
+      title_1?: string;
+      title_2?: string;
+      short_description?: string;
+      description_1?: string;
+      description_2?: string;
+      key_visuals?: Array<{
+        name?: string;
+        image?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          _type: "image";
+        };
         _key: string;
       }>;
       information?: Array<{
@@ -485,15 +584,7 @@ export type HOME_PAGE_QUERYResult = Array<{
       }>;
       videos?: Array<{
         name?: string;
-        video?: {
-          asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
-          };
-          _type: "file";
-        };
+        video?: MuxVideo;
         _key: string;
       }>;
       gallery?: {
@@ -675,7 +766,7 @@ export type HOME_PAGE_QUERYResult = Array<{
 
 // Source: ./src/sanity/schemas/news.ts
 // Variable: NEWS_QUERY
-// Query: *[_type == 'news']
+// Query: *[_type == 'news'] | order(_createdAt desc) [$offset...$limit]
 export type NEWS_QUERYResult = Array<{
   _id: string;
   _type: "news";
@@ -727,6 +818,9 @@ export type NEWS_QUERYResult = Array<{
     _key: string;
   }>;
 }>;
+// Variable: COUNT_NEWS_QUERY
+// Query: count(*[_type == 'news'])
+export type COUNT_NEWS_QUERYResult = number;
 // Variable: NEWS_ITEM_QUERY
 // Query: *[_type == 'news' && slug.current == $slug]
 export type NEWS_ITEM_QUERYResult = Array<{
@@ -781,12 +875,267 @@ export type NEWS_ITEM_QUERYResult = Array<{
   }>;
 }>;
 
+// Source: ./src/sanity/schemas/projects.ts
+// Variable: PROJECTS_QUERY
+// Query: *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]
+export type PROJECTS_QUERYResult = Array<{
+  _id: string;
+  _type: "projects";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  main_image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  title_1?: string;
+  title_2?: string;
+  short_description?: string;
+  description_1?: string;
+  description_2?: string;
+  key_visuals?: Array<{
+    name?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+  information?: Array<{
+    name?: string;
+    value?: string;
+    _key: string;
+  }>;
+  videos?: Array<{
+    name?: string;
+    video?: MuxVideo;
+    _key: string;
+  }>;
+  gallery?: {
+    image_1?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_2?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_3?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_4?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_5?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_6?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+}>;
+// Variable: COUNT_PROJECTS_QUERY
+// Query: count(*[_type == 'projects'])
+export type COUNT_PROJECTS_QUERYResult = number;
+// Variable: PROJECT_ITEM_QUERY
+// Query: *[_type == 'projects' && slug.current == $slug]{      ...,      "videos": videos[] {        name,        "playbackId": video.asset->playbackId,  // Mux playback ID for streaming        "filename": video.asset->filename,  // Video file name        "status": video.asset->status,  // Mux asset status        "duration": video.asset->data.duration,  // Video duration        "aspectRatio": video.asset->data.aspect_ratio,  // Aspect ratio        "maxResolution": video.asset->data.max_stored_resolution,  // Maximum resolution        "maxFrameRate": video.asset->data.max_stored_frame_rate,  // Max frame rate        "tracks": video.asset->data.tracks[] {  // Tracks for video and audio          type,          duration,          "maxHeight": select(type == "video" => max_height),          "maxWidth": select(type == "video" => max_width),          "maxChannels": select(type == "audio" => max_channels)        }      }    }
+export type PROJECT_ITEM_QUERYResult = Array<{
+  _id: string;
+  _type: "projects";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  main_image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  title_1?: string;
+  title_2?: string;
+  short_description?: string;
+  description_1?: string;
+  description_2?: string;
+  key_visuals?: Array<{
+    name?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+  information?: Array<{
+    name?: string;
+    value?: string;
+    _key: string;
+  }>;
+  videos: Array<{
+    name: string | null;
+    playbackId: null;
+    filename: null;
+    status: null;
+    duration: null;
+    aspectRatio: null;
+    maxResolution: null;
+    maxFrameRate: null;
+    tracks: null;
+  }> | null;
+  gallery?: {
+    image_1?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_2?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_3?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_4?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_5?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    image_6?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"home_page\"]{\n    hero,\n    services,\n    \"projects\": projects{\n      ...,\n      items[]->{\n        ...\n      }\n    },\n    about,\n    \"latest_news\": latest_news {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    clients,\n    creators,\n    gallery\n  }\n  ": HOME_PAGE_QUERYResult;
-    "*[_type == 'news']": NEWS_QUERYResult;
+    "*[_type == 'news'] | order(_createdAt desc) [$offset...$limit]": NEWS_QUERYResult;
+    "count(*[_type == 'news'])": COUNT_NEWS_QUERYResult;
     "*[_type == 'news' && slug.current == $slug]": NEWS_ITEM_QUERYResult;
+    "\n    *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]\n  ": PROJECTS_QUERYResult;
+    "\n    count(*[_type == 'projects'])\n  ": COUNT_PROJECTS_QUERYResult;
+    "\n    *[_type == 'projects' && slug.current == $slug]{\n      ...,\n      \"videos\": videos[] {\n        name,\n        \"playbackId\": video.asset->playbackId,  // Mux playback ID for streaming\n        \"filename\": video.asset->filename,  // Video file name\n        \"status\": video.asset->status,  // Mux asset status\n        \"duration\": video.asset->data.duration,  // Video duration\n        \"aspectRatio\": video.asset->data.aspect_ratio,  // Aspect ratio\n        \"maxResolution\": video.asset->data.max_stored_resolution,  // Maximum resolution\n        \"maxFrameRate\": video.asset->data.max_stored_frame_rate,  // Max frame rate\n        \"tracks\": video.asset->data.tracks[] {  // Tracks for video and audio\n          type,\n          duration,\n          \"maxHeight\": select(type == \"video\" => max_height),\n          \"maxWidth\": select(type == \"video\" => max_width),\n          \"maxChannels\": select(type == \"audio\" => max_channels)\n        }\n      }\n    }\n  ": PROJECT_ITEM_QUERYResult;
   }
 }

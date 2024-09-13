@@ -25,12 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${monument.className} bg-BACKGROUND w-screen h-screen overflow-x-hidden`}>
-        <Provider>
-          {/* <Loader /> */}
-          {children}
-        </Provider>
-      </body>
+      <body className={`${monument.className} bg-BACKGROUND w-screen h-screen overflow-x-hidden`}>{children}</body>
     </html>
   );
 }
