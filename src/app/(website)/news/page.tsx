@@ -1,13 +1,15 @@
 import Container from "@/components/layout/container";
 import NewsHero from "@/components/pages/news/news-hero";
 import NewsItems from "@/components/pages/news/news-items";
+import { getNewsData } from "@/sanity/schemas/news";
 
-const News = () => {
+const News = async () => {
+  const { news } = await getNewsData(1, 9);
   return (
     <main>
       <Container>
         <NewsHero />
-        <NewsItems />
+        <NewsItems news={news} />
       </Container>
     </main>
   );
