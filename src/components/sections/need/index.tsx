@@ -124,7 +124,7 @@ const Need = ({ gallery }: INeedProps) => {
               "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center",
             )}
           >
-            <Link href={"/contact"}>Contact us</Link>
+            <Link href={"/contacts"}>Contact us</Link>
           </CustomButton>
         </div>
       </Container>

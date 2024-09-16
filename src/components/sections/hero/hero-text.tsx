@@ -18,9 +18,9 @@ const HeroText = () => {
           <AnimatedTitle
             block={colors.ACCENT}
             element="h1"
-            className="inline-block w-full leading-none size260 text-center whitespace-nowrap monument text-BLACK"
+            className="inline tracking-wide w-full leading-none !text-[11vw] text-center whitespace-nowrap monument text-BLACK"
           >
-            we build
+            we create
           </AnimatedTitle>
         </Container>
       </div>

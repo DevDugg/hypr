@@ -3,6 +3,7 @@ import { HOME_PAGE_QUERYResult, Home_page } from "../../../../sanity.types";
 import AnimatedTitle from "@/components/animations/animated-title";
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
+import { Link } from "next-view-transitions";
 import MouseFollowerWrapper from "@/components/animations/mouse-follower-wrapper";
 import NewsBlock from "./news-block";
 import SectionName from "@/components/titles/section-name";
@@ -35,7 +36,10 @@ const News = ({ news }: NewsProps) => {
         </MouseFollowerWrapper>
       )}
       <Container>
-        <CustomButton className="w-full mt-[8.1vw] sm:mt-[2.08vw]">See all news</CustomButton>
+        <CustomButton className="w-full mt-[8.1vw] sm:mt-[2.08vw]">
+          <Link href={'/news'}>
+          See all news</Link>
+        </CustomButton>
       </Container>
     </section>
   );

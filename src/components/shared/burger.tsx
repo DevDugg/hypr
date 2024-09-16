@@ -53,7 +53,7 @@ const Burger = ({ burger, setBurger }: Props) => {
           ))}
         </motion.ul>
         <CustomButton className="w-full mb-[12.3vw]">
-          <Link href={"/contact"}>Contact us</Link>
+          <Link href={"/contacts"}>Contact us</Link>
         </CustomButton>
       </motion.div>
     </motion.div>
