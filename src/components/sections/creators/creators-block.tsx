@@ -11,7 +11,6 @@ interface CreatorsBlockProps {
 }
 
 const CreatorsBlock = ({ creators }: CreatorsBlockProps) => {
-  console.log(creators);
   return (
     creators &&
     creators.length > 0 && (
