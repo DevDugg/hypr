@@ -7,7 +7,7 @@ interface IProps extends PropsWithChildren {
 
 const Container = ({ children, className }: IProps) => {
   return (
-    <div className={clsx(`px-[3.58vw] sm:px-[3.1vw]`)}>
+    <div className={clsx(`pl-[3.58vw] pr-[calc(3.58vw + 20px)] sm:px-[3.1vw]`)}>
       {className ? <div className={className}>{children}</div> : children}
     </div>
   );

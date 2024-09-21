@@ -31,9 +31,20 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
     >
       {items.map((item, i) => {
         return (
-          <Reveal key={i} delay={i * 0.1} animateOnView duration={0.3} type="opacity">
+          <Reveal
+            key={i}
+            delay={i * 0.1}
+            animateOnView
+            duration={0.3}
+            type="opacity"
+          >
             <div className="w-full" onMouseOver={() => setActiveItem(i)}>
-              <ServiceCardDesktop i={i} activeItem={activeItem} name={item.name!} image={item.image} />
+              <ServiceCardDesktop
+                i={i}
+                activeItem={activeItem}
+                name={item.name!}
+                image={item.image}
+              />
             </div>
           </Reveal>
         );
@@ -60,9 +71,15 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
             (item, i) =>
               item && (
                 <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-                  <Image src={urlFor(item).size(256, 320).url()} width={256} height={320} alt="service image" />
+                  <Image
+                    className="object-cover"
+                    src={urlFor(item).size(768, 960).url()}
+                    width={768}
+                    height={960}
+                    alt="service image"
+                  />
                 </div>
-              ),
+              )
           )}
         </motion.div>
       </motion.div>
@@ -90,9 +107,15 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
             (item, i) =>
               item && (
                 <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-                  <Image src={urlFor(item).size(256, 320).url()} width={256} height={320} alt="service image" />
+                  <Image
+                    className="object-cover"
+                    src={urlFor(item).size(768, 960).url()}
+                    width={768}
+                    height={960}
+                    alt="service image"
+                  />
                 </div>
-              ),
+              )
           )}
         </motion.div>
       </motion.div>
