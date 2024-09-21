@@ -48,11 +48,11 @@ export const Hero = ({ hero }: HeroProps) => {
           <AnimatedParagraph className="uppercase text-WHITE w-full leading-none mb-[2.56vw] sm:mb-[0.83vw] text-center text-[4vw] sm:size72 monument">
             {description}
           </AnimatedParagraph>
-          {/* <Reveal animateOnView type="opacity"> */}
-          <CustomButton fullWidth className="h-full">
-            <Link href="/contacts">Contact us</Link>
-          </CustomButton>
-          {/* </Reveal> */}
+          <Reveal animateOnView type="opacity">
+            <CustomButton fullWidth className="h-full">
+              <Link href="/contacts">Contact us</Link>
+            </CustomButton>
+          </Reveal>
         </Container>
       )}
       {/* </FadeOnScroll> */}
