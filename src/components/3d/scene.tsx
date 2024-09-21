@@ -15,9 +15,9 @@ interface SceneProps {
 export default function Scene({ activeMenu, images }: SceneProps) {
   return (
     <div className="fixed top-0 h-screen w-full">
-      <Canvas>
+      {/* <Canvas>
         {images && <Model activeMenu={activeMenu} images={images} />}
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 }

@@ -34,22 +34,22 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
       >
         {items.map((item, i) => {
           return (
-            // <Reveal
-            //   key={i}
-            //   delay={i * 0.1}
-            //   animateOnView
-            //   duration={0.3}
-            //   type="opacity"
-            // >
-            <div className="w-full" onMouseOver={() => setActiveItem(i)}>
-              <ServiceCardDesktop
-                i={i}
-                activeItem={activeItem}
-                name={item.name!}
-                image={item.image}
-              />
-            </div>
-            // </Reveal>
+            <Reveal
+              key={i}
+              delay={i * 0.1}
+              animateOnView
+              duration={0.3}
+              type="opacity"
+            >
+              <div className="w-full" onMouseOver={() => setActiveItem(i)}>
+                <ServiceCardDesktop
+                  i={i}
+                  activeItem={activeItem}
+                  name={item.name!}
+                  image={item.image}
+                />
+              </div>
+            </Reveal>
           );
         })}
         <motion.div
