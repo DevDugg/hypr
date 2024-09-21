@@ -1,6 +1,9 @@
 "use client";
 
-import { Coordinates, getRelativeCoordinates } from "@/lib/get-relative-coordinates";
+import {
+  Coordinates,
+  getRelativeCoordinates,
+} from "@/lib/get-relative-coordinates";
 import { MouseEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import { useSpring } from "framer-motion";
@@ -10,7 +13,10 @@ interface UseMousePosition {
   offsetY?: number;
 }
 
-export const useMousePosition = ({ offsetX, offsetY }: UseMousePosition = {}) => {
+export const useMousePosition = ({
+  offsetX,
+  offsetY,
+}: UseMousePosition = {}) => {
   const [mousePosition, setMousePosition] = useState<Coordinates>({
     x: 2000,
     y: 0,
@@ -27,7 +33,10 @@ export const useMousePosition = ({ offsetX, offsetY }: UseMousePosition = {}) =>
     setMousePosition(getRelativeCoordinates(e, box.current, offsetX, offsetY));
   };
 
-  const smoothOptions = useMemo(() => ({ damping: 50, stiffness: 150, mass: 0.3 }), []);
+  const smoothOptions = useMemo(
+    () => ({ damping: 50, stiffness: 150, mass: 0.3 }),
+    []
+  );
 
   const smoothMouseX = useSpring(mousePosition.x, smoothOptions);
   const smoothMouseY = useSpring(mousePosition.y, smoothOptions);
@@ -41,5 +50,10 @@ export const useMousePosition = ({ offsetX, offsetY }: UseMousePosition = {}) =>
     }
   }, [mousePosition.x, mousePosition.y, smoothMouseX, smoothMouseY]);
 
-  return { mousePosition, box, handleMouseMove, smoothMousePosition: { x: smoothMouseX, y: smoothMouseY } };
+  return {
+    mousePosition,
+    box,
+    handleMouseMove,
+    smoothMousePosition: { x: smoothMouseX, y: smoothMouseY },
+  };
 };

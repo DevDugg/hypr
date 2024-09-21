@@ -3,6 +3,7 @@
 import { Home_page } from "../../../../sanity.types";
 import Image from "next/image";
 import Reveal from "@/components/animations/reveal";
+import Scene from "@/components/3d/scene";
 import { ServiceCardDesktop } from "./service-card-desktop";
 import { motion } from "framer-motion";
 import { servicesData } from "@/database/services.data";
@@ -23,21 +24,23 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
   const images = items.map((item) => item.image);
 
   return (
-    <motion.div
-      className="flex flex-col gap-[4.05vw] sm:gap-[2.08vw] pt-[0.416vw] sm:pt-[1.66vw] relative w-full cursor-default"
-      ref={box}
-      onMouseMove={(e) => handleMouseMove(e)}
-      onMouseLeave={() => setActiveItem(null)}
-    >
-      {items.map((item, i) => {
-        return (
-          <Reveal
-            key={i}
-            delay={i * 0.1}
-            animateOnView
-            duration={0.3}
-            type="opacity"
-          >
+    <>
+      {/* <Scene activeMenu={activeItem} images={images} /> */}
+      <motion.div
+        className="flex flex-col gap-[4.05vw] sm:gap-[2.08vw] pt-[0.416vw] sm:pt-[1.66vw] relative w-full cursor-default"
+        ref={box}
+        onMouseMove={(e) => handleMouseMove(e)}
+        onMouseLeave={() => setActiveItem(null)}
+      >
+        {items.map((item, i) => {
+          return (
+            // <Reveal
+            //   key={i}
+            //   delay={i * 0.1}
+            //   animateOnView
+            //   duration={0.3}
+            //   type="opacity"
+            // >
             <div className="w-full" onMouseOver={() => setActiveItem(i)}>
               <ServiceCardDesktop
                 i={i}
@@ -46,80 +49,86 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
                 image={item.image}
               />
             </div>
-          </Reveal>
-        );
-      })}
-      <motion.div
-        className="absolute z-10 w-[20.83vw] h-[16.6vw] overflow-hidden pointer-events-none grayscale max-md:hidden"
-        style={{
-          left: smoothMousePosition.x,
-          top: smoothMousePosition.y,
-        }}
-        initial={{ height: 0 }}
-        animate={activeItem !== null ? { height: "16.6vw" } : {}}
-      >
+            // </Reveal>
+          );
+        })}
         <motion.div
-          className="flex flex-col"
-          initial={{
-            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+          className="absolute z-10 h-[20.83vw] w-[16.6vw] overflow-hidden pointer-events-none grayscale max-md:hidden"
+          style={{
+            left: smoothMousePosition.x,
+            top: smoothMousePosition.y,
           }}
-          animate={{
-            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
-          }}
+          initial={{ height: 0 }}
+          animate={activeItem !== null ? { height: "20.83vw" } : {}}
         >
-          {images.map(
-            (item, i) =>
-              item && (
-                <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-                  <Image
-                    className="object-cover"
-                    src={urlFor(item).size(768, 960).url()}
-                    width={768}
-                    height={960}
-                    alt="service image"
-                  />
-                </div>
-              )
-          )}
+          <motion.div
+            className="flex flex-col"
+            initial={{
+              y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+            }}
+            animate={{
+              y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+            }}
+          >
+            {images.map(
+              (item, i) =>
+                item && (
+                  <div
+                    key={i}
+                    className="overflow-hidden h-[20.83vw] w-[16.6vw]"
+                  >
+                    <Image
+                      src={urlFor(item).size(768, 960).url()}
+                      width={768}
+                      height={960}
+                      alt="service image"
+                    />
+                  </div>
+                )
+            )}
+          </motion.div>
+        </motion.div>
+        <motion.div
+          className="absolute z-20 h-[20.83vw] w-[16.6vw] overflow-hidden pointer-events-none left-full max-md:hidden"
+          style={{
+            x: 30,
+            y: 30,
+            left: smoothMousePosition.x,
+            top: smoothMousePosition.y,
+          }}
+          initial={{ height: 0 }}
+          animate={activeItem !== null ? { height: "20.83vw" } : {}}
+        >
+          <motion.div
+            className="flex flex-col"
+            initial={{
+              y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+            }}
+            animate={{
+              y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
+            }}
+          >
+            {images.map(
+              (item, i) =>
+                item && (
+                  <div
+                    key={i}
+                    className="overflow-hidden h-[20.83vw] w-[16.6vw]"
+                  >
+                    <Image
+                      className="object-cover"
+                      src={urlFor(item).size(768, 960).url()}
+                      width={768}
+                      height={960}
+                      alt="service image"
+                    />
+                  </div>
+                )
+            )}
+          </motion.div>
         </motion.div>
       </motion.div>
-      <motion.div
-        className="absolute z-20 w-[20.83vw] h-[16.6vw] overflow-hidden pointer-events-none left-full max-md:hidden"
-        style={{
-          x: 30,
-          y: 30,
-          left: smoothMousePosition.x,
-          top: smoothMousePosition.y,
-        }}
-        initial={{ height: 0 }}
-        animate={activeItem !== null ? { height: "16.6vw" } : {}}
-      >
-        <motion.div
-          className="flex flex-col"
-          initial={{
-            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
-          }}
-          animate={{
-            y: `${-(((activeItem || 0) / servicesData.length) * 100)}%`,
-          }}
-        >
-          {images.map(
-            (item, i) =>
-              item && (
-                <div key={i} className="overflow-hidden w-[20.83vw] h-[16.6vw]">
-                  <Image
-                    className="object-cover"
-                    src={urlFor(item).size(768, 960).url()}
-                    width={768}
-                    height={960}
-                    alt="service image"
-                  />
-                </div>
-              )
-          )}
-        </motion.div>
-      </motion.div>
-    </motion.div>
+    </>
   );
 };
 

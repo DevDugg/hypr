@@ -11,7 +11,7 @@ const layout = ({
   return (
     <Provider>
       <div className="flex flex-col min-h-full">
-        <MouseFollower />
+        {/* <MouseFollower /> */}
         <Header />
 
         <div className="flex-auto">{children}</div>
