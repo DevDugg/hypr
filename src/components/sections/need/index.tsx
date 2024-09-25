@@ -5,100 +5,109 @@ import CustomButton from "@/components/shared/custom-button";
 import { HOME_PAGE_QUERYResult } from "../../../../sanity.types";
 import Image from "next/image";
 import { Link } from "next-view-transitions";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
+import gsap from "gsap";
+import { start } from "repl";
+import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import { useScroll } from "framer-motion";
 
-export interface IImage {
-  src: string;
-  width: number;
-  height: number;
-  className: string;
-  position: {
-    top: number;
-    left: number;
-  };
-}
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 interface INeedProps {
   gallery: NonNullable<HOME_PAGE_QUERYResult[number]["gallery"]>;
 }
 
 const Need = ({ gallery }: INeedProps) => {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-  });
+  const generateRows = () => {
+    const rows = [];
 
-  const images: IImage[] = [
-    {
-      src: "/images/need/1.png",
-      width: 999, // 333 * 3
-      height: 1044, // 348 * 3
-      className:
-        "fly-item w-[17.34vw] h-auto bottom-[7.68vw] sm:bottom-0 sm:top-[20.83vw] right-0 rotate-[2.42deg]",
-      position: {
-        top: 20.83,
-        left: 65.15,
-      },
+    for (let i = 1; i <= 3; i++) {
+      rows.push(
+        <div className="row relative m-[1em] flex justify-center gap-[2em] pointer-events-none">
+          <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-left">
+            <Image
+              src={`/images/need/${2 * i - 1}.png`}
+              alt=""
+              width={1760}
+              height={1120}
+              className="size-full object-cover"
+            />
+          </div>
+          <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-right">
+            <Image
+              src={`/images/need/${2 * i}.png`}
+              alt=""
+              width={1760}
+              height={1120}
+              className="size-full object-cover"
+            />
+          </div>
+        </div>
+      );
+    }
+    return rows;
+  };
+
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const scrollTriggerSettings = {
+        trigger: container.current,
+        start: "top 25%",
+        toggleActions: "play reverse plat reverse",
+      };
+
+      const xValues = [800, 900, 400];
+      const yValues = [100, -150, -400];
+      const rotationValues = [30, 20, 35];
+
+      gsap.utils.toArray(".row").forEach((row, index) => {
+        const cardLeft = (row as HTMLElement).querySelector(".card-left");
+        const cardRight = (row as HTMLElement).querySelector(".card-right");
+
+        gsap.to(cardLeft, {
+          x: -xValues[index],
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top center",
+            end: "150% bottom",
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              (cardLeft as HTMLElement).style.transform =
+                `translateX(${progress * -xValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * -rotationValues[index]}deg)`;
+              (cardRight as HTMLElement).style.transform =
+                `translateX(${progress * xValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * rotationValues[index]}deg)`;
+            },
+          },
+        });
+
+        gsap.to(".main-content", {
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top center",
+            end: "bottom bottom",
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const scale = 1 - progress * 0.1;
+              const mainContent = document.querySelector(
+                ".main-content"
+              ) as HTMLElement;
+
+              mainContent.style.opacity = `${progress}`;
+              mainContent.style.scale = `${scale}`;
+            },
+          },
+        });
+      });
     },
-    {
-      src: "/images/need/2.png",
-      width: 819, // 273 * 3
-      height: 1023, // 341 * 3
-      className:
-        "fly-item w-[14.22vw] h-auto bottom-0 sm:top-[41.71vw] left-1/2 -translate-x-1/2 sm:left-[54.58vw] rotate-[17.99deg]",
-      position: {
-        top: 41.71,
-        left: 54.58,
-      },
-    },
-    {
-      src: "/images/need/3.png",
-      width: 975, // 325 * 3
-      height: 1218, // 406 * 3
-      className:
-        "fly-item w-[16.92vw] h-auto bottom-[10.25vw] sm:bottom-0 sm:top-[40vw] left-[1.02vw] sm:left-[10.06vw] rotate-[-17.49deg]",
-      position: {
-        top: 40,
-        left: 10.06,
-      },
-    },
-    {
-      src: "/images/need/4.png",
-      width: 882, // 294 * 3
-      height: 1104, // 368 * 3
-      className:
-        "fly-item w-[15.31vw] h-auto left-0 top-[8.96vw] sm:top-[14.29vw] rotate-[3.68deg]",
-      position: {
-        top: 14.29,
-        left: 0,
-      },
-    },
-    {
-      src: "/images/need/5.png",
-      width: 651, // 217 * 3
-      height: 747, // 249 * 3
-      className:
-        "fly-item w-[11.3vw] h-auto right-[42.79vw] sm:left-[21.35vw] top-0 sm:top-[2.23vw] rotate-[2.42deg]",
-      position: {
-        top: 2.23,
-        left: 21.35,
-      },
-    },
-    {
-      src: "/images/need/6.png",
-      width: 942, // 314 * 3
-      height: 942, // 314 * 3
-      className:
-        "fly-item w-[16.35vw] h-auto right-[8.45vw] sm:right-0 sm:left-[48.02vw] sm:top-[0.34vw] top-[3.33vw] rotate-[2.42deg]",
-      position: {
-        top: 0.34,
-        left: 48.02,
-      },
-    },
-  ];
+    { scope: container }
+  );
 
   const { title } = gallery;
 
@@ -109,32 +118,26 @@ const Need = ({ gallery }: INeedProps) => {
       ref={container}
     >
       <Container className="px-[5.23vw]">
-        <div className="h-[102vw] sm:h-[62.19vw] flex flex-col justify-center relative">
-          {images.map((image, index) => (
-            // <FlyingBlock image={image} scrollProgress={scrollYProgress} key={index} />
-            <Image
-              src={image.src}
-              alt="photo"
-              width={image.width}
-              height={image.height}
-              key={index}
-              className={image.className}
-            />
-          ))}
-          {title && (
-            <h1 className="text-center mx-auto leading-none text-[11.27vw] sm:size100 monument max-w-3xl">
-              {title}
-            </h1>
-          )}
-
-          <CustomButton
-            className={cn(
-              grotesk.className,
-              "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center"
+        <div className="h-[81.51vw] flex flex-col justify-center relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            {generateRows()}
+          </div>
+          <div className="main-content mix-blend-difference">
+            {title && (
+              <h1 className="text-center mx-auto leading-none text-[11.27vw] sm:size100 monument max-w-3xl">
+                {title}
+              </h1>
             )}
-          >
-            <Link href={"/contacts"}>Contact us</Link>
-          </CustomButton>
+
+            <CustomButton
+              className={cn(
+                grotesk.className,
+                "w-full sm:w-[30.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center"
+              )}
+            >
+              <Link href={"/contacts"}>Contact us</Link>
+            </CustomButton>
+          </div>
         </div>
       </Container>
     </section>

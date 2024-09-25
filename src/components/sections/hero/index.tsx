@@ -1,3 +1,4 @@
+import AnimatedOnScroll from "@/components/animations/animate-on-scroll";
 import AnimatedParagraph from "@/components/animations/animated-paragraph";
 import Container from "@/components/layout/container";
 import CustomButton from "@/components/shared/custom-button";
@@ -29,16 +30,22 @@ export const Hero = ({ hero }: HeroProps) => {
       {images && (
         <Container className="grid grid-cols-3 sm:grid-cols-6 sm:gap-[0.52vw] gap-[1.28vw]">
           {images.map((item, i) => (
-            <Reveal key={i} delay={0.5 + i * 0.1}>
-              <Image
-                src={urlFor(item).width(873).height(1200).url()}
-                loading="eager"
-                alt="img"
-                width={873}
-                height={1200}
-                className="w-[33.33vw] h-full sm:w-[15.15vw] sm:h-[20.83vw]"
-              />
-            </Reveal>
+            <AnimatedOnScroll
+              key={i}
+              type="cover"
+              scrollRange={[0, 0.04 + i * 0.02]}
+            >
+              <Reveal delay={0.5 + i * 0.1}>
+                <Image
+                  src={urlFor(item).width(873).height(1200).url()}
+                  loading="eager"
+                  alt="img"
+                  width={873}
+                  height={1200}
+                  className="w-[33.33vw] h-full sm:w-[15.15vw] sm:h-[20.83vw]"
+                />
+              </Reveal>
+            </AnimatedOnScroll>
           ))}
         </Container>
       )}

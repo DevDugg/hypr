@@ -1,7 +1,9 @@
-import SectionTitle from "@/components/titles/section-title";
-import { monument, grotesk } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+import { grotesk, monument } from "@/lib/fonts";
+
+import AnimatedTitle from "@/components/animations/animated-title";
 import React from "react";
+import Reveal from "@/components/animations/reveal";
+import { cn } from "@/lib/utils";
 
 const CaseTitle = ({
   title,
@@ -14,22 +16,25 @@ const CaseTitle = ({
 }) => {
   return (
     <div className={cn("flex", className)}>
-      <SectionTitle
+      <AnimatedTitle
+        element="h3"
         className={cn(
           monument.className,
           "mt-[5vw] sm:mt-[1.3vw] !text-[6.15vw] sm:!size48"
         )}
       >
         {title}
-      </SectionTitle>
-      <p
-        className={cn(
-          "font-bold text-[3.58vw] sm:size24 leading-[140%] text-WHITE",
-          grotesk.className
-        )}
-      >
-        {num}
-      </p>
+      </AnimatedTitle>
+      <Reveal animateOnView>
+        <p
+          className={cn(
+            "font-bold text-[3.58vw] sm:size24 leading-[140%] text-WHITE",
+            grotesk.className
+          )}
+        >
+          {num}
+        </p>
+      </Reveal>
     </div>
   );
 };

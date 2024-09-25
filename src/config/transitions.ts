@@ -1,8 +1,10 @@
-import { Transition } from "framer-motion";
-
-export const defaultTransition: Transition = {
-  ease: [0.16, 1, 0.3, 1],
-  duration: 2,
+export const defaultTransition = {
+  ease: [0.55, 0, 0.1, 1],
+  duration: 0.8,
   type: "tween",
-  stiffness: 210,
+  stiffness: 150,
+  damping: 20,
+  mass: 1.2,
+  restSpeed: 0.01,
+  restDelta: 0.01,
 };

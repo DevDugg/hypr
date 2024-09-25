@@ -1,25 +1,28 @@
 "use client";
 
+import { cubicBezier } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
 
 // Function for smooth scrolling
-export const useScrollToTarget = (targetElement: string | number | HTMLElement | null) => {
+export const useScrollToTarget = (
+  targetElement: string | number | HTMLElement | null
+) => {
   const lenisInstance = useLenis();
   const handleOnClick = () => {
     if (targetElement) {
       const scrollToOptions = {
         // Customize scroll options if needed
-        lerp: 0.1,
-        duration: 3,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(4, -5 * t)),
+        lerp: 0.08,
+        duration: 0.8,
+        easing: cubicBezier(0.55, 0, 0.1, 1),
         direction: "vertical",
         gestureDirection: "vertical",
         smooth: true,
-        smoothTouch: false,
+        smoothTouch: true,
         touchMultiplier: 2,
         infinite: false,
-        lock: false,
-        force: false,
+
+        __experimental__naiveDimensions: true,
       };
 
       lenisInstance!.scrollTo(targetElement, scrollToOptions);

@@ -23,7 +23,9 @@ const AboutHero = () => {
             </Reveal>
             <div className="flex justify-end">
               <Reveal type="opacity" delay={0.7}>
-                <Button className="about-btn cursor-default">social media</Button>
+                <Button className="about-btn cursor-default">
+                  social media
+                </Button>
               </Reveal>
             </div>
           </div>
@@ -38,17 +40,31 @@ const AboutHero = () => {
           <div className="hidden sm:flex flex-col gap-[0.31vw] flex-[1_1_21.30vw]">
             <div className="flex justify-end">
               <Reveal type="opacity" delay={0.8}>
-                <Button className="about-btn cursor-default">data driven</Button>
+                <Button className="about-btn cursor-default">
+                  data driven
+                </Button>
               </Reveal>
             </div>
             <Reveal type="opacity" delay={0.9}>
-              <Button className="about-btn flex items-end cursor-default">strategy</Button>
+              <Button className="about-btn flex items-end cursor-default">
+                strategy
+              </Button>
             </Reveal>
           </div>
         </div>
       </Container>
-      <Reveal duration={0.6} animateOnView delay={0.6}>
-        <Image src="/images/about/1.png" alt="image" width={1920} height={900} className="w-full h-[46.87vw]" />
+      <Reveal
+        //  duration={0.6}
+        animateOnView
+        delay={0.6}
+      >
+        <Image
+          src="/images/about/1.png"
+          alt="image"
+          width={1920}
+          height={900}
+          className="w-full h-[46.87vw]"
+        />
       </Reveal>
     </section>
   );

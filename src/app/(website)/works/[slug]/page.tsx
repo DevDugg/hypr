@@ -2,6 +2,7 @@ import CaseGallery from "@/components/pages/case/case-gallery";
 import CaseHero from "@/components/pages/case/case-hero";
 import CaseSlider from "@/components/pages/case/case-slider";
 import CaseVideos from "@/components/pages/case/case-videos";
+import Reveal from "@/components/animations/reveal";
 import { getProjectItem } from "@/sanity/schemas/projects";
 
 interface CaseParams {
@@ -19,7 +20,9 @@ const Case = async ({ params }: CaseParams) => {
         <>
           <CaseHero project={project} />
 
-          <CaseVideos project={project} />
+          <Reveal animateOnView>
+            <CaseVideos project={project} />
+          </Reveal>
 
           <CaseGallery project={project} />
 

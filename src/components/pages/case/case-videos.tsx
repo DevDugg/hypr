@@ -1,6 +1,11 @@
 "use client";
 
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
 import { ArrowUpRight } from "lucide-react";
@@ -35,7 +40,9 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
             <div className="flex-[0_0_11.66vw] -translate-y-[10vw] text-[0.93vw] text-WHITE font-semibold">
               <span className="">01/</span>
               <span className="text-GRAY">
-                {project.videos.length >= 10 ? project.videos.length : "0" + project.videos.length}
+                {project.videos.length >= 10
+                  ? project.videos.length
+                  : "0" + project.videos.length}
               </span>
             </div>
 
@@ -52,7 +59,10 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
 
               <div className="flex gap-[0.83vw] relative">
                 <div className="w-[59.58vw] h-full">
-                  <MuxPlayer playbackId={project.videos[active].playbackId!} title={project.videos[active].name!} />
+                  <MuxPlayer
+                    playbackId={project.videos[active].playbackId!}
+                    title={project.videos[active].name!}
+                  />
                 </div>
 
                 <div className="border border-GRAY rounded-md flex-[1_1_20.83vw] h-fit">
@@ -63,9 +73,11 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
                       className={clsx(
                         "p-[1.25vw] font-medium cursor-pointer text-[0.93vw] transition-all duration-300 text-GRAY uppercase",
                         {
-                          "border-b border-GRAY": i + 1 !== project.videos!.length,
-                          "!text-BLACK bg-ACCENT !border-opacity-0": active === i,
-                        },
+                          "border-b border-GRAY":
+                            i + 1 !== project.videos!.length,
+                          "!text-BLACK bg-ACCENT !border-opacity-0":
+                            active === i,
+                        }
                       )}
                     >
                       {video.name}
@@ -75,8 +87,12 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
               </div>
 
               <div className="flex justify-between w-[59.58vw] mt-[0.83vw]">
-                <div className="uppercase font-medium text-[0.93vw] leading-[140%]">{project.videos[active].name}</div>
-                <div className="text-[0.93vw] leading-[140%]">[{project.videos[active].duration}]</div>
+                <div className="uppercase font-medium text-[0.93vw] leading-[140%]">
+                  {project.videos[active].name}
+                </div>
+                <div className="text-[0.93vw] leading-[140%]">
+                  [{project.videos[active].duration}]
+                </div>
               </div>
             </div>
           </div>
@@ -96,19 +112,26 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
                     video.playbackId &&
                     video.name && (
                       <CarouselItem key={i}>
-                        <MuxPlayer playbackId={video.playbackId} title={video.name} />
+                        <MuxPlayer
+                          playbackId={video.playbackId}
+                          title={video.name}
+                        />
                       </CarouselItem>
-                    ),
+                    )
                 )}
               </CarouselContent>
             </Carousel>
 
             <div className="flex justify-between text-[4.05vw] font-medium items-center uppercase">
               <div>{project.videos[active].name}</div>
-              <div className="font-normal">[{project.videos[active].duration}]</div>
+              <div className="font-normal">
+                [{project.videos[active].duration}]
+              </div>
             </div>
 
-            {project.videos && <Bullets size={project.videos.length} active={active} />}
+            {project.videos && (
+              <Bullets size={project.videos.length} active={active} />
+            )}
           </div>
         </Container>
       </section>

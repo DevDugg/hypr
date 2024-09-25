@@ -40,12 +40,20 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
 
         {/* MOBILE */}
         <div className="sm:hidden text-WHITE mb-[25.62vw]">
-          <AnimatedTitle element="h2" className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]">
+          <AnimatedTitle
+            element="h2"
+            className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]"
+          >
             Never Miss A Bit/
           </AnimatedTitle>
           <div className="flex flex-col gap-[6.15vw]">
             {projects.map((project, i) => (
-              <Reveal key={i} animateOnView delay={i * 0.2} duration={0.6}>
+              <Reveal
+                key={i}
+                animateOnView
+                delay={i * 0.2}
+                //  duration={0.6}
+              >
                 <div>
                   <Image
                     src={`/images/projects/${i + 1}.png`}
@@ -54,8 +62,17 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                     height={423}
                     className="mb-[4.1vw] w-[93vw] h-[66.1vw]"
                   />
-                  <h5 className="uppercase font-bold text-[4.61vw] mb-[2.05vw]">{project.name}</h5>
-                  <p className={cn("leading-[140%] text-[4.1vw]", grotesk.className)}>{project.short_description}</p>
+                  <h5 className="uppercase font-bold text-[4.61vw] mb-[2.05vw]">
+                    {project.name}
+                  </h5>
+                  <p
+                    className={cn(
+                      "leading-[140%] text-[4.1vw]",
+                      grotesk.className
+                    )}
+                  >
+                    {project.short_description}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -67,8 +84,13 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
           className="hidden sm:flex gap-[1.25vw] mb-[10.41vw]"
           style={{ paddingTop: padding, marginBottom: y1 }}
         >
-          <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y1 }}>
-            <SectionTitle className="mb-[28.78vw]">never miss a bit/</SectionTitle>
+          <motion.div
+            className="flex flex-col flex-[1_1_30.41vw]"
+            style={{ y: y1 }}
+          >
+            <SectionTitle className="mb-[28.78vw]">
+              never miss a bit/
+            </SectionTitle>
 
             {projects.map((project, i) => {
               switch (i + 1) {
@@ -124,7 +146,10 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
             })}
           </motion.div>
 
-          <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y2 }}>
+          <motion.div
+            className="flex flex-col flex-[1_1_30.41vw]"
+            style={{ y: y2 }}
+          >
             {projects.map((project, i) => {
               switch (i + 1) {
                 case 2:
@@ -194,7 +219,10 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
             })}
           </motion.div>
 
-          <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y3 }}>
+          <motion.div
+            className="flex flex-col flex-[1_1_30.41vw]"
+            style={{ y: y3 }}
+          >
             {projects.map((project, i) => {
               switch (i + 1) {
                 case 3:

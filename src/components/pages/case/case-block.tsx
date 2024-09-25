@@ -46,7 +46,7 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
     project && (
       <div className={cn(className)}>
         {project.key_visuals && (
-          <div className="flex flex-col flex-[1_0_11.66vw] gap-[0.83vw] mr-[0.83vw]">
+          <div className="flex flex-col flex-[1_0_11.66vw] gap-[0.83vw] mr-[0.83vw] cursor-default">
             {project.key_visuals.map((item, i) => (
               <div key={i} className="flex items-center">
                 <div
@@ -54,15 +54,23 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
                   className={clsx(
                     "size18 w-[7vw] uppercase transition-all duration-300",
 
-                    active !== i ? "text-GRAY" : "text-WHITE",
+                    active !== i ? "text-GRAY" : "text-WHITE"
                   )}
                 >
                   {item.name}
                 </div>
 
                 <motion.span
-                  initial={active === i ? { width: "4.5vw", opacity: 1 } : { width: 0, opacity: 0 }}
-                  animate={active === i ? { width: "4.5vw", opacity: 1 } : { width: 0, opacity: 0 }}
+                  initial={
+                    active === i
+                      ? { width: "4.5vw", opacity: 1 }
+                      : { width: 0, opacity: 0 }
+                  }
+                  animate={
+                    active === i
+                      ? { width: "4.5vw", opacity: 1 }
+                      : { width: 0, opacity: 0 }
+                  }
                   className="w-[4.5vw] h-[1px] bg-GRAY origin-left"
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 />
@@ -79,14 +87,18 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
                   i === active && (
                     <motion.div
                       key={i}
-                      initial={{ height: 0, zIndex: 5, opacity: 0 }}
+                      initial={{
+                        height: 0,
+                        zIndex: 5,
+                        opacity: 0,
+                      }}
                       animate={{
                         height: "100%",
                         zIndex: 10,
                         opacity: 1,
                       }}
                       exit={{ height: 0, zIndex: 5 }}
-                      transition={{ duration: 0.3 }}
+                      // transition={{ duration: 0.3 }}
                       className="w-full h-full absolute"
                     >
                       {item.image && (
@@ -99,7 +111,7 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
                         />
                       )}
                     </motion.div>
-                  ),
+                  )
               )}
             </AnimatePresence>
           )}
@@ -109,8 +121,14 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
           <div className="flex gap-[7.29vw]">
             <div className="flex flex-col gap-[4vw]">
               <div className="flex text-GRAY gap-[1.25vw] font-medium leading-[140%] size18 w-full">
-                {project.description_1 && <p className="size18 flex-[1_0_24.53vw]">{project.description_1}</p>}
-                {project.description_1 && <p className="flex-[1_0_24.53vw]">{project.description_2}</p>}
+                {project.description_1 && (
+                  <p className="size18 flex-[1_0_24.53vw]">
+                    {project.description_1}
+                  </p>
+                )}
+                {project.description_1 && (
+                  <p className="flex-[1_0_24.53vw]">{project.description_2}</p>
+                )}
 
                 <p className="uppercase ml-[1.25vw]">storyline</p>
               </div>
@@ -119,12 +137,17 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
                 {infoData.map((item, i) => (
                   <div
                     key={i}
-                    className={clsx("flex items-start py-[0.83vw] font-semibold", {
-                      "border-b border-STROKE": i !== 3,
-                    })}
+                    className={clsx(
+                      "flex items-start py-[0.83vw] font-semibold",
+                      {
+                        "border-b border-STROKE": i !== 3,
+                      }
+                    )}
                   >
                     <h5 className="text-WHITE w-[10vw] size18">{item.title}</h5>
-                    <p className="text-GRAY w-[11vw] text-[0.83vw]">{item.text}</p>
+                    <p className="text-GRAY w-[11vw] text-[0.83vw]">
+                      {item.text}
+                    </p>
                   </div>
                 ))}
               </div>

@@ -9,7 +9,9 @@ import { motion } from "framer-motion";
 
 const Loader = () => {
   const splitText = "HYPR".split("");
-  const [isFirstLoaded, setIsFirstLoaded] = useState(window.sessionStorage.getItem("isFirstLoaded") === "true");
+  const [isFirstLoaded, setIsFirstLoaded] = useState(
+    window.sessionStorage.getItem("isFirstLoaded") === "true"
+  );
   useEffect(() => {
     setTimeout(() => {
       setIsFirstLoaded(true);
@@ -20,7 +22,7 @@ const Loader = () => {
     <motion.div
       className={cn(
         "loader fixed top-0 left-0 w-dvw h-dvh bg-BACKGROUND flex items-center justify-center z-20 pointer-events-none",
-        isFirstLoaded && "hidden",
+        isFirstLoaded && "hidden"
       )}
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
@@ -29,11 +31,21 @@ const Loader = () => {
       <motion.div
         initial={{ scale: 1 }}
         animate={{ scale: 20 }}
-        transition={{ ...defaultTransition, delay: 2, duration: 2, damping: 0.4, ease: "easeIn" }}
+        transition={{
+          ...defaultTransition,
+          delay: 2,
+          duration: 2,
+          damping: 0.4,
+          ease: "easeIn",
+        }}
       >
         <div className="text-[19.2vw] text-center text-WHITE flex">
           {splitText.map((letter, i) => (
-            <Reveal key={i} delay={i * 0.1} duration={0.6}>
+            <Reveal
+              key={i}
+              delay={i * 0.1}
+              // duration={0.6}
+            >
               <span>{letter}</span>
             </Reveal>
           ))}

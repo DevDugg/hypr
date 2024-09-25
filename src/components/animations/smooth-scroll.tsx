@@ -1,8 +1,8 @@
-//@ts-nocheck
 "use client";
 
 import { PropsWithChildren } from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { cubicBezier } from "framer-motion";
 
 function SmoothScroll({ children }: PropsWithChildren) {
   return (
@@ -10,12 +10,8 @@ function SmoothScroll({ children }: PropsWithChildren) {
       root
       options={{
         lerp: 0.08,
-        duration: 3,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(4, -5 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
-        smooth: true,
-        smoothTouch: true,
+        duration: 0.8,
+        easing: cubicBezier(0.55, 0, 0.1, 1),
         touchMultiplier: 2,
         infinite: false,
         __experimental__naiveDimensions: true,

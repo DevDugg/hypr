@@ -1,11 +1,13 @@
 "use client";
 
+import { MotionConfig, motion } from "framer-motion";
+
 import { Home_page } from "../../../../sanity.types";
 import Image from "next/image";
 import Reveal from "@/components/animations/reveal";
 import Scene from "@/components/3d/scene";
 import { ServiceCardDesktop } from "./service-card-desktop";
-import { motion } from "framer-motion";
+import { defaultTransition } from "@/config/transitions";
 import { servicesData } from "@/database/services.data";
 import { urlFor } from "@/sanity/lib/image";
 import { useMousePosition } from "@/hooks/use-mouse-position";
@@ -24,9 +26,9 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
   const images = items.map((item) => item.image);
 
   return (
-    <>
+    <MotionConfig transition={{ ...defaultTransition }}>
       {/* <Scene activeMenu={activeItem} images={images} /> */}
-      <motion.div
+      <div
         className="flex flex-col gap-[4.05vw] sm:gap-[2.08vw] pt-[0.416vw] sm:pt-[1.66vw] relative w-full cursor-default"
         ref={box}
         onMouseMove={(e) => handleMouseMove(e)}
@@ -36,10 +38,9 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
           return (
             <Reveal
               key={i}
-              delay={i * 0.1}
               animateOnView
-              duration={0.3}
-              type="opacity"
+              // duration={0.3}
+              threshold={0.4}
             >
               <div className="w-full" onMouseOver={() => setActiveItem(i)}>
                 <ServiceCardDesktop
@@ -127,8 +128,8 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
             )}
           </motion.div>
         </motion.div>
-      </motion.div>
-    </>
+      </div>
+    </MotionConfig>
   );
 };
 
