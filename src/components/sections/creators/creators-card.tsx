@@ -25,12 +25,12 @@ export const CreatorsCard = ({
         />
       )}
 
-      <div className="mt-[4.05vw] sm:mt-[1.66vw] mb-[4.05vw] sm:mb-[1.25vw] text-[4.05vw] sm:text-[0.9375vw] monument">
+      <div className="mt-[4.05vw] sm:mt-[1.66vw] mb-[4.05vw] sm:mb-[1.25vw] text-[4.05vw] sm:text-[1.25vw] monument">
         {creator_name}
       </div>
       <p
         className={cn(
-          "leading-[140%] text-[4.05vw] sm:text-[0.83vw] mb-[1.02vw] sm:mb-[0.416vw] font-normal",
+          "leading-[140%] text-[4.05vw] sm:text-[1.04vw] mb-[1.02vw] sm:mb-[0.416vw] font-normal",
           grotesk.className
         )}
       >
@@ -39,7 +39,7 @@ export const CreatorsCard = ({
 
       <div
         className={cn(
-          "flex flex-col text-[4.05vw] sm:text-[0.83vw] gap-[1.02vw] sm:gap-[0.41vw] leading-[140%]",
+          "flex flex-col text-[4.05vw] sm:text-[1.04vw] gap-[1.02vw] sm:gap-[0.41vw] leading-[140%]",
           grotesk.className
         )}
       >

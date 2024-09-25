@@ -20,9 +20,12 @@
     @apply text-[3.58vw] sm:text-[1.25vw] text-GRAY font-medium;
   }
 
-  .subtitle,
+  .subtitle {
+    @apply text-[3.54vw] sm:text-[0.9375vw];
+  }
+
   .name {
-    @apply text-[3.54vw] sm:text-[1.25vw];
+    @apply text-[3.54vw] sm:text-[0.833vw];
   }
 
   .fly-item {
