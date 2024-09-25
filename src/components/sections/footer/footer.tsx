@@ -1,12 +1,12 @@
+import BackToTop from "./back-to-top";
 import Container from "../../layout/container";
 import PreFooter from "./pre-footer";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
-import { useScrollToTarget } from "@/lib/use-scroll-to-target";
 
 export const Footer = () => {
   const date = new Date();
-  const { handleOnClick } = useScrollToTarget("#hero");
+
   return (
     <footer className="text-WHITE mt-[25.62vw] sm:mt-[10.41vw] pb-[1.25vw] relative z-10">
       <Container className="flex flex-col gap-[20.05vw] sm:gap-[10vw]">
@@ -18,15 +18,7 @@ export const Footer = () => {
           </p>
 
           <div className="flex sm:flex-[0_0_34.58vw] pb-[1.82vh] w-full justify-between">
-            <div
-              onClick={handleOnClick}
-              className={cn(
-                "flex items-center cursor-pointer sm:font-bold font-medium text-[3.58vw] sm:size24 justify-center gap-[0.2vw]",
-                grotesk.className
-              )}
-            >
-              Back to top ↑
-            </div>
+            <BackToTop />
 
             <div
               className={cn(
