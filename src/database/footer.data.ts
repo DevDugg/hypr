@@ -1,33 +1,33 @@
 export const footerList = [
   {
     name: "Our works",
-    link: "/works",
+    href: "/works",
   },
   {
     name: "About",
-    link: "/about",
+    href: "/about",
   },
   {
     name: "News",
-    link: "/news",
+    href: "/news",
   },
   {
     name: "Contact us",
-    link: "/contacts",
+    href: "/contacts",
   },
 ];
 
 export const footerList2 = [
   {
     name: "X/Twitter",
-    link: "https://x.com/createdbyHYPR",
+    href: "https://x.com/createdbyHYPR",
   },
   {
     name: "Instagram",
-    link: "https://instagram.com/createdbyHYPR",
+    href: "https://instagram.com/createdbyHYPR",
   },
   {
     name: "LinkedIn",
-    link: "https://www.linkedin.com/company/createdbyhypr/",
+    href: "https://www.linkedin.com/company/createdbyhypr/",
   },
 ];

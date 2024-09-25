@@ -1,4 +1,4 @@
-import { Footer } from "@/components/sections/footer";
+import { Footer } from "@/components/sections/footer/footer";
 import { Header } from "@/components/sections/header";
 import MouseFollower from "@/components/animations/mouse-follower";
 import Provider from "@/config/provider";
