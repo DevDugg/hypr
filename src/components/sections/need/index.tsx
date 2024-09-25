@@ -26,7 +26,7 @@ const Need = ({ gallery }: INeedProps) => {
 
     for (let i = 1; i <= 3; i++) {
       rows.push(
-        <div className="row relative m-[1em] flex justify-center gap-[2em] pointer-events-none">
+        <div className="row relative m-[1em] flex justify-center gap-[2em]">
           <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-left">
             <Image
               src={`/images/need/${2 * i - 1}.png`}
@@ -61,7 +61,7 @@ const Need = ({ gallery }: INeedProps) => {
         toggleActions: "play reverse plat reverse",
       };
 
-      const xValues = [800, 900, 400];
+      const xValues = [1000, 1100, 600];
       const yValues = [100, -150, -400];
       const rotationValues = [30, 20, 35];
 
@@ -90,7 +90,7 @@ const Need = ({ gallery }: INeedProps) => {
           scrollTrigger: {
             trigger: container.current,
             start: "top center",
-            end: "bottom bottom",
+            end: "85% bottom",
             scrub: true,
             onUpdate: (self) => {
               const progress = self.progress;
@@ -119,24 +119,26 @@ const Need = ({ gallery }: INeedProps) => {
     >
       <Container className="px-[5.23vw]">
         <div className="h-[81.51vw] flex flex-col justify-center relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
             {generateRows()}
           </div>
-          <div className="main-content mix-blend-difference">
+          <div className="main-content z-0">
             {title && (
-              <h1 className="text-center mx-auto leading-none text-[11.27vw] sm:size100 monument max-w-3xl">
+              <h2 className="text-center mx-auto leading-none text-[11.27vw] sm:text-[3.54vw] monument max-w-3xl">
                 {title}
-              </h1>
+              </h2>
             )}
 
-            <CustomButton
-              className={cn(
-                grotesk.className,
-                "w-full sm:w-[30.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center"
-              )}
-            >
-              <Link href={"/contacts"}>Contact us</Link>
-            </CustomButton>
+            <Link href={"/contacts"}>
+              <CustomButton
+                className={cn(
+                  grotesk.className,
+                  "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center"
+                )}
+              >
+                Contact us
+              </CustomButton>
+            </Link>
           </div>
         </div>
       </Container>
