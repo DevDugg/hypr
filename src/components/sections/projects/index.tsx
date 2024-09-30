@@ -29,6 +29,7 @@ const Projects = ({ projects }: ProjectsProps) => {
             {items.map((item, i) =>
               i < 2 ? (
                 <ProjectCard
+                  key={item._id}
                   img={item.key_visuals![0].image}
                   slug={item.slug}
                   subtitle={item.short_description}

@@ -28,14 +28,17 @@ const ContactsForm = () => {
         title: "Uh oh! Something went wrong",
         description: "An error occurred while sending your message.",
         action: (
-          <ToastAction altText="Try again" onClick={form.handleSubmit(onSubmit)}>
+          <ToastAction
+            altText="Try again"
+            onClick={form.handleSubmit(onSubmit)}
+          >
             Try again
           </ToastAction>
         ),
         variant: "destructive",
       });
     }
-  }, [error, success, toast]);
+  }, [error, success, toast, form, onSubmit]);
 
   return (
     <Form {...form}>
@@ -81,7 +84,7 @@ const ContactsForm = () => {
                 type="submit"
                 className={cn(
                   grotesk.className,
-                  "font-bold  mx-0 py-[4vw] w-full text-[4.61vw] sm:size24 sm:w-[44.63vw] bg-ACCENT sm:py-[1.04vw] rounded-[51.25vw] sm:rounded-[10.41vw]",
+                  "font-bold  mx-0 py-[4vw] w-full text-[4.61vw] sm:size24 sm:w-[44.63vw] bg-ACCENT sm:py-[1.04vw] rounded-[51.25vw] sm:rounded-[10.41vw]"
                 )}
               >
                 Submit form
