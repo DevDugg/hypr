@@ -18,8 +18,8 @@ const CaseHero = ({ project }: CaseHeroProps) => {
   const { name, title_1, title_2, main_image } = project;
   return (
     <div>
-      <div className="h-[123vw] sm:h-screen w-screen"></div>
-      <div className="absolute top-0 left-0 h-[123vw] sm:h-screen w-screen">
+      <div className="h-dvh w-dvw"></div>
+      <div className="absolute top-0 left-0 h-dvh w-dvw">
         <section className="size-full flex flex-col justify-end text-WHITE mb-[10.25vw] sm:mb-[3.12vw] relative">
           {main_image && (
             <Reveal

@@ -12,8 +12,8 @@ import { ArrowUpRight } from "lucide-react";
 import Bullets from "@/components/shared/bullets";
 import CaseTitle from "./case-title";
 import Container from "@/components/layout/container";
-import MuxPlayer from "@/components/mux-player";
 import { PROJECT_ITEM_QUERYResult } from "../../../../sanity.types";
+import VideoPlayer from "@/components/video-player";
 import clsx from "clsx";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
@@ -52,16 +52,21 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
                   title="videos"
                   num={`(${project.videos.length >= 10 ? project.videos.length : "0" + project.videos.length})`}
                 />
-                <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold">
+                <a
+                  href="https://www.youtube.com/@createdbyHYPR"
+                  rel="noreferrer noopener"
+                  className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[0.93vw] font-semibold"
+                >
                   youtube <ArrowUpRight className="size-[1vw] " />
                 </a>
               </div>
 
               <div className="flex gap-[0.83vw] relative">
-                <div className="w-[59.58vw] h-full">
-                  <MuxPlayer
-                    playbackId={project.videos[active].playbackId!}
-                    title={project.videos[active].name!}
+                <div className="w-[59.58vw] h-full touch-pan-y">
+                  <VideoPlayer
+                    src={project.videos[active].video || ""}
+                    width="100%"
+                    height="100%"
                   />
                 </div>
 
@@ -91,7 +96,7 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
                   {project.videos[active].name}
                 </div>
                 <div className="text-[0.93vw] leading-[140%]">
-                  [{project.videos[active].duration}]
+                  {/* [{project.videos[active].duration}] */}
                 </div>
               </div>
             </div>
@@ -109,12 +114,13 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
               <CarouselContent>
                 {project.videos.map(
                   (video, i) =>
-                    video.playbackId &&
+                    video.name &&
                     video.name && (
                       <CarouselItem key={i}>
-                        <MuxPlayer
-                          playbackId={video.playbackId}
-                          title={video.name}
+                        <VideoPlayer
+                          src={video.video || ""}
+                          width="auto"
+                          height="auto"
                         />
                       </CarouselItem>
                     )
@@ -125,11 +131,11 @@ const CaseVideos = ({ project }: CaseVideosProps) => {
             <div className="flex justify-between text-[4.05vw] font-medium items-center uppercase">
               <div>{project.videos[active].name}</div>
               <div className="font-normal">
-                [{project.videos[active].duration}]
+                {/* [{project.videos[active].duration}] */}
               </div>
             </div>
 
-            {project.videos && (
+            {project.videos && project.videos.length > 1 && (
               <Bullets size={project.videos.length} active={active} />
             )}
           </div>
