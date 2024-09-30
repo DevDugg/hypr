@@ -5,6 +5,7 @@ import { Home_page, SanityImageAsset } from "../../../../sanity.types";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/image";
+import { useMediaQuery } from "usehooks-ts";
 
 interface IProps {
   name: string | undefined;
@@ -14,29 +15,44 @@ interface IProps {
 }
 
 export const ServiceCardDesktop = ({ name, i, activeItem, image }: IProps) => {
-  const itemState = activeItem !== null ? (activeItem === i ? { opacity: "100%" } : { opacity: "30%" }) : {};
+  const itemState =
+    activeItem !== null
+      ? activeItem === i
+        ? { opacity: "100%" }
+        : { opacity: "30%" }
+      : {};
+
+  const mobile = useMediaQuery("(max-width: 640px)");
   return (
     <div className="flex flex-col gap-4">
       <motion.div
         id={`element-${i}`}
-        className="relative overflow-hidden h-[3.75vw] w-full"
+        className="relative overflow-hidden h-[3.75vw] w-full max-sm:overflow-auto max-sm:h-fit"
         initial={{ opacity: "100%" }}
         animate={itemState}
       >
-        <motion.h4
-          className="leading-none monument uppercase w-full text-[4.61vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
-          initial={{ top: "100%", rotateX: 45, transformOrigin: "top" }}
-          animate={activeItem === i ? { top: "0%", rotateX: 0, transformOrigin: "bottom" } : {}}
-        >
-          {name}
-        </motion.h4>
         <motion.span
-          className="leading-none monument uppercase w-full text-[4.61vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
-          initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
-          animate={activeItem === i ? { top: "-100%", rotateX: 45, transformOrigin: "top" } : {}}
+          className="leading-none monument uppercase w-full text-[5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight max-sm:hidden"
+          initial={{ top: "100%", rotateX: 45, transformOrigin: "top" }}
+          animate={
+            activeItem === i && mobile
+              ? { top: "0%", rotateX: 0, transformOrigin: "bottom" }
+              : {}
+          }
         >
           {name}
         </motion.span>
+        <motion.h4
+          className="leading-none monument uppercase w-full text-[5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
+          initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
+          animate={
+            activeItem === i && !mobile
+              ? { top: "-100%", rotateX: 45, transformOrigin: "top" }
+              : {}
+          }
+        >
+          {name}
+        </motion.h4>
       </motion.div>
       <motion.div
         initial={{ height: 0, opacity: 0 }}

@@ -54,13 +54,13 @@ const ProjectCard = ({ title, subtitle, img, slug }: IProps) => {
               />
             </motion.div>
           </div>
-          <h4 className="mt-[4.05vw] sm:mt-[1.25vw] mb-[2.02vw] sm:mb-[0.416vw] monument">
+          <h4 className="mt-[4.05vw] sm:mt-[1.25vw] mb-[2.02vw] sm:mb-[0.416vw] monument max-sm:text-[5vw]">
             {title}
           </h4>
 
           <p
             className={cn(
-              "block font-normal leading-[140%]",
+              "block font-normal leading-[140%] max-sm:text-[4.375vw]",
               grotesk.className
             )}
           >

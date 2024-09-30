@@ -24,14 +24,17 @@ const Burger = ({ burger, setBurger }: Props) => {
     <motion.div
       initial={{ translateY: "-100%", pointerEvents: "none" }}
       animate={burger ? { translateY: 0, pointerEvents: "none" } : {}}
-      transition={{ duration: 0.6, ease: [0.55, 0, 0.1, 1] }}
-      className={cn("bg-BACKGROUND absolute left-0 top-0 right-0 z-20 h-screen", grotesk.className)}
+      transition={{ duration: 0.6 }}
+      className={cn(
+        "bg-BACKGROUND absolute left-0 top-0 right-0 z-20 h-dvh",
+        grotesk.className
+      )}
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={burger ? { opacity: 1 } : {}}
-        transition={burger ? { delay: 0.6, ease: [0.55, 0, 0.1, 1] } : { delay: 0, duration: 0.1 }}
-        className="flex flex-col h-screen container"
+        transition={burger ? { delay: 0.6 } : { delay: 0, duration: 0.1 }}
+        className="flex flex-col h-dvh container"
       >
         <motion.ul
           initial={{ opacity: 0 }}

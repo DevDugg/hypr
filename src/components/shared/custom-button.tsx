@@ -25,7 +25,7 @@ const CustomButton = ({
       type={type}
       onClick={onClick}
       className={clsx(
-        "p-[1.25vw] text-[1.25vw] text-BLACK font-bold bg-ACCENT rounded-[10.416vw] leading-none flex justify-center max-md:!text-base",
+        "p-[1.25vw] text-[1.25vw] text-BLACK font-bold bg-ACCENT rounded-[10.416vw] leading-none flex justify-center max-md:!text-base max-sm:p-3",
         grotesk.className,
         fullWidth && "w-full",
         className

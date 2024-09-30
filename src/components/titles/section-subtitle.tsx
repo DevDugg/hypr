@@ -11,7 +11,7 @@ const SectionSubtitle = ({
     <h5
       className={cn(
         grotesk.className,
-        "text-[4.05vw] sm:subtitle leading-[140%] font-medium"
+        "text-[4.375vw] sm:text-[0.9375vw] leading-[140%] font-medium"
       )}
     >
       {children}

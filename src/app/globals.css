@@ -21,7 +21,7 @@
   }
 
   .subtitle {
-    @apply text-[3.54vw] sm:text-[0.9375vw];
+    @apply text-[6.25vw] sm:text-[0.9375vw];
   }
 
   .name {
@@ -103,4 +103,8 @@
   letter-spacing: -0.05em;
   text-transform: uppercase;
   line-height: 100%;
+}
+
+body {
+  width: calc(100vw + 20px);
 }

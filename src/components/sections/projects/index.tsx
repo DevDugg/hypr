@@ -17,21 +17,25 @@ const Projects = ({ projects }: ProjectsProps) => {
     subtitle &&
     description &&
     items && (
-      <SectionLayout id="projects" name={subtitle} title={title} subtitle={description} className="text-WHITE">
+      <SectionLayout
+        id="projects"
+        name={subtitle}
+        title={title}
+        subtitle={description}
+        className="text-WHITE"
+      >
         <div className="flex flex-col gap-[8.1vw] sm:gap-[1.66vw]">
           <div className="grid grid-cols-1 gap-[8.1vw] sm:gap-x-[1.25vw] sm:gap-y-[2.08vw] sm:grid-cols-2">
-            {items.map((item, i) => (
-              // <Reveal animateOnView key={i} delay={i * 0.2} duration={0.6}>
-              <MouseFollowerWrapper key={i} state="open">
+            {items.map((item, i) =>
+              i < 2 ? (
                 <ProjectCard
                   img={item.key_visuals![0].image}
                   slug={item.slug}
                   subtitle={item.short_description}
                   title={item.name}
                 />
-              </MouseFollowerWrapper>
-              // </Reveal>
-            ))}
+              ) : null
+            )}
           </div>
           <CustomButton fullWidth type="button">
             <Link href={"/works"}>See all projects</Link>
