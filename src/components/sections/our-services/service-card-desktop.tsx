@@ -1,7 +1,5 @@
 "use client";
 
-import { Home_page, SanityImageAsset } from "../../../../sanity.types";
-
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { urlFor } from "@/sanity/lib/image";
@@ -27,15 +25,15 @@ export const ServiceCardDesktop = ({ name, i, activeItem, image }: IProps) => {
     <div className="flex flex-col gap-4">
       <motion.div
         id={`element-${i}`}
-        className="relative overflow-hidden h-[3.75vw] w-full max-sm:overflow-auto max-sm:h-fit"
+        className="relative overflow-hidden h-[5vw] w-full max-sm:overflow-auto"
         initial={{ opacity: "100%" }}
         animate={itemState}
       >
         <motion.span
-          className="leading-none monument uppercase w-full text-[5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight max-sm:hidden"
+          className="leading-none monument uppercase w-full text-[4.5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight max-sm:hidden"
           initial={{ top: "100%", rotateX: 45, transformOrigin: "top" }}
           animate={
-            activeItem === i && mobile
+            activeItem === i && !mobile
               ? { top: "0%", rotateX: 0, transformOrigin: "bottom" }
               : {}
           }
@@ -43,7 +41,7 @@ export const ServiceCardDesktop = ({ name, i, activeItem, image }: IProps) => {
           {name}
         </motion.span>
         <motion.h4
-          className="leading-none monument uppercase w-full text-[5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
+          className="leading-none monument uppercase w-full text-[4.5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
           initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
           animate={
             activeItem === i && !mobile
