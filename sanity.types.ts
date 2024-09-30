@@ -68,6 +68,18 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type FormSubmission = {
+  _id: string;
+  _type: "form-submission";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+};
+
 export type Home_page = {
   _id: string;
   _type: "home_page";
@@ -228,7 +240,7 @@ export type Projects = {
   }>;
   videos?: Array<{
     name?: string;
-    video?: MuxVideo;
+    video?: string;
     _key: string;
   }>;
   gallery?: {
@@ -495,7 +507,7 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/home.ts
 // Variable: HOME_PAGE_QUERY
@@ -584,7 +596,7 @@ export type HOME_PAGE_QUERYResult = Array<{
       }>;
       videos?: Array<{
         name?: string;
-        video?: MuxVideo;
+        video?: string;
         _key: string;
       }>;
       gallery?: {
@@ -924,7 +936,7 @@ export type PROJECTS_QUERYResult = Array<{
   }>;
   videos?: Array<{
     name?: string;
-    video?: MuxVideo;
+    video?: string;
     _key: string;
   }>;
   gallery?: {
@@ -1000,7 +1012,7 @@ export type PROJECTS_QUERYResult = Array<{
 // Query: count(*[_type == 'projects'])
 export type COUNT_PROJECTS_QUERYResult = number;
 // Variable: PROJECT_ITEM_QUERY
-// Query: *[_type == 'projects' && slug.current == $slug]{      ...,      "videos": videos[] {        name,        "playbackId": video.asset->playbackId,  // Mux playback ID for streaming        "filename": video.asset->filename,  // Video file name        "status": video.asset->status,  // Mux asset status        "duration": video.asset->data.duration,  // Video duration        "aspectRatio": video.asset->data.aspect_ratio,  // Aspect ratio        "maxResolution": video.asset->data.max_stored_resolution,  // Maximum resolution        "maxFrameRate": video.asset->data.max_stored_frame_rate,  // Max frame rate        "tracks": video.asset->data.tracks[] {  // Tracks for video and audio          type,          duration,          "maxHeight": select(type == "video" => max_height),          "maxWidth": select(type == "video" => max_width),          "maxChannels": select(type == "audio" => max_channels)        }      }    }
+// Query: *[_type == 'projects' && slug.current == $slug]
 export type PROJECT_ITEM_QUERYResult = Array<{
   _id: string;
   _type: "projects";
@@ -1045,17 +1057,11 @@ export type PROJECT_ITEM_QUERYResult = Array<{
     value?: string;
     _key: string;
   }>;
-  videos: Array<{
-    name: string | null;
-    playbackId: null;
-    filename: null;
-    status: null;
-    duration: null;
-    aspectRatio: null;
-    maxResolution: null;
-    maxFrameRate: null;
-    tracks: null;
-  }> | null;
+  videos?: Array<{
+    name?: string;
+    video?: string;
+    _key: string;
+  }>;
   gallery?: {
     image_1?: {
       asset?: {
@@ -1136,6 +1142,6 @@ declare module "@sanity/client" {
     "*[_type == 'news' && slug.current == $slug]": NEWS_ITEM_QUERYResult;
     "\n    *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]\n  ": PROJECTS_QUERYResult;
     "\n    count(*[_type == 'projects'])\n  ": COUNT_PROJECTS_QUERYResult;
-    "\n    *[_type == 'projects' && slug.current == $slug]{\n      ...,\n      \"videos\": videos[] {\n        name,\n        \"playbackId\": video.asset->playbackId,  // Mux playback ID for streaming\n        \"filename\": video.asset->filename,  // Video file name\n        \"status\": video.asset->status,  // Mux asset status\n        \"duration\": video.asset->data.duration,  // Video duration\n        \"aspectRatio\": video.asset->data.aspect_ratio,  // Aspect ratio\n        \"maxResolution\": video.asset->data.max_stored_resolution,  // Maximum resolution\n        \"maxFrameRate\": video.asset->data.max_stored_frame_rate,  // Max frame rate\n        \"tracks\": video.asset->data.tracks[] {  // Tracks for video and audio\n          type,\n          duration,\n          \"maxHeight\": select(type == \"video\" => max_height),\n          \"maxWidth\": select(type == \"video\" => max_width),\n          \"maxChannels\": select(type == \"audio\" => max_channels)\n        }\n      }\n    }\n  ": PROJECT_ITEM_QUERYResult;
+    "\n    *[_type == 'projects' && slug.current == $slug]\n    ": PROJECT_ITEM_QUERYResult;
   }
 }

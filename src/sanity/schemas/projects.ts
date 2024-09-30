@@ -5,7 +5,7 @@ import { defineQuery } from "next-sanity";
 
 export const getProjectsData = async (
   page: number = 1,
-  pageSize: number = 10,
+  pageSize: number = 10
 ): Promise<{ projects: Projects[]; hasMore: boolean }> => {
   const offset = (page - 1) * pageSize;
 
@@ -20,7 +20,11 @@ export const getProjectsData = async (
 
   // Pass the offset and limit as query parameters
   const [data, totalCount] = await Promise.all([
-    client.fetch(PROJECTS_QUERY, { offset, limit: offset + pageSize }, { cache: "no-store" }),
+    client.fetch(
+      PROJECTS_QUERY,
+      { offset, limit: offset + pageSize },
+      { cache: "no-store" }
+    ),
     client.fetch(COUNT_PROJECTS_QUERY, {}, { cache: "no-store" }),
   ]);
 
@@ -28,31 +32,18 @@ export const getProjectsData = async (
   return { projects: data, hasMore };
 };
 
-export const getProjectItem = async (slug: string): Promise<PROJECT_ITEM_QUERYResult[number]> => {
+export const getProjectItem = async (
+  slug: string
+): Promise<PROJECT_ITEM_QUERYResult[number]> => {
   const PROJECT_ITEM_QUERY = defineQuery(`
-    *[_type == 'projects' && slug.current == $slug]{
-      ...,
-      "videos": videos[] {
-        name,
-        "playbackId": video.asset->playbackId,  // Mux playback ID for streaming
-        "filename": video.asset->filename,  // Video file name
-        "status": video.asset->status,  // Mux asset status
-        "duration": video.asset->data.duration,  // Video duration
-        "aspectRatio": video.asset->data.aspect_ratio,  // Aspect ratio
-        "maxResolution": video.asset->data.max_stored_resolution,  // Maximum resolution
-        "maxFrameRate": video.asset->data.max_stored_frame_rate,  // Max frame rate
-        "tracks": video.asset->data.tracks[] {  // Tracks for video and audio
-          type,
-          duration,
-          "maxHeight": select(type == "video" => max_height),
-          "maxWidth": select(type == "video" => max_width),
-          "maxChannels": select(type == "audio" => max_channels)
-        }
-      }
-    }
-  `);
+    *[_type == 'projects' && slug.current == $slug]
+    `);
 
-  const data = await client.fetch(PROJECT_ITEM_QUERY, { slug }, { cache: "no-store" });
+  const data = await client.fetch(
+    PROJECT_ITEM_QUERY,
+    { slug },
+    { cache: "no-store" }
+  );
 
   return data[0];
 };
@@ -168,8 +159,8 @@ const projects = {
             },
             {
               name: "video",
-              type: "mux.video",
-              title: "Video",
+              type: "string",
+              title: "Video (YouTube link)",
             },
           ],
         },
