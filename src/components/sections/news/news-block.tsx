@@ -16,7 +16,7 @@ interface NewsBlockProps {
 
 const NewsBlock = ({ news }: NewsBlockProps) => {
   return (
-    <Container className="text-WHITE cursor-grab">
+    <Container className="text-WHITE">
       {news && (
         <>
           <div className="mt-[3.33vw] hidden sm:flex gap-[2.56vw] sm:gap-[0.5vw]">
