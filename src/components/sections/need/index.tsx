@@ -26,7 +26,10 @@ const Need = ({ gallery }: INeedProps) => {
 
     for (let i = 1; i <= 3; i++) {
       rows.push(
-        <div className="row relative m-[1em] flex justify-center gap-[2em]">
+        <div
+          className="row relative m-[1em] flex justify-center gap-[2em]"
+          key={i}
+        >
           <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-left">
             <Image
               src={`/images/need/${2 * i - 1}.png`}
