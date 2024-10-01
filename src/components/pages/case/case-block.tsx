@@ -103,10 +103,10 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
                     >
                       {item.image && (
                         <Image
-                          src={urlFor(item.image).size(320, 480).url()}
+                          src={urlFor(item.image).size(640, 960).url()}
                           alt="image"
-                          width={320}
-                          height={480}
+                          width={640}
+                          height={960}
                           className="h-full w-full object-cover"
                         />
                       )}
@@ -132,25 +132,28 @@ const CaseBlock = ({ className, project }: CaseBlockProps) => {
 
                 <p className="uppercase ml-[1.25vw]">storyline</p>
               </div>
-
-              <div className="border-y border-STROKE w-[21vw]">
-                {infoData.map((item, i) => (
-                  <div
-                    key={i}
-                    className={clsx(
-                      "flex items-start py-[0.83vw] font-semibold",
-                      {
-                        "border-b border-STROKE": i !== 3,
-                      }
-                    )}
-                  >
-                    <h5 className="text-WHITE w-[10vw] size18">{item.title}</h5>
-                    <p className="text-GRAY w-[11vw] text-[0.83vw]">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              {project.information && (
+                <div className="border-y border-STROKE w-[21vw]">
+                  {project.information.map((item, i) => (
+                    <div
+                      key={item._key}
+                      className={clsx(
+                        "flex items-start py-[0.83vw] font-semibold",
+                        {
+                          "border-b border-STROKE": i !== 3,
+                        }
+                      )}
+                    >
+                      <h5 className="text-WHITE w-[10vw] size18">
+                        {item.name}
+                      </h5>
+                      <p className="text-GRAY w-[11vw] text-[0.83vw]">
+                        {item.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
