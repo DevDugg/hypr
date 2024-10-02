@@ -1,15 +1,20 @@
 "use client";
 
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
+import { ABOUT_PAGE_QUERYResult } from "../../../../sanity.types";
 import AnimatedTitle from "@/components/animations/animated-title";
 import Container from "@/components/layout/container";
 import Image from "next/image";
 import React from "react";
 import SectionName from "@/components/titles/section-name";
-import SectionTitle from "@/components/titles/section-title";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
+import { urlFor } from "@/sanity/lib/image";
 
 const teamData = [
   {
@@ -32,58 +37,89 @@ const teamData = [
     name: "Nick Bobir",
     special: "Product manager",
   },
-  {
-    img: "/images/about/team/1.png",
-    name: "Nick Bobir",
-    special: "Product manager",
-  },
-  {
-    img: "/images/about/team/1.png",
-    name: "Nick Bobir",
-    special: "Product manager",
-  },
 ];
 
-const AboutTeam = () => {
+interface AboutTeamProps {
+  data: NonNullable<ABOUT_PAGE_QUERYResult[0]>;
+}
+
+const AboutTeam = ({ data }: AboutTeamProps) => {
+  const { creators } = data;
   return (
-    <section className="my-[25.62vw] sm:my-[13.02vw] text-WHITE">
-      <Container>
-        <div className="flex flex-col-reverse sm:flex-row sm:gap-0 gap-[2.02vw] justify-between sm:items-end mb-[8.1vw] sm:mb-[4.16vw]">
-          <AnimatedTitle element="h3">meet out team/</AnimatedTitle>
-          <SectionName>(about)</SectionName>
-        </div>
+    creators && (
+      <section className="my-[25.62vw] sm:my-[13.02vw] text-WHITE">
+        <Container>
+          <div className="flex flex-col-reverse sm:flex-row sm:gap-0 gap-[2.02vw] justify-between sm:items-end mb-[8.1vw] sm:mb-[4.16vw]">
+            {creators.title && (
+              <AnimatedTitle element="h3">{creators.title}</AnimatedTitle>
+            )}
+            {creators.subtitle && (
+              <SectionName>{creators.subtitle}</SectionName>
+            )}
+          </div>
 
-        <Carousel className="hidden sm:block">
-          <CarouselContent>
-            {teamData.map((item, i) => (
-              <CarouselItem key={i} className="basis-1/3 text-[1.25vw] text-WHITE w-[30.41vw]">
-                <Image
-                  src={item.img}
-                  alt="name"
-                  width={584}
-                  height={640}
-                  className="w-[30.41vw] h-[33.33vw] mb-[1.25vw]"
-                />
+          {creators.items && (
+            <>
+              <Carousel className="block sm:hidden" opts={{ skipSnaps: true }}>
+                <CarouselContent>
+                  {creators.items.map(
+                    (item, i) =>
+                      item.image && (
+                        <CarouselItem
+                          key={i}
+                          className="text-[1.25vw] text-WHITE w-[30.41vw]"
+                        >
+                          <Image
+                            src={urlFor(item.image).size(1168, 1280).url()}
+                            alt="name"
+                            width={1168}
+                            height={1280}
+                            className="w-full h-auto mb-[4.05vw] object-cover"
+                          />
 
-                <h5>{item.name}</h5>
-                <p className={cn("mt-[0.41vw]", grotesk.className)}>{item.special}</p>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                          <h5 className="mb-[2.02vw] font-bold uppercase text-[4.05vw]">
+                            {item.creator_name}
+                          </h5>
+                          <p
+                            className={cn(
+                              "mt-[0.41vw] text-[4.05vw]",
+                              grotesk.className
+                            )}
+                          >
+                            {item.creator_role}
+                          </p>
+                        </CarouselItem>
+                      )
+                  )}
+                </CarouselContent>
+              </Carousel>
 
-        <div className="flex flex-col gap-[6.15vw] sm:hidden">
-          {teamData.map((item, i) => (
-            <div key={i}>
-              <Image src={item.img} alt="name" width={584} height={640} className="w-full h-auto mb-[4.05vw]" />
+              <div className="hidden gap-[0.5vw] sm:flex">
+                {creators.items.map(
+                  (item, i) =>
+                    item.image && (
+                      <div key={i} className="w-full">
+                        <Image
+                          src={urlFor(item.image).size(1168, 1280).url()}
+                          alt="name"
+                          width={1168}
+                          height={1280}
+                          className="w-full h-auto mb-[1.25vw] object-cover"
+                        />
 
-              <h5 className="mb-[2.02vw] font-bold uppercase text-[4.05vw]">{item.name}</h5>
-              <p className={cn("mt-[0.41vw] text-[4.05vw]", grotesk.className)}>{item.special}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
+                        <h5>{item.creator_name}</h5>
+                        <p className={cn("mt-[0.41vw]", grotesk.className)}>
+                          {item.creator_role}
+                        </p>
+                      </div>
+                    )
+                )}
+              </div>
+            </>
+          )}
+        </Container>
+      </section>
+    )
   );
 };
 
