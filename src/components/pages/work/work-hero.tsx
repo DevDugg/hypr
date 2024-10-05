@@ -13,6 +13,18 @@ import { grotesk } from "@/lib/fonts";
 import { urlFor } from "@/sanity/lib/image";
 import { useRef } from "react";
 
+function convertToMatrix(arr: any[]): any[][] {
+  const result: any[][] = [[], [], []];
+
+  for (let i = 0; i < arr.length; i += 3) {
+    if (arr[i] !== undefined) result[0].push(arr[i]);
+    if (arr[i + 1] !== undefined) result[1].push(arr[i + 1]);
+    if (arr[i + 2] !== undefined) result[2].push(arr[i + 2]);
+  }
+
+  return result;
+}
+
 interface WorkHeroProps {
   projects: PROJECTS_QUERYResult;
 }
@@ -28,8 +40,11 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -800]);
   const padding = useTransform(scrollYProgress, [0, 1], [0, 800]);
 
+  const matrix = projects.length > 1 && convertToMatrix(projects);
+
   return (
-    projects && (
+    projects &&
+    matrix && (
       <section ref={container}>
         <AnimatedTitle
           element="h1"
@@ -92,7 +107,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
               never miss a bit/
             </SectionTitle>
 
-            {projects.map((project, i) => {
+            {/* {projects.map((project, i) => {
               switch (i + 1) {
                 case 1:
                   return (
@@ -143,14 +158,14 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                 default:
                   break;
               }
-            })}
+            })} */}
           </motion.div>
 
           <motion.div
             className="flex flex-col flex-[1_1_30.41vw]"
             style={{ y: y2 }}
           >
-            {projects.map((project, i) => {
+            {/* {projects.map((project, i) => {
               switch (i + 1) {
                 case 2:
                   return (
@@ -216,14 +231,14 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                 default:
                   break;
               }
-            })}
+            })} */}
           </motion.div>
 
           <motion.div
             className="flex flex-col flex-[1_1_30.41vw]"
             style={{ y: y3 }}
           >
-            {projects.map((project, i) => {
+            {/* {projects.map((project, i) => {
               switch (i + 1) {
                 case 3:
                   return (
@@ -289,7 +304,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                 default:
                   break;
               }
-            })}
+            })} */}
           </motion.div>
         </motion.div>
       </section>
@@ -298,3 +313,21 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
 };
 
 export default WorkHero;
+
+const WorkCardBig = (project: WorkHeroProps["projects"][number]) => {
+  return (
+    project &&
+    project.main_image && (
+      <WorkCard
+        img={urlFor(project.main_image).size(584, 640).url()}
+        title={project.name || ""}
+        text={project.short_description || ""}
+        w={584}
+        h={480}
+        slug={project.slug!.current || ""}
+        className="mb-[3.64vw] w-[30.41vw]"
+        imgClassName="object-cover h-[25vw]"
+      />
+    )
+  );
+};
