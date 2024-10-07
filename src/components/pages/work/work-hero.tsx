@@ -1,17 +1,19 @@
 "use client";
 
+import { PROJECTS_QUERYResult, Projects } from "../../../../sanity.types";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import AnimatedTitle from "@/components/animations/animated-title";
 import Image from "next/image";
-import { PROJECTS_QUERYResult } from "../../../../sanity.types";
 import Reveal from "@/components/animations/reveal";
 import SectionTitle from "@/components/titles/section-title";
 import WorkCard from "./work-card";
 import { cn } from "@/lib/utils";
+import { getProjectsData } from "@/sanity/schemas/projects";
 import { grotesk } from "@/lib/fonts";
 import { urlFor } from "@/sanity/lib/image";
-import { useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 function convertToMatrix(arr: any[]): any[][] {
   const result: any[][] = [[], [], []];
@@ -49,17 +51,41 @@ enum VERSION {
 type VersionType = VERSION.SMALL | VERSION.MEDIUM | VERSION.BIG;
 
 const WorkHero = ({ projects }: WorkHeroProps) => {
+  // Animations
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
   });
-
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -400]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -600]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -800]);
   const padding = useTransform(scrollYProgress, [0, 1], [0, 800]);
 
-  const matrix = projects.length > 1 && convertToMatrix(projects);
+  // Data
+  const [data, setData] = useState<{
+    projects: Projects[];
+    hasMore: boolean;
+  }>({ projects, hasMore: true });
+  const [page, setPage] = useState<number>(1);
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    const getData = async () => {
+      if (!data.hasMore) return;
+
+      const { hasMore, projects } = await getProjectsData(page + 1, 12);
+      setData({ hasMore, projects: [...data.projects, ...projects] });
+      setPage(page + 1);
+    };
+
+    if (!inView) return;
+    getData();
+  }, [inView]);
+
+  const matrix = data.projects.length > 1 && convertToMatrix(data.projects);
   const versionMap: Array<Array<VersionType>> = [
     [VERSION.MEDIUM, VERSION.SMALL, VERSION.BIG],
     [VERSION.SMALL, VERSION.BIG, VERSION.MEDIUM],
@@ -67,7 +93,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
   ];
 
   return (
-    projects &&
+    data.projects &&
     matrix && (
       <section ref={container}>
         <AnimatedTitle
@@ -130,6 +156,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
               )}
             </motion.div>
           </motion.div>
+          <div className="trigger w-full h-[1px]" ref={ref}></div>
         </Reveal>
       </section>
     )
