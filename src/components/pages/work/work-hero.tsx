@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 
 import AnimatedTitle from "@/components/animations/animated-title";
 import Image from "next/image";
+import { Link } from "next-view-transitions";
 import Reveal from "@/components/animations/reveal";
 import SectionTitle from "@/components/titles/section-title";
 import WorkCard from "./work-card";
@@ -110,18 +111,18 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
               Never Miss A Bit/
             </AnimatedTitle>
             <div className="flex flex-col gap-[6.15vw]">
-              {projects.map((project, i) => (
-                <div key={i}>
+              {data.projects.map((project, i) => (
+                <Link href={`/works/${project.slug}`} key={i}>
                   <Image
-                    src={`/images/projects/${i + 1}.png`}
+                    src={urlFor(project.main_image!).size(1190, 846).url()}
                     alt="project image"
-                    width={595}
-                    height={423}
+                    width={1190}
+                    height={846}
                     className="mb-[4.1vw] w-[93vw] h-[66.1vw]"
                   />
                   <h5 className="uppercase font-bold text-[4.61vw] mb-[2.05vw]">{project.name}</h5>
                   <p className={cn("leading-[140%] text-[4.1vw]", grotesk.className)}>{project.short_description}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -175,11 +176,11 @@ const WorkCardSwitch = ({ project, version }: WorkCardSwitchProps) => {
     case VERSION.SMALL:
       return (
         <WorkCard
-          img={urlFor(project.main_image!).size(292, 332).url()}
+          img={urlFor(project.main_image!).size(876, 996).url()}
           title={project.name || ""}
           text={project.short_description || ""}
-          w={292}
-          h={332}
+          w={876}
+          h={996}
           slug={project.slug!.current || ""}
           className="w-1/2 mb-[2.18vw]"
           imgClassName="object-cover h-[17.29vw]"
@@ -188,11 +189,11 @@ const WorkCardSwitch = ({ project, version }: WorkCardSwitchProps) => {
     case VERSION.MEDIUM:
       return (
         <WorkCard
-          img={urlFor(project.main_image!).size(584, 480).url()}
+          img={urlFor(project.main_image!).size(1168, 960).url()}
           title={project.name || ""}
           text={project.short_description || ""}
-          w={584}
-          h={480}
+          w={1168}
+          h={960}
           slug={project.slug!.current || ""}
           className="w-full"
           imgClassName="object-cover h-[25vw]"
@@ -201,11 +202,11 @@ const WorkCardSwitch = ({ project, version }: WorkCardSwitchProps) => {
     case VERSION.BIG:
       return (
         <WorkCard
-          img={urlFor(project.main_image!).size(584, 640).url()}
+          img={urlFor(project.main_image!).size(1168, 1280).url()}
           title={project.name || ""}
           text={project.short_description || ""}
-          w={584}
-          h={640}
+          w={1168}
+          h={1280}
           slug={project.slug!.current || ""}
           className="w-full mb-[4.1vw]"
           imgClassName="object-cover h-[33.33vw]"
