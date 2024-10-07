@@ -22,13 +22,11 @@ const Burger = ({ burger, setBurger }: Props) => {
 
   return (
     <motion.div
-      initial={{ translateY: "-100%", pointerEvents: "none" }}
-      animate={burger ? { translateY: 0, pointerEvents: "none" } : {}}
+      initial={{ translateY: "-100%" }}
+      animate={burger ? { translateY: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className={cn(
-        "bg-BACKGROUND absolute left-0 top-0 right-0 z-20 h-dvh",
-        grotesk.className
-      )}
+      style={{ pointerEvents: burger ? "auto" : "none" }}
+      className={cn("bg-BACKGROUND absolute left-0 top-0 right-0 z-20 h-dvh", grotesk.className)}
     >
       <motion.div
         initial={{ opacity: 0 }}
