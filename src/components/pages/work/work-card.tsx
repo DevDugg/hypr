@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Link } from "next-view-transitions";
-import MouseFollowerWrapper from "@/components/animations/mouse-follower-wrapper";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 
@@ -17,16 +16,14 @@ interface Props {
 
 const WorkCard = ({ img, title, text, w, h, imgClassName, className, slug }: Props) => {
   return (
-    <MouseFollowerWrapper state="open">
-      <Link href={`/works/${slug}`}>
-        <article className={cn("text-[1.25vw] text-WHITE", className)}>
-          <Image src={img} alt="image" width={w} height={h} className={cn(imgClassName, "mb-[1.25vw] w-full")} />
+    <Link href={`/works/${slug}`}>
+      <article className={cn("text-[1.25vw] text-WHITE", className)}>
+        <Image src={img} alt="image" width={w} height={h} className={cn(imgClassName, "mb-[1.25vw] w-full")} />
 
-          <h5 className="font-bold">{title}</h5>
-          <p className={cn("--grotesk-font leading-[140%]", grotesk.className)}>{text}</p>
-        </article>
-      </Link>
-    </MouseFollowerWrapper>
+        <h5 className="font-bold">{title}</h5>
+        <p className={cn("--grotesk-font leading-[140%]", grotesk.className)}>{text}</p>
+      </article>
+    </Link>
   );
 };
 
