@@ -26,10 +26,7 @@ const Need = ({ gallery }: INeedProps) => {
 
     for (let i = 1; i <= 3; i++) {
       rows.push(
-        <div
-          className="row relative m-[1em] flex justify-center gap-[2em]"
-          key={i}
-        >
+        <div className="row relative m-[1em] flex justify-center gap-[2em]" key={i}>
           <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-left">
             <Image
               src={`/images/need/${2 * i - 1}.png`}
@@ -48,7 +45,7 @@ const Need = ({ gallery }: INeedProps) => {
               className="size-full object-cover"
             />
           </div>
-        </div>
+        </div>,
       );
     }
     return rows;
@@ -98,9 +95,7 @@ const Need = ({ gallery }: INeedProps) => {
             onUpdate: (self) => {
               const progress = self.progress;
               const scale = 1 - progress * 0.1;
-              const mainContent = document.querySelector(
-                ".main-content"
-              ) as HTMLElement;
+              const mainContent = document.querySelector(".main-content") as HTMLElement;
 
               mainContent.style.opacity = `${progress}`;
               mainContent.style.scale = `${scale}`;
@@ -109,17 +104,13 @@ const Need = ({ gallery }: INeedProps) => {
         });
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   const { title } = gallery;
 
   return (
-    <section
-      id="need"
-      className="text-WHITE mb-[0.83vw] relative"
-      ref={container}
-    >
+    <section id="need" className="text-WHITE mb-[0.83vw] relative" ref={container}>
       <Container className="px-[5.23vw]">
         <div className="h-[81.51vw] flex flex-col justify-center relative">
           <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
@@ -132,11 +123,11 @@ const Need = ({ gallery }: INeedProps) => {
               </h2>
             )}
 
-            <Link href={"/contacts"}>
+            <Link href={"/contact-us"}>
               <CustomButton
                 className={cn(
                   grotesk.className,
-                  "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center"
+                  "w-full sm:w-[43.07vw] mt-[6.15vw] sm:mt-[2.5vw] mx-auto flex justify-center",
                 )}
               >
                 Contact us

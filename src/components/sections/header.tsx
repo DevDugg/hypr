@@ -38,10 +38,7 @@ export const Header = () => {
         })}
       >
         <Container className="flex items-center justify-between text-WHITE">
-          <Link
-            href={"/"}
-            className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold w-[10.3425vw]"
-          >
+          <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold w-[10.3425vw]">
             <Reveal>
               <Image
                 src={"/images/main-logo.svg"}
@@ -57,26 +54,23 @@ export const Header = () => {
             <nav
               className={cn(
                 "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
-                grotesk.className
+                grotesk.className,
               )}
             >
               {navData.map((item, i) => (
                 <NavLinkAnimated
                   key={i}
                   {...item}
-                  className={clsx(
-                    "text-[0.9375vw] leading-[120%] py-[0.83vw]",
-                    {
-                      // "text-ACCENT": item.path === pathname,
-                    }
-                  )}
+                  className={clsx("text-[0.9375vw] leading-[120%] py-[0.83vw]", {
+                    // "text-ACCENT": item.path === pathname,
+                  })}
                 />
               ))}
             </nav>
           </Reveal>
           <Reveal>
             <CustomButton className="hidden lg:flex font-bold !text-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden">
-              <Link href={"/contacts"}>Contact us</Link>
+              <Link href={"/contact-us"}>Contact us</Link>
             </CustomButton>
           </Reveal>
 

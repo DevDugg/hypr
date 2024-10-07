@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
 import { ABOUT_PAGE_QUERYResult } from "../../../../sanity.types";
@@ -52,7 +47,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
               </h2>
               {call_to_action.button_text && (
                 <CustomButton fullWidth>
-                  <Link href={"/contacts"}>{call_to_action.button_text}</Link>
+                  <Link href={"/contact-us"}>{call_to_action.button_text}</Link>
                 </CustomButton>
               )}
             </div>
