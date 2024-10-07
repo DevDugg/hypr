@@ -3,7 +3,7 @@ import WorkHero from "@/components/pages/work/work-hero";
 import { getProjectsData } from "@/sanity/schemas/projects";
 
 const Work = async () => {
-  const { projects } = await getProjectsData(1, 2);
+  const { projects } = await getProjectsData(1, 11);
   return (
     <main>
       <Container>
