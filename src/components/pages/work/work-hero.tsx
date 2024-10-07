@@ -85,7 +85,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
             </AnimatedTitle>
             <div className="flex flex-col gap-[6.15vw]">
               {projects.map((project, i) => (
-                <div>
+                <div key={i}>
                   <Image
                     src={`/images/projects/${i + 1}.png`}
                     alt="project image"
