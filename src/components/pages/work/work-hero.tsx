@@ -115,21 +115,24 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
             <SectionTitle className="mb-[28.78vw]">never miss a bit/</SectionTitle>
             {matrix[0].map(
               (project, i) =>
-                project && project.main_image && <WorkCardSwitch project={project} version={versionMap[0][i % 2]} />,
+                project &&
+                project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[0][i % 2]} />,
             )}
           </motion.div>
 
           <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y2 }}>
             {matrix[1].map(
               (project, i) =>
-                project && project.main_image && <WorkCardSwitch project={project} version={versionMap[1][i % 2]} />,
+                project &&
+                project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[1][i % 2]} />,
             )}
           </motion.div>
 
           <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y3 }}>
             {matrix[2].map(
               (project, i) =>
-                project && project.main_image && <WorkCardSwitch project={project} version={versionMap[2][i % 2]} />,
+                project &&
+                project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[2][i % 2]} />,
             )}
           </motion.div>
         </motion.div>
