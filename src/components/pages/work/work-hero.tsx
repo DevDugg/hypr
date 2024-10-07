@@ -77,19 +77,14 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
           our work
         </AnimatedTitle>
 
-        {/* MOBILE */}
-        <div className="sm:hidden text-WHITE mb-[25.62vw]">
-          <AnimatedTitle element="h2" className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]">
-            Never Miss A Bit/
-          </AnimatedTitle>
-          <div className="flex flex-col gap-[6.15vw]">
-            {projects.map((project, i) => (
-              <Reveal
-                key={i}
-                animateOnView
-                delay={i * 0.2}
-                //  duration={0.6}
-              >
+        <Reveal type="opacity" duration={1.4} delay={0.6}>
+          {/* MOBILE */}
+          <div className="sm:hidden text-WHITE mb-[25.62vw]">
+            <AnimatedTitle element="h2" className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]">
+              Never Miss A Bit/
+            </AnimatedTitle>
+            <div className="flex flex-col gap-[6.15vw]">
+              {projects.map((project, i) => (
                 <div>
                   <Image
                     src={`/images/projects/${i + 1}.png`}
@@ -101,41 +96,41 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                   <h5 className="uppercase font-bold text-[4.61vw] mb-[2.05vw]">{project.name}</h5>
                   <p className={cn("leading-[140%] text-[4.1vw]", grotesk.className)}>{project.short_description}</p>
                 </div>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* DESKTOP */}
-        <motion.div
-          className="hidden sm:flex gap-[1.25vw] mb-[10.41vw]"
-          style={{ paddingTop: padding, marginBottom: y1 }}
-        >
-          <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y1 }}>
-            <SectionTitle className="mb-[28.78vw]">never miss a bit/</SectionTitle>
-            {matrix[0].map(
-              (project, i) =>
-                project &&
-                project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[0][i % 2]} />,
-            )}
-          </motion.div>
+          {/* DESKTOP */}
+          <motion.div
+            className="hidden sm:flex gap-[1.25vw] mb-[10.41vw]"
+            style={{ paddingTop: padding, marginBottom: y1 }}
+          >
+            <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y1 }}>
+              <SectionTitle className="mb-[28.78vw]">never miss a bit/</SectionTitle>
+              {matrix[0].map(
+                (project, i) =>
+                  project &&
+                  project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[0][i % 2]} />,
+              )}
+            </motion.div>
 
-          <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y2 }}>
-            {matrix[1].map(
-              (project, i) =>
-                project &&
-                project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[1][i % 2]} />,
-            )}
-          </motion.div>
+            <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y2 }}>
+              {matrix[1].map(
+                (project, i) =>
+                  project &&
+                  project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[1][i % 2]} />,
+              )}
+            </motion.div>
 
-          <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y3 }}>
-            {matrix[2].map(
-              (project, i) =>
-                project &&
-                project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[2][i % 2]} />,
-            )}
+            <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y3 }}>
+              {matrix[2].map(
+                (project, i) =>
+                  project &&
+                  project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[2][i % 2]} />,
+              )}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </Reveal>
       </section>
     )
   );
