@@ -31,17 +31,13 @@ const AboutHero = ({ data }: AboutHeroProps) => {
               <div className="hidden sm:flex flex-col flex-[1_1_22.23vw] gap-[0.31vw]">
                 {hero.tags.tag_1 && (
                   <Reveal type="opacity" delay={0.6}>
-                    <Button className="about-btn cursor-default">
-                      {hero.tags.tag_1}
-                    </Button>
+                    <Button className="about-btn cursor-default">{hero.tags.tag_1}</Button>
                   </Reveal>
                 )}
                 <div className="flex justify-end">
                   {hero.tags.tag_2 && (
                     <Reveal type="opacity" delay={0.7}>
-                      <Button className="about-btn cursor-default">
-                        {hero.tags.tag_2}
-                      </Button>
+                      <Button className="about-btn cursor-default">{hero.tags.tag_2}</Button>
                     </Reveal>
                   )}
                 </div>
@@ -60,17 +56,13 @@ const AboutHero = ({ data }: AboutHeroProps) => {
                 <div className="flex justify-end">
                   {hero.tags.tag_3 && (
                     <Reveal type="opacity" delay={0.8}>
-                      <Button className="about-btn cursor-default">
-                        {hero.tags.tag_3}
-                      </Button>
+                      <Button className="about-btn cursor-default">{hero.tags.tag_3}</Button>
                     </Reveal>
                   )}
                 </div>
                 {hero.tags.tag_4 && (
                   <Reveal type="opacity" delay={0.9}>
-                    <Button className="about-btn flex items-end cursor-default">
-                      {hero.tags.tag_4}
-                    </Button>
+                    <Button className="about-btn flex items-end cursor-default">{hero.tags.tag_4}</Button>
                   </Reveal>
                 )}
               </div>
@@ -84,10 +76,10 @@ const AboutHero = ({ data }: AboutHeroProps) => {
             delay={0.6}
           >
             <Image
-              src={urlFor(hero.main_image).size(1920, 900).url()}
+              src={urlFor(hero.main_image).size(3840, 1800).url()}
               alt="image"
-              width={1920}
-              height={900}
+              width={3840}
+              height={1800}
               className="w-full h-[46.87vw]"
             />
           </Reveal>
