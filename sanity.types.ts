@@ -68,6 +68,15 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type News_page = {
+  _id: string;
+  _type: "news_page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: string;
+};
+
 export type Contact = {
   _id: string;
   _type: "contact";
@@ -689,7 +698,7 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/about-us.ts
 // Variable: ABOUT_PAGE_QUERY
@@ -1146,6 +1155,18 @@ export type HOME_PAGE_QUERYResult = Array<{
   } | null;
 }>;
 
+// Source: ./src/sanity/schemas/news-page.ts
+// Variable: NEWS_PAGE_QUERY
+// Query: *[_type == 'news_page']
+export type NEWS_PAGE_QUERYResult = Array<{
+  _id: string;
+  _type: "news_page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: string;
+}>;
+
 // Source: ./src/sanity/schemas/news.ts
 // Variable: NEWS_QUERY
 // Query: *[_type == 'news'] | order(_createdAt desc) [$offset...$limit]
@@ -1509,6 +1530,7 @@ declare module "@sanity/client" {
     "*[_type == 'about-us']": ABOUT_PAGE_QUERYResult;
     "*[_type == 'contact']": CONTACT_PAGE_QUERYResult;
     "*[_type == \"home_page\"]{\n    hero,\n    services,\n    \"projects\": projects{\n      ...,\n      items[]->{\n        ...\n      }\n    },\n    about,\n    \"latest_news\": latest_news {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    clients,\n    creators,\n    gallery\n  }\n  ": HOME_PAGE_QUERYResult;
+    "*[_type == 'news_page']": NEWS_PAGE_QUERYResult;
     "*[_type == 'news'] | order(_createdAt desc) [$offset...$limit]": NEWS_QUERYResult;
     "count(*[_type == 'news'])": COUNT_NEWS_QUERYResult;
     "*[_type == 'news' && slug.current == $slug]": NEWS_ITEM_QUERYResult;

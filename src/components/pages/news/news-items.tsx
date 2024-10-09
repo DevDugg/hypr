@@ -25,7 +25,7 @@ const NewsItems = ({ news }: Props) => {
           ))}
         </div>
 
-        <CustomButton className={cn(grotesk.className, "hidden sm:block w-full")}>Load more</CustomButton>
+        {/* <CustomButton className={cn(grotesk.className, "hidden sm:block w-full")}>Load more</CustomButton> */}
       </section>
     )
   );
