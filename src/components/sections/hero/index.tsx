@@ -17,10 +17,7 @@ interface HeroProps {
 export const Hero = ({ hero }: HeroProps) => {
   const { description, images } = hero;
   return (
-    <section
-      id="hero"
-      className="flex flex-col justify-end gap-[2.56vw] sm:gap-[1.25vw] overflow-hidden"
-    >
+    <section id="hero" className="flex flex-col justify-end gap-[2.56vw] sm:gap-[1.25vw] overflow-hidden">
       <HeroText />
       {/* <FadeOnScroll
         yRange={[-20, 0]}
@@ -30,22 +27,22 @@ export const Hero = ({ hero }: HeroProps) => {
       {images && (
         <Container className="grid grid-cols-3 sm:grid-cols-6 sm:gap-[0.52vw] gap-[1.28vw]">
           {images.map((item, i) => (
-            <AnimatedOnScroll
-              key={i}
-              type="cover"
-              scrollRange={[0, 0.04 + i * 0.02]}
-            >
-              <Reveal delay={0.5 + i * 0.1}>
-                <Image
-                  src={urlFor(item).width(873).height(1200).url()}
-                  loading="eager"
-                  alt="img"
-                  width={873}
-                  height={1200}
-                  className="w-[33.33vw] h-full sm:w-[15.15vw] sm:h-[20.83vw]"
-                />
-              </Reveal>
-            </AnimatedOnScroll>
+            // <AnimatedOnScroll
+            //   key={i}
+            //   type="cover"
+            //   scrollRange={[0, 0.04 + i * 0.02]}
+            // >
+            <Reveal delay={0.5 + i * 0.1}>
+              <Image
+                src={urlFor(item).width(873).height(1200).url()}
+                loading="eager"
+                alt="img"
+                width={873}
+                height={1200}
+                className="w-[33.33vw] h-full sm:w-[15.15vw] sm:h-[20.83vw]"
+              />
+            </Reveal>
+            // </AnimatedOnScroll>
           ))}
         </Container>
       )}
