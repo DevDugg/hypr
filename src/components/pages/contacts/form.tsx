@@ -15,8 +15,6 @@ const ContactsForm = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    console.log(form, onSubmit, error, success);
-
     if (success) {
       toast({
         title: "Success",
