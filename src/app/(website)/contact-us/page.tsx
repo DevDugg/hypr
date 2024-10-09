@@ -1,7 +1,7 @@
 import ContactsHero from "@/components/pages/contacts/contacts-hero";
 import Socials from "@/components/sections/socials";
 
-const Contacts = () => {
+const Contacts = async () => {
   return (
     <main>
       <ContactsHero />

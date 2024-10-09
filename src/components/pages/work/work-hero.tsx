@@ -19,21 +19,10 @@ import { useInView } from "react-intersection-observer";
 function convertToMatrix(arr: any[]): any[][] {
   const result: any[][] = [[], [], []];
 
-  const lastIndex = arr.length - 1;
-
   for (let i = 0; i < arr.length; i += 3) {
-    if (arr[i] !== undefined && i !== lastIndex) {
-      result[0].push(arr[i]);
-    }
-    if (arr[i + 1] !== undefined) {
-      result[1].push(arr[i + 1]);
-    } else if (i === lastIndex) {
-      result[1].push(arr[i]);
-    }
-
-    if (arr[i + 2] !== undefined) {
-      result[2].push(arr[i + 2]);
-    }
+    if (arr[i + 1] !== undefined) result[0].push(arr[i]);
+    if (arr[i + 2] !== undefined) result[2].push(arr[i + 1]);
+    if (arr[i] !== undefined) result[1].push(arr[i + 2]);
   }
 
   return result;
@@ -57,10 +46,10 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
   const { scrollYProgress } = useScroll({
     target: container,
   });
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -400]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -600]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -800]);
-  const padding = useTransform(scrollYProgress, [0, 1], [0, 800]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const padding = useTransform(scrollYProgress, [0, 1], [0, 250]);
 
   // Data
   const [data, setData] = useState<{
@@ -112,7 +101,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
             </AnimatedTitle>
             <div className="flex flex-col gap-[6.15vw]">
               {data.projects.map((project, i) => (
-                <Link href={`/works/${project.slug}`} key={i}>
+                <Link href={`/works/${project.slug!.current}`} key={i}>
                   <Image
                     src={urlFor(project.main_image!).size(1190, 846).url()}
                     alt="project image"
@@ -137,7 +126,9 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
               {matrix[0].map(
                 (project, i) =>
                   project &&
-                  project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[0][i % 2]} />,
+                  project.main_image && (
+                    <WorkCardSwitch key={i} project={project} version={versionMap[0][i % (versionMap.length - 1)]} />
+                  ),
               )}
             </motion.div>
 

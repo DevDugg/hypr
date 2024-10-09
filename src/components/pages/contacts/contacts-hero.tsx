@@ -2,9 +2,11 @@ import AnimatedTitle from "@/components/animations/animated-title";
 import Container from "@/components/layout/container";
 import Form from "./form";
 import { cn } from "@/lib/utils";
+import { getContactPageData } from "@/sanity/schemas/contact-us";
 import { grotesk } from "@/lib/fonts";
 
-const ContactsHero = () => {
+const ContactsHero = async () => {
+  const data = await getContactPageData();
   return (
     <section>
       <Container>
@@ -15,15 +17,16 @@ const ContactsHero = () => {
           contacts
         </AnimatedTitle>
 
-        <p
-          className={cn(
-            "text-WHITE sm:text-left mb-[20.5vw] text-center text-[3.7vw] sm:text-[4.1vw] sm:size40 sm:w-[50%] font-semibold sm:mb-[4vw]",
-            grotesk.className
-          )}
-        >
-          Let`s get this conversation started. Use the form below or send us an
-          email. We will respond within 2 business days.
-        </p>
+        {data && (
+          <p
+            className={cn(
+              "text-WHITE sm:text-left mb-[20.5vw] text-center text-[3.7vw] sm:text-[4.1vw] sm:size40 sm:w-[50%] font-semibold sm:mb-[4vw]",
+              grotesk.className,
+            )}
+          >
+            {data.description}
+          </p>
+        )}
 
         <Form />
       </Container>

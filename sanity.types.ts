@@ -68,9 +68,18 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type About_us = {
+export type Contact = {
   _id: string;
-  _type: "about_us";
+  _type: "contact";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: string;
+};
+
+export type AboutUs = {
+  _id: string;
+  _type: "about-us";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -680,14 +689,14 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | About_us | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/about-us.ts
 // Variable: ABOUT_PAGE_QUERY
-// Query: *[_type == 'about_us']
+// Query: *[_type == 'about-us']
 export type ABOUT_PAGE_QUERYResult = Array<{
   _id: string;
-  _type: "about_us";
+  _type: "about-us";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -856,6 +865,18 @@ export type ABOUT_PAGE_QUERYResult = Array<{
       _type: "image";
     };
   };
+}>;
+
+// Source: ./src/sanity/schemas/contact-us.ts
+// Variable: CONTACT_PAGE_QUERY
+// Query: *[_type == 'contact']
+export type CONTACT_PAGE_QUERYResult = Array<{
+  _id: string;
+  _type: "contact";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: string;
 }>;
 
 // Source: ./src/sanity/schemas/home.ts
@@ -1485,7 +1506,8 @@ export type PROJECT_ITEM_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == 'about_us']": ABOUT_PAGE_QUERYResult;
+    "*[_type == 'about-us']": ABOUT_PAGE_QUERYResult;
+    "*[_type == 'contact']": CONTACT_PAGE_QUERYResult;
     "*[_type == \"home_page\"]{\n    hero,\n    services,\n    \"projects\": projects{\n      ...,\n      items[]->{\n        ...\n      }\n    },\n    about,\n    \"latest_news\": latest_news {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    clients,\n    creators,\n    gallery\n  }\n  ": HOME_PAGE_QUERYResult;
     "*[_type == 'news'] | order(_createdAt desc) [$offset...$limit]": NEWS_QUERYResult;
     "count(*[_type == 'news'])": COUNT_NEWS_QUERYResult;

@@ -4,7 +4,8 @@ import news from "../schemas/news";
 import projects from "../schemas/projects";
 import form from "../schemas/form";
 import about_us from "../schemas/about-us";
+import contact from "../schemas/contact-us";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [news, projects, home_page, form, about_us],
+  types: [news, projects, home_page, form, about_us, contact],
 };
