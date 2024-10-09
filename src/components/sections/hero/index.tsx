@@ -32,7 +32,7 @@ export const Hero = ({ hero }: HeroProps) => {
             //   type="cover"
             //   scrollRange={[0, 0.04 + i * 0.02]}
             // >
-            <Reveal delay={0.5 + i * 0.1}>
+            <Reveal delay={0.5 + i * 0.1} key={i}>
               <Image
                 src={urlFor(item).width(873).height(1200).url()}
                 loading="eager"
