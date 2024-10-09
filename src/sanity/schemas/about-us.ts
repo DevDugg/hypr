@@ -1,8 +1,8 @@
-import { About_us } from "../../../sanity.types";
+import { AboutUs } from "../../../sanity.types";
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
 
-export const getAboutPageData = async (): Promise<About_us> => {
+export const getAboutPageData = async (): Promise<AboutUs> => {
   const ABOUT_PAGE_QUERY = defineQuery(`*[_type == 'about-us']`);
   const data = await client.fetch(ABOUT_PAGE_QUERY, {}, { cache: "no-store" });
   return data[0];
