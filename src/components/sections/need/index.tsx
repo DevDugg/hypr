@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
 import gsap from "gsap";
-import { start } from "repl";
+import { urlFor } from "@/sanity/lib/image";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
@@ -22,6 +22,7 @@ interface INeedProps {
 
 const Need = ({ gallery }: INeedProps) => {
   const generateRows = () => {
+    if (!gallery?.images) return;
     const rows = [];
 
     for (let i = 1; i <= 3; i++) {
@@ -29,7 +30,9 @@ const Need = ({ gallery }: INeedProps) => {
         <div className="row relative m-[1em] flex justify-center gap-[2em]" key={i}>
           <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-left">
             <Image
-              src={`/images/need/${2 * i - 1}.png`}
+              src={urlFor(gallery.images[`image_${2 * i - 1}` as keyof NonNullable<typeof gallery>["images"]])
+                .size(1760, 1120)
+                .url()}
               alt=""
               width={1760}
               height={1120}
@@ -38,7 +41,9 @@ const Need = ({ gallery }: INeedProps) => {
           </div>
           <div className="card w-[45.83vw] h-[29.17vw] overflow-hidden will-change-transform card-right">
             <Image
-              src={`/images/need/${2 * i}.png`}
+              src={urlFor(gallery.images[`image_${2 * i}` as keyof NonNullable<typeof gallery>["images"]])
+                .size(1760, 1120)
+                .url()}
               alt=""
               width={1760}
               height={1120}

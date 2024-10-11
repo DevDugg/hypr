@@ -282,6 +282,43 @@ const home_page = {
           type: "string",
           title: "Title",
         },
+        {
+          name: "images",
+          type: "object",
+          title: "Images",
+          fields: [
+            {
+              name: "image_1",
+              type: "image",
+              title: "Image 1",
+            },
+            {
+              name: "image_2",
+              type: "image",
+              title: "Image 2",
+            },
+            {
+              name: "image_3",
+              type: "image",
+              title: "Image 3",
+            },
+            {
+              name: "image_4",
+              type: "image",
+              title: "Image 4",
+            },
+            {
+              name: "image_5",
+              type: "image",
+              title: "Image 5",
+            },
+            {
+              name: "image_6",
+              type: "image",
+              title: "Image 6",
+            },
+          ],
+        },
       ],
     },
   ],
