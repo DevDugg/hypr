@@ -2,7 +2,6 @@ import { HOME_PAGE_QUERYResult } from "../../../../sanity.types";
 import PartnerIcon from "./partner-icon";
 import Reveal from "@/components/animations/reveal";
 import SectionLayout from "@/components/layout/section-layout";
-import { partnersData } from "@/database/partners.data";
 
 interface PartnersProps {
   clients: NonNullable<HOME_PAGE_QUERYResult[number]["clients"]>;
