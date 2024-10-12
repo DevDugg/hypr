@@ -68,6 +68,17 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Socials = {
+  _id: string;
+  _type: "socials";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
+};
+
 export type News_page = {
   _id: string;
   _type: "news_page";
@@ -766,7 +777,7 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/about-us.ts
 // Variable: ABOUT_PAGE_QUERY
@@ -1659,6 +1670,20 @@ export type PROJECT_ITEM_QUERYResult = Array<{
   };
 }>;
 
+// Source: ./src/sanity/schemas/socials.ts
+// Variable: SOCIALS_QUERY
+// Query: *[_type == 'socials']
+export type SOCIALS_QUERYResult = Array<{
+  _id: string;
+  _type: "socials";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
@@ -1673,5 +1698,6 @@ declare module "@sanity/client" {
     "\n    *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]\n  ": PROJECTS_QUERYResult;
     "\n    count(*[_type == 'projects'])\n  ": COUNT_PROJECTS_QUERYResult;
     "\n    *[_type == 'projects' && slug.current == $slug]\n    ": PROJECT_ITEM_QUERYResult;
+    "*[_type == 'socials']": SOCIALS_QUERYResult;
   }
 }
