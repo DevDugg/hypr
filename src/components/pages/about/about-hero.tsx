@@ -27,7 +27,7 @@ const AboutHero = ({ data }: AboutHeroProps) => {
           )}
 
           {hero.tags && (
-            <div className="flex items-start justify-between mb-[1.14vw]">
+            <div className="flex items-start justify-between mb-[1.14vw] h-full">
               <div className="hidden sm:flex flex-col flex-[1_1_22.23vw] gap-[0.31vw]">
                 {hero.tags.tag_1 && (
                   <Reveal type="opacity" delay={0.6}>

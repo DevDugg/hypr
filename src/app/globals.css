@@ -33,7 +33,7 @@
   }
 
   .about-btn {
-    @apply font-bold uppercase !text-[1.66vw] !p-[0.52vw];
+    @apply font-bold uppercase !p-[0.52vw];
   }
 
   .size18 {
