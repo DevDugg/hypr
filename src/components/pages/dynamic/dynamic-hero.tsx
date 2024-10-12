@@ -19,8 +19,14 @@ interface DynamicHeroProps {
 const components: PortableTextComponents = {
   hardBreak: () => <br />,
   block: {
+    h1: ({ children }) => <DynamicTitle>{children}</DynamicTitle>,
     h2: ({ children }) => <DynamicTitle>{children}</DynamicTitle>,
+    h3: ({ children }) => <DynamicTitle>{children}</DynamicTitle>,
+    h4: ({ children }) => <DynamicTitle>{children}</DynamicTitle>,
     h5: ({ children }) => (
+      <DynamicTitle className="sm:px-[18.75vw] text-[3.589vw] sm:text-[1.25vw]">{children}</DynamicTitle>
+    ),
+    h6: ({ children }) => (
       <DynamicTitle className="sm:px-[18.75vw] text-[3.589vw] sm:text-[1.25vw]">{children}</DynamicTitle>
     ),
     normal: ({ children }) => <DynamicText>{children}</DynamicText>,
