@@ -39,7 +39,7 @@ const ContactsForm = () => {
           (Contact form)
         </SectionName>
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="flex-[1_1_60%]">
+        <form onSubmit={form.handleSubmit(onSubmit)} name="lead-form" className="flex-[1_1_60%]">
           <div className="flex flex-col gap-[4.05vw] sm:gap-[0.8vw]">
             <CustomField
               control={form.control}
