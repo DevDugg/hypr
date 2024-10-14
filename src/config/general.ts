@@ -13,7 +13,7 @@ type GeneralType = {
 
 export const general: GeneralType = {
   appName: "HYPR",
-  appDescription: "HYPR - Strategic, results-oriented influencer collaborations",
+  appDescription: "HYPR - Strategic, results-oriented brand partnerships",
   domainName: "createdbyhypr.com",
   colors: {
     theme: "dark",
