@@ -50,6 +50,7 @@ export const useContactForm = () => {
       }
 
       setSuccess(true);
+      window?.datafast("form_submit", { description: "Submit lead form" });
       form.reset();
     } catch (err) {
       setError("There was an error submitting the form.");
