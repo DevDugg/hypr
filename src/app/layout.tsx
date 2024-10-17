@@ -3,8 +3,11 @@ import "./globals.css";
 import Script from "next/script";
 import { Viewport } from "next";
 import { colors } from "@/config/colors";
+import { general } from "@/config/general";
 import { getSEOTags } from "@/lib/seo";
+import { getSiteSettingsData } from "@/sanity/schemas/site-settings";
 import { monument } from "@/lib/fonts";
+import { urlFor } from "@/sanity/lib/image";
 
 // import Loader from "@/components/sections/loader";
 
@@ -14,8 +17,50 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+export async function generateMetadata() {
+  const seo = await getSiteSettingsData(); // Fetch data from Sanity
+  if (!seo) return getSEOTags(); // Fallback to default SEO tags if no data from Sanity
 
-export const metadata = getSEOTags();
+  return getSEOTags({
+    title: seo?.seo?.title || general.appName,
+    description: seo?.seo?.description || general.appDescription,
+    keywords: seo?.seo?.keywords || [general.appName],
+
+    icons: {
+      icon: seo?.metadata?.icon ? [{ rel: "icon", url: urlFor(seo.metadata.icon).url() }] : [],
+      apple: seo?.metadata?.apple_icon ? [{ rel: "apple-touch-icon", url: urlFor(seo.metadata.apple_icon).url() }] : [],
+    },
+
+    openGraph: {
+      title: seo?.seo?.openGraph?.title || general.appName,
+      description: seo?.seo?.openGraph?.description || general.appDescription,
+      url: `https://${seo?.metadata?.metadataBase || general.domainName}`,
+      siteName: seo?.seo?.openGraph?.title || general.appName,
+      images: seo?.seo?.openGraph?.image
+        ? [{ url: urlFor(seo.seo.openGraph.image).size(1200, 630).url(), width: 1200, height: 630 }]
+        : [],
+      locale: "en_US",
+      type: "website",
+    },
+
+    canonicalUrlRelative: seo?.seo?.canonicalUrlRelative || "/",
+
+    applicationName: seo?.metadata?.applicationName || general.appName,
+
+    metadataBase: new URL(`https://${seo?.metadata?.metadataBase || general.domainName}`),
+
+    extraTags: seo?.seo?.extraTags || [],
+
+    twitter: {
+      title: seo?.seo?.openGraph?.title || general.appName,
+      description: seo?.seo?.openGraph?.description || general.appDescription,
+      card: "summary_large_image",
+      images: seo?.seo?.openGraph?.image
+        ? [{ url: urlFor(seo.seo.openGraph.image).size(1200, 630).url(), width: 1200, height: 630 }]
+        : [],
+    },
+  });
+}
 
 export default function RootLayout({
   children,

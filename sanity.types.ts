@@ -68,6 +68,99 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Site_settings = {
+  _id: string;
+  _type: "site_settings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: Array<string>;
+    openGraph?: {
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+    };
+    canonicalUrlRelative?: string;
+    extraTags?: Array<{
+      name?: string;
+      content?: string;
+      _key: string;
+    }>;
+  };
+  metadata?: {
+    applicationName?: string;
+    metadataBase?: string;
+    apple_icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    favicon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    opengraph_image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    twitter_image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+};
+
 export type Socials = {
   _id: string;
   _type: "socials";
@@ -777,7 +870,7 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Site_settings | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/about-us.ts
 // Variable: ABOUT_PAGE_QUERY
@@ -1670,6 +1763,102 @@ export type PROJECT_ITEM_QUERYResult = Array<{
   };
 }>;
 
+// Source: ./src/sanity/schemas/site-settings.ts
+// Variable: SITE_SETTINGS_QUERY
+// Query: *[_type == 'site_settings']
+export type SITE_SETTINGS_QUERYResult = Array<{
+  _id: string;
+  _type: "site_settings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: Array<string>;
+    openGraph?: {
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+    };
+    canonicalUrlRelative?: string;
+    extraTags?: Array<{
+      name?: string;
+      content?: string;
+      _key: string;
+    }>;
+  };
+  metadata?: {
+    applicationName?: string;
+    metadataBase?: string;
+    apple_icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    favicon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    opengraph_image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    twitter_image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+}>;
+
 // Source: ./src/sanity/schemas/socials.ts
 // Variable: SOCIALS_QUERY
 // Query: *[_type == 'socials']
@@ -1698,6 +1887,7 @@ declare module "@sanity/client" {
     "\n    *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]\n  ": PROJECTS_QUERYResult;
     "\n    count(*[_type == 'projects'])\n  ": COUNT_PROJECTS_QUERYResult;
     "\n    *[_type == 'projects' && slug.current == $slug]\n    ": PROJECT_ITEM_QUERYResult;
+    "*[_type == 'site_settings']": SITE_SETTINGS_QUERYResult;
     "*[_type == 'socials']": SOCIALS_QUERYResult;
   }
 }
