@@ -17,6 +17,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
 export async function generateMetadata() {
   const seo = await getSiteSettingsData(); // Fetch data from Sanity
   if (!seo) return getSEOTags(); // Fallback to default SEO tags if no data from Sanity
@@ -37,7 +38,7 @@ export async function generateMetadata() {
       url: `https://${seo?.metadata?.metadataBase || general.domainName}`,
       siteName: seo?.seo?.openGraph?.title || general.appName,
       images: seo?.seo?.openGraph?.image
-        ? [{ url: urlFor(seo.seo.openGraph.image).size(1200, 630).url(), width: 1200, height: 630 }]
+        ? [{ url: urlFor(seo.seo.openGraph.image).url(), width: 1200, height: 630 }]
         : [],
       locale: "en_US",
       type: "website",
@@ -47,7 +48,7 @@ export async function generateMetadata() {
 
     applicationName: seo?.metadata?.applicationName || general.appName,
 
-    metadataBase: new URL(`https://${seo?.metadata?.metadataBase || general.domainName}`),
+    // metadataBase: new URL(`https://${seo?.metadata?.metadataBase || general.domainName}`),
 
     extraTags: seo?.seo?.extraTags || [],
 
@@ -56,7 +57,7 @@ export async function generateMetadata() {
       description: seo?.seo?.openGraph?.description || general.appDescription,
       card: "summary_large_image",
       images: seo?.seo?.openGraph?.image
-        ? [{ url: urlFor(seo.seo.openGraph.image).size(1200, 630).url(), width: 1200, height: 630 }]
+        ? [{ url: urlFor(seo.seo.openGraph.image).url(), width: 1200, height: 630 }]
         : [],
     },
   });
