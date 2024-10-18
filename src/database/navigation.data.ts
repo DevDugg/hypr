@@ -9,7 +9,7 @@ export const navData = [
   },
   {
     view: "Insights",
-    path: "/news",
+    path: "/insights",
   },
   {
     view: "About",

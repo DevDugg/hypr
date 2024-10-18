@@ -8,8 +8,8 @@ export const footerList = [
     href: "/about",
   },
   {
-    name: "News",
-    href: "/news",
+    name: "Insights",
+    href: "/insights",
   },
   {
     name: "Contact us",

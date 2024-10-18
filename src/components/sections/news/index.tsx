@@ -20,9 +20,7 @@ const News = ({ news }: NewsProps) => {
       <Container className="text-WHITE">
         <div className="sm:hidden mb-[8.1vw]">
           <SectionName className="mb-[4.05vw]">{subtitle}</SectionName>
-          <AnimatedTitle className="mb-[2.02vw] max-sm:text-[6.25vw]">
-            {title!}
-          </AnimatedTitle>
+          <AnimatedTitle className="mb-[2.02vw] max-sm:text-[6.25vw]">{title!}</AnimatedTitle>
           <SectionSubtitle>{description}</SectionSubtitle>
         </div>
 
@@ -35,7 +33,7 @@ const News = ({ news }: NewsProps) => {
       {items && <NewsBlock news={items} />}
       <Container>
         <CustomButton className="w-[92.84vw] mt-[8.1vw] sm:mt-[2.08vw]">
-          <Link href={"/news"}>See all news</Link>
+          <Link href={"/insights"}>See all news</Link>
         </CustomButton>
       </Container>
     </section>
