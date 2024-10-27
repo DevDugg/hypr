@@ -21,9 +21,10 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
+    offset: ["0.2 start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0.0, 1], [30, -105]);
+  const x = useTransform(scrollYProgress, [0.0, 1], [34, -105]);
   const xPercent = useMotionTemplate`${x}%`;
 
   return (
@@ -51,18 +52,21 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
             </Container>
           </Reveal>
 
-          <div className="sticky top-[20%]">
+          <div className="sticky top-[10%] h-dvh">
             <div className="w-full relative">
-              <h2 className="absolute text-[10.25vw] sm:text-[10.41vw] uppercase font-bold top-1/2 -translate-y-1/2 text-center left-1/2 -translate-x-1/2">
+              <h2 className="absolute text-[10.25vw] sm:text-[7.81vw] uppercase font-bold top-1/2 -translate-y-1/2 text-center left-1/2 -translate-x-1/2 leading-none">
                 {about.title}
               </h2>
 
-              <motion.div className="relative z-[5] flex top-1/2 justify-between w-[300dvw]" style={{ x: xPercent }}>
+              <motion.div
+                className="relative z-[5] flex top-1/2 -translate-y-1/2 justify-between w-[300dvw]"
+                style={{ x: xPercent }}
+              >
                 {about.features && (
                   <>
                     {about.features.feature_1 && about.features.feature_1.image && (
                       <AboutCard
-                        img={about.features.feature_1.image}
+                        img={"/images/features/features-1.png"}
                         title={about.features.feature_1.title}
                         num="01"
                         text={about.features.feature_1.description}
@@ -71,7 +75,7 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
                     )}
                     {about.features.feature_2 && about.features.feature_2.image && (
                       <AboutCard
-                        img={about.features.feature_2.image}
+                        img={"/images/features/features-2.png"}
                         title={about.features.feature_2.title}
                         num="02"
                         text={about.features.feature_2.description}
@@ -80,7 +84,7 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
                     )}
                     {about.features.feature_3 && about.features.feature_3.image && (
                       <AboutCard
-                        img={about.features.feature_3.image}
+                        img={"/images/features/features-3.png"}
                         title={about.features.feature_3.title}
                         num="03"
                         text={about.features.feature_3.description}

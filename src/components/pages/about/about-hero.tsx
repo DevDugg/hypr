@@ -46,7 +46,7 @@ const AboutHero = ({ data }: AboutHeroProps) => {
               {hero.description && (
                 <AnimatedParagraph
                   delay={0.3}
-                  className="text-center sm:-mt-[0.72vw] uppercase font-bold text-[3.58vw] sm:text-[2.08vw] flex-[1_1_48.42vw]"
+                  className="text-center sm:-mt-[0.72vw] uppercase font-bold text-[3.58vw] sm:text-[2.08vw] flex-[1_1_48.42vw] leading-none"
                 >
                   {hero.description}
                 </AnimatedParagraph>

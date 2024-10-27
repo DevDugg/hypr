@@ -52,22 +52,13 @@ const Reveal = ({
   const shouldAnimate = animateOnView ? inView : true;
 
   return (
-    <div
-      ref={animateOnView ? ref : undefined}
-      className={cn("overflow-hidden relative pb-1", className)}
-    >
+    <div ref={animateOnView ? ref : undefined} className={cn("overflow-hidden relative", className)}>
       {children}
       <motion.div
         style={{
           background: blockColor,
         }}
-        variants={
-          type === "y"
-            ? yVariants
-            : type === "opacity"
-              ? opacityVariants
-              : bothVariants
-        }
+        variants={type === "y" ? yVariants : type === "opacity" ? opacityVariants : bothVariants}
         className="absolute size-full left-0 top-0 z-10 pointer-events-none"
         initial={"initial"}
         animate={shouldAnimate ? "animate" : "initial"}
