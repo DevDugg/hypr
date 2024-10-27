@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { HOME_PAGE_QUERYResult, Home_page } from "../../../../sanity.types";
 
 import Container from "@/components/layout/container";
@@ -19,7 +15,7 @@ const NewsBlock = ({ news }: NewsBlockProps) => {
     <Container className="text-WHITE">
       {news && (
         <>
-          <div className="mt-[3.33vw] hidden sm:flex gap-[2.56vw] sm:gap-[0.5vw]">
+          <div className="hidden sm:flex gap-[2.56vw] sm:gap-[0.5vw]">
             {news.map((item, i) =>
               i < 4 ? (
                 <NewsCard
@@ -30,7 +26,7 @@ const NewsBlock = ({ news }: NewsBlockProps) => {
                   className="w-[61.53vw] sm:w-full h-auto"
                   imgClassName="h-[73.84vw] sm:h-[25vw] w-full"
                 />
-              ) : null
+              ) : null,
             )}
           </div>
           <div className="hidden max-sm:block">
@@ -44,10 +40,7 @@ const NewsBlock = ({ news }: NewsBlockProps) => {
               <CarouselContent>
                 {news.map((item, i) =>
                   i < 4 ? (
-                    <CarouselItem
-                      key={i}
-                      className="pl-[2.56vw] sm:pl-[0.52vw] basis-[4.5]"
-                    >
+                    <CarouselItem key={i} className="pl-[2.56vw] sm:pl-[0.52vw] basis-[4.5]">
                       {/* <Reveal animateOnView delay={i * 0.1} duration={1}> */}
                       {/* @ts-ignore */}
                       <NewsCard
@@ -60,7 +53,7 @@ const NewsBlock = ({ news }: NewsBlockProps) => {
                       />
                       {/* </Reveal> */}
                     </CarouselItem>
-                  ) : null
+                  ) : null,
                 )}
               </CarouselContent>
             </Carousel>

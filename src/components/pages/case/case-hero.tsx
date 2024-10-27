@@ -38,11 +38,7 @@ const CaseHero = ({ project }: CaseHeroProps) => {
             </Reveal>
           )}
           <Container className="text-[6.15vw] relative z-10">
-            <AnimatedTitle
-              element="h1"
-              delay={0.6}
-              className="sm:size80 uppercase font-bold"
-            >
+            <AnimatedTitle element="h1" delay={0.6} className="sm:size80 uppercase font-bold">
               {name || ""}
             </AnimatedTitle>
           </Container>
@@ -56,7 +52,7 @@ const CaseHero = ({ project }: CaseHeroProps) => {
               animateOnView
               // duration={0.6}
             >
-              <AnimatedParagraph className="sm:ml-[12.5vw] sm:w-[57.29vw]  mb-[4.05vw] sm:mb-0 text-[6.15vw] sm:text-[2.5vw] font-semibold uppercase text-WHITE">
+              <AnimatedParagraph className="sm:ml-[12.5vw] sm:w-[57.29vw]  mb-[4.05vw] sm:mb-0 text-[6.15vw] sm:text-[2.5vw] font-semibold uppercase text-WHITE leading-[120%]">
                 {title_1}
               </AnimatedParagraph>
             </Reveal>
@@ -68,7 +64,7 @@ const CaseHero = ({ project }: CaseHeroProps) => {
 
                 // duration={0.6}
               >
-                <AnimatedParagraph className="sm:w-[57.29vw] text-[6.15vw] sm:text-[2.5vw] font-semibold text-WHITE uppercase">
+                <AnimatedParagraph className="sm:w-[57.29vw] text-[6.15vw] sm:text-[2.5vw] font-semibold text-WHITE uppercase leading-[120%]">
                   {title_2}
                 </AnimatedParagraph>
               </Reveal>

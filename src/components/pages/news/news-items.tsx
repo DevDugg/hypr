@@ -12,7 +12,7 @@ const NewsItems = ({ news }: Props) => {
   return (
     news && (
       <section>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[6.15vw] sm:gap-y-[1.25vw] sm:gap-x-[0.9vw] mb-[2.4vw]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[6.15vw] sm:gap-y-[2.5vw] sm:gap-x-[1.25vw] mb-[2.4vw]">
           {news.map((item, i) => (
             <NewsCard
               w={640}

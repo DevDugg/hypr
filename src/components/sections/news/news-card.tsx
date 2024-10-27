@@ -41,8 +41,10 @@ export const NewsCard = ({
           href={`/insights/${slug?.current}`}
           className="flex justify-between items-center size18 mt-[6.15vw] sm:mt-[0.25vw]"
         >
-          <div className="">
-            <div className="h5 mb-[2.05vw] sm:mb-[0.2vw] monument">{display_title}</div>
+          <div className="flex flex-col gap-[0.41vw]">
+            <h3 className={cn("text-[1.25vw] mb-[2.05vw] sm:mb-[0.2vw] !leading-[120%] font-bold", grotesk.className)}>
+              {display_title}
+            </h3>
             <p className={cn("leading-[140%] h5 font-normal", grotesk.className)}>{short_description}</p>
           </div>
 
