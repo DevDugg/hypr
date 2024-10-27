@@ -16,17 +16,17 @@ import { grotesk } from "@/lib/fonts";
 import { urlFor } from "@/sanity/lib/image";
 import { useInView } from "react-intersection-observer";
 
-function convertToMatrix(arr: any[]): any[][] {
-  const result: any[][] = [[], [], []];
+// function convertToMatrix(arr: any[]): any[][] {
+//   const result: any[][] = [[], [], []];
 
-  for (let i = 0; i < arr.length; i += 3) {
-    if (arr[i + 1] !== undefined) result[0].push(arr[i]);
-    if (arr[i + 2] !== undefined) result[2].push(arr[i + 1]);
-    if (arr[i] !== undefined) result[1].push(arr[i + 2]);
-  }
+//   for (let i = 0; i < arr.length; i += 3) {
+//     if (arr[i + 1] !== undefined) result[0].push(arr[i]);
+//     if (arr[i + 2] !== undefined) result[2].push(arr[i + 1]);
+//     if (arr[i] !== undefined) result[1].push(arr[i + 2]);
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 interface WorkHeroProps {
   projects: PROJECTS_QUERYResult;
@@ -42,14 +42,14 @@ type VersionType = VERSION.SMALL | VERSION.MEDIUM | VERSION.BIG;
 
 const WorkHero = ({ projects }: WorkHeroProps) => {
   // Animations
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-  });
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const padding = useTransform(scrollYProgress, [0, 1], [0, 250]);
+  // const container = useRef<HTMLDivElement>(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  // });
+  // const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  // const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  // const y3 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  // const padding = useTransform(scrollYProgress, [0, 1], [0, 250]);
 
   // Data
   const [data, setData] = useState<{
@@ -75,20 +75,36 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
     getData();
   }, [inView]);
 
-  const matrix = data.projects.length > 1 && convertToMatrix(data.projects);
-  const versionMap: Array<Array<VersionType>> = [
-    [VERSION.MEDIUM, VERSION.SMALL, VERSION.BIG],
-    [VERSION.SMALL, VERSION.BIG, VERSION.MEDIUM],
-    [VERSION.BIG, VERSION.SMALL, VERSION.MEDIUM],
+  // const matrix = data.projects.length > 1 && convertToMatrix(data.projects);
+  // const versionMap: Array<Array<VersionType>> = [
+  //   [VERSION.MEDIUM, VERSION.SMALL, VERSION.BIG],
+  //   [VERSION.SMALL, VERSION.BIG, VERSION.MEDIUM],
+  //   [VERSION.BIG, VERSION.SMALL, VERSION.MEDIUM],
+  // ];
+
+  const versions: Array<VersionType> = [
+    VERSION.SMALL,
+    VERSION.BIG,
+    VERSION.MEDIUM,
+    VERSION.BIG,
+    VERSION.SMALL,
+    VERSION.SMALL,
+    VERSION.MEDIUM,
+    VERSION.BIG,
+    VERSION.BIG,
+    VERSION.SMALL,
+    VERSION.MEDIUM,
   ];
 
   return (
-    data.projects &&
-    matrix && (
-      <section ref={container}>
+    data.projects && (
+      // matrix &&
+      <section
+      // ref={container}
+      >
         <AnimatedTitle
           element="h1"
-          className="!text-[10.25vw] text-center sm:!text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT uppercase font-bold"
+          className="!text-[10.25vw] text-center sm:!text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT uppercase font-bold mb-[10.416vw]"
         >
           our work
         </AnimatedTitle>
@@ -119,9 +135,9 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
           {/* DESKTOP */}
           <motion.div
             className="hidden sm:flex gap-[1.25vw] mb-[10.41vw]"
-            style={{ paddingTop: padding, marginBottom: y1 }}
+            // style={{ paddingTop: padding, marginBottom: y1 }}
           >
-            <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y1 }}>
+            {/* <motion.div className="flex flex-col flex-[1_1_30.41vw]" style={{ y: y1 }}>
               <SectionTitle className="mb-[28.78vw]">never miss a bit/</SectionTitle>
               {matrix[0].map(
                 (project, i) =>
@@ -146,7 +162,18 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                   project &&
                   project.main_image && <WorkCardSwitch key={i} project={project} version={versionMap[2][i % 2]} />,
               )}
-            </motion.div>
+            </motion.div> */}
+
+            <div className="grid grid-cols-3 gap-x-[1.25vw] gap-y-[2,083]">
+              <SectionTitle className="mb-[28.78vw]">never miss a bit/</SectionTitle>
+              {[null, ...data.projects].map(
+                (project, i) =>
+                  project &&
+                  project.main_image && (
+                    <WorkCardSwitch key={i} project={project} version={versions[(i - 1) % versions.length]} />
+                  ),
+              )}
+            </div>
           </motion.div>
           <div className="trigger w-full h-[1px]" ref={ref}></div>
         </Reveal>
