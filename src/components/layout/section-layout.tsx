@@ -3,7 +3,6 @@ import Container from "./container";
 import SectionName from "../titles/section-name";
 import SectionSubtitle from "../titles/section-subtitle";
 import clsx from "clsx";
-import { cn } from "@/lib/utils";
 
 const SectionLayout = ({
   className,
@@ -17,9 +16,9 @@ const SectionLayout = ({
   className?: string;
   children?: React.ReactNode;
   id: string;
-  name?: string;
-  title?: string;
-  subtitle?: string;
+  name?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
   nameTitleClassName?: string;
 }) => {
   return (
@@ -27,24 +26,14 @@ const SectionLayout = ({
       <Container className={className}>
         <div className="sm:hidden mb-[8.1vw]">
           {name && <SectionName className="mb-[4.05vw]">{name}</SectionName>}
-          {title && (
-            <AnimatedTitle className="mb-[2.02vw] max-sm:text-[6.25vw]">
-              {title}
-            </AnimatedTitle>
-          )}
+          {title && <AnimatedTitle className="mb-[2.02vw] max-sm:text-[6.25vw]">{title}</AnimatedTitle>}
           {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
         </div>
 
         <div className="hidden mb-[3.33vw] sm:flex items-end justify-between gap-[2.08vw]">
-          {title && (
-            <AnimatedTitle className={nameTitleClassName}>
-              {title}
-            </AnimatedTitle>
-          )}
+          {title && <AnimatedTitle className={nameTitleClassName}>{title}</AnimatedTitle>}
           {name && (
-            <div
-              className={clsx("flex justify-between", { "w-1/2": subtitle })}
-            >
+            <div className={clsx("flex justify-between", { "w-1/2": subtitle })}>
               <SectionName>{name}</SectionName>
               {subtitle && <SectionSubtitle>{subtitle}</SectionSubtitle>}
             </div>

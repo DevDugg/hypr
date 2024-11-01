@@ -25,7 +25,14 @@ export const getHomePageData = async (): Promise<HOME_PAGE_QUERYResult> => {
       }
     },
     clients,
-    creators,
+    "creators": creators {
+      title,
+      subtitle,
+      description,
+      "items": items[]->{
+        ...
+      }
+    },
     gallery
   }
   `);
@@ -35,7 +42,7 @@ export const getHomePageData = async (): Promise<HOME_PAGE_QUERYResult> => {
 };
 
 const home_page = {
-  name: "home_page", // IMPORTANT, this is query name
+  name: "home_page",
   type: "document",
   title: "Home Page",
   fields: [
@@ -239,34 +246,8 @@ const home_page = {
           title: "Items",
           of: [
             {
-              type: "object",
-              fields: [
-                {
-                  name: "creator_name",
-                  type: "string",
-                  title: "Creator Name",
-                },
-                {
-                  name: "handle",
-                  type: "string",
-                  title: "Handle",
-                },
-                {
-                  name: "image",
-                  type: "image",
-                  title: "Image",
-                },
-                {
-                  name: "social_media_1",
-                  type: "string",
-                  title: "Social Media 1",
-                },
-                {
-                  name: "social_media_2",
-                  type: "string",
-                  title: "Social Media 2",
-                },
-              ],
+              type: "reference",
+              to: [{ type: "creators" }],
             },
           ],
         },
