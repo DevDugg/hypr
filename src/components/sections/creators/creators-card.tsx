@@ -10,9 +10,7 @@ export const CreatorsCard = ({
   image,
   social_media_1,
   social_media_2,
-}: NonNullable<
-  NonNullable<HOME_PAGE_QUERYResult[number]["creators"]>["items"]
->[number]) => {
+}: NonNullable<NonNullable<HOME_PAGE_QUERYResult[number]["creators"]>["items"]>[number]) => {
   return (
     <div className="w-[51.25vw] sm:w-full">
       {image && (
@@ -31,7 +29,7 @@ export const CreatorsCard = ({
       <p
         className={cn(
           "leading-[140%] text-[4.05vw] sm:text-[1.04vw] mb-[1.02vw] sm:mb-[0.416vw] font-normal",
-          grotesk.className
+          grotesk.className,
         )}
       >
         {handle}
@@ -40,11 +38,11 @@ export const CreatorsCard = ({
       <div
         className={cn(
           "flex flex-col text-[4.05vw] sm:text-[1.04vw] gap-[1.02vw] sm:gap-[0.41vw] leading-[140%]",
-          grotesk.className
+          grotesk.className,
         )}
       >
-        {social_media_1 && <div>{social_media_1}</div>}
-        {social_media_2 && <div>{social_media_2}</div>}
+        {social_media_1 && <p>{social_media_1}</p>}
+        {social_media_2 && <p>{social_media_2}</p>}
       </div>
     </div>
   );
