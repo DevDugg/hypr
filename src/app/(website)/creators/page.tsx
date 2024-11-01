@@ -35,7 +35,7 @@ const CreatorsPage = async () => {
           )}
         </div>
         {creators.creators.length > 0 && (
-          <div className="grid grid-cols-3 gap-x-[1.25vw] gap-y-[2.083vw]">
+          <div className="grid grid-cols-3 gap-x-[1.25vw] gap-y-[2.083vw] max-[390px]:gap-y-[10.25vw] max-[470px]:flex max-[470px]:flex-col">
             {creators.creators.map((creator, i) => (
               <Reveal key={creator.creator_name} type="both" delay={0.6 + 0.1 * i} duration={0.8}>
                 <Creator creator={creator} type={(i + 1) % 2 === 1 ? "small" : "large"} />
