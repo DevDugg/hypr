@@ -161,6 +161,15 @@ export type Site_settings = {
   };
 };
 
+export type Creators_page = {
+  _id: string;
+  _type: "creators_page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: string;
+};
+
 export type Creators = {
   _id: string;
   _type: "creators";
@@ -882,7 +891,7 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Site_settings | Creators | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Site_settings | Creators_page | Creators | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/about-us.ts
 // Variable: ABOUT_PAGE_QUERY
@@ -1066,6 +1075,18 @@ export type ABOUT_PAGE_QUERYResult = Array<{
 export type CONTACT_PAGE_QUERYResult = Array<{
   _id: string;
   _type: "contact";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: string;
+}>;
+
+// Source: ./src/sanity/schemas/creators-page.ts
+// Variable: CREATORS_PAGE_QUERY
+// Query: *[_type == 'creators_page']
+export type CREATORS_PAGE_QUERYResult = Array<{
+  _id: string;
+  _type: "creators_page";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -1919,6 +1940,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == 'about-us']": ABOUT_PAGE_QUERYResult;
     "*[_type == 'contact']": CONTACT_PAGE_QUERYResult;
+    "*[_type == 'creators_page']": CREATORS_PAGE_QUERYResult;
     "*[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{\n      creator_name,\n      handle,\n      image,\n      social_media_1,\n      social_media_2\n    }": CREATORS_QUERYResult;
     "count(*[_type == 'creators'])": COUNT_CREATORS_QUERYResult;
     "*[_type == \"home_page\"]{\n    hero,\n    services,\n    \"projects\": projects{\n      ...,\n      items[]->{\n        ...\n      }\n    },\n    about,\n    \"latest_news\": latest_news {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    clients,\n    \"creators\": creators {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    gallery\n  }\n  ": HOME_PAGE_QUERYResult;

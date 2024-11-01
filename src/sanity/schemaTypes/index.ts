@@ -9,7 +9,20 @@ import news_page from "../schemas/news-page";
 import socials from "../schemas/socials";
 import site_settings from "../schemas/site-settings";
 import creators from "../schemas/creators";
+import creators_page from "../schemas/creators-page";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [news, projects, home_page, form, about_us, contact, news_page, socials, creators, site_settings],
+  types: [
+    news,
+    projects,
+    home_page,
+    form,
+    about_us,
+    contact,
+    news_page,
+    socials,
+    creators,
+    creators_page,
+    site_settings,
+  ],
 };
