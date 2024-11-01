@@ -12,7 +12,6 @@ const ServicesBlock = () => {
 
   const { scrollYProgress } = useScroll({
     target: element,
-    smooth: 1,
     axis: "y",
     // offset: [],
   });

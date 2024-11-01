@@ -12,17 +12,10 @@ interface Props extends PropsWithChildren {
   opacityRange?: number[];
 }
 
-const FadeOnScroll = ({
-  children,
-  className,
-  range = [0, 1],
-  yRange = [0, 0],
-  opacityRange = [0, 0],
-}: Props) => {
+const FadeOnScroll = ({ children, className, range = [0, 1], yRange = [0, 0], opacityRange = [0, 0] }: Props) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    smooth: 0.5,
   });
 
   const y = useTransform(scrollYProgress, range, yRange);
