@@ -26,7 +26,7 @@ const CreatorsPage = async () => {
             <AnimatedParagraph
               delay={0.3}
               className={cn(
-                "text-WHITE text-center sm:-mt-[0.72vw] uppercase font-semibold text-[3.58vw] sm:text-[2.08vw] leading-[120%]",
+                "text-WHITE text-center sm:-mt-[0.72vw] uppercase font-semibold text-[4.61vw] sm:text-[2.08vw] leading-[120%]",
                 grotesk.className,
               )}
             >

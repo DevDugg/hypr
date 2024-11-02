@@ -1,6 +1,7 @@
 "use client";
 
 import { Variants, motion } from "framer-motion";
+import { grotesk, monument } from "@/lib/fonts";
 
 import { cn } from "@/lib/utils";
 import { defaultTransition } from "@/config/transitions";
@@ -11,6 +12,7 @@ interface AnimatedParagraphProps {
   children: string;
   delay?: number;
   type?: "default" | "opacity";
+  fontMonument?: boolean;
 }
 
 const defaultVariants: Variants = {
@@ -27,6 +29,7 @@ const AnimatedParagraph = ({
   className,
   delay = 0,
   type = "default",
+  fontMonument,
 }: AnimatedParagraphProps) => {
   const words = children.split(" ");
 
@@ -43,7 +46,8 @@ const AnimatedParagraph = ({
       className={cn(
         "animated-paragraph",
         "relative overflow-hidden",
-        className
+        fontMonument ? monument.className : grotesk.className,
+        className,
       )}
     >
       {words.map((word, i) => (

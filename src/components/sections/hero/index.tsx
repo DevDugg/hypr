@@ -49,7 +49,10 @@ export const Hero = ({ hero }: HeroProps) => {
 
       {description && (
         <Container>
-          <AnimatedParagraph className="uppercase text-WHITE w-full leading-none mb-[2.56vw] sm:mb-[0.83vw] text-center text-[4vw] sm:size72 monument">
+          <AnimatedParagraph
+            className="uppercase text-WHITE w-full leading-none mb-[2.56vw] sm:mb-[0.83vw] text-center text-[4vw] sm:size72 monument"
+            fontMonument
+          >
             {description}
           </AnimatedParagraph>
           <Reveal animateOnView type="opacity">

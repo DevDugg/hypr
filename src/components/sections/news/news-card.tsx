@@ -37,10 +37,7 @@ export const NewsCard = ({
         className={cn(imgClassName, "mb-[1.25vw] object-cover")}
       />
       <MouseFollowerWrapper state="open">
-        <Link
-          href={`/insights/${slug?.current}`}
-          className="flex justify-between items-center size18 mt-[6.15vw] sm:mt-[0.25vw]"
-        >
+        <Link href={`/insights/${slug?.current}`} className="flex justify-between size18 mt-[6.15vw] sm:mt-[0.25vw]">
           <div className="flex flex-col gap-[0.41vw]">
             <h3 className={cn("text-[1.25vw] mb-[2.05vw] sm:mb-[0.2vw] !leading-[120%] font-bold", grotesk.className)}>
               {display_title}
@@ -48,7 +45,13 @@ export const NewsCard = ({
             <p className={cn("leading-[140%] h5 font-normal", grotesk.className)}>{short_description}</p>
           </div>
 
-          <ArrowUpRight className="text-GRAY hidden sm:block size-[10vw] sm:size-[2vw]" />
+          <Image
+            src={"/images/arrow-up-right.svg"}
+            alt="Arrow up right"
+            width={32}
+            height={32}
+            className="size-[1.67vw]"
+          />
         </Link>
       </MouseFollowerWrapper>
     </div>
