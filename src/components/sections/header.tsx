@@ -38,14 +38,14 @@ export const Header = () => {
         })}
       >
         <Container className="flex items-center justify-between text-WHITE">
-          <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold w-[10.3425vw]">
+          <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold w-fit">
             <Reveal>
               <Image
                 src={"/images/main-logo.svg"}
                 alt="Logo"
                 width={150}
                 height={40}
-                className="w-[6.8125vw] h-[3.0833vw] max-sm:w-[14.8125vw] max-sm:h-[7.0833vw]"
+                className="w-[6.8125vw] h-[3.0833vw] max-lg:w-[14.8125vw] max-lg:h-[7.0833vw] max-sm:w-[20vw] max-sm:h-[10vw]"
               />
             </Reveal>
           </Link>
@@ -76,19 +76,19 @@ export const Header = () => {
 
           <div
             onClick={() => setBurger(!burger)}
-            className="size-[6.15vw] flex flex-col justify-center items-center gap-[1vw] cursor-pointer lg:hidden"
+            className="size-[8.2vw] flex flex-col justify-center items-center gap-[1vw] cursor-pointer lg:hidden"
           >
             <motion.div
               initial={{ rotate: "0deg", translateY: 0 }}
               animate={burger ? { rotate: "45deg", translateY: "1.25vw" } : {}}
               transition={{ duration: 0.5 }}
-              className="w-[5vw] h-[0.5vw] rounded-[1.27vw] bg-WHITE"
+              className="w-[8.2vw] h-[0.5vw] rounded-[1.27vw] bg-WHITE"
             />
             <motion.div
               initial={{ rotate: "0deg", translateY: 0 }}
               animate={burger ? { rotate: "-45deg" } : {}}
               transition={{ duration: 0.5 }}
-              className="w-[5vw] h-[0.5vw] rounded-[1.27vw] bg-WHITE"
+              className="w-[8.2vw] h-[0.5vw] rounded-[1.27vw] bg-WHITE"
             />
           </div>
         </Container>
