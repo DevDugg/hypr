@@ -1,19 +1,23 @@
 export const footerList = [
   {
-    name: "Our works",
+    name: "Works",
     href: "/works",
-  },
-  {
-    name: "About",
-    href: "/about",
   },
   {
     name: "Insights",
     href: "/insights",
   },
   {
+    name: "Network",
+    href: "/creators",
+  },
+  {
     name: "Contact us",
     href: "/contacts",
+  },
+  {
+    name: "About",
+    href: "/about",
   },
 ];
 
