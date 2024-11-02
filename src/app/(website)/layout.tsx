@@ -10,6 +10,7 @@ const layout = ({
 }>) => {
   return (
     <Provider>
+      <div id="top"></div>
       <div className="flex flex-col min-h-full">
         {/* <MouseFollower /> */}
         <Header />

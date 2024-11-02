@@ -25,7 +25,7 @@ export const Footer = () => {
             className="w-[37vw] h-[15.15vw] max-sm:w-full max-sm:h-auto"
           />
 
-          <div className="flex sm:flex-[0_0_34.58vw] pb-[1.82vh] w-full justify-between">
+          <div className="flex sm:flex-[0_0_34.58vw] w-full justify-between">
             <BackToTop />
 
             <div className={cn(grotesk.className, "text-[3.58vw] sm:size24 sm:font-bold font-medium")}>
