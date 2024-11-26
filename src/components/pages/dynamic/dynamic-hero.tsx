@@ -39,15 +39,42 @@ const components: PortableTextComponents = {
 };
 
 const DynamicHero = ({ item }: DynamicHeroProps) => {
-  const { content, main_image, title } = item;
+  const { content, main_image, title, author, _createdAt } = item;
   return (
     <section className="relative">
-      <Container>
+      <Container className="flex flex-col gap-[2.08vw] pb-[4.16vw] max-lg:flex-col-reverse">
         {title && (
           <h1 className="text-ACCENT font-bold uppercase text-[6.15vw] sm:size80 mb-[6.15vw] sm:mb-[2.08vw]">
             {title}
           </h1>
         )}
+        <div className={cn("flex items-center justify-between", grotesk.className)}>
+          {author && (
+            <div className="flex items-center gap-[1.25vw] max-lg:gap-[2.5vw]">
+              {author.avatar && (
+                <Image
+                  src={urlFor(author.avatar).size(96, 96).url()}
+                  alt={`${author.name}s avatar`}
+                  width={96}
+                  height={96}
+                  className="size-12 rounded-full max-lg:size-16 max-sm:size-12"
+                />
+              )}
+              {author.name && (
+                <span className="font-text-large text-WHITE max-lg:text-[2.34vw] max-sm:text-[3vw]">{author.name}</span>
+              )}
+            </div>
+          )}
+          {_createdAt && (
+            <span className="font-text-large text-WHITE max-lg:text-[2.34vw] max-sm:text-[3vw]">
+              {new Date(_createdAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </span>
+          )}
+        </div>
       </Container>
       <div className="sm:px-[3.51vw] mb-[12.3vw] sm:mb-[4.16vw]">
         {main_image && (

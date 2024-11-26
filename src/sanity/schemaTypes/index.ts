@@ -10,6 +10,7 @@ import socials from "../schemas/socials";
 import site_settings from "../schemas/site-settings";
 import creators from "../schemas/creators";
 import creators_page from "../schemas/creators-page";
+import authors from "../schemas/authors";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -24,5 +25,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     creators,
     creators_page,
     site_settings,
+    authors,
   ],
 };

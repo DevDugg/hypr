@@ -731,6 +731,13 @@ export type News = {
   _updatedAt: string;
   _rev: string;
   title?: string;
+  date?: string;
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "authors";
+  };
   display_title?: string;
   slug?: Slug;
   short_description?: string;
@@ -774,6 +781,32 @@ export type News = {
     _type: "image";
     _key: string;
   }>;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type Authors = {
+  _id: string;
+  _type: "authors";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  avatar?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
 };
 
 export type SanityImageCrop = {
@@ -831,12 +864,6 @@ export type SanityImageMetadata = {
   blurHash?: string;
   hasAlpha?: boolean;
   isOpaque?: boolean;
-};
-
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
 };
 
 export type MuxVideo = {
@@ -918,7 +945,7 @@ export type MuxTrack = {
   max_height?: number;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Site_settings | Creators_page | Creators | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Site_settings | Creators_page | Creators | Socials | News_page | Contact | AboutUs | FormSubmission | Home_page | Projects | News | Slug | Authors | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | MuxVideo | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/schemas/about-us.ts
 // Variable: ABOUT_PAGE_QUERY
@@ -1095,6 +1122,21 @@ export type ABOUT_PAGE_QUERYResult = Array<{
     };
   };
 }>;
+
+// Source: ./src/sanity/schemas/authors.ts
+// Variable: AUTHORS_QUERY
+// Query: *[_type == 'authors'] | order(_createdAt desc) [$offset...$limit]{      creator_name,      handle,      image,      social_media_1,      social_media_2,      slug    }
+export type AUTHORS_QUERYResult = Array<{
+  creator_name: null;
+  handle: null;
+  image: null;
+  social_media_1: null;
+  social_media_2: null;
+  slug: null;
+}>;
+// Variable: COUNT_AUTHORS_QUERY
+// Query: count(*[_type == 'authors'])
+export type COUNT_AUTHORS_QUERYResult = number;
 
 // Source: ./src/sanity/schemas/contact-us.ts
 // Variable: CONTACT_PAGE_QUERY
@@ -1371,6 +1413,13 @@ export type HOME_PAGE_QUERYResult = Array<{
       _updatedAt: string;
       _rev: string;
       title?: string;
+      date?: string;
+      author?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "authors";
+      };
       display_title?: string;
       slug?: Slug;
       short_description?: string;
@@ -1584,6 +1633,13 @@ export type NEWS_QUERYResult = Array<{
   _updatedAt: string;
   _rev: string;
   title?: string;
+  date?: string;
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "authors";
+  };
   display_title?: string;
   slug?: Slug;
   short_description?: string;
@@ -1632,7 +1688,7 @@ export type NEWS_QUERYResult = Array<{
 // Query: count(*[_type == 'news'])
 export type COUNT_NEWS_QUERYResult = number;
 // Variable: NEWS_ITEM_QUERY
-// Query: *[_type == 'news' && slug.current == $slug]
+// Query: *[_type == 'news' && slug.current == $slug] {      ...,      author-> { ... }    }
 export type NEWS_ITEM_QUERYResult = Array<{
   _id: string;
   _type: "news";
@@ -1640,6 +1696,26 @@ export type NEWS_ITEM_QUERYResult = Array<{
   _updatedAt: string;
   _rev: string;
   title?: string;
+  date?: string;
+  author: {
+    _id: string;
+    _type: "authors";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    name?: string;
+    avatar?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  } | null;
   display_title?: string;
   slug?: Slug;
   short_description?: string;
@@ -2045,6 +2121,8 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == 'about-us']": ABOUT_PAGE_QUERYResult;
+    "*[_type == 'authors'] | order(_createdAt desc) [$offset...$limit]{\n      creator_name,\n      handle,\n      image,\n      social_media_1,\n      social_media_2,\n      slug\n    }": AUTHORS_QUERYResult;
+    "count(*[_type == 'authors'])": COUNT_AUTHORS_QUERYResult;
     "*[_type == 'contact']": CONTACT_PAGE_QUERYResult;
     "*[_type == 'creators_page']": CREATORS_PAGE_QUERYResult;
     "*[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{\n      creator_name,\n      handle,\n      image,\n      social_media_1,\n      social_media_2,\n      slug\n    }": CREATORS_QUERYResult;
@@ -2054,7 +2132,7 @@ declare module "@sanity/client" {
     "*[_type == 'news_page']": NEWS_PAGE_QUERYResult;
     "*[_type == 'news'] | order(_createdAt desc) [$offset...$limit]": NEWS_QUERYResult;
     "count(*[_type == 'news'])": COUNT_NEWS_QUERYResult;
-    "*[_type == 'news' && slug.current == $slug]": NEWS_ITEM_QUERYResult;
+    "\n    *[_type == 'news' && slug.current == $slug] {\n      ...,\n      author-> { ... }\n    }\n  ": NEWS_ITEM_QUERYResult;
     "\n    *[_type == 'projects'] | order(_createdAt desc) [$offset...$limit]\n  ": PROJECTS_QUERYResult;
     "\n    count(*[_type == 'projects'])\n  ": COUNT_PROJECTS_QUERYResult;
     "\n    *[_type == 'projects' && slug.current == $slug]\n    ": PROJECT_ITEM_QUERYResult;
