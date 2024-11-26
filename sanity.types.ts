@@ -177,7 +177,26 @@ export type Creators = {
   _updatedAt: string;
   _rev: string;
   creator_name?: string;
+  creator_description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
   handle?: string;
+  slug?: Slug;
   image?: {
     asset?: {
       _ref: string;
@@ -191,6 +210,14 @@ export type Creators = {
   };
   social_media_1?: string;
   social_media_2?: string;
+  social_media_link_1?: string;
+  social_media_link_2?: string;
+  youtube_link?: string;
+  videos?: Array<{
+    name?: string;
+    video?: string;
+    _key: string;
+  }>;
 };
 
 export type Socials = {
@@ -1095,7 +1122,7 @@ export type CREATORS_PAGE_QUERYResult = Array<{
 
 // Source: ./src/sanity/schemas/creators.ts
 // Variable: CREATORS_QUERY
-// Query: *[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{      creator_name,      handle,      image,      social_media_1,      social_media_2    }
+// Query: *[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{      creator_name,      handle,      image,      social_media_1,      social_media_2,      slug    }
 export type CREATORS_QUERYResult = Array<{
   creator_name: string | null;
   handle: string | null;
@@ -1112,10 +1139,62 @@ export type CREATORS_QUERYResult = Array<{
   } | null;
   social_media_1: string | null;
   social_media_2: string | null;
+  slug: Slug | null;
 }>;
 // Variable: COUNT_CREATORS_QUERY
 // Query: count(*[_type == 'creators'])
 export type COUNT_CREATORS_QUERYResult = number;
+// Variable: CREATOR_ITEM_QUERY
+// Query: *[_type == 'creators' && slug.current == $slug][0]
+export type CREATOR_ITEM_QUERYResult = {
+  _id: string;
+  _type: "creators";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  creator_name?: string;
+  creator_description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  handle?: string;
+  slug?: Slug;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  social_media_1?: string;
+  social_media_2?: string;
+  social_media_link_1?: string;
+  social_media_link_2?: string;
+  youtube_link?: string;
+  videos?: Array<{
+    name?: string;
+    video?: string;
+    _key: string;
+  }>;
+} | null;
 
 // Source: ./src/sanity/schemas/home.ts
 // Variable: HOME_PAGE_QUERY
@@ -1367,7 +1446,26 @@ export type HOME_PAGE_QUERYResult = Array<{
       _updatedAt: string;
       _rev: string;
       creator_name?: string;
+      creator_description?: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }>;
       handle?: string;
+      slug?: Slug;
       image?: {
         asset?: {
           _ref: string;
@@ -1381,6 +1479,14 @@ export type HOME_PAGE_QUERYResult = Array<{
       };
       social_media_1?: string;
       social_media_2?: string;
+      social_media_link_1?: string;
+      social_media_link_2?: string;
+      youtube_link?: string;
+      videos?: Array<{
+        name?: string;
+        video?: string;
+        _key: string;
+      }>;
     }> | null;
   } | null;
   gallery: {
@@ -1941,8 +2047,9 @@ declare module "@sanity/client" {
     "*[_type == 'about-us']": ABOUT_PAGE_QUERYResult;
     "*[_type == 'contact']": CONTACT_PAGE_QUERYResult;
     "*[_type == 'creators_page']": CREATORS_PAGE_QUERYResult;
-    "*[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{\n      creator_name,\n      handle,\n      image,\n      social_media_1,\n      social_media_2\n    }": CREATORS_QUERYResult;
+    "*[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{\n      creator_name,\n      handle,\n      image,\n      social_media_1,\n      social_media_2,\n      slug\n    }": CREATORS_QUERYResult;
     "count(*[_type == 'creators'])": COUNT_CREATORS_QUERYResult;
+    "*[_type == 'creators' && slug.current == $slug][0]": CREATOR_ITEM_QUERYResult;
     "*[_type == \"home_page\"]{\n    hero,\n    services,\n    \"projects\": projects{\n      ...,\n      items[]->{\n        ...\n      }\n    },\n    about,\n    \"latest_news\": latest_news {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    clients,\n    \"creators\": creators {\n      title,\n      subtitle,\n      description,\n      \"items\": items[]->{\n        ...\n      }\n    },\n    gallery\n  }\n  ": HOME_PAGE_QUERYResult;
     "*[_type == 'news_page']": NEWS_PAGE_QUERYResult;
     "*[_type == 'news'] | order(_createdAt desc) [$offset...$limit]": NEWS_QUERYResult;

@@ -1,4 +1,4 @@
-import { CREATORS_QUERYResult, Creators } from "../../../sanity.types";
+import { CREATORS_QUERYResult, CREATOR_ITEM_QUERYResult } from "../../../sanity.types";
 
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
@@ -9,16 +9,15 @@ export const getCreatorsData = async (
 ): Promise<{ creators: CREATORS_QUERYResult; hasMore: boolean }> => {
   const offset = (page - 1) * pageSize;
 
-  // Define the query to fetch creators with pagination
   const CREATORS_QUERY = defineQuery(`*[_type == 'creators'] | order(_createdAt desc) [$offset...$limit]{
       creator_name,
       handle,
       image,
       social_media_1,
-      social_media_2
+      social_media_2,
+      slug
     }`);
 
-  // Define the count query for total creators count
   const COUNT_CREATORS_QUERY = defineQuery(`count(*[_type == 'creators'])`);
 
   // Fetch paginated creators data and the total count concurrently
@@ -27,10 +26,16 @@ export const getCreatorsData = async (
     client.fetch(COUNT_CREATORS_QUERY, {}, { cache: "no-store" }),
   ]);
 
-  // Determine if there are more pages based on the count
   const hasMore = offset + pageSize < totalCount;
 
   return { creators: data, hasMore };
+};
+
+export const getCreatorItem = async (slug: string): Promise<CREATOR_ITEM_QUERYResult> => {
+  const CREATOR_ITEM_QUERY = defineQuery(`*[_type == 'creators' && slug.current == $slug][0]`);
+  const data = await client.fetch(CREATOR_ITEM_QUERY, { slug }, { cache: "no-store" });
+
+  return data;
 };
 
 const creators = {
@@ -44,9 +49,24 @@ const creators = {
       title: "Creator Name",
     },
     {
+      name: "creator_description",
+      type: "array",
+      title: "Creator Description",
+      of: [{ type: "block" }],
+    },
+    {
       name: "handle",
       type: "string",
       title: "Handle",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "creator_name",
+        maxLength: 96,
+      },
     },
     {
       name: "image",
@@ -62,6 +82,43 @@ const creators = {
       name: "social_media_2",
       type: "string",
       title: "Social Media 2",
+    },
+    {
+      name: "social_media_link_1",
+      type: "string",
+      title: "Social Media 1 Link",
+    },
+    {
+      name: "social_media_link_2",
+      type: "string",
+      title: "Social Media 2 Link",
+    },
+    {
+      name: "youtube_link",
+      type: "string",
+      title: "YouTube Link",
+    },
+    {
+      name: "videos",
+      type: "array",
+      title: "Videos",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "name",
+              type: "string",
+              title: "Name",
+            },
+            {
+              name: "video",
+              type: "string",
+              title: "Video (YouTube link)",
+            },
+          ],
+        },
+      ],
     },
   ],
 };
