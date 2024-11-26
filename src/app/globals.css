@@ -169,10 +169,22 @@ body {
   @apply font-[700] text-[2.08vw] leading-none;
 }
 
-.font-footer-nav-link {
-  @apply font-[700] text-[1.25vw] leading-[140%];
+.font-footer-nav-item {
+  @apply font-[700] text-[1.25vw] leading-none;
 }
 
-.font-footer-nav-link {
+.font-footer-item {
   @apply font-[600] text-[1.25vw] leading-[140%];
+}
+
+.font-cart-title {
+  @apply font-[700] text-[1.66vw] leading-none uppercase;
+}
+
+.font-socials-item {
+  @apply font-[500] text-[1.04vw] leading-none uppercase;
+}
+
+.font-card-subtitle {
+  @apply font-[600] text-[1.04vw] leading-[140%];
 }
