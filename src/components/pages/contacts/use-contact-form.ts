@@ -3,11 +3,21 @@ import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+export enum Category {
+  TALENT_MANAGEMENT = "Talent Management",
+  BRAND_CAMPAIGN = "Brand Campaign",
+  CREATIVE_DEPARTMENT = "Creative Department",
+  GENERAL_INQUIRY = "General Inquiry",
+}
+
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
   subject: z.string().min(1, { message: "Subject is required" }),
   message: z.string().min(1, { message: "Message is required" }),
+  category: z.enum([...Object.values(Category)] as unknown as [string, ...string[]], {
+    required_error: "Category is required",
+  }),
 });
 
 type FormTypes = z.infer<typeof formSchema>;
@@ -20,6 +30,7 @@ export const useContactForm = () => {
       email: "",
       subject: "",
       message: "",
+      category: Category.TALENT_MANAGEMENT,
     },
   });
 
@@ -34,6 +45,8 @@ export const useContactForm = () => {
     setSuccess(false);
 
     try {
+      console.log(data);
+
       const response = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,6 +55,7 @@ export const useContactForm = () => {
           email: data.email,
           subject: data.subject,
           message: data.message,
+          category: data.category,
         }),
       });
 

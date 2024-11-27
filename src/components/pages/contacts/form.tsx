@@ -1,12 +1,14 @@
 "use client";
 
+import { Category, useContactForm } from "./use-contact-form";
+
 import CustomField from "@/components/shared/custom-field";
+import CustomRadio from "@/components/shared/custom-radio";
 import { Form } from "@/components/ui/form";
 import SectionName from "@/components/titles/section-name";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
-import { useContactForm } from "./use-contact-form";
 import { useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -68,6 +70,12 @@ const ContactsForm = () => {
               label="Message"
               name={"message"}
               placeholder={"Start typing here..."}
+            />
+            <CustomRadio
+              control={form.control}
+              label="Category"
+              name={"category"}
+              items={[...Object.values(Category)]}
             />
 
             <div className="flex mt-[6.15vw] sm:mt-[1.9vw] w-full justify-end sm:mb-0 mb-[25.62vw]">

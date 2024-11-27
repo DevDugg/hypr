@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 export async function POST(request: Request) {
   const body = await request.json();
 
-  const { name, email, subject, message } = body;
+  const { name, email, subject, message, category } = body;
 
   if (!name || !email || !subject || !message) {
     return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
@@ -17,6 +17,7 @@ export async function POST(request: Request) {
       email,
       subject,
       message,
+      category,
     };
 
     await client.create(newSubmission);
