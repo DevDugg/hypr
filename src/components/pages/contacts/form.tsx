@@ -36,13 +36,13 @@ const ContactsForm = () => {
   return (
     <Form {...form}>
       <Toaster />
-      <div className="flex sm:flex-row flex-col sm:items-start justify-between">
-        <SectionName className="sm:flex-[1_1_40%] sm:text-left text-center sm:mx-0 mx-auto mb-[10.25vw] sm:mb-[2vw]">
+      <div className="flex md:flex-row flex-col md:items-start justify-between">
+        <SectionName className="md:flex-[1_1_40%] md:text-left text-center md:mx-0 mb-[10.25vw] md:mb-[2vw] max-md:!text-[3.58vw]">
           (Contact form)
         </SectionName>
 
         <form onSubmit={form.handleSubmit(onSubmit)} name="lead-form" className="flex-[1_1_60%]">
-          <div className="flex flex-col gap-[4.05vw] sm:gap-[0.8vw]">
+          <div className="flex flex-col gap-[4.05vw] md:gap-[0.8vw]">
             <CustomField
               control={form.control}
               label="Full Name"
@@ -78,12 +78,12 @@ const ContactsForm = () => {
               items={[...Object.values(Category)]}
             />
 
-            <div className="flex mt-[6.15vw] sm:mt-[1.9vw] w-full justify-end sm:mb-0 mb-[25.62vw]">
+            <div className="flex mt-[6.15vw] md:mt-[1.9vw] w-full justify-end md:mb-0 mb-[25.62vw]">
               <button
                 type="submit"
                 className={cn(
                   grotesk.className,
-                  "font-bold  mx-0 py-[4vw] w-full text-[4.61vw] sm:size24 sm:w-[44.63vw] bg-ACCENT sm:py-[1.04vw] rounded-[51.25vw] sm:rounded-[10.41vw]",
+                  "font-bold mx-0 py-[1.04vw] max-sm:py-[4vw] w-full text-[1.25vw] max-md:text-[3.125vw] max-[390px]:text-[4.61vw] md:w-[44.63vw] bg-ACCENT rounded-[51.25vw] md:rounded-[10.41vw]",
                 )}
               >
                 Submit form

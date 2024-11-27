@@ -20,7 +20,7 @@ const ContactsHero = async () => {
         {data && (
           <p
             className={cn(
-              "text-WHITE sm:text-left mb-[20.5vw] text-center text-[3.7vw] sm:text-[4.1vw] sm:size40 sm:w-[50%] font-semibold sm:mb-[4vw]",
+              "text-WHITE md:text-left mb-[20.5vw] text-center text-[3.7vw] md:text-[4.1vw] md:size40 md:w-[50%] font-semibold md:mb-[4vw]",
               grotesk.className,
             )}
           >
