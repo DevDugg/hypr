@@ -40,16 +40,24 @@ const CreatorPage = async ({ params }: PageParams) => {
         <div className="h-dvh w-dvw"></div>
         <div className="overflow-hidden absolute top-0 left-0 h-dvh w-dvw grid grid-cols-[43.9vw_46.93vw] gap-[6vw]  max-lg:flex max-lg:flex-col">
           {creator?.image && (
-            <div className="w-full">
+            <div className="w-full relative">
               <Image
                 src={urlFor(creator.image).size(1686, 1860).url()}
                 alt={`${creator.creator_name} Image`}
                 width={1686}
                 height={1860}
-                className="size-full object-cover object-top"
+                className="size-full object-cover object-top max-lg:h-dvh"
                 priority
                 loading="eager"
               />
+              <h1
+                className={cn(
+                  "hidden max-lg:block absolute mix-blend-exclusion bottom-[3.125vw] left-0 px-[1.82vw] z-10 font-black text-[6.25vw] uppercase break-words",
+                  monument.className,
+                )}
+              >
+                {creator.creator_name}
+              </h1>
             </div>
           )}
           <div className="flex flex-col gap-[2.08vw] items-center justify-center max-lg:hidden">
@@ -97,6 +105,39 @@ const CreatorPage = async ({ params }: PageParams) => {
           </div>
         </div>
         <Container>
+          {creator && (
+            <div className="hidden max-lg:flex flex-col gap-[3.125vw] mb-[10.42vw] mt-[-10vw]">
+              <div className="flex flex-col gap-[2.08vw]">
+                <span className="text-ACCENT uppercase text-[1.82vw] leading-none inline-block font-bold">(ABOUT)</span>
+                <span className={cn("text-WHITE uppercase text-[3.125vw] font-black leading-none", monument.className)}>
+                  ABOUT
+                </span>
+              </div>
+              {creator.creator_description && (
+                <div className="text-[2.3438vw] font-medium leading-[140%] text-GRAY">
+                  <PortableText value={creator.creator_description} components={components} />
+                </div>
+              )}
+              {(creator.social_media_1 || creator.social_media_2) && (
+                <div className="flex flex-col gap-[3.125vw] mt-[3.125vw]">
+                  <span className="text-ACCENT uppercase text-[1.82vw] leading-none inline-block font-bold">
+                    (SOCIALS)
+                  </span>
+                  <div className="h-[1px] w-full bg-GRAY"></div>
+                  <div className="grid grid-cols-2 items-center py-[2.08vw] font-semibold leading-none text-[2.34vw]">
+                    <span className="uppercase">{creator.social_media_1?.split(":")[0] || null}</span>
+                    <span className="text-GRAY text-[2.08vw]">{creator.social_media_1?.split(":")[1] || null}</span>
+                  </div>
+                  <div className="h-[1px] w-full bg-GRAY"></div>
+                  <div className="grid grid-cols-2 items-center py-[2.08vw] font-semibold leading-none text-[2.34vw]">
+                    <span className="uppercase">{creator.social_media_2?.split(":")[0] || null}</span>
+                    <span className="text-GRAY text-[2.08vw]">{creator.social_media_2?.split(":")[1] || null}</span>
+                  </div>
+                  <div className="h-[1px] w-full bg-GRAY"></div>
+                </div>
+              )}
+            </div>
+          )}
           <div className="hidden max-lg:flex gap-[1.25vw]">
             <div className="flex flex-col gap-[0.833vw]"></div>
           </div>
