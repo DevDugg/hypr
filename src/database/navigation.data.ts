@@ -11,10 +11,10 @@ export const navData = [
     view: "Network",
     path: "/creators",
   },
-  {
-    view: "Contact",
-    path: "/contact-us",
-  },
+  // {
+  //   view: "Contact",
+  //   path: "/contact-us",
+  // },
 
   {
     view: "About",

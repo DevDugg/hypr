@@ -53,7 +53,7 @@ export const Header = () => {
           <Reveal type="opacity">
             <nav
               className={cn(
-                "hidden lg:flex gap-[2.08vw] font-medium border-WHITE border-[1px] text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
+                "hidden lg:flex gap-[2.08vw] font-medium text-[0.9375vw] leading-none px-[1.25vw] py-[0.83vw] rounded-full",
                 grotesk.className,
               )}
             >
@@ -61,7 +61,7 @@ export const Header = () => {
                 <NavLinkAnimated
                   key={i}
                   {...item}
-                  className={clsx("text-[0.9375vw] leading-[120%] py-[0.83vw]", {
+                  className={clsx("text-[0.9375vw] leading-[120%] py-[0.83vw] uppercase font-semibold", {
                     // "text-ACCENT": item.path === pathname,
                   })}
                 />
@@ -69,7 +69,7 @@ export const Header = () => {
             </nav>
           </Reveal>
           <Reveal>
-            <CustomButton className="hidden lg:flex font-bold !text-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden">
+            <CustomButton className="hidden lg:flex font-bold !text-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden uppercase">
               <Link href={"/contact-us"}>Contact us</Link>
             </CustomButton>
           </Reveal>
