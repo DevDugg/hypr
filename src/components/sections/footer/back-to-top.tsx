@@ -11,11 +11,14 @@ const BackToTop = () => {
     <div
       onClick={handleOnClick}
       className={cn(
-        "flex items-center cursor-pointer sm:font-bold font-medium text-[3.58vw] sm:size24 justify-center gap-[0.2vw]",
+        "flex items-center cursor-pointer sm:font-bold font-medium text-[3.58vw] sm:size24 gap-[0.416vw]",
         grotesk.className,
       )}
     >
-      Back To Top <Image src="/images/arrow-up.svg" alt="Arrow up" width={24} height={24} className="size-[1.25vw]" />
+      <span>Back To Top</span>
+      <div className="size-6">
+        <Image src="/images/arrow-up.svg" alt="Arrow up" width={24} height={24} className="size-6" />
+      </div>
     </div>
   );
 };
