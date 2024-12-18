@@ -1,4 +1,4 @@
-import { PortableText, PortableTextComponents } from "next-sanity";
+import { PortableText, PortableTextComponents, toPlainText } from "next-sanity";
 import { grotesk, monument } from "@/lib/fonts";
 
 import AnimatedTitle from "@/components/animations/animated-title";
@@ -6,13 +6,45 @@ import Container from "@/components/layout/container";
 import CreatorVideos from "@/components/pages/creators/creator-videos";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { general } from "@/config/general";
 import { getCreatorItem } from "@/sanity/schemas/creators";
+import { getFirstSentence } from "@/sanity/lib/text";
+import { getSEOTags } from "@/lib/seo";
 import { urlFor } from "@/sanity/lib/image";
 
 interface PageParams {
   params: {
     slug: string;
   };
+}
+
+export async function generateMetadata({ params }: PageParams) {
+  const { slug } = params;
+  const creator = await getCreatorItem(slug);
+
+  return getSEOTags({
+    title: creator?.creator_name || general.appName,
+    description: getFirstSentence(toPlainText(creator?.creator_description || []) || general.appDescription),
+    keywords: creator?.creator_name || [general.appName],
+
+    openGraph: {
+      title: creator?.creator_name || general.appName,
+      description: getFirstSentence(toPlainText(creator?.creator_description || []) || general.appDescription),
+
+      images: creator?.image ? [{ url: urlFor(creator?.image).url() }] : [],
+      locale: "en_US",
+      type: "website",
+    },
+
+    canonicalUrlRelative: `/creators/${slug}`,
+
+    twitter: {
+      title: creator?.creator_name || general.appName,
+      description: getFirstSentence(toPlainText(creator?.creator_description || []) || general.appDescription),
+      card: "summary_large_image",
+      images: creator?.image ? [{ url: urlFor(creator?.image).url() }] : [],
+    },
+  });
 }
 
 const components: PortableTextComponents = {
