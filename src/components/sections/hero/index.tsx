@@ -18,7 +18,7 @@ export const Hero = ({ hero }: HeroProps) => {
   const { description, images } = hero;
   return (
     <section id="hero" className="flex flex-col justify-end gap-[2.56vw] sm:gap-[1.25vw] overflow-hidden">
-      <HeroText />
+      <HeroText description={description} />
       {/* <FadeOnScroll
         yRange={[-20, 0]}
         opacityRange={[0, 1]}
