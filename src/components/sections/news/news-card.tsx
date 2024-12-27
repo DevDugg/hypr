@@ -31,7 +31,7 @@ export const NewsCard = ({
         src={urlFor(main_image!)
           .size(w * 2, h * 2)
           .url()}
-        alt="insights image"
+        alt={`${display_title || "HYPR news"} image`}
         width={w * 2}
         height={h * 2}
         className={cn(imgClassName, "mb-[1.25vw] object-cover")}
@@ -53,7 +53,7 @@ export const NewsCard = ({
           <div className="max-h-[1.67vw] max-w-[1.67vw] size-max">
             <Image
               src={"/images/arrow-up-right.svg"}
-              alt="Arrow up right"
+              alt=""
               width={32}
               height={32}
               className="max-h-[1.67vw] max-w-[1.67vw] size-max"

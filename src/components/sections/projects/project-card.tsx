@@ -10,19 +10,11 @@ import { urlFor } from "@/sanity/lib/image";
 import { useState } from "react";
 
 interface IProps {
-  title: NonNullable<
-    NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]
-  >[any]["name"];
-  subtitle: NonNullable<
-    NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]
-  >[any]["short_description"];
-  slug: NonNullable<
-    NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]
-  >[any]["slug"];
+  title: NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["name"];
+  subtitle: NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["short_description"];
+  slug: NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["slug"];
   img: NonNullable<
-    NonNullable<
-      NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]
-    >[any]["key_visuals"]
+    NonNullable<NonNullable<HOME_PAGE_QUERYResult[0]["projects"]>["items"]>[any]["key_visuals"]
   >[0]["image"];
 }
 
@@ -49,23 +41,14 @@ const ProjectCard = ({ title, subtitle, img, slug }: IProps) => {
                 width={1780}
                 height={1280}
                 src={urlFor(img).size(1780, 1280).url()}
-                alt="project image"
+                alt={`${title || "HYPR project"} image`}
                 className="w-full sm:h-[33.33vw] sm:w-auto"
               />
             </motion.div>
           </div>
-          <h4 className="mt-[4.05vw] sm:mt-[1.25vw] mb-[2.02vw] sm:mb-[0.416vw] monument max-sm:text-[5vw]">
-            {title}
-          </h4>
+          <h4 className="mt-[4.05vw] sm:mt-[1.25vw] mb-[2.02vw] sm:mb-[0.416vw] monument max-sm:text-[5vw]">{title}</h4>
 
-          <p
-            className={cn(
-              "block font-normal leading-[140%] max-sm:text-[4.375vw]",
-              grotesk.className
-            )}
-          >
-            {subtitle}
-          </p>
+          <p className={cn("block font-normal leading-[140%] max-sm:text-[4.375vw]", grotesk.className)}>{subtitle}</p>
         </motion.div>
       </Link>
     )

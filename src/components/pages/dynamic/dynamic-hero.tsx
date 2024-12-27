@@ -82,7 +82,7 @@ const DynamicHero = ({ item }: DynamicHeroProps) => {
             src={urlFor(main_image).size(1800, 1044).url()}
             width={1800}
             height={1044}
-            alt="image"
+            alt={`${title || "HYPR news"} main image`}
             className="w-full sm:h-[54.37vw] h-[62.52vw] object-cover"
           />
         )}

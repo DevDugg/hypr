@@ -43,12 +43,7 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
               threshold={0.4}
             >
               <div className="w-full" onMouseOver={() => setActiveItem(i)}>
-                <ServiceCardDesktop
-                  i={i}
-                  activeItem={activeItem}
-                  name={item.name!}
-                  image={item.image}
-                />
+                <ServiceCardDesktop i={i} activeItem={activeItem} name={item.name!} image={item.image} />
               </div>
             </Reveal>
           );
@@ -74,18 +69,15 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
             {images.map(
               (item, i) =>
                 item && (
-                  <div
-                    key={i}
-                    className="overflow-hidden h-[20.83vw] w-[16.6vw]"
-                  >
+                  <div key={i} className="overflow-hidden h-[20.83vw] w-[16.6vw]">
                     <Image
                       src={urlFor(item).size(768, 960).url()}
                       width={768}
                       height={960}
-                      alt="service image"
+                      alt={`${items[i].name || "HYPR service"} image`}
                     />
                   </div>
-                )
+                ),
             )}
           </motion.div>
         </motion.div>
@@ -112,19 +104,16 @@ const ServicesBlockDesktop = ({ items }: ServicesBlockDesktopProps) => {
             {images.map(
               (item, i) =>
                 item && (
-                  <div
-                    key={i}
-                    className="overflow-hidden h-[20.83vw] w-[16.6vw]"
-                  >
+                  <div key={i} className="overflow-hidden h-[20.83vw] w-[16.6vw]">
                     <Image
                       className="object-cover"
                       src={urlFor(item).size(768, 960).url()}
                       width={768}
                       height={960}
-                      alt="service image"
+                      alt={`${items[i].name || "HYPR service"} image`}
                     />
                   </div>
-                )
+                ),
             )}
           </motion.div>
         </motion.div>

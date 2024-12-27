@@ -35,7 +35,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
           <div className="relative text-WHITE">
             <Image
               src={"/images/case/1.png"}
-              alt="image"
+              alt=""
               width={211}
               height={316}
               className="w-[10.98vw] sm:absolute h-[16.45vw] hidden top-0 left-0"
@@ -54,7 +54,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
 
             <Image
               src={"/images/case/1.png"}
-              alt="image"
+              alt=""
               width={211}
               height={316}
               className="w-[10.98vw] hidden h-[16.45vw] sm:absolute top-0 right-0"
@@ -215,7 +215,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                   <Image
                     key={i}
                     src={urlFor(image).size(1186, 1674).url()}
-                    alt="photo"
+                    alt=""
                     width={1186}
                     height={1674}
                     className="size-full"

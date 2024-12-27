@@ -18,7 +18,13 @@ const WorkCard = ({ img, title, text, w, h, imgClassName, className, slug }: Pro
   return (
     <Link href={`/works/${slug}`}>
       <article className={cn("text-[1.25vw] text-WHITE", className)}>
-        <Image src={img} alt="image" width={w} height={h} className={cn(imgClassName, "mb-[1.25vw] w-full")} />
+        <Image
+          src={img}
+          alt={`${title} project image`}
+          width={w}
+          height={h}
+          className={cn(imgClassName, "mb-[1.25vw] w-full")}
+        />
 
         <h5 className="font-bold">{title}</h5>
         <p className={cn("--grotesk-font leading-[140%]", grotesk.className)}>{text}</p>

@@ -19,7 +19,7 @@ const Partners = ({ clients }: PartnersProps) => {
               (item, i) =>
                 item && (
                   <Reveal key={i} animateOnView type="opacity" delay={i * 0.05}>
-                    <PartnerIcon image={item.image} active={i === i} />
+                    <PartnerIcon image={item.image} active={i === i} alt={item.name || "HYPR partner icon"} />
                   </Reveal>
                 ),
             )}

@@ -35,7 +35,7 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
               <Image
                 data-img="img-1"
                 src={urlFor(gallery.image_1).url()}
-                alt={"gallery image"}
+                alt={"Gallery image 1"}
                 width={524}
                 height={350}
                 className="object-cover absolute top-0 left-0 h-[18.22vw] w-[27.29vw]"
@@ -45,7 +45,7 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
               <Image
                 data-img="img-2"
                 src={urlFor(gallery.image_2).url()}
-                alt={"gallery image"}
+                alt={"Gallery image 2"}
                 width={524}
                 height={350}
                 className="object-cover absolute bottom-0 left-0 h-[18.22vw] w-[27.29vw] z-[4]"
@@ -55,7 +55,7 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
               <Image
                 data-img="img-3"
                 src={urlFor(gallery.image_3).url()}
-                alt={"gallery image"}
+                alt={"Gallery image 3"}
                 width={413}
                 height={620}
                 className="object-cover absolute top-0 left-[24.58vw] z-[3] h-[32.29vw] w-[21.51vw]"
@@ -65,7 +65,7 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
               <Image
                 data-img="img-4"
                 src={urlFor(gallery.image_4).url()}
-                alt={"gallery image"}
+                alt={"Gallery image 4"}
                 width={709}
                 height={398}
                 className="object-cover absolute top-0 right-[14.68vw] z-[3] h-[20.41vw] w-[36.92vw]"
@@ -75,7 +75,7 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
               <Image
                 data-img="img-5"
                 src={urlFor(gallery.image_5).url()}
-                alt={"gallery image"}
+                alt={"Gallery image 5"}
                 width={600}
                 height={452}
                 className="object-cover absolute bottom-0 right-[18.22vw] z-[2] h-[23.54vw] w-[31.25vw]"
@@ -85,7 +85,7 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
               <Image
                 data-img="img-6"
                 src={urlFor(gallery.image_6).url()}
-                alt={"gallery image"}
+                alt={"Gallery image 6"}
                 width={392}
                 height={586}
                 className="object-cover absolute top-0 right-0 z-[1] h-[30.52vw] w-[20.41vw]"
@@ -111,7 +111,13 @@ const CaseGallery = ({ project }: CaseGalleryProps) => {
                 gallery.image_6,
               ].map((image, i) => (
                 <CarouselItem key={i}>
-                  <Image key={i} src={urlFor(image).size(593, 787).url()} alt="photo" width={593} height={787} />
+                  <Image
+                    key={i}
+                    src={urlFor(image).size(593, 787).url()}
+                    alt={`Gallery image ${i + 1}`}
+                    width={593}
+                    height={787}
+                  />
                 </CarouselItem>
               ))}
           </CarouselContent>

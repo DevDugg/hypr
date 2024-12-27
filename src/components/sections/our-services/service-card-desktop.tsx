@@ -13,12 +13,7 @@ interface IProps {
 }
 
 export const ServiceCardDesktop = ({ name, i, activeItem, image }: IProps) => {
-  const itemState =
-    activeItem !== null
-      ? activeItem === i
-        ? { opacity: "100%" }
-        : { opacity: "30%" }
-      : {};
+  const itemState = activeItem !== null ? (activeItem === i ? { opacity: "100%" } : { opacity: "30%" }) : {};
 
   const mobile = useMediaQuery("(max-width: 640px)");
   return (
@@ -32,22 +27,14 @@ export const ServiceCardDesktop = ({ name, i, activeItem, image }: IProps) => {
         <motion.span
           className="leading-none monument uppercase w-full text-[4.5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight max-sm:hidden"
           initial={{ top: "100%", rotateX: 45, transformOrigin: "top" }}
-          animate={
-            activeItem === i && !mobile
-              ? { top: "0%", rotateX: 0, transformOrigin: "bottom" }
-              : {}
-          }
+          animate={activeItem === i && !mobile ? { top: "0%", rotateX: 0, transformOrigin: "bottom" } : {}}
         >
           {name}
         </motion.span>
         <motion.h4
           className="leading-none monument uppercase w-full text-[4.5vw] sm:size72 absolute top-0 text-center origin-bottom tracking-tight"
           initial={{ top: "0%", rotateX: 0, transformOrigin: "bottom" }}
-          animate={
-            activeItem === i && !mobile
-              ? { top: "-100%", rotateX: 45, transformOrigin: "top" }
-              : {}
-          }
+          animate={activeItem === i && !mobile ? { top: "-100%", rotateX: 45, transformOrigin: "top" } : {}}
         >
           {name}
         </motion.h4>
@@ -61,7 +48,7 @@ export const ServiceCardDesktop = ({ name, i, activeItem, image }: IProps) => {
           src={urlFor(image).size(256, 320).url()}
           width={256}
           height={320}
-          alt="service image"
+          alt={`${name || "HYPR service"} image`}
           className="size-full w-1/2 object-cover"
         />
       </motion.div>

@@ -77,7 +77,7 @@ const AboutHero = ({ data }: AboutHeroProps) => {
           >
             <Image
               src={urlFor(hero.main_image).size(3840, 1800).url()}
-              alt="image"
+              alt="HYPR hero main image"
               width={3840}
               height={1800}
               className="w-full h-[46.87vw]"

@@ -17,7 +17,7 @@ const BackToTop = () => {
     >
       <span>Back To Top</span>
       <div className="size-6">
-        <Image src="/images/arrow-up.svg" alt="Arrow up" width={24} height={24} className="size-6" />
+        <Image src="/images/arrow-up.svg" alt="" width={24} height={24} className="size-6" />
       </div>
     </div>
   );

@@ -60,7 +60,7 @@ const AboutTeam = ({ data }: AboutTeamProps) => {
                         <CarouselItem key={i} className="text-[1.25vw] text-WHITE w-[30.41vw]">
                           <Image
                             src={urlFor(item.image).size(1168, 1280).url()}
-                            alt="name"
+                            alt={item.creator_name || "HYPR team member image"}
                             width={1168}
                             height={1280}
                             className="w-full h-auto mb-[4.05vw] object-cover"
@@ -81,7 +81,7 @@ const AboutTeam = ({ data }: AboutTeamProps) => {
                       <div key={i} className="w-full text-[1.25vw] flex flex-col gap-[1.25vw]">
                         <Image
                           src={urlFor(item.image).size(1168, 1280).url()}
-                          alt="name"
+                          alt={item.creator_name || "HYPR team member image"}
                           width={1168}
                           height={1280}
                           className="w-full h-auto object-cover"

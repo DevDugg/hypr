@@ -37,7 +37,7 @@ export const ServiceCard = ({ title, img, active, i, setActiveIndex, progress, r
         }
         className="overflow-hidden"
       >
-        <Image src={img} width={256} height={320} alt="service image" />
+        <Image src={img} width={256} height={320} alt={`${title || "HYPR service"} image`} />
       </motion.div>
     </div>
   );

@@ -19,7 +19,7 @@ export const Footer = () => {
           </p> */}
           <Image
             src={"/images/main-logo.svg"}
-            alt="Main logo"
+            alt="HYPR main logo"
             width={710}
             height={291}
             className="w-[37vw] h-[15.15vw] max-sm:w-full max-sm:h-auto"

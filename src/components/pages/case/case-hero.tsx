@@ -30,7 +30,7 @@ const CaseHero = ({ project }: CaseHeroProps) => {
                 src={urlFor(main_image).size(1920, 1080).url()}
                 width={1920}
                 height={1080}
-                alt="cover image"
+                alt={name || "HYPR project main image"}
                 loading="eager"
                 unselectable="on"
                 className="size-full object-cover"

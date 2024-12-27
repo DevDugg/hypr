@@ -120,7 +120,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
                 <Link href={`/works/${project.slug!.current}`} key={i}>
                   <Image
                     src={urlFor(project.main_image!).size(1190, 846).url()}
-                    alt="project image"
+                    alt={`${project.name || "HYPR project"} main image`}
                     width={1190}
                     height={846}
                     className="mb-[4.1vw] w-[93vw] h-[66.1vw]"

@@ -123,7 +123,7 @@ const CaseSlider = () => {
                 >
                   <Image
                     src={item.img}
-                    alt="image"
+                    alt={item.title || "HYPR project image"}
                     width={340}
                     height={470}
                     className="w-full h-full transition-all object-cover object-center"

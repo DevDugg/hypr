@@ -33,7 +33,7 @@ const Need = ({ gallery }: INeedProps) => {
               src={urlFor(gallery.images[`image_${2 * i - 1}` as keyof NonNullable<typeof gallery>["images"]])
                 .size(1760, 1120)
                 .url()}
-              alt=""
+              alt="HYPR need section image"
               width={1760}
               height={1120}
               className="size-full object-cover"
@@ -44,7 +44,7 @@ const Need = ({ gallery }: INeedProps) => {
               src={urlFor(gallery.images[`image_${2 * i}` as keyof NonNullable<typeof gallery>["images"]])
                 .size(1760, 1120)
                 .url()}
-              alt=""
+              alt="HYPR need section image"
               width={1760}
               height={1120}
               className="size-full object-cover"

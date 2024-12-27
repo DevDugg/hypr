@@ -42,7 +42,7 @@ export const Header = () => {
             <Reveal>
               <Image
                 src={"/images/main-logo.svg"}
-                alt="Logo"
+                alt="HYPR logo"
                 width={150}
                 height={40}
                 className="w-[6.8125vw] h-[3.0833vw] max-lg:w-[14.8125vw] max-lg:h-[7.0833vw] max-sm:w-[20vw] max-sm:h-[10vw]"

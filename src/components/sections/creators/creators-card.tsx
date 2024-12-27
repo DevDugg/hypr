@@ -19,7 +19,7 @@ export const CreatorsCard = ({
         {image && (
           <Image
             src={urlFor(image).size(1026, 1440).url()}
-            alt="news image"
+            alt={`${creator_name || "HYPR creator"}`}
             width={1026}
             height={1440}
             className="w-full h-[66.62vw] sm:h-[32vw] object-cover"

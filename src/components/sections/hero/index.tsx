@@ -36,7 +36,7 @@ export const Hero = ({ hero }: HeroProps) => {
               <Image
                 src={urlFor(item).width(873).height(1200).url()}
                 loading="eager"
-                alt="img"
+                alt={`${"HYPR need section image"}`}
                 width={873}
                 height={1200}
                 className="w-[33.33vw] h-full sm:w-[15.15vw] sm:h-[20.83vw]"

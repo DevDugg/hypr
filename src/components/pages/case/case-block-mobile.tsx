@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import React, { useEffect, useState } from "react";
 
 import Bullets from "@/components/shared/bullets";
@@ -46,28 +41,22 @@ const CaseBlockMobile = ({ className, project }: CaseBlockMobileProps) => {
                           src={urlFor(item.image).size(593, 787).url()}
                           width={593}
                           height={787}
-                          alt="image"
+                          alt={item.name || "HYPR project key visual image"}
                           className="w-full h-auto"
                         />
                       </CarouselItem>
-                    )
+                    ),
                 )}
               </CarouselContent>
             </Carousel>
 
             {project.key_visuals && project.key_visuals.length > 1 && (
-              <Bullets
-                size={project.key_visuals.length}
-                active={active}
-                className="!mt-0"
-              />
+              <Bullets size={project.key_visuals.length} active={active} className="!mt-0" />
             )}
           </>
         )}
 
-        <div className="uppercase font-medium text-[4.61vw] mt-[4.05vw]">
-          storyline
-        </div>
+        <div className="uppercase font-medium text-[4.61vw] mt-[4.05vw]">storyline</div>
 
         <div className="flex flex-col gap-[4.05vw] leading-[140%] text-GRAY text-[4.61vw] font-medium">
           {project.description_1 && <p>{project.description_1}</p>}
@@ -79,12 +68,9 @@ const CaseBlockMobile = ({ className, project }: CaseBlockMobileProps) => {
             {project.information.map((item, i) => (
               <div
                 key={i}
-                className={clsx(
-                  "flex items-start text-[4.61vw] py-[4.05vw] font-semibold",
-                  {
-                    "border-b border-STROKE": i !== informationLength,
-                  }
-                )}
+                className={clsx("flex items-start text-[4.61vw] py-[4.05vw] font-semibold", {
+                  "border-b border-STROKE": i !== informationLength,
+                })}
               >
                 <h5 className="text-WHITE w-1/2">{item.name}</h5>
                 <p className="text-GRAY w-1/2 text-[4.1vw]">{item.value}</p>
