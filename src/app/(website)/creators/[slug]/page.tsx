@@ -92,6 +92,9 @@ const CreatorPage = async ({ params }: PageParams) => {
         id="creator"
         className={cn("size-full flex flex-col justify-end text-WHITE mb-[10.25vw] sm:mb-[3.12vw]", grotesk.className)}
       >
+        <h1 hidden>
+          {creator.creator_name}: {creator.seo?.description || ""}
+        </h1>
         <div className="h-dvh w-dvw"></div>
         <div className="overflow-hidden absolute top-0 left-0 h-dvh w-dvw grid grid-cols-[43.9vw_46.93vw] gap-[6vw]  max-lg:flex max-lg:flex-col">
           {creator?.image && (
@@ -105,14 +108,15 @@ const CreatorPage = async ({ params }: PageParams) => {
                 priority
                 loading="eager"
               />
-              <h1
+
+              <h2
                 className={cn(
                   "hidden max-lg:block absolute mix-blend-exclusion bottom-[3.125vw] left-0 px-[1.82vw] z-10 font-black text-[6.25vw] uppercase break-words",
                   monument.className,
                 )}
               >
                 {creator.creator_name}
-              </h1>
+              </h2>
             </div>
           )}
           <div className="flex flex-col gap-[2.08vw] items-center justify-center max-lg:hidden">

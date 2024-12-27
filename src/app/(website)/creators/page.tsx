@@ -16,8 +16,9 @@ const CreatorsPage = async () => {
     <section id="creators">
       <Container>
         <div className="flex flex-col gap-[1.25vw] mb-[10.41vw]">
+          <h1 hidden>Creators at HYPR: {data?.description || ""}</h1>
           <AnimatedTitle
-            element="h1"
+            element="h2"
             className="!text-[10.25vw] text-center sm:!text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT uppercase font-bold"
           >
             Creators
