@@ -17,9 +17,10 @@ const AboutHero = ({ data }: AboutHeroProps) => {
     hero && (
       <section className="text-WHITE">
         <Container>
+          <h1 hidden>About HYPR: {hero.description}</h1>
           {hero.title && (
             <AnimatedTitle
-              element="h1"
+              element="h2"
               className="!text-[10.25vw] sm:!text-[12.5vw] text-center mt-[2.08vw] text-ACCENT uppercase font-bold"
             >
               {hero.title}
