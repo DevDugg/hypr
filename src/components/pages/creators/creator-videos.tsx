@@ -91,9 +91,9 @@ const CreatorVideos = ({ creator }: CreatorVideosProps) => {
           <div className="block sm:hidden">
             <div className="flex justify-between mb-[6.15vw] items-end">
               <CaseTitle title="videos" num="(07)" className="text-[6.15vw]" />
-              <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[4.61vw] font-semibold">
+              {/* <a className="uppercase flex gap-[0.2vw] items-center text-GRAY text-[4.61vw] font-semibold">
                 youtube <ArrowUpRight className="size-[5vw]" />
-              </a>
+              </a> */}
             </div>
 
             <Carousel setApi={setApi}>

@@ -133,12 +133,22 @@ const CreatorPage = async ({ params }: PageParams) => {
                 <span className="text-[1.041vw] text-GRAY leading-none font-bold uppercase">(Socials)</span>
                 <div className="flex gap-[2.08vw] text-[0.9375vw]">
                   {creator.social_media_1 && (
-                    <a href={creator.social_media_link_1} target="_blank" rel="noreferrer" className="text-WHITE">
+                    <a
+                      href={creator.social_media_link_1}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-WHITE"
+                    >
                       {creator.social_media_1.split(":")[0]}
                     </a>
                   )}
                   {creator.social_media_2 && (
-                    <a href={creator.social_media_link_2} target="_blank" rel="noreferrer" className="text-WHITE">
+                    <a
+                      href={creator.social_media_link_2}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-WHITE"
+                    >
                       {creator.social_media_2.split(":")[0]}
                     </a>
                   )}
