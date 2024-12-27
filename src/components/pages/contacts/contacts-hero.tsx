@@ -11,21 +11,21 @@ const ContactsHero = async () => {
     <section>
       <Container>
         <AnimatedTitle
-          element="h1"
+          element="h2"
           className="!text-[11.45vw] font-bold uppercase text-ACCENT text-center mb-[1vw] sm:mb-[5vw]"
         >
           contacts
         </AnimatedTitle>
 
         {data && (
-          <p
+          <h1
             className={cn(
               "text-WHITE md:text-left mb-[20.5vw] text-center text-[3.7vw] md:text-[4.1vw] md:size40 md:w-[50%] font-semibold md:mb-[4vw]",
               grotesk.className,
             )}
           >
             {data.description}
-          </p>
+          </h1>
         )}
 
         <Form />
