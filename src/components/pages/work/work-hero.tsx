@@ -102,8 +102,9 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
       <section
       // ref={container}
       >
+        <h1 hidden>Works at HYPR</h1>
         <AnimatedTitle
-          element="h1"
+          element="h2"
           className="!text-[10.25vw] text-center sm:!text-[11.45vw] sm:mt-0 mt-[10.25vw] text-ACCENT uppercase font-bold mb-[10.416vw]"
         >
           our work
@@ -112,7 +113,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
         <Reveal type="opacity" duration={1.4} delay={0.6}>
           {/* MOBILE */}
           <div className="sm:hidden text-WHITE mb-[25.62vw]">
-            <AnimatedTitle element="h2" className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]">
+            <AnimatedTitle element="h3" className="text-center !text-[4.61vw] !normal-case mb-[20.5vw]">
               Never Miss A Bit/
             </AnimatedTitle>
             <div className="flex flex-col gap-[6.15vw]">
