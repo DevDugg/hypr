@@ -69,7 +69,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-1"
                   src={urlFor(gallery.image_1).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image"}
                   width={1048}
                   height={700}
                   className="object-cover absolute top-0 left-0 h-[18.22vw] w-[27.29vw] max-sm:w-[63.59vw] max-sm:h-[42.3vw] max-sm:top-[63.59vw] max-sm:right-[43.84vw] max-sm:z-50"
@@ -79,7 +79,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-2"
                   src={urlFor(gallery.image_2).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image"}
                   width={1048}
                   height={700}
                   className="object-cover absolute bottom-0 left-0 h-[18.22vw] w-[27.29vw] z-[4] max-sm:w-[50.25vw] max-sm:h-[33.59vw] max-sm:top-0 max-sm:right-[56.41vw] max-sm:z-0"
@@ -89,7 +89,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-3"
                   src={urlFor(gallery.image_3).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image"}
                   width={816}
                   height={1240}
                   className="object-cover absolute top-0 left-[24.58vw] z-[3] h-[32.29vw] w-[21.51vw] max-sm:w-[34.1vw] max-sm:h-[51.28vw] max-sm:top-[32.82vw] max-sm:right-[48.71vw] max-sm:z-40"
@@ -99,7 +99,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-4"
                   src={urlFor(gallery.image_4).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image"}
                   width={1418}
                   height={796}
                   className="object-cover absolute top-0 right-[14.68vw] z-[3] h-[20.41vw] w-[36.92vw] max-sm:w-[70.76vw] max-sm:h-[39.74vw] max-sm:top-[1.54vw] max-sm:right-[51.28vw] max-sm:z-20"
@@ -109,7 +109,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-5"
                   src={urlFor(gallery.image_5).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image"}
                   width={1200}
                   height={904}
                   className="object-cover absolute bottom-0 right-[18.22vw] z-[2] h-[23.54vw] w-[31.25vw] max-sm:w-[55.38vw] max-sm:h-[41.79vw] max-sm:top-[31.28vw] max-sm:right-[34.35vw] max-sm:z-30"
@@ -119,7 +119,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-6"
                   src={urlFor(gallery.image_6).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image"}
                   width={784}
                   height={1172}
                   className="object-cover absolute top-0 right-0 z-[1] h-[30.52vw] w-[20.41vw] max-sm:w-[34.1vw] max-sm:h-[50.7vw] max-sm:top-[40.77vw] max-sm:right-[72.82vw] max-sm:z-50"
@@ -135,7 +135,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-1"
                   src={urlFor(gallery.image_1).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image 1"}
                   width={1048}
                   height={700}
                   className="object-cover absolute top-0 left-0 h-[18.22vw] w-[27.29vw]"
@@ -145,7 +145,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-2"
                   src={urlFor(gallery.image_2).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image 2"}
                   width={1048}
                   height={700}
                   className="object-cover absolute bottom-0 left-0 h-[18.22vw] w-[27.29vw] z-[4]"
@@ -155,7 +155,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-3"
                   src={urlFor(gallery.image_3).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image 3"}
                   width={816}
                   height={1240}
                   className="object-cover absolute top-0 left-[24.58vw] z-[3] h-[32.29vw] w-[21.51vw]"
@@ -165,7 +165,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-4"
                   src={urlFor(gallery.image_4).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image 4"}
                   width={1418}
                   height={796}
                   className="object-cover absolute top-0 right-[14.68vw] z-[3] h-[20.41vw] w-[36.92vw]"
@@ -175,7 +175,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-5"
                   src={urlFor(gallery.image_5).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image 5"}
                   width={1200}
                   height={904}
                   className="object-cover absolute bottom-0 right-[18.22vw] z-[2] h-[23.54vw] w-[31.25vw]"
@@ -185,7 +185,7 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 <Image
                   data-img="img-6"
                   src={urlFor(gallery.image_6).url()}
-                  alt={"gallery image"}
+                  alt={"Gallery image 6"}
                   width={784}
                   height={1172}
                   className="object-cover absolute top-0 right-0 z-[1] h-[30.52vw] w-[20.41vw]"
