@@ -8,8 +8,8 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { general } from "@/config/general";
 import { getCreatorItem } from "@/sanity/schemas/creators";
-import { getFirstSentence } from "@/sanity/lib/text";
 import { getSEOTags } from "@/lib/seo";
+import { getSiteSettingsData } from "@/sanity/schemas/site-settings";
 import { urlFor } from "@/sanity/lib/image";
 
 interface PageParams {
@@ -19,32 +19,55 @@ interface PageParams {
 }
 
 export async function generateMetadata({ params }: PageParams) {
-  const { slug } = params;
-  const creator = await getCreatorItem(slug);
+  try {
+    const { slug } = params;
+    const creator = await getCreatorItem(slug);
 
-  return getSEOTags({
-    title: creator?.creator_name || general.appName,
-    description: getFirstSentence(toPlainText(creator?.creator_description || []) || general.appDescription),
-    keywords: creator?.creator_name || [general.appName],
+    if (!creator) {
+      const siteSettings = await getSiteSettingsData();
+      return getSEOTags({
+        title: siteSettings?.seo?.title || general.appName,
+        description: siteSettings?.seo?.description || general.appDescription,
+        keywords: siteSettings?.seo?.keywords || [general.appName],
+        canonicalUrlRelative: `/creators/${slug}`,
+      });
+    }
 
-    openGraph: {
-      title: creator?.creator_name || general.appName,
-      description: getFirstSentence(toPlainText(creator?.creator_description || []) || general.appDescription),
+    // const description = getFirstSentence(toPlainText(creator.creator_description || []) || general.appDescription);
+    const image = creator.seo?.openGraph?.image ? [{ url: urlFor(creator.seo?.openGraph?.image).url() }] : [];
 
-      images: creator?.image ? [{ url: urlFor(creator?.image).url() }] : [],
-      locale: "en_US",
-      type: "website",
-    },
+    return getSEOTags({
+      title: creator.seo?.title || creator.creator_name,
+      description: creator.seo?.description || general.appDescription,
+      keywords: creator.seo?.keywords || [creator.creator_name || ""],
 
-    canonicalUrlRelative: `/creators/${slug}`,
+      openGraph: {
+        title: creator.seo?.openGraph?.title || creator.creator_name,
+        description: creator.seo?.openGraph?.description || general.appDescription,
+        images: image,
+        locale: "en_US",
+        type: "website",
+      },
 
-    twitter: {
-      title: creator?.creator_name || general.appName,
-      description: getFirstSentence(toPlainText(creator?.creator_description || []) || general.appDescription),
-      card: "summary_large_image",
-      images: creator?.image ? [{ url: urlFor(creator?.image).url() }] : [],
-    },
-  });
+      canonicalUrlRelative: `/creators/${slug}`,
+
+      twitter: {
+        title: creator.seo?.openGraph?.title || creator.creator_name,
+        description: creator.seo?.openGraph?.description || general.appDescription,
+        card: "summary_large_image",
+        images: image,
+      },
+    });
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    // Return default metadata in case of error
+    return getSEOTags({
+      title: general.appName,
+      description: general.appDescription,
+      keywords: [general.appName],
+      canonicalUrlRelative: `/creators/${params.slug}`,
+    });
+  }
 }
 
 const components: PortableTextComponents = {

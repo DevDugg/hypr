@@ -7,7 +7,6 @@ import { grotesk } from "@/lib/fonts";
 import { motion } from "framer-motion";
 
 interface CustomButtonProps extends PropsWithChildren {
-  type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
   fullWidth?: boolean;
   className?: string;
@@ -16,19 +15,18 @@ interface CustomButtonProps extends PropsWithChildren {
 const CustomButton = ({
   children,
   onClick,
-  type,
+
   fullWidth,
   className,
 }: CustomButtonProps) => {
   return (
-    <motion.button
-      type={type}
+    <motion.div
       onClick={onClick}
       className={clsx(
         "p-[1.25vw] text-[1.25vw] text-BLACK font-bold bg-ACCENT rounded-[10.416vw] leading-none flex justify-center max-md:!text-base max-sm:p-3",
         grotesk.className,
         fullWidth && "w-full",
-        className
+        className,
       )}
       initial={{ color: colors.BLACK, background: colors.ACCENT }}
       whileHover={{
@@ -38,7 +36,7 @@ const CustomButton = ({
       transition={{ duration: 0.5 }}
     >
       {children}
-    </motion.button>
+    </motion.div>
   );
 };
 export default CustomButton;

@@ -17,13 +17,7 @@ const Projects = ({ projects }: ProjectsProps) => {
     subtitle &&
     description &&
     items && (
-      <SectionLayout
-        id="projects"
-        name={subtitle}
-        title={title}
-        subtitle={description}
-        className="text-WHITE"
-      >
+      <SectionLayout id="projects" name={subtitle} title={title} subtitle={description} className="text-WHITE">
         <div className="flex flex-col gap-[8.1vw] sm:gap-[1.66vw]">
           <div className="grid grid-cols-1 gap-[8.1vw] sm:gap-x-[1.25vw] sm:gap-y-[2.08vw] sm:grid-cols-2">
             {items.map((item, i) =>
@@ -35,10 +29,10 @@ const Projects = ({ projects }: ProjectsProps) => {
                   subtitle={item.short_description}
                   title={item.name}
                 />
-              ) : null
+              ) : null,
             )}
           </div>
-          <CustomButton fullWidth type="button">
+          <CustomButton fullWidth>
             <Link href={"/works"}>See all projects</Link>
           </CustomButton>
         </div>

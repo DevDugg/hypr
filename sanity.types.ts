@@ -218,6 +218,26 @@ export type Creators = {
     video?: string;
     _key: string;
   }>;
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: Array<string>;
+    openGraph?: {
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+    };
+  };
 };
 
 export type Socials = {
@@ -420,6 +440,26 @@ export type AboutUs = {
       _type: "image";
     };
   };
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: Array<string>;
+    openGraph?: {
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+    };
+  };
 };
 
 export type FormSubmission = {
@@ -432,6 +472,7 @@ export type FormSubmission = {
   email?: string;
   subject?: string;
   message?: string;
+  category?: string;
 };
 
 export type Home_page = {
@@ -731,7 +772,6 @@ export type News = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  date?: string;
   author?: {
     _ref: string;
     _type: "reference";
@@ -1121,6 +1161,26 @@ export type ABOUT_PAGE_QUERYResult = Array<{
       _type: "image";
     };
   };
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: Array<string>;
+    openGraph?: {
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+    };
+  };
 }>;
 
 // Source: ./src/sanity/schemas/authors.ts
@@ -1236,6 +1296,26 @@ export type CREATOR_ITEM_QUERYResult = {
     video?: string;
     _key: string;
   }>;
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: Array<string>;
+    openGraph?: {
+      title?: string;
+      description?: string;
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+    };
+  };
 } | null;
 
 // Source: ./src/sanity/schemas/home.ts
@@ -1413,7 +1493,6 @@ export type HOME_PAGE_QUERYResult = Array<{
       _updatedAt: string;
       _rev: string;
       title?: string;
-      date?: string;
       author?: {
         _ref: string;
         _type: "reference";
@@ -1536,6 +1615,26 @@ export type HOME_PAGE_QUERYResult = Array<{
         video?: string;
         _key: string;
       }>;
+      seo?: {
+        title?: string;
+        description?: string;
+        keywords?: Array<string>;
+        openGraph?: {
+          title?: string;
+          description?: string;
+          image?: {
+            asset?: {
+              _ref: string;
+              _type: "reference";
+              _weak?: boolean;
+              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+            };
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            _type: "image";
+          };
+        };
+      };
     }> | null;
   } | null;
   gallery: {
@@ -1633,7 +1732,6 @@ export type NEWS_QUERYResult = Array<{
   _updatedAt: string;
   _rev: string;
   title?: string;
-  date?: string;
   author?: {
     _ref: string;
     _type: "reference";
@@ -1696,7 +1794,6 @@ export type NEWS_ITEM_QUERYResult = Array<{
   _updatedAt: string;
   _rev: string;
   title?: string;
-  date?: string;
   author: {
     _id: string;
     _type: "authors";

@@ -2,6 +2,7 @@ import { CREATORS_QUERYResult, CREATOR_ITEM_QUERYResult } from "../../../sanity.
 
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
+import seoStructure from "../lib/seo";
 
 export const getCreatorsData = async (
   page: number = 1,
@@ -73,6 +74,7 @@ const creators = {
       type: "image",
       title: "Image",
     },
+
     {
       name: "social_media_1",
       type: "string",
@@ -120,6 +122,7 @@ const creators = {
         },
       ],
     },
+    seoStructure,
   ],
 };
 

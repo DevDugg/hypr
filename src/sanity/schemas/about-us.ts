@@ -1,6 +1,7 @@
 import { AboutUs } from "../../../sanity.types";
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
+import seoStructure from "../lib/seo";
 
 export const getAboutPageData = async (): Promise<AboutUs> => {
   const ABOUT_PAGE_QUERY = defineQuery(`*[_type == 'about-us']`);
@@ -267,6 +268,7 @@ const about_us = {
         },
       ],
     },
+    seoStructure,
   ],
 };
 
