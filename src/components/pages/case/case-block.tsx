@@ -9,12 +9,6 @@ import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import { useState } from "react";
 
-const keys = [
-  { title: "key visual 1", img: "/images/case/1.png" },
-  { title: "key visual 1", img: "/images/case/slider/1.png" },
-  { title: "key visual 1", img: "/images/case/slider/4.png" },
-];
-
 export const infoData = [
   {
     title: "Type",

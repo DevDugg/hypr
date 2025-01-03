@@ -33,13 +33,13 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
       <Container>
         {call_to_action && (
           <div className="relative text-WHITE">
-            <Image
+            {/* <Image
               src={"/images/case/1.png"}
               alt=""
               width={211}
               height={316}
               className="w-[10.98vw] sm:absolute h-[16.45vw] hidden top-0 left-0"
-            />
+            /> */}
 
             <div className="sm:w-[43.07vw] mx-auto mb-[10.25vw] sm:mb-[4.16vw]">
               <h2 className="text-center leading-none mb-[6.15vw] sm:mb-[2vw] uppercase font-bold text-[10.27vw] sm:text-[5.20vw]">
@@ -51,14 +51,14 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
                 </CustomButton>
               )}
             </div>
-
+            {/* 
             <Image
               src={"/images/case/1.png"}
               alt=""
               width={211}
               height={316}
               className="w-[10.98vw] hidden h-[16.45vw] sm:absolute top-0 right-0"
-            />
+            /> */}
           </div>
         )}
 
