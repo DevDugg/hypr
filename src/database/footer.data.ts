@@ -13,7 +13,7 @@ export const footerList = [
   },
   {
     name: "Contact us",
-    href: "/contacts",
+    href: "/contact-us",
   },
   {
     name: "About",
