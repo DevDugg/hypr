@@ -1,0 +1,13 @@
+# Standard Robots.txt for Next.js Project
+User-agent: *
+Disallow: /_next/                # Disallow Next.js build files
+Disallow: /api/                  # Disallow API routes
+Disallow: /404                   # Prevent the custom 404 page from being indexed
+Disallow: /500                   # Prevent the custom 500 page from being indexed
+
+# Allow crawling of essential paths
+Allow: /
+
+# Sitemap and Host
+Sitemap: https://createdbyhypr.com/sitemap.xml
+Host: https://createdbyhypr.com
