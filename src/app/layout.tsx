@@ -1,6 +1,5 @@
 import "./globals.css";
 
-import Script from "next/script";
 import { Viewport } from "next";
 import { colors } from "@/config/colors";
 import { general } from "@/config/general";
@@ -8,6 +7,15 @@ import { getSEOTags } from "@/lib/seo";
 import { getSiteSettingsData } from "@/sanity/schemas/site-settings";
 import { monument } from "@/lib/fonts";
 import { urlFor } from "@/sanity/lib/image";
+
+// import Script from "next/script";
+
+
+
+
+
+
+
 
 // import Loader from "@/components/sections/loader";
 
@@ -44,7 +52,7 @@ export async function generateMetadata() {
       type: "website",
     },
 
-    canonicalUrlRelative: seo?.seo?.canonicalUrlRelative || "/",
+    // canonicalUrlRelative: seo?.seo?.canonicalUrlRelative || "/",
 
     applicationName: seo?.metadata?.applicationName || general.appName,
 
