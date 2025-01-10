@@ -27,7 +27,7 @@ const AboutCard = ({ title, num, text, img, rotate }: Props) => {
       <p className="text-BLACK font-normal leading-[140%] text-[1.04vw] mb-[2.08vw]">{text}</p>
 
       <div className="w-[23,95vw] h-[20,83vw]">
-        <Image src={img} width={460} height={400} className="size-full object-cover" alt="" />
+        <Image src={img} width={920} height={800} className="size-full object-cover" alt="" />
       </div>
     </article>
   );

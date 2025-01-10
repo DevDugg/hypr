@@ -9,6 +9,7 @@ import Reveal from "@/components/animations/reveal";
 import SectionName from "@/components/titles/section-name";
 import { cn } from "@/lib/utils";
 import { grotesk } from "@/lib/fonts";
+import { urlFor } from "@/sanity/lib/image";
 import { useRef } from "react";
 
 interface AboutDescriptionProps {
@@ -66,7 +67,8 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
                   <>
                     {about.features.feature_1 && about.features.feature_1.image && (
                       <AboutCard
-                        img={"/images/features/features-1.png"}
+                        // img={"/images/features/features-1.png"}
+                        img={urlFor(about.features.feature_1.image).size(920, 800).url()}
                         title={about.features.feature_1.title}
                         num="01"
                         text={about.features.feature_1.description}
@@ -75,7 +77,7 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
                     )}
                     {about.features.feature_2 && about.features.feature_2.image && (
                       <AboutCard
-                        img={"/images/features/features-2.png"}
+                        img={urlFor(about.features.feature_2.image).size(920, 800).url()}
                         title={about.features.feature_2.title}
                         num="02"
                         text={about.features.feature_2.description}
@@ -84,7 +86,7 @@ const AboutDescription = ({ data }: AboutDescriptionProps) => {
                     )}
                     {about.features.feature_3 && about.features.feature_3.image && (
                       <AboutCard
-                        img={"/images/features/features-3.png"}
+                        img={urlFor(about.features.feature_3.image).size(920, 800).url()}
                         title={about.features.feature_3.title}
                         num="03"
                         text={about.features.feature_3.description}
