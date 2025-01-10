@@ -25,7 +25,7 @@ const ProjectCard = ({ title, subtitle, img, slug }: IProps) => {
     slug &&
     subtitle &&
     img && (
-      <Link href={`/works/${slug.current}`}>
+      <Link scroll={false} href={`/works/${slug.current}`}>
         <motion.div
           className="sm:text-[1.25vw] mob16"
           onMouseOver={() => setIsHovered(true)}

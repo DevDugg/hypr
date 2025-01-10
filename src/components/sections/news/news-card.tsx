@@ -37,7 +37,11 @@ export const NewsCard = ({
         className={cn(imgClassName, "mb-[1.25vw] object-cover")}
       />
       <MouseFollowerWrapper state="open">
-        <Link href={`/insights/${slug?.current}`} className="flex justify-between size18 mt-[6.15vw] sm:mt-[0.25vw]">
+        <Link
+          scroll={false}
+          href={`/insights/${slug?.current}`}
+          className="flex justify-between size18 mt-[6.15vw] sm:mt-[0.25vw]"
+        >
           <div className="flex flex-col gap-[0.41vw]">
             <h3
               className={cn(

@@ -24,7 +24,7 @@ const Creator = ({ creator, type }: Props) => {
 
   return (
     creator && (
-      <Link href={`/creators/${creator.slug?.current}`}>
+      <Link scroll={false} href={`/creators/${creator.slug?.current}`}>
         <div className="flex flex-col gap-[1.25vw] max-[390px]:gap-[6.15vw]">
           {creator.image && (
             <Image

@@ -14,7 +14,7 @@ export const CreatorsCard = ({
   slug,
 }: NonNullable<NonNullable<HOME_PAGE_QUERYResult[number]["creators"]>["items"]>[number]) => {
   return (
-    <Link href={`/creators/${slug?.current}`} className="w-full">
+    <Link scroll={false} href={`/creators/${slug?.current}`} className="w-full">
       <div className="w-[51.25vw] sm:w-full">
         {image && (
           <Image

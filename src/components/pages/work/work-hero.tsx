@@ -118,7 +118,7 @@ const WorkHero = ({ projects }: WorkHeroProps) => {
             </AnimatedTitle>
             <div className="flex flex-col gap-[6.15vw]">
               {data.projects.map((project, i) => (
-                <Link href={`/works/${project.slug!.current}`} key={i}>
+                <Link scroll={false} href={`/works/${project.slug!.current}`} key={i}>
                   <Image
                     src={urlFor(project.main_image!).size(1190, 846).url()}
                     alt={`${project.name || "HYPR project"} main image`}

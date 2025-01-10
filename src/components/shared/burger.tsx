@@ -49,12 +49,14 @@ const Burger = ({ burger, setBurger }: Props) => {
               })}
               key={i}
             >
-              <Link href={item.path}>{item.view}</Link>
+              <Link scroll={false} href={item.path}>
+                {item.view}
+              </Link>
             </li>
           ))}
         </motion.ul>
         {/* <CustomButton className="w-full mb-[12.3vw]">
-          <Link href={"/contact-us"}>Contact us</Link>
+          <Link scroll={false} href={"/contact-us"}>Contact us</Link>
         </CustomButton> */}
       </motion.div>
     </motion.div>

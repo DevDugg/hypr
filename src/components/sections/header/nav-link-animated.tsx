@@ -21,6 +21,7 @@ const NavLinkAnimated = ({ path, view, className }: NavLinkAnimatedProps) => {
       }}
     >
       <Link
+        scroll={false}
         href={path}
         className="nav-link-animated h-fit relative pointer"
         onMouseOver={() => setHovered(true)}

@@ -16,7 +16,7 @@ interface Props {
 
 const WorkCard = ({ img, title, text, w, h, imgClassName, className, slug }: Props) => {
   return (
-    <Link href={`/works/${slug}`}>
+    <Link scroll={false} href={`/works/${slug}`}>
       <article className={cn("text-[1.25vw] text-WHITE", className)}>
         <Image
           src={img}

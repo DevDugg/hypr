@@ -33,7 +33,9 @@ const Projects = ({ projects }: ProjectsProps) => {
             )}
           </div>
           <CustomButton fullWidth>
-            <Link href={"/works"}>See all projects</Link>
+            <Link scroll={false} href={"/works"}>
+              See all projects
+            </Link>
           </CustomButton>
         </div>
       </SectionLayout>

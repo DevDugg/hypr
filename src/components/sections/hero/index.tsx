@@ -56,7 +56,7 @@ export const Hero = ({ hero }: HeroProps) => {
             {description}
           </AnimatedParagraph>
           <Reveal animateOnView type="opacity">
-            <Link href="/contact-us">
+            <Link scroll={false} href="/contact-us">
               <CustomButton fullWidth className="h-full">
                 Contact us
               </CustomButton>

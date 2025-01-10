@@ -128,7 +128,7 @@ const Need = ({ gallery }: INeedProps) => {
               </h2>
             )}
 
-            <Link href={"/contact-us"}>
+            <Link scroll={false} href={"/contact-us"}>
               <CustomButton
                 className={cn(
                   grotesk.className,

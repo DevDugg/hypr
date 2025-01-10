@@ -34,7 +34,7 @@ const CreatorsBlock = ({ creators }: CreatorsBlockProps) => {
           </CarouselContent>
         </Carousel>
         <CustomButton fullWidth className="mt-[2.08vw]">
-          <Link href={"/creators"} className="uppercase">
+          <Link scroll={false} href={"/creators"} className="uppercase">
             More creators
           </Link>
         </CustomButton>

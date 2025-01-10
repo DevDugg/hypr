@@ -47,7 +47,9 @@ const AboutGallery = ({ data }: AboutGalleryProps) => {
               </h2>
               {call_to_action.button_text && (
                 <CustomButton fullWidth>
-                  <Link href={"/contact-us"}>{call_to_action.button_text}</Link>
+                  <Link scroll={false} href={"/contact-us"}>
+                    {call_to_action.button_text}
+                  </Link>
                 </CustomButton>
               )}
             </div>

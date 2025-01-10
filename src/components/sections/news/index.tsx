@@ -33,7 +33,9 @@ const News = ({ news }: NewsProps) => {
       {items && <NewsBlock news={items} />}
       <Container>
         <CustomButton className="w-[92.84vw] mt-[8.1vw] sm:mt-[2.08vw]">
-          <Link href={"/insights"}>See all news</Link>
+          <Link scroll={false} href={"/insights"}>
+            See all news
+          </Link>
         </CustomButton>
       </Container>
     </section>

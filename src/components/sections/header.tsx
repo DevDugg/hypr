@@ -38,7 +38,11 @@ export const Header = () => {
         })}
       >
         <Container className="flex items-center justify-between text-WHITE">
-          <Link href={"/"} className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold w-fit">
+          <Link
+            scroll={false}
+            href={"/"}
+            className="uppercase text-[6.15vw] sm:text-[2.08vw] leading-none font-bold w-fit"
+          >
             <Reveal>
               <Image
                 src={"/images/main-logo.svg"}
@@ -70,7 +74,9 @@ export const Header = () => {
           </Reveal>
           <Reveal>
             <CustomButton className="hidden lg:flex font-bold !text-[1.25vw] !px-[2.08vw] leading-[100%] rounded-[10.41vw] max-md:hidden uppercase">
-              <Link href={"/contact-us"}>Contact us</Link>
+              <Link scroll={false} href={"/contact-us"}>
+                Contact us
+              </Link>
             </CustomButton>
           </Reveal>
 

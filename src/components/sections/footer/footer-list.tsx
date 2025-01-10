@@ -17,12 +17,7 @@ interface FooterListProps {
   setActive: (index: string | null) => void;
 }
 
-const FooterList = ({
-  items,
-  className,
-  active,
-  setActive,
-}: FooterListProps) => {
+const FooterList = ({ items, className, active, setActive }: FooterListProps) => {
   return (
     <MotionConfig transition={{ ...defaultTransition, duration: 0.4 }}>
       <ul onMouseLeave={() => setActive(null)} className={className}>
@@ -30,16 +25,12 @@ const FooterList = ({
           <motion.li
             key={item.href}
             initial={{ opacity: 0.2 }}
-            animate={
-              active === item.href
-                ? { opacity: 1 }
-                : active !== null
-                  ? { opacity: 0.2 }
-                  : { opacity: 1 }
-            }
+            animate={active === item.href ? { opacity: 1 } : active !== null ? { opacity: 0.2 } : { opacity: 1 }}
             onMouseOver={() => setActive(item.href)}
           >
-            <Link href={item.href}>{item.name}</Link>
+            <Link scroll={false} href={item.href}>
+              {item.name}
+            </Link>
           </motion.li>
         ))}
       </ul>
