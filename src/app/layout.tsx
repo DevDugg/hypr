@@ -71,12 +71,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${monument.className} bg-BACKGROUND w-screen h-screen overflow-x-hidden`}>{children}</body>
-      <Script
+      {/* <Script
         defer
         data-website-id="670cda2cbcb7e9de563c18a9"
         data-domain="createdbyhypr.com"
         src="https://datafa.st/js/script.js"
-      ></Script>
+      ></Script> */}
     </html>
   );
 }
