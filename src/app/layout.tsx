@@ -10,13 +10,6 @@ import { urlFor } from "@/sanity/lib/image";
 
 // import Script from "next/script";
 
-
-
-
-
-
-
-
 // import Loader from "@/components/sections/loader";
 
 export const viewport: Viewport = {
@@ -27,10 +20,10 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata() {
-  const seo = await getSiteSettingsData(); // Fetch data from Sanity
-  if (!seo) return getSEOTags(); // Fallback to default SEO tags if no data from Sanity
+  const seo = await getSiteSettingsData();
+  if (!seo) return getSEOTags();
 
-  return getSEOTags({
+  const metadata = getSEOTags({
     title: seo?.seo?.title || general.appName,
     description: seo?.seo?.description || general.appDescription,
     keywords: seo?.seo?.keywords || [general.appName],
@@ -58,7 +51,13 @@ export async function generateMetadata() {
 
     // metadataBase: new URL(`https://${seo?.metadata?.metadataBase || general.domainName}`),
 
-    extraTags: seo?.seo?.extraTags || [],
+    extraTags: [
+      ...(seo?.seo?.extraTags || []),
+      {
+        name: "google-site-verification",
+        content: "lWI_8Aa3i4keiDK1bEIEDFIdc-e3f4lqCE1FdkgZaiU",
+      },
+    ],
 
     twitter: {
       title: seo?.seo?.openGraph?.title || general.appName,
@@ -69,6 +68,14 @@ export async function generateMetadata() {
         : [],
     },
   });
+
+  return {
+    ...metadata,
+    metadataBase: new URL(`https://${seo?.metadata?.metadataBase || general.domainName}`),
+    verification: {
+      google: "lWI_8Aa3i4keiDK1bEIEDFIdc-e3f4lqCE1FdkgZaiU",
+    },
+  };
 }
 
 export default function RootLayout({
