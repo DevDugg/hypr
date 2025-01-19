@@ -2,6 +2,7 @@ import { NEWS_ITEM_QUERYResult, News } from "../../../sanity.types";
 
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
+import seoStructure from "../lib/seo";
 
 export const getNewsData = async (
   page: number = 1,
@@ -91,6 +92,7 @@ const news = {
         },
       ],
     },
+    seoStructure,
   ],
 };
 

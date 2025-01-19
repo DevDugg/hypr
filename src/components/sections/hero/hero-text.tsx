@@ -20,7 +20,7 @@ const HeroText = ({ description }: HeroTextProps) => {
     >
       <div className="bg-ACCENT overflow-hidden pt-[3.07vw] sm:pt-[2.25vw] pb-0">
         <Container>
-          <h1 hidden>We create ${description}</h1>
+          <h1 hidden>We create {description}</h1>
           <AnimatedTitle
             block={colors.ACCENT}
             element="h2"
