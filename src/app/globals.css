@@ -109,102 +109,104 @@ body {
   width: calc(100vw + 20px);
 }
 
-.font-heading-1 {
-  @apply font-extrabold text-[7.81vw] leading-none;
-}
+@layer base {
+  .font-heading-1 {
+    @apply font-extrabold text-[7.81vw] leading-none;
+  }
 
-.font-heading-2 {
-  @apply font-extrabold text-[3.75vw] leading-none;
-}
+  .font-heading-2 {
+    @apply font-extrabold text-[3.75vw] leading-none;
+  }
 
-.font-section-title {
-  @apply font-extrabold text-[2.5vw] leading-none;
-}
+  .font-section-title {
+    @apply font-extrabold text-[2.5vw] leading-none;
+  }
 
-.font-section-title-2 {
-  @apply font-extrabold text-[2.08vw] leading-[120%];
-}
+  .font-section-title-2 {
+    @apply font-extrabold text-[2.08vw] leading-[120%];
+  }
 
-.font-section-subtitle {
-  @apply font-extrabold text-[1.25vw] leading-[140%] --grotesk-font;
-}
+  .font-section-subtitle {
+    @apply font-extrabold text-[1.25vw] leading-[140%] font-grotesk;
+  }
 
-.font-section-tag {
-  @apply font-bold text-[1.041vw] leading-[100%] --grotesk-font;
-}
+  .font-section-tag {
+    @apply font-bold text-[1.041vw] leading-[100%] font-grotesk;
+  }
 
-.font-section-tag-big {
-  @apply font-extrabold text-[1.667vw] leading-[120%];
-}
+  .font-section-tag-big {
+    @apply font-extrabold text-[1.667vw] leading-[120%];
+  }
 
-.font-text-1 {
-  @apply font-semibold text-[3.33vw] leading-[140%] --grotesk-font;
-}
+  .font-text-1 {
+    @apply font-semibold text-[3.33vw] leading-[140%] font-grotesk;
+  }
 
-.font-text-2-uppercase {
-  @apply font-semibold text-[2.5vw] leading-[140%] uppercase --grotesk-font;
-}
+  .font-text-2-uppercase {
+    @apply font-semibold text-[2.5vw] leading-[140%] uppercase font-grotesk;
+  }
 
-.font-text-3 {
-  @apply font-semibold text-[2.08vw] leading-[140%] --grotesk-font;
-}
+  .font-text-3 {
+    @apply font-semibold text-[2.08vw] leading-[140%] font-grotesk;
+  }
 
-.font-text-3-uppercase {
-  @apply font-semibold text-[2.08vw] uppercase --grotesk-font;
-}
+  .font-text-3-uppercase {
+    @apply font-semibold text-[2.08vw] uppercase font-grotesk;
+  }
 
-.font-text-large {
-  @apply font-medium text-[1.25vw] leading-[140%] --grotesk-font;
-}
+  .font-text-large {
+    @apply font-medium text-[1.25vw] leading-[140%] font-grotesk;
+  }
 
-.font-text-base {
-  @apply font-medium text-[0.9375vw] leading-[140%] --grotesk-font;
-}
+  .font-text-base {
+    @apply font-medium text-[0.9375vw] leading-[140%] font-grotesk;
+  }
 
-.font-text-base-uppercase {
-  @apply font-medium text-[0.9375vw] uppercase --grotesk-font;
-}
+  .font-text-base-uppercase {
+    @apply font-medium text-[0.9375vw] uppercase font-grotesk;
+  }
 
-.font-footer-nav-link {
-  @apply font-bold text-[2.08vw] leading-none --grotesk-font;
-}
+  .font-footer-nav-link {
+    @apply font-bold text-[2.08vw] leading-none font-grotesk;
+  }
 
-.font-footer-nav-item {
-  @apply font-bold text-[1.25vw] leading-none --grotesk-font;
-}
+  .font-footer-nav-item {
+    @apply font-bold text-[1.25vw] leading-none font-grotesk;
+  }
 
-.font-footer-item {
-  @apply font-semibold text-[1.25vw] leading-[140%] --grotesk-font;
-}
+  .font-footer-item {
+    @apply font-semibold text-[1.25vw] leading-[140%] font-grotesk;
+  }
 
-.font-cart-title {
-  @apply font-bold text-[1.66vw] leading-none uppercase --grotesk-font;
-}
+  .font-cart-title {
+    @apply font-bold text-[1.66vw] leading-none uppercase font-grotesk;
+  }
 
-.font-card-subtitle {
-  @apply font-semibold text-[1.04vw] leading-[140%] --grotesk-font;
-}
+  .font-card-subtitle {
+    @apply font-semibold text-[1.04vw] leading-[140%] font-grotesk;
+  }
 
-.font-socials-big {
-  @apply font-extrabold  text-[5.2vw] leading-none;
-}
+  .font-socials-big {
+    @apply font-extrabold  text-[5.2vw] leading-none;
+  }
 
-.font-socials-item {
-  @apply font-medium text-[1.04vw] leading-none uppercase --grotesk-font;
-}
+  .font-socials-item {
+    @apply font-medium text-[1.04vw] leading-none uppercase font-grotesk;
+  }
 
-.font-field-title {
-  @apply font-semibold text-[1.25vw] leading-[140%] --grotesk-font;
-}
+  .font-field-title {
+    @apply font-semibold text-[1.25vw] leading-[140%] font-grotesk;
+  }
 
-.font-field-placeholder {
-  @apply font-medium text-[1.25vw] leading-[140%] --grotesk-font;
-}
+  .font-field-placeholder {
+    @apply font-medium text-[1.25vw] leading-[140%] font-grotesk;
+  }
 
-.font-btn-primary {
-  @apply font-bold text-[1.25vw] leading-none uppercase --grotesk-font;
-}
+  .font-btn-primary {
+    @apply font-bold text-[1.25vw] leading-none uppercase font-grotesk;
+  }
 
-.font-field-title {
-  @apply font-semibold text-[1.25vw] leading-[140%] uppercase --grotesk-font;
+  .font-field-title {
+    @apply font-semibold text-[1.25vw] leading-[140%] uppercase font-grotesk;
+  }
 }
