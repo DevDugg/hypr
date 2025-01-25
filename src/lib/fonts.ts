@@ -36,6 +36,6 @@ export const grotesk = localFont({
       weight: "600",
     },
   ],
-  variable: "--grotesk-font",
+  variable: "--font-grotesk",
   preload: true,
 });
