@@ -1,6 +1,7 @@
 import { News_page } from "../../../sanity.types";
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
+import seoStructure from "../lib/seo";
 
 export const getNewsPageData = async (): Promise<News_page> => {
   const NEWS_PAGE_QUERY = defineQuery(`*[_type == 'news_page']`);
@@ -18,6 +19,7 @@ const news_page = {
       title: "Description",
       type: "text",
     },
+    seoStructure,
   ],
 };
 

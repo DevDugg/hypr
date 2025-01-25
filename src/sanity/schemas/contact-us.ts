@@ -1,6 +1,7 @@
 import { Contact } from "../../../sanity.types";
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
+import seoStructure from "../lib/seo";
 
 export const getContactPageData = async (): Promise<Contact> => {
   const CONTACT_PAGE_QUERY = defineQuery(`*[_type == 'contact']`);
@@ -18,6 +19,7 @@ const contact = {
       title: "Description",
       type: "text",
     },
+    seoStructure,
   ],
 };
 
