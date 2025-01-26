@@ -1,6 +1,7 @@
 import { Creators_page } from "../../../sanity.types";
 import { client } from "../lib/client";
 import { defineQuery } from "next-sanity";
+import seoStructure from "../lib/seo";
 
 export const getCreatorsPageData = async (): Promise<Creators_page> => {
   const CREATORS_PAGE_QUERY = defineQuery(`*[_type == 'creators_page']`);
@@ -18,6 +19,7 @@ const creators_page = {
       title: "Description",
       type: "text",
     },
+    seoStructure,
   ],
 };
 
